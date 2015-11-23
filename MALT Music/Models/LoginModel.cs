@@ -10,9 +10,10 @@ namespace MALT_Music.Models
     {
 
         /*
-         * Function to log in to a user account
+         * Function to attempt log in to a user account
          * PARAMETERS: - username: the user's username
          *             - password: the user's password
+         * AUTHOR: Andrew Davis
          */
         public bool doLogin(String username, String password) {
             return true;

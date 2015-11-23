@@ -13,12 +13,20 @@ namespace MALT_Music
 {
     public partial class Login : Form
     {
+        /*
+         * CONSTRUCTOR
+         * AUTHOR: Andrew Davis
+         */
         public Login()
         {
             InitializeComponent();
             
         }
 
+        /*
+         * clears content if currently holds placeholder 
+         * AUTHOR: Andrew Davis
+         */
         private void txtUsername_Enter(object sender, EventArgs e)
         {
             if (txtUsername.Text == "Username...")
@@ -27,6 +35,10 @@ namespace MALT_Music
             }
         }
 
+        /*
+         * clears content if currently holds placeholder 
+         * AUTHOR: Andrew Davis
+         */
         private void txtPassword_Enter(object sender, EventArgs e)
         {
             if (txtPassword.Text == "Password...")
@@ -36,6 +48,10 @@ namespace MALT_Music
             }
         }
 
+        /*
+         * clears content if currently holds placeholder 
+         * AUTHOR: Andrew Davis
+         */
         private void txtUsername_Leave(object sender, EventArgs e)
         {
             if(txtUsername.Text == "")
@@ -44,6 +60,10 @@ namespace MALT_Music
             }
         }
 
+        /*
+         * clears content if currently holds placeholder 
+         * AUTHOR: Andrew Davis
+         */
         private void txtPassword_Leave(object sender, EventArgs e)
         {
             if (txtPassword.Text == "")
@@ -53,6 +73,10 @@ namespace MALT_Music
             }
         }
 
+        /*
+         * Button to attempt the login
+         * AUTHOR: Andrew Davis
+         */
         private void cmdLogin_Click(object sender, EventArgs e)
         {
             // Create a LoginModel object to handle the login
@@ -71,11 +95,11 @@ namespace MALT_Music
                 // Create a Home Form
                 HomeForm homeForm = new HomeForm();
 
-                // Hide the current form
-                this.Hide();
-                
                 // Show the Home Form
                 homeForm.Show();
+
+                // Hide the current form
+                this.Hide();                
 
             }
             else 
