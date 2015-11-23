@@ -5,11 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using Cassandra;
 using MALT_Music.DataObjects;
+using MALT_Music.lib;
 
 namespace MALT_Music.Models
 {
     class LoginModel
     {
+        private Cluster cluster;
+        public void init() {
+
+            try{
+                cluster = CassHosts.getCluster();
+                Console.WriteLine("GOT CLUSTER");
+            }
+            catch(Exception e){
+                Console.WriteLine("Exception Occurred Getting Cluster INIT");            
+            }
+        }
+
+
 
         /*
          * Function to attempt log in to a user account

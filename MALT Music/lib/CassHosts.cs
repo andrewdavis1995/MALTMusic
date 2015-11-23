@@ -18,66 +18,63 @@ namespace MALT_Music.lib
     class CassHosts
     {
 
+        private static Cluster cluster;
+        static String Host = "127.0.0.1";  
+
+        public CassHosts() {
+
+        }
+
+        public static String getHost() {
+            return (Host);
+        }
+
+        public static String[] getHosts(Cluster cluster) {
+
+            //From Here:
+            //http://docs.datastax.com/en/developer/csharp-driver/2.5/csharp-driver/quick_start/qsSimpleClientCreate_t.html
+            //
         
-    //public final class CassandraHosts {
+            if (cluster == null) {
+                Console.WriteLine("Creating cluster connection");
+                cluster = Cluster.Builder().AddContactPoint(Host).Build();
+            }
 
-    private static Cluster cluster;
-    static String Host = "127.0.0.1";  
+            Console.WriteLine("Connected to cluster: " + cluster.Metadata.ClusterName.ToString());
+            List<Host> hosts = (List<Host>) cluster.Metadata.AllHosts();
+            String [] sHosts = new String[hosts.Count()];
 
-    public CassHosts() {
-
-    }
-
-    public static String getHost() {
-        return (Host);
-    }
-
-    public static String[] getHosts(Cluster cluster) {
-
-        //From Here:
-        //http://docs.datastax.com/en/developer/csharp-driver/2.5/csharp-driver/quick_start/qsSimpleClientCreate_t.html
-        //
+            int i = 0;
+            foreach (var host in hosts)
+            {
+                Console.WriteLine("Data Center: " + host.Datacenter + ", " +
+                "Host: " + host.Address + ", " +
+                "Rack: " + host.Rack);
         
-        if (cluster == null) {
-            Console.WriteLine("Creating cluster connection");
+                sHosts[i] = host.ToString();
+        
+                i++;
+            }
+                return sHosts;
+        }
+
+
+        public static Cluster getCluster() {
+            Console.WriteLine("getCluster");
+
             cluster = Cluster.Builder().AddContactPoint(Host).Build();
-        }
+            getHosts(cluster);
+            keyspaces.SetUpKeySpaces(cluster);
 
-    Console.WriteLine("Connected to cluster: " + cluster.Metadata.ClusterName.ToString());
-    List<Host> hosts = (List<Host>) cluster.Metadata.AllHosts();
-    String [] sHosts = new String[hosts.Count()];
-
-    int i = 0;
-    foreach (var host in hosts)
-    {
-        Console.WriteLine("Data Center: " + host.Datacenter + ", " +
-        "Host: " + host.Address + ", " +
-        "Rack: " + host.Rack);
-        
-        sHosts[i] = host.ToString();
-        
-        i++;
-    }
-        return sHosts;
-}
-
-
-    public static Cluster getCluster() {
-        Console.WriteLine("getCluster");
-
-        cluster = Cluster.Builder().AddContactPoint(Host).Build();
-        getHosts(cluster);
-        keyspaces.SetUpKeySpaces(cluster);
-
-        return cluster;
+            return cluster;
 
         }
 
 
-    public void Close(Cluster c)
-    {
-        c.Shutdown();
-    }
+        public void Close(Cluster c)
+        {
+            c.Shutdown();
+        }
 }
 
 
