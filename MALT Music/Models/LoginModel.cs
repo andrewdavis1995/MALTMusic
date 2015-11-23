@@ -37,15 +37,13 @@ namespace MALT_Music.Models
 
             try
             {
-<<<<<<< HEAD
 
                 //Should be in init() but that broke so to make work for now
                 cluster = CassHosts.getCluster();                
-=======
+
                 //Call to initialise cluster connection
                 init();
                               
->>>>>>> c673a566c18b03e09c5c09dae8f65817953e18fc
 
 
                 //Just keepin a note:
