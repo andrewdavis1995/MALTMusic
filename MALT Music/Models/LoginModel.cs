@@ -39,8 +39,7 @@ namespace MALT_Music.Models
             {
 
                 //Should be in init() but that broke so to make work for now
-                cluster = CassHosts.getCluster();
-                
+                cluster = CassHosts.getCluster();                
 
 
                 //Just keepin a note:
