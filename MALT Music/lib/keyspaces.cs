@@ -57,7 +57,7 @@ namespace MALT_Music.lib
                     //RowSet rows = session.Execute(statement1.Bind(new { RowKey = "userseveneight" }));
                      Console.WriteLine("Created Malt ");
                 } catch (Exception et) {
-                Console.WriteLine("Creation broke " + et);
+                Console.WriteLine("Creation broke - " + et);
                 }
 
 
