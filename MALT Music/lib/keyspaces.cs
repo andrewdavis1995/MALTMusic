@@ -16,7 +16,7 @@ namespace MALT_Music.lib
             try
             {
                 String createkeyspace = "create keyspace if not exists maltmusic WITH replication = {'class':'SimpleStrategy', 'replication_factor':1}";
-                String CreateUserProfile = "CREATE TABLE if not exists maltmusic.userprofiles (\n"
+                String createUserProfile = "CREATE TABLE if not exists maltmusic.userprofiles (\n"
                     + "User_ID text PRIMARY KEY,\n"
                     + "password text,\n"
                     + "first_name text,\n"
@@ -54,10 +54,21 @@ namespace MALT_Music.lib
                     PreparedStatement statement = session.Prepare(createkeyspace);
                     BoundStatement bs = new BoundStatement(statement);
                     RowSet rs = session.Execute(bs);
-                    //RowSet rows = session.Execute(statement1.Bind(new { RowKey = "userseveneight" }));
                      Console.WriteLine("Created Malt ");
                 } catch (Exception et) {
-                Console.WriteLine("Creation broke - " + et);
+                Console.WriteLine("Creation of keyspace broke - " + et);
+                }
+
+                try
+                {
+                    PreparedStatement statement = session.Prepare(createUserProfile);
+                    BoundStatement bs = new BoundStatement(statement);
+                    RowSet rs = session.Execute(bs);
+                    Console.WriteLine("Created user profiles ");
+                }
+                catch (Exception et)
+                {
+                    Console.WriteLine("Creation profiles broke - " + et);
                 }
 
 
