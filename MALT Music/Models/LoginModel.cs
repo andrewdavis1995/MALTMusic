@@ -30,7 +30,8 @@ namespace MALT_Music.Models
          * @PARAMETERS: - username: the user's username
          *             - password: the user's password
          * @RETURNS: The User who has been logged in - null if unsuccesful
-         * @AUTHOR: Andrew Davis
+         * @AUTHORS: Andrew Davis and Matt Malone
+         * NOTE - Commented code left in by Matt - just in case it breaks
          */
         public User doLogin(String username, String password) {
 
@@ -39,12 +40,10 @@ namespace MALT_Music.Models
 
                 //Should be in init() but that broke so to make work for now
                 cluster = CassHosts.getCluster();
-                Console.WriteLine("THINGSTUFF");
-                //Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
                 ISession session = cluster.Connect("maltmusic");
 
 
-                //Just keepin a note:
+                //Just keeping a note:
                 //http://docs.datastax.com/en/developer/csharp-driver/2.0/csharp-driver/quick_start/qsSimpleClientBoundStatements_t.html
                 //HashSet<String> tags = new HashSet<String>();
                 //tags.Add("jazz");
@@ -59,28 +58,34 @@ namespace MALT_Music.Models
                 //RowSet rows = session.Execute(statement1.Bind(new { user = username }));
 
                 RowSet rows = session.Execute(bs);
-                    //Bind(user = username));
+                //Bind(user = username));
 
+                // When the username finds a match...
                 foreach (Row row in rows)
                 {
+                    // Get the password for that database entry
                     String thePassword = row["password"].ToString();
 
+                    // Check if the password matches the password that was entered
                     if (thePassword.Equals(password))
                     {
+                        // If it does, set up a new User object
                         String first_name = row["first_name"].ToString();
                         String last_name = row["last_name"].ToString();
 
                         User user = new User(username, password, first_name, last_name);
 
+                        // Return the new user object
                         return user;
 
                     }
                 }
+                // Catch exceptions
             }catch(Exception ex){
                 Console.WriteLine("SOMETHING WENT WRONG: " + ex.Message);
             }
 
-
+            // If no matches for BOTH username and password, return null
             return null;
         }
 
