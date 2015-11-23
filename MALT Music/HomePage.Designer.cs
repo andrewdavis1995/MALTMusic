@@ -1,6 +1,6 @@
 ﻿namespace MALT_Music
 {
-    partial class HomeForm
+    partial class HomePage
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lblFullName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lblFullName
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(213, 186);
-            this.listBox1.TabIndex = 1;
+            this.lblFullName.AutoSize = true;
+            this.lblFullName.Font = new System.Drawing.Font("Source Sans Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFullName.Location = new System.Drawing.Point(710, 9);
+            this.lblFullName.Name = "lblFullName";
+            this.lblFullName.Size = new System.Drawing.Size(57, 24);
+            this.lblFullName.TabIndex = 0;
+            this.lblFullName.Text = "Name";
             // 
-            // HomeForm
+            // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(858, 434);
-            this.Controls.Add(this.listBox1);
-            this.Name = "HomeForm";
+            this.Controls.Add(this.lblFullName);
+            this.Name = "HomePage";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.HomeForm_Load);
+            this.Load += new System.EventHandler(this.HomePage_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label lblFullName;
+
     }
 }
 
