@@ -19,16 +19,16 @@ namespace MALT_Music
         }
 
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void HomeForm_Load(object sender, EventArgs e)
         {
             //Connect to the demo keyspace on our cluster running at 127.0.0.1
             Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
             ISession session = cluster.Connect("maltmusic");
 
-            RowSet rows = session.Execute("select * from maltmusic.userprofiles");
+            RowSet rows = session.Execute("select * from users");
             foreach (Row row in rows)
             {
-                String lsString = row["first_name"] + " " + row["last_name"] + " | " + row ["user_id"];
+                String lsString = row["firstname"] + " " + row["lastname"];
                 listBox1.Items.Add(lsString);
             }
 

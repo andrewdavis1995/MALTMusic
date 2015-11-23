@@ -1,13 +1,16 @@
 c:\users\andrew\documents\visual studio 2013\Projects\MALT Music\MALT Music\bin\Debug\MALT Music.exe.config
-C:\Users\user1\Desktop\MALTMusic\MALT Music\bin\Debug\MALT Music.exe.config
-C:\Users\user1\Desktop\MALTMusic\MALT Music\bin\Debug\MALT Music.exe
-C:\Users\user1\Desktop\MALTMusic\MALT Music\bin\Debug\MALT Music.pdb
-C:\Users\user1\Desktop\MALTMusic\MALT Music\bin\Debug\Cassandra.dll
-C:\Users\user1\Desktop\MALTMusic\MALT Music\bin\Debug\LZ4.dll
-C:\Users\user1\Desktop\MALTMusic\MALT Music\bin\Debug\Cassandra.xml
-C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.csprojResolveAssemblyReference.cache
-C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.HomeForm.resources
-C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.Properties.Resources.resources
-C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.csproj.GenerateResource.Cache
-C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.exe
-C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.pdb
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\bin\Debug\MALT Music.exe
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\bin\Debug\MALT Music.pdb
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\bin\Debug\Cassandra.dll
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\bin\Debug\LZ4.dll
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\bin\Debug\Cassandra.xml
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\obj\Debug\MALT Music.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\obj\Debug\MALT_Music.HomeForm.resources
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\obj\Debug\MALT_Music.Login.resources
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\obj\Debug\MALT_Music.Properties.Resources.resources
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\obj\Debug\MALT Music.csproj.GenerateResource.Cache
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\obj\Debug\MALT Music.exe
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\obj\Debug\MALT Music.pdb
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\bin\Debug\MALT Music.exe.config
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.exe
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.pdb
