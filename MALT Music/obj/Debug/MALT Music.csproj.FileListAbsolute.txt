@@ -11,3 +11,6 @@ C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.Properties.Reso
 C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.csproj.GenerateResource.Cache
 C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.exe
 C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.pdb
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\bin\Debug\MALT Music.exe.config
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\obj\Debug\MALT Music.exe
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\obj\Debug\MALT Music.pdb
