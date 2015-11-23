@@ -72,7 +72,6 @@ namespace MALT_Music.lib
 
         public static Cluster getCluster() {
             Console.WriteLine("getCluster");
-
             cluster = Cluster.Builder().AddContactPoint(Host).Build();
             getHosts(cluster);
             keyspaces.SetUpKeySpaces(cluster);
