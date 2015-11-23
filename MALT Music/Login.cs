@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MALT_Music.Models;
+using MALT_Music.DataObjects;
 
 namespace MALT_Music
 {
@@ -75,7 +76,7 @@ namespace MALT_Music
 
         /*
          * Button to attempt the login
-         * AUTHOR: Andrew Davis
+         * @AUTHOR: Andrew Davis
          */
         private void cmdLogin_Click(object sender, EventArgs e)
         {
@@ -87,11 +88,14 @@ namespace MALT_Music
             String password = txtPassword.Text;
 
             // Attempt the login
-            bool success = loginModel.doLogin(username, password);
+            User loggedIn = loginModel.doLogin(username, password);
 
             // If it was successful, go to the Home Page
-            if (success)
+            if (loggedIn != null)
             {
+
+                MessageBox.Show("SUCCESS! LOGGED IN AS: " + loggedIn.getFirstName() + " " + loggedIn.getLastName());
+
                 // Create a Home Form
                 HomeForm homeForm = new HomeForm();
 
@@ -104,6 +108,8 @@ namespace MALT_Music
             }
             else 
             {
+                MessageBox.Show("UNSUCCESSFUL LOGIN");
+
                 // Clear the Password field
                 txtPassword.Text = "";
             }

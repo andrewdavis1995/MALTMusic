@@ -35,7 +35,7 @@ namespace MALT_Music
                 //nameslist.Add("colName2");
 
                 //RowSet rows = session.Execute(statement1.Bind(new { RowKey = "userseven", names = nameslist }));
-                RowSet rows = session.Execute(statement1.Bind(new { RowKey = "userseveneight" }));
+                RowSet rows = session.Execute(statement1.Bind(new { RowKey = "userseven" }));
                 //System.Console.WriteLine ("Here we are. The count is: ");
                 //System.Console.WriteLine (results2.Count());
 
