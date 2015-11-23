@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+ 
 
-using MALT_Music.lib.keyspaces;
+using MALT_Music.lib;
 
 //import com.datastax.driver.core.*;
 //import java.util.Iterator;
@@ -34,28 +35,38 @@ namespace MALT_Music.lib
             //From Here:
             //http://docs.datastax.com/en/developer/csharp-driver/2.5/csharp-driver/quick_start/qsSimpleClientCreate_t.html
             //
-        
-            if (cluster == null) {
-                Console.WriteLine("Creating cluster connection");
-                cluster = Cluster.Builder().AddContactPoint(Host).Build();
-            }
-
-            Console.WriteLine("Connected to cluster: " + cluster.Metadata.ClusterName.ToString());
-            List<Host> hosts = (List<Host>) cluster.Metadata.AllHosts();
-            String [] sHosts = new String[hosts.Count()];
-
-            int i = 0;
-            foreach (var host in hosts)
+            try
             {
-                Console.WriteLine("Data Center: " + host.Datacenter + ", " +
-                "Host: " + host.Address + ", " +
-                "Rack: " + host.Rack);
-        
-                sHosts[i] = host.ToString();
-        
-                i++;
-            }
+                if (cluster == null)
+                {
+                    Console.WriteLine("Creating cluster connection");
+                    cluster = Cluster.Builder().AddContactPoint(Host).Build();
+                }
+
+                Console.WriteLine("Connected to cluster: " + cluster.Metadata.ClusterName.ToString());
+                //List<Host> hosts = (List<Host>)cluster.Metadata.AllHosts();
+                ICollection<Host> hosts = (ICollection<Host>) cluster.Metadata.AllHosts();
+
+                String[] sHosts = new String[hosts.Count()];
+
+                int i = 0;
+                foreach (var host in hosts)
+                {
+                    Console.WriteLine("Data Center: " + host.Datacenter + ", " +
+                    "Host: " + host.Address + ", " +
+                    "Rack: " + host.Rack);
+
+                    sHosts[i] = host.ToString();
+
+                    i++;
+                }
                 return sHosts;
+                
+            }
+            catch (Exception e) {
+                Console.WriteLine("Exception while getting hosts");
+            }
+            return null;
         }
 
 

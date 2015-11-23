@@ -36,13 +36,30 @@ namespace MALT_Music.Models
 
             try
             {
-                Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
+
+                //Should be in init() but that broke so to make work for now
+                cluster = CassHosts.getCluster();
+                Console.WriteLine("THINGSTUFF");
+                //Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
                 ISession session = cluster.Connect("maltmusic");
 
 
-                var statement1 = session.Prepare("Select * from userprofiles where user_id = :user");
+                //Just keepin a note:
+                //http://docs.datastax.com/en/developer/csharp-driver/2.0/csharp-driver/quick_start/qsSimpleClientBoundStatements_t.html
+                //HashSet<String> tags = new HashSet<String>();
+                //tags.Add("jazz");
+                //tags.Add("2013");
 
-                RowSet rows = session.Execute(statement1.Bind(new { user = username }));
+
+                PreparedStatement ps = session.Prepare("Select * from userprofiles where user_id = :user");
+                BoundStatement bs = ps.Bind(username);
+
+
+                //var statement1 = session.Prepare("Select * from userprofiles where user_id = :user");
+                //RowSet rows = session.Execute(statement1.Bind(new { user = username }));
+
+                RowSet rows = session.Execute(bs);
+                    //Bind(user = username));
 
                 foreach (Row row in rows)
                 {
