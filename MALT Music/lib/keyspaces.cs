@@ -86,6 +86,21 @@ namespace MALT_Music.lib
 
                 try
                 {
+                    PreparedStatement statement = session.Prepare(createTracks);
+                    BoundStatement bs = new BoundStatement(statement);
+                    RowSet rs = session.Execute(bs);
+                    Console.WriteLine("Created Tracks ");
+                }
+                catch (Exception et)
+                {
+                    Console.WriteLine("Creating Tracks broke - " + et);
+                }
+
+
+
+
+                try
+                {
                     PreparedStatement statement = session.Prepare(createVotes);
                     BoundStatement bs = new BoundStatement(statement);
                     RowSet rs = session.Execute(bs);
