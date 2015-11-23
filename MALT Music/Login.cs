@@ -116,5 +116,16 @@ namespace MALT_Music
 
         }
 
+        /// <summary>
+        /// Opens a music player component
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMusicPlayer_Click(object sender, EventArgs e)
+        {
+            MusicPlayer playerForm = new MusicPlayer();
+            playerForm.Show();
+        }
+
     }
 }
