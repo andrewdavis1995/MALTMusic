@@ -97,7 +97,10 @@ namespace MALT_Music
                 MessageBox.Show("SUCCESS! LOGGED IN AS: " + loggedIn.getFirstName() + " " + loggedIn.getLastName());
 
                 // Create a Home Form
-                HomeForm homeForm = new HomeForm();
+                HomePage homeForm = new HomePage();
+
+                // Set the Current User of the HomePage to be the newly logged in user
+                HomePage.currentUser = loggedIn;
 
                 // Show the Home Form
                 homeForm.Show();
