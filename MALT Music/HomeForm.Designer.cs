@@ -39,14 +39,15 @@
             this.listBox1.Size = new System.Drawing.Size(213, 186);
             this.listBox1.TabIndex = 1;
             // 
-            // Form1
+            // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(858, 434);
             this.Controls.Add(this.listBox1);
-            this.Name = "Form1";
+            this.Name = "HomeForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }

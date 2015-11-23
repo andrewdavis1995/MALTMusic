@@ -25,10 +25,10 @@ namespace MALT_Music
             Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
             ISession session = cluster.Connect("maltmusic");
 
-            RowSet rows = session.Execute("select * from users");
+            RowSet rows = session.Execute("select * from maltmusic.userprofiles");
             foreach (Row row in rows)
             {
-                String lsString = row["firstname"] + " " + row["lastname"];
+                String lsString = row["first_name"] + " " + row["last_name"] + " | " + row ["user_id"];
                 listBox1.Items.Add(lsString);
             }
 
