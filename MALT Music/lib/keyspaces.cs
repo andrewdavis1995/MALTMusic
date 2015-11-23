@@ -15,6 +15,13 @@ namespace MALT_Music.lib
         {
             try
             {
+                Console.WriteLine("====================="); Console.WriteLine("=====================");
+                Console.WriteLine("STARTING TO SETUP KEY SPACES");
+                Console.WriteLine("====================="); Console.WriteLine("=====================");
+
+
+
+
                 String createkeyspace = "create keyspace if not exists maltmusic WITH replication = {'class':'SimpleStrategy', 'replication_factor':1}";
                 String createUserProfile = "CREATE TABLE if not exists maltmusic.userprofiles (\n"
                     + "User_ID text PRIMARY KEY,\n"
