@@ -71,9 +71,30 @@ namespace MALT_Music.lib
                     Console.WriteLine("Creation profiles broke - " + et);
                 }
 
+                try
+                {
+                    PreparedStatement statement = session.Prepare(createPlaylist);
+                    BoundStatement bs = new BoundStatement(statement);
+                    RowSet rs = session.Execute(bs);
+                    Console.WriteLine("Created Playlist ");
+                }
+                catch (Exception et)
+                {
+                    Console.WriteLine("Creating Playlist broke - " + et);
+                }
 
 
-
+                try
+                {
+                    PreparedStatement statement = session.Prepare(createVotes);
+                    BoundStatement bs = new BoundStatement(statement);
+                    RowSet rs = session.Execute(bs);
+                    Console.WriteLine("Created Votes ");
+                }
+                catch (Exception et)
+                {
+                    Console.WriteLine("Creating votes broke - " + et);
+                }
 
 
 
