@@ -30,7 +30,7 @@ namespace MALT_Music
             User newUser = new User(username, password, first_name, last_name);
 
             RegisterModel registerModel = new RegisterModel();
-            bool success = registerModel.doRegister();
+            bool success = registerModel.doRegister(newUser);
 
             if (success)
             {

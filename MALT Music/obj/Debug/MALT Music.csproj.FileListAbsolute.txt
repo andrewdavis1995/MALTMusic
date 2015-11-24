@@ -54,3 +54,4 @@ C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.HomeForm.resour
 C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.MusicPlayer.resources
 C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.MusicPlayer.resources
 C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.Register.resources
+C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.Register.resources
