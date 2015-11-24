@@ -32,6 +32,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.cmdLogin = new System.Windows.Forms.Button();
             this.picLogo = new System.Windows.Forms.PictureBox();
+            this.btnMusicPlayer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,12 +77,23 @@
             this.picLogo.TabIndex = 3;
             this.picLogo.TabStop = false;
             // 
+            // btnMusicPlayer
+            // 
+            this.btnMusicPlayer.Location = new System.Drawing.Point(54, 626);
+            this.btnMusicPlayer.Name = "btnMusicPlayer";
+            this.btnMusicPlayer.Size = new System.Drawing.Size(199, 71);
+            this.btnMusicPlayer.TabIndex = 4;
+            this.btnMusicPlayer.Text = "MUSIC";
+            this.btnMusicPlayer.UseVisualStyleBackColor = true;
+            this.btnMusicPlayer.Click += new System.EventHandler(this.btnMusicPlayer_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.Controls.Add(this.btnMusicPlayer);
             this.Controls.Add(this.picLogo);
             this.Controls.Add(this.cmdLogin);
             this.Controls.Add(this.txtPassword);
@@ -101,5 +113,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button cmdLogin;
         private System.Windows.Forms.PictureBox picLogo;
+        private System.Windows.Forms.Button btnMusicPlayer;
     }
 }
