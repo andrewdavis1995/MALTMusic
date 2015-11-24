@@ -36,10 +36,8 @@ C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.csprojResolveAs
 C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.Login.resources
 C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.Properties.Resources.resources
 C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.csproj.GenerateResource.Cache
-<<<<<<< HEAD
 C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.HomePage.resources
 C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.HomePage.resources
-=======
 D:\Dropbox\University\3rd Year\AndyProjecty\MaltMusic\MALT Music\bin\Debug\MALT Music.exe.config
 D:\Dropbox\University\3rd Year\AndyProjecty\MaltMusic\MALT Music\obj\Debug\MALT Music.exe
 D:\Dropbox\University\3rd Year\AndyProjecty\MaltMusic\MALT Music\obj\Debug\MALT Music.pdb
