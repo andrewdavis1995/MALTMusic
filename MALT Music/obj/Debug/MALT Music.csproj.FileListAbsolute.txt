@@ -11,19 +11,6 @@ C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\obj\
 C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\obj\Debug\MALT Music.csproj.GenerateResource.Cache
 C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\obj\Debug\MALT Music.exe
 C:\Users\Andrew\Documents\Visual Studio 2013\Projects\MALT Music\MALT Music\obj\Debug\MALT Music.pdb
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\bin\Debug\MALT Music.exe.config
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.exe
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.pdb
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\bin\Debug\MALT Music.exe
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\bin\Debug\MALT Music.pdb
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\bin\Debug\Cassandra.dll
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\bin\Debug\LZ4.dll
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\bin\Debug\Cassandra.xml
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.csprojResolveAssemblyReference.cache
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.HomeForm.resources
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.Login.resources
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.Properties.Resources.resources
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.csproj.GenerateResource.Cache
 C:\Users\user1\Desktop\MALTMusic\MALT Music\bin\Debug\MALT Music.exe.config
 C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.exe
 C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.pdb
@@ -52,6 +39,32 @@ D:\Dropbox\University\3rd Year\AndyProjecty\MaltMusic\MALT Music\obj\Debug\MALT 
 D:\Dropbox\University\3rd Year\AndyProjecty\MaltMusic\MALT Music\obj\Debug\MALT_Music.MusicPlayer.resources
 C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.HomeForm.resources
 C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.MusicPlayer.resources
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.MusicPlayer.resources
-C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.Register.resources
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\bin\Debug\MALT Music.exe.config
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\obj\Debug\MALT Music.exe
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\obj\Debug\MALT Music.pdb
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\bin\Debug\MALT Music.exe
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\bin\Debug\MALT Music.pdb
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\bin\Debug\Cassandra.dll
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\bin\Debug\LZ4.dll
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\bin\Debug\Cassandra.xml
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\obj\Debug\MALT Music.csprojResolveAssemblyReference.cache
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\obj\Debug\MALT_Music.Login.resources
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\obj\Debug\MALT_Music.MusicPlayer.resources
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\obj\Debug\MALT_Music.Properties.Resources.resources
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\obj\Debug\MALT Music.csproj.GenerateResource.Cache
+C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\obj\Debug\MALT_Music.HomePage.resources
 C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.Register.resources
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\bin\Debug\MALT Music.exe.config
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\bin\Debug\MALT Music.exe
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\bin\Debug\MALT Music.pdb
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\bin\Debug\Cassandra.dll
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\bin\Debug\LZ4.dll
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\bin\Debug\Cassandra.xml
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.Login.resources
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.MusicPlayer.resources
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.Properties.Resources.resources
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.Register.resources
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.csproj.GenerateResource.Cache
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.exe
+C:\Users\Andrew\Desktop\MALTMusic\MALT Music\obj\Debug\MALT Music.pdb
