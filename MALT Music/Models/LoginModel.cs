@@ -70,19 +70,29 @@ namespace MALT_Music.Models
                     // Get the password for that database entry
                     String thePassword = row["password"].ToString();
 
+                    User user;
+
                     // Check if the password matches the password that was entered
                     if (thePassword.Equals(password))
                     {
                         // If it does, set up a new User object
                         String first_name = row["first_name"].ToString();
                         String last_name = row["last_name"].ToString();
-                        String email = row["email"].ToString();
-                        email = email.Substring(0, email.Length - 2);
+                        if (row["email"]!=null)
+                        {
+                            String email = row["email"].ToString();
+                            email = email.Substring(0, email.Length - 2);
 
-                        HashSet<String> emailSet = new HashSet<String>();
-                        emailSet.Add(email);
+                            HashSet<String> emailSet = new HashSet<String>();
+                            emailSet.Add(email);
 
-                        User user = new User(username, password, first_name, last_name, emailSet);
+                            user = new User(username, password, first_name, last_name, emailSet);
+                        }
+                        else {
+
+                            user = new User(username, password, first_name, last_name, null);
+                        }
+                       
 
                         // Return the new user object
                         return user;
