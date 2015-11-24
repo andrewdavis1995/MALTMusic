@@ -57,6 +57,10 @@
     <Compile Include="HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HomePage.cs" />
+    <Compile Include="HomePage.designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="lib\CassHosts.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
