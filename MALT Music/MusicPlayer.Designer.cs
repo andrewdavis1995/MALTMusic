@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MusicPlayer));
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
@@ -95,8 +94,10 @@
             // 
             // picBoxAlbumArt
             // 
+            this.picBoxAlbumArt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picBoxAlbumArt.ErrorImage = global::MALT_Music.Properties.Resources.logo;
             this.picBoxAlbumArt.Image = global::MALT_Music.Properties.Resources.logo;
-            this.picBoxAlbumArt.InitialImage = ((System.Drawing.Image)(resources.GetObject("picBoxAlbumArt.InitialImage")));
+            this.picBoxAlbumArt.InitialImage = global::MALT_Music.Properties.Resources.logo;
             this.picBoxAlbumArt.Location = new System.Drawing.Point(108, 12);
             this.picBoxAlbumArt.Name = "picBoxAlbumArt";
             this.picBoxAlbumArt.Size = new System.Drawing.Size(111, 105);
