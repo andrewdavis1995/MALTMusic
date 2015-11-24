@@ -82,6 +82,7 @@ namespace MALT_Music.Models
                 // Catch exceptions
             }catch(Exception ex){
                 Console.WriteLine("SOMETHING WENT WRONG in INSERT TRACK: " + ex.Message);
+                return false;
             }
 
             // If no matches for BOTH username and password, return null
