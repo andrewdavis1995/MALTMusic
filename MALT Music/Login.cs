@@ -146,5 +146,18 @@ namespace MALT_Music
             homePage.Show();
         }
 
+        private void cmdAddSong_Click(object sender, EventArgs e)
+        {
+            String artist = Microsoft.VisualBasic.Interaction.InputBox("Artist Name:", "ARTIST");
+            String album = Microsoft.VisualBasic.Interaction.InputBox("Album Name:", "ALBUM");
+            String year = Microsoft.VisualBasic.Interaction.InputBox("Year of Release:", "YEAR");
+            String genre = Microsoft.VisualBasic.Interaction.InputBox("Song Genre:", "GENRE");
+            String file_loc = Microsoft.VisualBasic.Interaction.InputBox("Local File Location:", "FILE LOCATION");
+            String length = Microsoft.VisualBasic.Interaction.InputBox("Length of Song (seconds):", "LENGTH");
+            String track_name = Microsoft.VisualBasic.Interaction.InputBox("Track Name:", "TRACK NAME");
+
+
+        }
+
     }
 }
