@@ -100,7 +100,7 @@ namespace MALT_Music
                 HomePage homeForm = new HomePage();
 
                 // Set the Current User of the HomePage to be the newly logged in user
-                HomePage.currentUser = loggedIn;
+                homeForm.setCurrentUser(loggedIn);
 
                 // Show the Home Form
                 homeForm.Show();
@@ -128,6 +128,22 @@ namespace MALT_Music
         {
             MusicPlayer playerForm = new MusicPlayer();
             playerForm.Show();
+        }
+
+        private void cmdRegister_Click(object sender, EventArgs e)
+        {
+            Register registration = new Register();
+            registration.Show();
+        }
+
+        private void cmdSkipLogin_Click(object sender, EventArgs e)
+        {
+            HomePage homePage = new HomePage();
+
+            User newUser = new User("username", "password", "Admin", "Hack");
+
+            homePage.setCurrentUser(newUser);
+            homePage.Show();
         }
 
     }

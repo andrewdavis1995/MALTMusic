@@ -15,7 +15,14 @@ namespace MALT_Music
     public partial class HomePage : Form
     {
 
-        public static User currentUser;
+        public User currentUser;
+
+
+        public void setCurrentUser(User theUser) 
+        {
+            this.currentUser = theUser;
+        }
+
 
         public HomePage()
         {
