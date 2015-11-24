@@ -37,7 +37,6 @@ namespace MALT_Music
             lblFullName.Text = currentUser.getFirstName() + " " + currentUser.getLastName();
             IsMdiContainer = true;
 
-
             hideForms();
 
             loadMusicPlayer();
@@ -56,5 +55,24 @@ namespace MALT_Music
             musicPlayer.FormBorderStyle = FormBorderStyle.None;
             musicPlayer.Show();
         }
+
+        //When the user clicks on the search box, clear the placeholder text
+        private void txtSearchBox_Enter(object sender, EventArgs e)
+        {
+            if (txtSearchBox.Text == "Search for songs, artists and albums...")
+            {
+                txtSearchBox.Text = "";
+            }
+        }
+
+        //When the user clicks away from the search box
+        private void txtSearchBox_Leave(object sender, EventArgs e)
+        {
+            if (txtSearchBox.Text == "")
+            {
+                txtSearchBox.Text = "Search for songs, artists and albums...";
+            }
+        }
+
     }
 }

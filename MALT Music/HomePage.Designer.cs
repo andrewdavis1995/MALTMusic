@@ -71,11 +71,15 @@
             this.txtSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchBox.Location = new System.Drawing.Point(337, 21);
             this.txtSearchBox.Name = "txtSearchBox";
-            this.txtSearchBox.Size = new System.Drawing.Size(315, 40);
+            this.txtSearchBox.Size = new System.Drawing.Size(539, 40);
             this.txtSearchBox.TabIndex = 0;
+            this.txtSearchBox.Text = "Search for songs, artists and albums...";
+            this.txtSearchBox.Enter += new System.EventHandler(this.txtSearchBox_Enter);
+            this.txtSearchBox.Leave += new System.EventHandler(this.txtSearchBox_Leave);
             // 
             // picBoxMagnifyingGlass
             // 
+            this.picBoxMagnifyingGlass.Image = global::MALT_Music.Properties.Resources.Magnifying_glass_icon;
             this.picBoxMagnifyingGlass.InitialImage = ((System.Drawing.Image)(resources.GetObject("picBoxMagnifyingGlass.InitialImage")));
             this.picBoxMagnifyingGlass.Location = new System.Drawing.Point(269, 18);
             this.picBoxMagnifyingGlass.Name = "picBoxMagnifyingGlass";
