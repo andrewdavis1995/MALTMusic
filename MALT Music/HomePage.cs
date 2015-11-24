@@ -17,7 +17,14 @@ namespace MALT_Music
         //Initialise other forms here
         MusicPlayer musicPlayer = new MusicPlayer();
 
-        public static User currentUser;
+        public User currentUser;
+
+
+        public void setCurrentUser(User theUser) 
+        {
+            this.currentUser = theUser;
+        }
+
 
         public HomePage()
         {

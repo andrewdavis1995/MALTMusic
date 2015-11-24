@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="lib\keyspaces.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="MusicControl.cs" />
     <Compile Include="MusicPlayer.cs">
       <SubType>Form</SubType>
@@ -75,8 +76,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
+=======
+    <Compile Include="Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+>>>>>>> 4d97bc5fa24787a11e6ad0193ac2f1c28b9fb5c6
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -112,6 +124,9 @@
     <None Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Test.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
