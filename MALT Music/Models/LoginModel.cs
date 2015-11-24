@@ -36,10 +36,7 @@ namespace MALT_Music.Models
         public User doLogin(String username, String password) {
 
             try
-            {
-
-                //Should be in init() but that broke so to make work for now
-                cluster = CassHosts.getCluster();                
+            {     
 
                 //Call to initialise cluster connection
                 init();
