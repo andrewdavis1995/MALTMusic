@@ -37,7 +37,6 @@ D:\Dropbox\University\3rd Year\AndyProjecty\MaltMusic\MALT Music\obj\Debug\MALT_
 D:\Dropbox\University\3rd Year\AndyProjecty\MaltMusic\MALT Music\obj\Debug\MALT_Music.Properties.Resources.resources
 D:\Dropbox\University\3rd Year\AndyProjecty\MaltMusic\MALT Music\obj\Debug\MALT Music.csproj.GenerateResource.Cache
 D:\Dropbox\University\3rd Year\AndyProjecty\MaltMusic\MALT Music\obj\Debug\MALT_Music.MusicPlayer.resources
-C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.HomeForm.resources
 C:\Users\user1\Desktop\MALTMusic\MALT Music\obj\Debug\MALT_Music.MusicPlayer.resources
 C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\bin\Debug\MALT Music.exe.config
 C:\Users\Lewis\Documents\My Documents\University\Third Year\Secure Internet Programming\MALTMusic\MALT Music\obj\Debug\MALT Music.exe
