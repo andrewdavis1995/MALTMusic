@@ -72,6 +72,7 @@
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="lib\keyspaces.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="MusicControl.cs" />
     <Compile Include="MusicPlayer.cs">
       <SubType>Form</SubType>
