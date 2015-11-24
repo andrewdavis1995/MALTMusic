@@ -150,12 +150,16 @@ namespace MALT_Music
         {
             String artist = Microsoft.VisualBasic.Interaction.InputBox("Artist Name:", "ARTIST");
             String album = Microsoft.VisualBasic.Interaction.InputBox("Album Name:", "ALBUM");
-            String year = Microsoft.VisualBasic.Interaction.InputBox("Year of Release:", "YEAR");
+            int year = int.Parse(Microsoft.VisualBasic.Interaction.InputBox("Year of Release:", "YEAR"));
             String genre = Microsoft.VisualBasic.Interaction.InputBox("Song Genre:", "GENRE");
             String file_loc = Microsoft.VisualBasic.Interaction.InputBox("Local File Location:", "FILE LOCATION");
-            String length = Microsoft.VisualBasic.Interaction.InputBox("Length of Song (seconds):", "LENGTH");
+            int length = int.Parse(Microsoft.VisualBasic.Interaction.InputBox("Length of Song (seconds):", "LENGTH"));
             String track_name = Microsoft.VisualBasic.Interaction.InputBox("Track Name:", "TRACK NAME");
 
+            Song newSong = new Song(artist, album, year, genre, file_loc, length, track_name);
+
+            InsertTrackModel insertTracksModel = new InsertTrackModel();
+            insertTrackModel.doInsertTrack(newSong);
 
         }
 
