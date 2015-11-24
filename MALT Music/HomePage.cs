@@ -14,6 +14,8 @@ namespace MALT_Music
 {
     public partial class HomePage : Form
     {
+        //Initialise other forms here
+        MusicPlayer musicPlayer = new MusicPlayer();
 
         public static User currentUser;
 
@@ -26,7 +28,26 @@ namespace MALT_Music
         private void HomePage_Load(object sender, EventArgs e)
         {
             lblFullName.Text = currentUser.getFirstName() + " " + currentUser.getLastName();
+            IsMdiContainer = true;
+
+
+            hideForms();
+
+            loadMusicPlayer();
         }
 
+        private void hideForms()
+        {
+            musicPlayer.Hide();
+        }
+
+        private void loadMusicPlayer()
+        {
+            musicPlayer.TopLevel = false;
+            musicPlayer.Parent = this;
+            musicPlayer.Dock = DockStyle.Bottom;
+            musicPlayer.FormBorderStyle = FormBorderStyle.None;
+            musicPlayer.Show();
+        }
     }
 }
