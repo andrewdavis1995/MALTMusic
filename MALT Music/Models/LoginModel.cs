@@ -76,8 +76,13 @@ namespace MALT_Music.Models
                         // If it does, set up a new User object
                         String first_name = row["first_name"].ToString();
                         String last_name = row["last_name"].ToString();
+                        String email = row["email"].ToString();
+                        email = email.Substring(0, email.Length - 2);
 
-                        User user = new User(username, password, first_name, last_name);
+                        HashSet<String> emailSet = new HashSet<String>();
+                        emailSet.Add(email);
+
+                        User user = new User(username, password, first_name, last_name, emailSet);
 
                         // Return the new user object
                         return user;

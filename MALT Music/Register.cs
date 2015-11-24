@@ -27,7 +27,10 @@ namespace MALT_Music
             String username = txtUsername.Text;
             String password = txtPassword.Text;
 
-            User newUser = new User(username, password, first_name, last_name);
+            HashSet<String> emailSet = new HashSet<String>();
+            emailSet.Add(email);
+
+            User newUser = new User(username, password, first_name, last_name, emailSet);
 
             RegisterModel registerModel = new RegisterModel();
             bool success = registerModel.doRegister(newUser);

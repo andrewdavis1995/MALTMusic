@@ -140,7 +140,7 @@ namespace MALT_Music
         {
             HomePage homePage = new HomePage();
 
-            User newUser = new User("username", "password", "Admin", "Hack");
+            User newUser = new User("username", "password", "Admin", "Hack", null);
 
             homePage.setCurrentUser(newUser);
             homePage.Show();
