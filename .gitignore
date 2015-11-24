@@ -34,6 +34,8 @@ bld/
 TestResult.xml
 
 # Build Results of an ATL Project
+**/bin/Debug/
+**/bin/Release/
 [Dd]ebugPS/
 [Rr]eleasePS/
 dlldata.c

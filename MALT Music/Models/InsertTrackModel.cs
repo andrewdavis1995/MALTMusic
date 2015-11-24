@@ -54,7 +54,7 @@ namespace MALT_Music.Models
 
 
                 Guid tid = Guid.NewGuid();
- 
+                Console.WriteLine("TESTING THINGS");
 
                 //prepare and bind statement passing in username
 
