@@ -36,6 +36,7 @@ namespace MALT_Music.Models
                 String fname = toRegister.getFirstName();
                 String sname = toRegister.getLastName();
                 String password = toRegister.getPassword();
+                HashSet<String> email = toRegister.getEmail();
 
                 //Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
@@ -45,11 +46,11 @@ namespace MALT_Music.Models
             //PreparedStatement ps = session.Prepare("Select * from userprofiles where user_id = :user");
             //BoundStatement bs = ps.Bind(username);
 
-                PreparedStatement ps = session.Prepare("insert into userprofiles (user_id, password, first_name, last_name) values (:un,:pw,:fn,:sn) if not exists");
+                PreparedStatement ps = session.Prepare("insert into userprofiles (user_id, password, first_name, last_name, email) values (:un,:pw,:fn,:sn,:em) if not exists");
 
                 //values ('useven','seven','sev','en') if not exists;");
               
-                BoundStatement bs = ps.Bind(uname, password, fname, sname);
+                BoundStatement bs = ps.Bind(uname, password, fname, sname, email);
 
 
                 //Execute Query
