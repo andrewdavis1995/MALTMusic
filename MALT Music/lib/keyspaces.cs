@@ -54,8 +54,17 @@ namespace MALT_Music.lib
                     + "upvotes int,\n"
                     + "downvote int)";
 
+                String createListPlaylist = "create table  if not exists maltmusic.list_playlist(\n"
+                    + "Playlist_ID UUID,\n"
+                    + "Owner UUID,\n"
+                    + "PRIMARY KEY (Playlist_ID, Owner)\n"
+                    + ")";
+
+
                 //Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
-                ISession session = c.Connect("maltmusic");
+                ISession session = c.Connect();
+
+
 
                 try {
                     PreparedStatement statement = session.Prepare(createkeyspace);
@@ -119,13 +128,25 @@ namespace MALT_Music.lib
                 }
 
 
+                try
+                {
+                    PreparedStatement statement = session.Prepare(createListPlaylist);
+                    BoundStatement bs = new BoundStatement(statement);
+                    RowSet rs = session.Execute(bs);
+                    Console.WriteLine("Created List Playlist ");
+                }
+                catch (Exception et)
+                {
+                    Console.WriteLine("Creating List Playlist broke - " + et);
+                }
+
+
 
                 //session.End();
             }
-            catch
+            catch(Exception e)
             {
-
-
+                Console.WriteLine("Something keyspacey broke - " + e);
             }
 
 
