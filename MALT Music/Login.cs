@@ -156,14 +156,6 @@ namespace MALT_Music
             String length = Microsoft.VisualBasic.Interaction.InputBox("Length of Song (seconds):", "LENGTH");
             String track_name = Microsoft.VisualBasic.Interaction.InputBox("Track Name:", "TRACK NAME");
 
-            artist
-                album
-                year
-                    genre
-                    file_loc
-                        length
-                        Track_name
-
 
         }
 
