@@ -156,10 +156,12 @@ namespace MALT_Music
             int length = int.Parse(Microsoft.VisualBasic.Interaction.InputBox("Length of Song (seconds):", "LENGTH"));
             String track_name = Microsoft.VisualBasic.Interaction.InputBox("Track Name:", "TRACK NAME");
 
-            Song newSong = new Song(artist, album, year, genre, file_loc, length, track_name);
+            // we dont do this no more
 
-            SongModel insertTracksModel = new SongModel();
-            insertTracksModel.doInsertTrack(newSong);
+            //Song newSong = new Song(artist, album, year, genre, file_loc, length, track_name, id);
+
+            //SongModel insertTracksModel = new SongModel();
+            //insertTracksModel.doInsertTrack(newSong);
 
         }
 
