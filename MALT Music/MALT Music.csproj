@@ -130,6 +130,10 @@
     <EmbeddedResource Include="Resources\Test.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\pause_track.png" />
+    <None Include="Resources\play_track.png" />
+    <None Include="Resources\Next-Track_white.png" />
+    <None Include="Resources\prev-track_white.png" />
     <None Include="Resources\Music_icon_white.png" />
     <None Include="Resources\Magnifying_glass_icon_white.png" />
     <None Include="Resources\Music-Treble-Clef-icon.png" />
