@@ -28,14 +28,14 @@ namespace MALT_Music
             InitializeComponent();
 
             // Setup music controller
-<<<<<<< HEAD:MALT Music/MusicPlayer.cs
+
             musicControl = new MusicControl();
 
             //Set to not playing
             isPlaying = false;
-=======
+
             //musicControl = new MusicControl();
->>>>>>> origin/master:MALT Music/frmMusicPlayer.cs
+
         }
 
         /// <summary>
