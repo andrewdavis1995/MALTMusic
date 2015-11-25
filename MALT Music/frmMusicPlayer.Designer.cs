@@ -39,7 +39,13 @@
             this.prbTrackBar = new System.Windows.Forms.ProgressBar();
             this.tmrTracker = new System.Windows.Forms.Timer(this.components);
             this.btnPause = new System.Windows.Forms.Button();
+            this.grpRepeat = new System.Windows.Forms.GroupBox();
+            this.rbnNone = new System.Windows.Forms.RadioButton();
+            this.rbnCurrent = new System.Windows.Forms.RadioButton();
+            this.rbnOnce = new System.Windows.Forms.RadioButton();
+            this.rbnPlaylist = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).BeginInit();
+            this.grpRepeat.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPlay
@@ -151,6 +157,66 @@
             this.btnPause.UseVisualStyleBackColor = false;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
+            // grpRepeat
+            // 
+            this.grpRepeat.Controls.Add(this.rbnPlaylist);
+            this.grpRepeat.Controls.Add(this.rbnOnce);
+            this.grpRepeat.Controls.Add(this.rbnCurrent);
+            this.grpRepeat.Controls.Add(this.rbnNone);
+            this.grpRepeat.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpRepeat.ForeColor = System.Drawing.Color.White;
+            this.grpRepeat.Location = new System.Drawing.Point(526, 76);
+            this.grpRepeat.Name = "grpRepeat";
+            this.grpRepeat.Size = new System.Drawing.Size(286, 41);
+            this.grpRepeat.TabIndex = 8;
+            this.grpRepeat.TabStop = false;
+            this.grpRepeat.Text = "Repeat Options";
+            // 
+            // rbnNone
+            // 
+            this.rbnNone.AutoSize = true;
+            this.rbnNone.Checked = true;
+            this.rbnNone.Location = new System.Drawing.Point(6, 19);
+            this.rbnNone.Name = "rbnNone";
+            this.rbnNone.Size = new System.Drawing.Size(53, 18);
+            this.rbnNone.TabIndex = 0;
+            this.rbnNone.TabStop = true;
+            this.rbnNone.Text = "None";
+            this.rbnNone.UseVisualStyleBackColor = true;
+            // 
+            // rbnCurrent
+            // 
+            this.rbnCurrent.AutoSize = true;
+            this.rbnCurrent.Location = new System.Drawing.Point(124, 17);
+            this.rbnCurrent.Name = "rbnCurrent";
+            this.rbnCurrent.Size = new System.Drawing.Size(74, 18);
+            this.rbnCurrent.TabIndex = 1;
+            this.rbnCurrent.TabStop = true;
+            this.rbnCurrent.Text = "Current";
+            this.rbnCurrent.UseVisualStyleBackColor = true;
+            // 
+            // rbnOnce
+            // 
+            this.rbnOnce.AutoSize = true;
+            this.rbnOnce.Location = new System.Drawing.Point(65, 17);
+            this.rbnOnce.Name = "rbnOnce";
+            this.rbnOnce.Size = new System.Drawing.Size(53, 18);
+            this.rbnOnce.TabIndex = 2;
+            this.rbnOnce.TabStop = true;
+            this.rbnOnce.Text = "Once";
+            this.rbnOnce.UseVisualStyleBackColor = true;
+            // 
+            // rbnPlaylist
+            // 
+            this.rbnPlaylist.AutoSize = true;
+            this.rbnPlaylist.Location = new System.Drawing.Point(204, 17);
+            this.rbnPlaylist.Name = "rbnPlaylist";
+            this.rbnPlaylist.Size = new System.Drawing.Size(81, 18);
+            this.rbnPlaylist.TabIndex = 3;
+            this.rbnPlaylist.TabStop = true;
+            this.rbnPlaylist.Text = "Playlist";
+            this.rbnPlaylist.UseVisualStyleBackColor = true;
+            // 
             // frmMusicPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,6 +224,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(927, 127);
             this.ControlBox = false;
+            this.Controls.Add(this.grpRepeat);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.prbTrackBar);
             this.Controls.Add(this.picBoxAlbumArt);
@@ -173,6 +240,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MusicPlayer";
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).EndInit();
+            this.grpRepeat.ResumeLayout(false);
+            this.grpRepeat.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,5 +259,10 @@
         private System.Windows.Forms.ProgressBar prbTrackBar;
         private System.Windows.Forms.Timer tmrTracker;
         private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.GroupBox grpRepeat;
+        private System.Windows.Forms.RadioButton rbnPlaylist;
+        private System.Windows.Forms.RadioButton rbnOnce;
+        private System.Windows.Forms.RadioButton rbnCurrent;
+        private System.Windows.Forms.RadioButton rbnNone;
     }
 }
