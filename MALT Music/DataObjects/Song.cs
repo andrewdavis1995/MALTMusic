@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MALT_Music.DataObjects
 {
-    class Song
+    public class Song
     {
         Guid songID;
         String artist;

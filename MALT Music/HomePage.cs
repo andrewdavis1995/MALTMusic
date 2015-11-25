@@ -97,6 +97,10 @@ namespace MALT_Music
             artistThread.Join();
 
 
+            SearchResults searchResults = new SearchResults();
+            searchResults.setSongList(songs);
+            searchResults.createSongList();
+            searchResults.Show();            
 
         }
 

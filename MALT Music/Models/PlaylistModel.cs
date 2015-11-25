@@ -192,6 +192,9 @@ namespace MALT_Music.Models
 
         public List<Playlist> getPlaylistsForUser(String plOwner)
         {
+
+            //THIS NULL POINTERS
+
             // Connect to cluster
             ISession session = cluster.Connect("maltmusic");
 
