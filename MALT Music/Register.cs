@@ -63,5 +63,30 @@ namespace MALT_Music
             }
 
         }
+
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            picUsernameStatus.Visible = true;
+            
+            RegisterModel registerModel = new RegisterModel();
+
+            String username = txtUsername.Text;
+
+            bool taken = registerModel.checkUsername(username);
+
+            if (taken)
+            {
+                picUsernameStatus.Image = Properties.Resources.small_cross;
+            }
+            else {
+                picUsernameStatus.Image = Properties.Resources.small_tick;
+            }
+        }
+
+        private void txtUsername_Enter(object sender, EventArgs e)
+        {
+            picUsernameStatus.Visible = false;
+            picUsernameStatus.Image = Properties.Resources.spinningWheel;
+        }
     }
 }

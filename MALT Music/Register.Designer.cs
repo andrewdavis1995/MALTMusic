@@ -35,8 +35,10 @@
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.picLogo = new System.Windows.Forms.PictureBox();
             this.lblRegisterLabel = new System.Windows.Forms.Label();
+            this.picUsernameStatus = new System.Windows.Forms.PictureBox();
+            this.picLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picUsernameStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,6 +68,8 @@
             this.txtUsername.Size = new System.Drawing.Size(300, 20);
             this.txtUsername.TabIndex = 3;
             this.txtUsername.Text = "Username...";
+            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
+            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // txtConfirmPassword
             // 
@@ -100,17 +104,6 @@
             this.txtEmail.TabIndex = 9;
             this.txtEmail.Text = "Email...";
             // 
-            // picLogo
-            // 
-            this.picLogo.BackColor = System.Drawing.Color.Transparent;
-            this.picLogo.BackgroundImage = global::MALT_Music.Properties.Resources.logo;
-            this.picLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picLogo.Location = new System.Drawing.Point(12, 12);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(227, 144);
-            this.picLogo.TabIndex = 10;
-            this.picLogo.TabStop = false;
-            // 
             // lblRegisterLabel
             // 
             this.lblRegisterLabel.AutoSize = true;
@@ -122,12 +115,33 @@
             this.lblRegisterLabel.TabIndex = 11;
             this.lblRegisterLabel.Text = "REGISTER";
             // 
+            // picUsernameStatus
+            // 
+            this.picUsernameStatus.Image = global::MALT_Music.Properties.Resources.spinningWheel;
+            this.picUsernameStatus.Location = new System.Drawing.Point(612, 245);
+            this.picUsernameStatus.Name = "picUsernameStatus";
+            this.picUsernameStatus.Size = new System.Drawing.Size(30, 30);
+            this.picUsernameStatus.TabIndex = 12;
+            this.picUsernameStatus.TabStop = false;
+            this.picUsernameStatus.Visible = false;
+            // 
+            // picLogo
+            // 
+            this.picLogo.BackColor = System.Drawing.Color.Transparent;
+            this.picLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picLogo.Location = new System.Drawing.Point(12, 12);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(227, 144);
+            this.picLogo.TabIndex = 10;
+            this.picLogo.TabStop = false;
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(891, 474);
+            this.Controls.Add(this.picUsernameStatus);
             this.Controls.Add(this.lblRegisterLabel);
             this.Controls.Add(this.picLogo);
             this.Controls.Add(this.txtEmail);
@@ -139,6 +153,7 @@
             this.Controls.Add(this.txtUsername);
             this.Name = "Register";
             this.Text = "Register";
+            ((System.ComponentModel.ISupportInitialize)(this.picUsernameStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -156,5 +171,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Label lblRegisterLabel;
+        private System.Windows.Forms.PictureBox picUsernameStatus;
     }
 }
