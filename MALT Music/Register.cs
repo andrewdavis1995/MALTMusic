@@ -87,11 +87,11 @@ namespace MALT_Music
                 picUsernameStatus.Image = Properties.Resources.spinningWheel;
 
                 RegisterModel registerModel = new RegisterModel();
-                bool valid = registerModel.checkUsername(txtUsername.Text);
+                bool taken = registerModel.checkUsername(txtUsername.Text);
 
                 picUsernameStatus.Visible = true;
 
-                if (valid) {
+                if (!taken) {
                     picUsernameStatus.Image = Properties.Resources.small_tick;
                 }
                 else
@@ -173,7 +173,7 @@ namespace MALT_Music
             if (txtConfirmPassword.Text == "")
             {
                 txtConfirmPassword.Text = "Confirm Password...";
-                txtConfirmPassword.PasswordChar = '\0';
+                txtConfirmPassword.PasswordChar = '*';
             }
         }
 
@@ -182,7 +182,7 @@ namespace MALT_Music
             if (txtConfirmPassword.Text == "Confirm Password...")
             {
                 txtConfirmPassword.Text = "";
-                txtConfirmPassword.PasswordChar = '*';
+                txtConfirmPassword.PasswordChar = '\0';
             }
         }
     }
