@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace MALT_Music
 {
-    public partial class MusicPlayer : Form
+    public partial class frmMusicPlayer : Form
     {
         // Hosts the player
         MusicControl musicControl;
@@ -20,7 +20,7 @@ namespace MALT_Music
         /// <summary>
         /// Init for form
         /// </summary>
-        public MusicPlayer()
+        public frmMusicPlayer()
         {
             InitializeComponent();
 
