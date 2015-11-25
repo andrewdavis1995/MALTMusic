@@ -28,9 +28,32 @@ namespace MALT_Music.Models
         }
 
 
-        public void createPlaylist(Playlist playlist)
+        public void createPlaylist(Playlist p)
         {
-            throw new NotImplementedException();
+            try
+            {
+                init();
+                ISession session = cluster.Connect("maltmusic");
+
+                String plName = p.getPlaylistName();
+                Guid pid = p.getID();
+                String owner = p.getOwner();
+
+                String todo = ("insert into list_playlist (\n" +
+                      "playlist_id, owner,playlist_name)\n" +
+                     "values (:pid,:own,:plnm) if not exists");
+
+                PreparedStatement ps = session.Prepare(todo);
+
+                BoundStatement bs = ps.Bind(pid, owner, plName);
+
+                session.Execute(bs);
+            }
+            catch (Exception e){
+                Console.WriteLine("Exception during playlist create" + e);
+            }
+
+
         }
 
         public bool addSongToPlaylist(Playlist playlist, Song song)
