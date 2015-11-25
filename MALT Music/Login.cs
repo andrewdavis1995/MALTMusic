@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MALT_Music.Models;
 using MALT_Music.DataObjects;
+using MALT_Music.lib;
 
 namespace MALT_Music
 {
@@ -21,6 +22,8 @@ namespace MALT_Music
         public Login()
         {
             InitializeComponent();
+            keyspaces keys = new keyspaces();
+            keys.populateTracks();
             
         }
 

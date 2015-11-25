@@ -128,6 +128,7 @@
             // picLogo
             // 
             this.picLogo.BackColor = System.Drawing.Color.Transparent;
+            this.picLogo.BackgroundImage = global::MALT_Music.Properties.Resources.logo;
             this.picLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picLogo.Location = new System.Drawing.Point(12, 12);
             this.picLogo.Name = "picLogo";
