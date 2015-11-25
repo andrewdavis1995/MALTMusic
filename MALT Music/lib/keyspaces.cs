@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cassandra;
+using MALT_Music.Models;
 
 
 namespace MALT_Music.lib
@@ -140,6 +141,10 @@ namespace MALT_Music.lib
                     Console.WriteLine("Creating List Playlist broke - " + et);
                 }
 
+
+                //populate database with things
+                SongModel s = new SongModel();
+                s.populateDB();
 
 
                 //session.End();
