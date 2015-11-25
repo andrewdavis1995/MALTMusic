@@ -81,6 +81,7 @@
             // lblFileName
             // 
             this.lblFileName.AutoSize = true;
+            this.lblFileName.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblFileName.Location = new System.Drawing.Point(281, 38);
             this.lblFileName.Name = "lblFileName";
             this.lblFileName.Size = new System.Drawing.Size(35, 13);
@@ -109,6 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(927, 127);
             this.Controls.Add(this.picBoxAlbumArt);
             this.Controls.Add(this.lblFileName);

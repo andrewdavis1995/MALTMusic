@@ -51,7 +51,7 @@
             // 
             this.lblFullName.AutoSize = true;
             this.lblFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFullName.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblFullName.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.lblFullName.Location = new System.Drawing.Point(55, 16);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(61, 24);
@@ -63,7 +63,7 @@
             // 
             this.lblBrowse.AutoSize = true;
             this.lblBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBrowse.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblBrowse.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblBrowse.Location = new System.Drawing.Point(63, 240);
             this.lblBrowse.Name = "lblBrowse";
             this.lblBrowse.Size = new System.Drawing.Size(62, 20);
@@ -74,7 +74,7 @@
             // 
             this.lblPlaylist.AutoSize = true;
             this.lblPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaylist.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblPlaylist.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblPlaylist.Location = new System.Drawing.Point(63, 126);
             this.lblPlaylist.Name = "lblPlaylist";
             this.lblPlaylist.Size = new System.Drawing.Size(65, 20);
@@ -103,10 +103,13 @@
             // 
             // txtSearchBox
             // 
+            this.txtSearchBox.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtSearchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchBox.Location = new System.Drawing.Point(331, 30);
+            this.txtSearchBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtSearchBox.Location = new System.Drawing.Point(331, 33);
             this.txtSearchBox.Name = "txtSearchBox";
-            this.txtSearchBox.Size = new System.Drawing.Size(539, 40);
+            this.txtSearchBox.Size = new System.Drawing.Size(539, 33);
             this.txtSearchBox.TabIndex = 0;
             this.txtSearchBox.Text = "Search for songs, artists and albums...";
             this.txtSearchBox.Enter += new System.EventHandler(this.txtSearchBox_Enter);
