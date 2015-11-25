@@ -10,8 +10,8 @@ namespace MALT_Music
     /// <summary>
     ///  This class allows the controlling of the media playing
     /// </summary>
-    class MusicController
+    static class MusicController
     {
-        MediaPlayer mediaControl;
+        //static MediaPlayer mediaControl = new MediaPlayer();
     }
 }
