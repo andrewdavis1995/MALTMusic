@@ -15,7 +15,7 @@ namespace MALT_Music
     public partial class frmMusicPlayer : Form
     {
         // Hosts the player
-        MusicControl musicControl;
+        //MusicControl musicControl;
 
         /// <summary>
         /// Init for form
@@ -25,7 +25,7 @@ namespace MALT_Music
             InitializeComponent();
 
             // Setup music controller
-            musicControl = new MusicControl();
+            //musicControl = new MusicControl();
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            musicControl.play();
+            //musicControl.play();
         }
 
         /// <summary>
@@ -55,13 +55,13 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void btnStop_Click(object sender, EventArgs e)
         {
-            musicControl.stop();
+            //musicControl.stop();
         }
 
         private void ofdMusicOpener_FileOk(object sender, CancelEventArgs e)
         {
             lblFileName.Text = ofdMusicOpener.FileName;
-            musicControl.open(lblFileName.Text);
+            //musicControl.open(lblFileName.Text);
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace MALT_Music
                 string filePath = reader.ReadToEnd();
                 string path = Path.GetFullPath(@"..\..\Resources\Test.mp3");
                 lblFileName.Text = path;
-                musicControl.open(path);
+                //musicControl.open(path);
             }
 
             
