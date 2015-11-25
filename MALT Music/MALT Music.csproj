@@ -54,6 +54,7 @@
     <Compile Include="DataObjects\Playlist.cs" />
     <Compile Include="DataObjects\Song.cs" />
     <Compile Include="DataObjects\User.cs" />
+    <Compile Include="DataObjects\Validation.cs" />
     <Compile Include="HomePage.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -21,28 +21,45 @@ namespace MALT_Music
 
         private void cmdRegister_Click(object sender, EventArgs e)
         {
+            // Extract details from the form
             String first_name = txtFirstName.Text;
             String last_name = txtLastName.Text;
-            String email = txtEmail.Text;           // Not used yet
+            String email = txtEmail.Text;
             String username = txtUsername.Text;
             String password = txtPassword.Text;
+            String confirmPassword = txtConfirmPassword.Text;
 
+            // Convert the email to a set
             HashSet<String> emailSet = new HashSet<String>();
             emailSet.Add(email);
 
+            // Create a user object
             User newUser = new User(username, password, first_name, last_name, emailSet);
 
+            // Create a registerModel
             RegisterModel registerModel = new RegisterModel();
-            bool success = registerModel.doRegister(newUser);
+            
+            //Validate the data
+            Validation validation = registerModel.validateData(newUser, confirmPassword);
 
-            if (success)
+            // Output the state of the Login
+            MessageBox.Show(validation.getError());
+
+            // If it was valid, add the user
+            if (validation.getValidity())
             {
-                MessageBox.Show("User Created Successfully");
-                this.Close();
-            }
-            else 
-            {
-                MessageBox.Show("User Creation Failed");
+                // Convert username to lower case - for storage
+                String lowerCaseUsername = newUser.getUsername().ToLower();
+                newUser.setUsername(lowerCaseUsername);
+
+                // Attempt to add the user to the database
+                bool success = registerModel.doRegister(newUser);
+
+                // If it succeeded, close the current form
+                if (success)
+                {
+                    this.Close();
+                }
             }
 
         }
