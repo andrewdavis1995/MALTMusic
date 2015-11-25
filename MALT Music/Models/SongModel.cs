@@ -12,14 +12,17 @@ namespace MALT_Music.Models
     class SongModel
     {
         private Cluster cluster;
-        public void init() {
+        public void init()
+        {
 
-            try{
+            try
+            {
                 cluster = CassHosts.getCluster();
                 Console.WriteLine("GOT CLUSTER");
             }
-            catch(Exception e){
-                Console.WriteLine("Exception Occurred Getting Cluster INIT");            
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception Occurred Getting Cluster INIT");
             }
         }
 
@@ -32,11 +35,10 @@ namespace MALT_Music.Models
          * @AUTHORS: Andrew Davis and Matt Malone
          * NOTE - Commented code left in by Matt - just in case it breaks
          */
-        public bool doInsertTrack(Song song) {
-
+        public bool doInsertTrack(Song song)
+        {
             try
             {
-
                 // Call to initialise cluster connection
                 init();
 
@@ -53,17 +55,17 @@ namespace MALT_Music.Models
 
 
                 Guid tid = Guid.NewGuid();
- 
+
 
                 // Prepare and bind statement passing in username
                 String todo = ("insert into tracks (\n" +
-                  "track_id, artist, album, year,genre, file_loc,length,track_name)\n" + 
-                 "values (:tid, :art,:alb,:yr,:gnr,:floc,:len,:tnm);");
+                  "track_id, artist, album, year,genre, file_loc,length,track_name)\n" +
+                 "values (:tid, :art,:alb,:yr,:gnr,:floc,:len,:tnm) if not exists");
 
 
                 PreparedStatement ps = session.Prepare(todo);
 
-                BoundStatement bs = ps.Bind(tid,artist,album, year, genre, file_loc, length, trackname);
+                BoundStatement bs = ps.Bind(tid, artist, album, year, genre, file_loc, length, trackname);
 
 
                 // Execute Query
@@ -72,12 +74,64 @@ namespace MALT_Music.Models
                 return true;
 
                 // Catch exceptions
-            }catch(Exception ex){
+            }
+            catch (Exception ex)
+            {
                 Console.WriteLine("SOMETHING WENT WRONG in INSERT TRACK: " + ex.Message);
                 return false;
             }
 
         }
 
+        public bool populateDB()
+        {
+            try
+            {
+                string[] lines = System.IO.File.ReadAllLines("../../tracks/populate.txt");
+
+                foreach (string line in lines)
+                {
+
+
+                    // Use a tab to indent each line of the file.
+                    Console.WriteLine("\t" + line);
+
+                    char[] delimiterChars = { '|' };
+
+                    System.Console.WriteLine("Original text: '{0}'", line);
+
+                    string[] text = line.Split(delimiterChars);
+
+                    foreach (string s in text)
+                    {
+                        System.Console.WriteLine(s);
+                    }
+
+                    Guid sid = new Guid();
+                    String artist = text[0].Trim();
+                    String album = text[1].Trim();
+                    int year = int.Parse(text[2]);
+                    String genre = text[3].Trim();
+                    int length = int.Parse(text[4]);
+                    String tname = text[5].Trim();
+
+                    String file_loc = ("../../tracks/" + artist + "/" + album + "/" + tname + ".mp3");
+
+
+                    Song toAdd = new Song(artist, album, year, genre, file_loc, length, tname, sid);
+                    doInsertTrack(toAdd);
+
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Broke while reading data to base" + e);
+                return false;
+            }
+        }
+
+
     }
 }
+

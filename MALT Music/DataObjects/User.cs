@@ -74,5 +74,7 @@ namespace MALT_Music.DataObjects
          * @RETURNS: the Last Name property for the current User
          */
         public HashSet<String> getEmail() { return this.email; }
+
+        public void setUsername(String username) { this.username = username; }
     }
 }

@@ -126,7 +126,7 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void btnMusicPlayer_Click(object sender, EventArgs e)
         {
-            MusicPlayer playerForm = new MusicPlayer();
+            frmMusicPlayer playerForm = new frmMusicPlayer();
             playerForm.Show();
         }
 
@@ -164,6 +164,8 @@ namespace MALT_Music
             //insertTracksModel.doInsertTrack(newSong);
 
         }
+
+
 
     }
 }

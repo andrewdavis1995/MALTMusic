@@ -12,26 +12,30 @@ using System.Windows.Forms;
 
 namespace MALT_Music
 {
-    public partial class MusicPlayer : Form
+    public partial class frmMusicPlayer : Form
     {
         //Boolean to state whether track is playing or not
         bool isPlaying;
 
         // Hosts the player
-        MusicControl musicControl;
+        //MusicControl musicControl;
 
         /// <summary>
         /// Init for form
         /// </summary>
-        public MusicPlayer()
+        public frmMusicPlayer()
         {
             InitializeComponent();
 
             // Setup music controller
+<<<<<<< HEAD:MALT Music/MusicPlayer.cs
             musicControl = new MusicControl();
 
             //Set to not playing
             isPlaying = false;
+=======
+            //musicControl = new MusicControl();
+>>>>>>> origin/master:MALT Music/frmMusicPlayer.cs
         }
 
         /// <summary>
@@ -41,7 +45,7 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            musicControl.play();
+            //musicControl.play();
         }
 
         /// <summary>
@@ -61,13 +65,13 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void btnStop_Click(object sender, EventArgs e)
         {
-            musicControl.stop();
+            //musicControl.stop();
         }
 
         private void ofdMusicOpener_FileOk(object sender, CancelEventArgs e)
         {
             lblFileName.Text = ofdMusicOpener.FileName;
-            musicControl.open(lblFileName.Text);
+            //musicControl.open(lblFileName.Text);
         }
 
         /// <summary>
@@ -88,7 +92,7 @@ namespace MALT_Music
                 string filePath = reader.ReadToEnd();
                 string path = Path.GetFullPath(@"..\..\Resources\Test.mp3");
                 lblFileName.Text = path;
-                musicControl.open(path);
+                //musicControl.open(path);
             }
 
             

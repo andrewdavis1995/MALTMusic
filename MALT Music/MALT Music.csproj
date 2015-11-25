@@ -39,6 +39,13 @@
       <HintPath>..\packages\lz4net.1.0.5.93\lib\net40-client\LZ4.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Xna.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.MediaLibraryExtensions">
+      <HintPath>..\packages\Microsoft.Xna.Framework.MediaLibraryExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,6 +61,7 @@
     <Compile Include="DataObjects\Playlist.cs" />
     <Compile Include="DataObjects\Song.cs" />
     <Compile Include="DataObjects\User.cs" />
+    <Compile Include="DataObjects\Validation.cs" />
     <Compile Include="HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,11 +81,11 @@
     <Compile Include="Models\PlaylistModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="MusicControl.cs" />
-    <Compile Include="MusicPlayer.cs">
+    <Compile Include="frmMusicPlayer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MusicPlayer.Designer.cs">
-      <DependentUpon>MusicPlayer.cs</DependentUpon>
+    <Compile Include="frmMusicPlayer.Designer.cs">
+      <DependentUpon>frmMusicPlayer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,8 +101,8 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MusicPlayer.resx">
-      <DependentUpon>MusicPlayer.cs</DependentUpon>
+    <EmbeddedResource Include="frmMusicPlayer.resx">
+      <DependentUpon>frmMusicPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -136,6 +144,9 @@
     <None Include="Resources\prev-track_white.png" />
     <None Include="Resources\Music_icon_white.png" />
     <None Include="Resources\Magnifying_glass_icon_white.png" />
+    <None Include="Resources\spinningWheel.gif" />
+    <None Include="Resources\small tick.png" />
+    <None Include="Resources\small cross.png" />
     <None Include="Resources\Music-Treble-Clef-icon.png" />
     <None Include="Resources\List.png" />
     <None Include="Resources\List_white.png" />

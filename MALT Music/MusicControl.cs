@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Media;
 
 namespace MALT_Music
 {
     /// <summary>
     ///  This class allows the controlling of the media playing
     /// </summary>
-    class MusicControl
+    static class MusicController
     {
+<<<<<<< HEAD
         [DllImport("winmm.dll")]
         private static extern long mciSendString(string lpstrCommand, StringBuilder lpstrReturnString, int uReturnLength, int hwndCallback);
 
@@ -61,5 +62,8 @@ namespace MALT_Music
             string command = "pause MyMp3";
             mciSendString(command, null, 0, 0);
         }
+=======
+        //static MediaPlayer mediaControl = new MediaPlayer();
+>>>>>>> origin/master
     }
 }
