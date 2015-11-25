@@ -37,10 +37,8 @@ namespace MALT_Music.Models
          */
         public bool doInsertTrack(Song song)
         {
-
             try
             {
-
                 // Call to initialise cluster connection
                 init();
 

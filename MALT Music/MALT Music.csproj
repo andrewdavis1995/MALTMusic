@@ -131,6 +131,9 @@
     <EmbeddedResource Include="Resources\Test.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\spinningWheel.gif" />
+    <None Include="Resources\small tick.png" />
+    <None Include="Resources\small cross.png" />
     <None Include="Resources\Music-Treble-Clef-icon.png" />
     <None Include="Resources\List.png" />
     <Content Include="Resources\Magnifying_glass_icon.png" />
