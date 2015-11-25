@@ -1,6 +1,6 @@
 ﻿namespace MALT_Music
 {
-    partial class MusicPlayer
+    partial class frmMusicPlayer
     {
         /// <summary>
         /// Required designer variable.

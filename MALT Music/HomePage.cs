@@ -15,7 +15,7 @@ namespace MALT_Music
     public partial class HomePage : Form
     {
         //Initialise other forms here
-        MusicPlayer musicPlayer = new MusicPlayer();
+        frmMusicPlayer musicPlayer = new frmMusicPlayer();
 
         public User currentUser;
 
