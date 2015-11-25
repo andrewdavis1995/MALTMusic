@@ -158,7 +158,7 @@ namespace MALT_Music
 
             Song newSong = new Song(artist, album, year, genre, file_loc, length, track_name);
 
-            InsertTrackModel insertTracksModel = new InsertTrackModel();
+            SongModel insertTracksModel = new SongModel();
             insertTracksModel.doInsertTrack(newSong);
 
         }

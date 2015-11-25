@@ -8,6 +8,7 @@ namespace MALT_Music.DataObjects
 {
     class Song
     {
+        Guid songID;
         String artist;
         String album;
         int year;
@@ -18,7 +19,7 @@ namespace MALT_Music.DataObjects
 
         public Song() { }
 
-        public Song(String artist, String album, int year, String genre, String location, int length, String track) 
+        public Song(String artist, String album, int year, String genre, String location, int length, String track, Guid id) 
         {
             this.artist = artist;
             this.album = album;
@@ -27,8 +28,8 @@ namespace MALT_Music.DataObjects
             this.file_loc = location;
             this.length = length;
             this.track_name = track;
+            this.songID = id;
         }
-
 
         public String getArtist() { return this.artist; }
         public String getAlbum() { return this.album; }
@@ -37,7 +38,8 @@ namespace MALT_Music.DataObjects
         public String getFileLocation() { return this.file_loc; }
         public int getLength() { return this.length; }
         public String getTrackName() { return this.track_name; }
-
-
+        public Guid getSongID() {
+            return this.songID;
+        }
     }
 }

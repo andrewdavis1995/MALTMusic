@@ -9,7 +9,7 @@ using MALT_Music.lib;
 
 namespace MALT_Music.Models
 {
-    class InsertTrackModel
+    class SongModel
     {
         private Cluster cluster;
         public void init() {
@@ -85,8 +85,6 @@ namespace MALT_Music.Models
                 return false;
             }
 
-            // If no matches for BOTH username and password, return null
-            //return null;
         }
 
     }
