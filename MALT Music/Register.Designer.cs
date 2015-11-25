@@ -47,7 +47,7 @@
             this.cmdRegister.Location = new System.Drawing.Point(529, 370);
             this.cmdRegister.Name = "cmdRegister";
             this.cmdRegister.Size = new System.Drawing.Size(75, 23);
-            this.cmdRegister.TabIndex = 5;
+            this.cmdRegister.TabIndex = 6;
             this.cmdRegister.Text = "Register";
             this.cmdRegister.UseVisualStyleBackColor = true;
             this.cmdRegister.Click += new System.EventHandler(this.cmdRegister_Click);
@@ -56,10 +56,11 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(304, 287);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(300, 20);
             this.txtPassword.TabIndex = 4;
             this.txtPassword.Text = "Password...";
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // txtUsername
             // 
@@ -75,34 +76,41 @@
             // 
             this.txtConfirmPassword.Location = new System.Drawing.Point(304, 325);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(300, 20);
-            this.txtConfirmPassword.TabIndex = 6;
+            this.txtConfirmPassword.TabIndex = 5;
             this.txtConfirmPassword.Text = "Confirm Password...";
+            this.txtConfirmPassword.Enter += new System.EventHandler(this.txtConfirmPassword_Enter);
+            this.txtConfirmPassword.Leave += new System.EventHandler(this.txtConfirmPassword_Leave);
             // 
             // txtFirstName
             // 
             this.txtFirstName.Location = new System.Drawing.Point(304, 136);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(300, 20);
-            this.txtFirstName.TabIndex = 7;
+            this.txtFirstName.TabIndex = 0;
             this.txtFirstName.Text = "First Name...";
+            this.txtFirstName.Enter += new System.EventHandler(this.txtFirstName_Enter);
+            this.txtFirstName.Leave += new System.EventHandler(this.txtFirstName_Leave);
             // 
             // txtLastName
             // 
             this.txtLastName.Location = new System.Drawing.Point(304, 173);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(300, 20);
-            this.txtLastName.TabIndex = 8;
+            this.txtLastName.TabIndex = 1;
             this.txtLastName.Text = "Last Name...";
+            this.txtLastName.Enter += new System.EventHandler(this.txtLastName_Enter);
+            this.txtLastName.Leave += new System.EventHandler(this.txtLastName_Leave);
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(305, 212);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(300, 20);
-            this.txtEmail.TabIndex = 9;
+            this.txtEmail.TabIndex = 2;
             this.txtEmail.Text = "Email...";
+            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // lblRegisterLabel
             // 
@@ -128,6 +136,7 @@
             // picLogo
             // 
             this.picLogo.BackColor = System.Drawing.Color.Transparent;
+            this.picLogo.BackgroundImage = global::MALT_Music.Properties.Resources.logo;
             this.picLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picLogo.Location = new System.Drawing.Point(12, 12);
             this.picLogo.Name = "picLogo";

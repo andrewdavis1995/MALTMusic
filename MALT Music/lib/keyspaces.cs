@@ -140,12 +140,7 @@ namespace MALT_Music.lib
                 {
                     Console.WriteLine("Creating List Playlist broke - " + et);
                 }
-
-
-                //populate database with things
-                SongModel s = new SongModel();
-                s.populateDB();
-
+                
 
                 //session.End();
             }
@@ -154,8 +149,14 @@ namespace MALT_Music.lib
                 Console.WriteLine("Something keyspacey broke - " + e);
             }
 
-
-
         }
+
+        public void populateTracks() 
+        {
+            //populate database with things
+            SongModel s = new SongModel();
+            s.populateDB();
+        }
+
     }
 }

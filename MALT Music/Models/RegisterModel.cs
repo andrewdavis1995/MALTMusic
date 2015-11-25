@@ -14,7 +14,6 @@ namespace MALT_Music.Models
         private Cluster cluster;
         public void init()
         {
-
             try
             {
                 cluster = CassHosts.getCluster();

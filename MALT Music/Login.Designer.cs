@@ -37,7 +37,7 @@
             this.lblLoginLabel = new System.Windows.Forms.Label();
             this.cmdSkipLogin = new System.Windows.Forms.Button();
             this.cmdAddSong = new System.Windows.Forms.Button();
-            this.filetestbutton = new System.Windows.Forms.Button();
+            this.cmdGetPlaylists = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,13 +133,23 @@
             this.cmdAddSong.UseVisualStyleBackColor = true;
             this.cmdAddSong.Click += new System.EventHandler(this.cmdAddSong_Click);
             // 
+            // cmdGetPlaylists
+            // 
+            this.cmdGetPlaylists.Location = new System.Drawing.Point(138, 357);
+            this.cmdGetPlaylists.Name = "cmdGetPlaylists";
+            this.cmdGetPlaylists.Size = new System.Drawing.Size(111, 48);
+            this.cmdGetPlaylists.TabIndex = 15;
+            this.cmdGetPlaylists.Text = "Get Playlists for user";
+            this.cmdGetPlaylists.UseVisualStyleBackColor = true;
+            this.cmdGetPlaylists.Click += new System.EventHandler(this.cmdGetPlaylists_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1006, 484);
-            this.Controls.Add(this.filetestbutton);
+            this.Controls.Add(this.cmdGetPlaylists);
             this.Controls.Add(this.cmdAddSong);
             this.Controls.Add(this.cmdSkipLogin);
             this.Controls.Add(this.lblLoginLabel);
@@ -169,6 +179,6 @@
         private System.Windows.Forms.Label lblLoginLabel;
         private System.Windows.Forms.Button cmdSkipLogin;
         private System.Windows.Forms.Button cmdAddSong;
-        private System.Windows.Forms.Button filetestbutton;
+        private System.Windows.Forms.Button cmdGetPlaylists;
     }
 }

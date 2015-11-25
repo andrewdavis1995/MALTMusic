@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MALT_Music.Models;
 using MALT_Music.DataObjects;
+using MALT_Music.lib;
 
 namespace MALT_Music
 {
@@ -21,7 +22,8 @@ namespace MALT_Music
         public Login()
         {
             InitializeComponent();
-            
+            keyspaces keys = new keyspaces();
+            keys.populateTracks();            
         }
 
         /*
@@ -163,6 +165,13 @@ namespace MALT_Music
             //SongModel insertTracksModel = new SongModel();
             //insertTracksModel.doInsertTrack(newSong);
 
+        }
+
+        private void cmdGetPlaylists_Click(object sender, EventArgs e)
+        {
+            ViewPlaylist playlists = new ViewPlaylist();
+            playlists.currentUser = Microsoft.VisualBasic.Interaction.InputBox("Which user do you want playlists for?", "Select User");
+            playlists.Show();
         }
 
 
