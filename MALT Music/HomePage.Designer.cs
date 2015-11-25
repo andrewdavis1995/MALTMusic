@@ -38,8 +38,8 @@
             this.picBoxMagnifyingGlass = new System.Windows.Forms.PictureBox();
             this.picBoxPlaylist = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxMALTLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBrowse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxMagnifyingGlass)).BeginInit();
@@ -149,6 +149,17 @@
             this.panel1.Size = new System.Drawing.Size(1113, 125);
             this.panel1.TabIndex = 6;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(930, 47);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(48, 33);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "GO";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -161,16 +172,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(233, 336);
             this.panel2.TabIndex = 7;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(930, 47);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(48, 33);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "GO";
-            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // HomePage
             // 

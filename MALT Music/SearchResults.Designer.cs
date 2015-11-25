@@ -65,8 +65,10 @@
             this.label49 = new System.Windows.Forms.Label();
             this.lblArtists = new System.Windows.Forms.Label();
             this.tmrSlideArtists = new System.Windows.Forms.Timer(this.components);
+            this.glassIcon = new System.Windows.Forms.PictureBox();
             this.pnlSongs.SuspendLayout();
             this.pnlArtists.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.glassIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSongs
@@ -205,7 +207,7 @@
             this.lblSearchedFor.AutoSize = true;
             this.lblSearchedFor.Font = new System.Drawing.Font("Franklin Gothic Medium", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearchedFor.ForeColor = System.Drawing.Color.White;
-            this.lblSearchedFor.Location = new System.Drawing.Point(41, 9);
+            this.lblSearchedFor.Location = new System.Drawing.Point(76, 7);
             this.lblSearchedFor.Name = "lblSearchedFor";
             this.lblSearchedFor.Size = new System.Drawing.Size(242, 26);
             this.lblSearchedFor.TabIndex = 1;
@@ -511,6 +513,16 @@
             this.tmrSlideArtists.Interval = 7;
             this.tmrSlideArtists.Tick += new System.EventHandler(this.tmrSlideArtists_Tick);
             // 
+            // glassIcon
+            // 
+            this.glassIcon.BackgroundImage = global::MALT_Music.Properties.Resources.Magnifying_glass_icon_white;
+            this.glassIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.glassIcon.Location = new System.Drawing.Point(46, 4);
+            this.glassIcon.Name = "glassIcon";
+            this.glassIcon.Size = new System.Drawing.Size(27, 34);
+            this.glassIcon.TabIndex = 29;
+            this.glassIcon.TabStop = false;
+            // 
             // SearchResults
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -518,6 +530,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(901, 457);
+            this.Controls.Add(this.glassIcon);
             this.Controls.Add(this.pnlArtists);
             this.Controls.Add(this.lblSearchedFor);
             this.Controls.Add(this.pnlSongs);
@@ -527,6 +540,7 @@
             this.pnlSongs.PerformLayout();
             this.pnlArtists.ResumeLayout(false);
             this.pnlArtists.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.glassIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -570,5 +584,6 @@
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label lblArtists;
         private System.Windows.Forms.Timer tmrSlideArtists;
+        private System.Windows.Forms.PictureBox glassIcon;
     }
 }

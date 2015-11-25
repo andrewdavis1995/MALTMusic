@@ -6,9 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using Cassandra;
 using MALT_Music.DataObjects;
+using MALT_Music.Models;
 
 namespace MALT_Music
 {
@@ -72,6 +74,30 @@ namespace MALT_Music
             {
                 txtSearchBox.Text = "Search for songs, artists and albums...";
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            String searchText = txtSearchBox.Text;
+            SongModel songModel = new SongModel();
+
+            List<Song> songs = new List<Song>();
+            Thread songThread = new Thread(() => { songs = songModel.searchSongs(searchText); });
+            songThread.Start();
+
+
+            bool artists = false;
+            Thread artistThread = new Thread(() => { artists = songModel.populateDB(); });
+            artistThread.Start();
+            MessageBox.Show(artists.ToString());
+
+
+            songThread.Join();
+            MessageBox.Show(songs.Count.ToString());
+            artistThread.Join();
+
+
+
         }
 
     }

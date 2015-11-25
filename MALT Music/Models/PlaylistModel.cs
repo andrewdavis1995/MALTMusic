@@ -102,6 +102,13 @@ namespace MALT_Music.Models
 
         }
 
+        
+        /// <summary>
+        ///     FUNCTION TO GET A PLAYLIST BASED ON ITS NAME
+        /// </summary>
+        /// <param name="plname">The name of the playlist</param>
+        /// <param name="owner">The owner of the playlist</param>
+        /// <returns>A playlist object - the found playlist</returns>
         public Playlist getPlaylist(String plname, String owner)
         {
             try
@@ -140,7 +147,13 @@ namespace MALT_Music.Models
                 return null;
             }
         }
-
+        
+        /// <summary>
+        ///     Get the songs from a playlist
+        /// </summary>
+        /// <param name="pid">the id of the playlist</param>
+        /// <param name="session">the session for connecting to Cassandra</param>
+        /// <returns></returns>
         public List<Song> getTracksInPlist(Guid pid, ISession session)
         {
             List<Song> songs = new List<Song>();
