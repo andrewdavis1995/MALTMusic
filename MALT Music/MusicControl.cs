@@ -54,5 +54,12 @@ namespace MALT_Music
             command = "close MyMp3";
             mciSendString(command, null, 0, 0);
         }
+
+        //Pauses chosen music file
+        public void pause()
+        {
+            string command = "pause MyMp3";
+            mciSendString(command, null, 0, 0);
+        }
     }
 }

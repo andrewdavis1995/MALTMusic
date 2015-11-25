@@ -15,7 +15,7 @@ namespace MALT_Music
     public partial class MusicPlayer : Form
     {
         //Boolean to state whether track is playing or not
-        bool isPlaying = false;
+        bool isPlaying;
 
         // Hosts the player
         MusicControl musicControl;
@@ -29,6 +29,9 @@ namespace MALT_Music
 
             // Setup music controller
             musicControl = new MusicControl();
+
+            //Set to not playing
+            isPlaying = false;
         }
 
         /// <summary>
@@ -99,14 +102,20 @@ namespace MALT_Music
         {
             if (isPlaying == false)
             {
+                //Plays the song
+                musicControl.play();
+
                 //Run code to play song, eventually setting isPlaying to true if successful
                 isPlaying = true;
 
                 //Change image to pause image
                 picBoxPlayPause.Image = Properties.Resources.pause_track;
             }
-            if (isPlaying == true)
+            else if (isPlaying == true)
             {
+                //Pauses the song
+                musicControl.pause();
+
                 //Run code to pause song
                 isPlaying = false;
 
