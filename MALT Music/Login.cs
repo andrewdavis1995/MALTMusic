@@ -213,6 +213,12 @@ namespace MALT_Music
 
         }
 
+        private void cmdSearchResults_Click(object sender, EventArgs e)
+        {
+            SearchResults searchResults = new SearchResults();
+            searchResults.Show();
+        }
+
 
 
     }

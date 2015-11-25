@@ -40,6 +40,7 @@
             this.cmdGetPlaylists = new System.Windows.Forms.Button();
             this.cmdCreatePlaylist = new System.Windows.Forms.Button();
             this.cmdAddSongToPlaylist = new System.Windows.Forms.Button();
+            this.cmdSearchResults = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,12 +166,23 @@
             this.cmdAddSongToPlaylist.UseVisualStyleBackColor = true;
             this.cmdAddSongToPlaylist.Click += new System.EventHandler(this.cmdAddSongToPlaylist_Click);
             // 
+            // cmdSearchResults
+            // 
+            this.cmdSearchResults.Location = new System.Drawing.Point(12, 295);
+            this.cmdSearchResults.Name = "cmdSearchResults";
+            this.cmdSearchResults.Size = new System.Drawing.Size(111, 48);
+            this.cmdSearchResults.TabIndex = 18;
+            this.cmdSearchResults.Text = "Search Results ";
+            this.cmdSearchResults.UseVisualStyleBackColor = true;
+            this.cmdSearchResults.Click += new System.EventHandler(this.cmdSearchResults_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1006, 484);
+            this.Controls.Add(this.cmdSearchResults);
             this.Controls.Add(this.cmdAddSongToPlaylist);
             this.Controls.Add(this.cmdCreatePlaylist);
             this.Controls.Add(this.cmdGetPlaylists);
@@ -206,5 +218,6 @@
         private System.Windows.Forms.Button cmdGetPlaylists;
         private System.Windows.Forms.Button cmdCreatePlaylist;
         private System.Windows.Forms.Button cmdAddSongToPlaylist;
+        private System.Windows.Forms.Button cmdSearchResults;
     }
 }
