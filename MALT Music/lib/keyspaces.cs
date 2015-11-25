@@ -57,7 +57,7 @@ namespace MALT_Music.lib
 
                 String createListPlaylist = "create table  if not exists maltmusic.list_playlist(\n"
                     + "playlist_id UUID,\n"
-                    + "owner UUID,\n"
+                    + "owner text,\n"
                     + "playlist_name text,"
                     + "PRIMARY KEY (playlist_ID, owner, playlist_name)\n"
                     + ")";

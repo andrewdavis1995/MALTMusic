@@ -25,7 +25,7 @@ namespace MALT_Music
         private void ViewPlaylist_Load(object sender, EventArgs e)
         {
             PlaylistModel playlistModel = new PlaylistModel();
-            List<Playlist> playlists = playlistModel.getPlaylistsForUsers(this.currentUser);
+            List<Playlist> playlists = playlistModel.getPlaylistsForUser(this.currentUser);
 
             //Playlist newPlaylist = new Playlist("bananana", new Guid(), "new user");
             //playlists.Add(newPlaylist);

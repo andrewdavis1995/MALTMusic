@@ -38,6 +38,8 @@
             this.cmdSkipLogin = new System.Windows.Forms.Button();
             this.cmdAddSong = new System.Windows.Forms.Button();
             this.cmdGetPlaylists = new System.Windows.Forms.Button();
+            this.cmdCreatePlaylist = new System.Windows.Forms.Button();
+            this.cmdAddSongToPlaylist = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,12 +145,34 @@
             this.cmdGetPlaylists.UseVisualStyleBackColor = true;
             this.cmdGetPlaylists.Click += new System.EventHandler(this.cmdGetPlaylists_Click);
             // 
+            // cmdCreatePlaylist
+            // 
+            this.cmdCreatePlaylist.Location = new System.Drawing.Point(263, 424);
+            this.cmdCreatePlaylist.Name = "cmdCreatePlaylist";
+            this.cmdCreatePlaylist.Size = new System.Drawing.Size(111, 48);
+            this.cmdCreatePlaylist.TabIndex = 16;
+            this.cmdCreatePlaylist.Text = "Create Playlist";
+            this.cmdCreatePlaylist.UseVisualStyleBackColor = true;
+            this.cmdCreatePlaylist.Click += new System.EventHandler(this.cmdCreatePlaylist_Click);
+            // 
+            // cmdAddSongToPlaylist
+            // 
+            this.cmdAddSongToPlaylist.Location = new System.Drawing.Point(263, 357);
+            this.cmdAddSongToPlaylist.Name = "cmdAddSongToPlaylist";
+            this.cmdAddSongToPlaylist.Size = new System.Drawing.Size(111, 48);
+            this.cmdAddSongToPlaylist.TabIndex = 17;
+            this.cmdAddSongToPlaylist.Text = "Add Song to Playlist";
+            this.cmdAddSongToPlaylist.UseVisualStyleBackColor = true;
+            this.cmdAddSongToPlaylist.Click += new System.EventHandler(this.cmdAddSongToPlaylist_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1006, 484);
+            this.Controls.Add(this.cmdAddSongToPlaylist);
+            this.Controls.Add(this.cmdCreatePlaylist);
             this.Controls.Add(this.cmdGetPlaylists);
             this.Controls.Add(this.cmdAddSong);
             this.Controls.Add(this.cmdSkipLogin);
@@ -180,5 +204,7 @@
         private System.Windows.Forms.Button cmdSkipLogin;
         private System.Windows.Forms.Button cmdAddSong;
         private System.Windows.Forms.Button cmdGetPlaylists;
+        private System.Windows.Forms.Button cmdCreatePlaylist;
+        private System.Windows.Forms.Button cmdAddSongToPlaylist;
     }
 }

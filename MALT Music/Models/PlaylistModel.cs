@@ -102,7 +102,7 @@ namespace MALT_Music.Models
 
         }
 
-        public Playlist getPlaylist(String plname)
+        public Playlist getPlaylist(String plname, String owner)
         {
             try
             {
@@ -111,11 +111,11 @@ namespace MALT_Music.Models
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
 
-                plname = plname.ToLower();
+                //plname = plname.ToLower();
 
-                String todo = ("select * from list_playlist where playlist_name = :plnm");
+                String todo = ("select * from list_playlist where playlist_name = :plnm AND owner = :own ALLOW FILTERING");
                 PreparedStatement ps = session.Prepare(todo);
-                BoundStatement bs = ps.Bind(plname);
+                BoundStatement bs = ps.Bind(plname, owner);
                 // Execute Query
                 RowSet rows = session.Execute(bs);
                 foreach (Row row in rows)
@@ -124,12 +124,12 @@ namespace MALT_Music.Models
 
                     // Get Things
                     Guid pid = (Guid)row["playlist_id"];
-                    String owner = (String)row["owner"];
+                    String theOwner = row["owner"].ToString();
 
                     List<Song> songs = new List<Song>();
                     songs = getTracksInPlist(pid, session);
                     //Playlist is name, ID user, songs 
-                    toGet = new Playlist(plname, pid, owner, songs);
+                    toGet = new Playlist(plname, pid, theOwner, songs);
 
                     return toGet;
                 }
@@ -154,19 +154,19 @@ namespace MALT_Music.Models
                 //under duress i do this
                 Guid tid = (Guid)row["track_id"];
 
-                String things = ("select track_name,artist,file_loc  from track where track_id = :tid");
+                String things = ("select track_name,artist,file_loc from tracks where track_id = :tid");
                 PreparedStatement prep = session.Prepare(things);
-                BoundStatement bound = ps.Bind(tid);
+                BoundStatement bound = prep.Bind(tid);
                 // Execute Query
-                RowSet rows2 = session.Execute(bs);
+                RowSet rows2 = session.Execute(bound);
 
                 foreach (Row rowset in rows2)
                 {
                     //this one
                     //public Song(String artist, String location, String name, Guid tid) 
-                    String name = (String)row["track_name"];
-                    String artist = (String)row["artist"];
-                    String file_loc= (String)row["file_loc"];
+                    String name = (String)rowset["track_name"];
+                    String artist = (String)rowset["artist"];
+                    String file_loc= (String)rowset["file_loc"];
 
                     Song toadd = new Song(artist, file_loc, name, tid);
                     songs.Add(toadd);
@@ -191,7 +191,7 @@ namespace MALT_Music.Models
             foreach (Row row in rows)
             {
                 String plname = (String)row["playlist_name"];
-                Playlist toadd = getPlaylist(plname);
+                Playlist toadd = getPlaylist(plname, plOwner);
             }
 
             return playlists;

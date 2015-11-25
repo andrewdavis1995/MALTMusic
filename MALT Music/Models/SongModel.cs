@@ -132,6 +132,58 @@ namespace MALT_Music.Models
         }
 
 
+
+
+        public List<Song> getSongsByArtist(String artist)
+        {
+            List<Song> songs = new List<Song>();
+
+            try
+            {
+                // Call to initialise cluster connection
+                init();
+                
+                // Connect to cluster
+                ISession session = cluster.Connect("maltmusic");
+
+                
+                // Prepare and bind statement passing in username
+                String todo = ("SELECT * FROM tracks WHERE artist = :art ALLOW FILTERING");
+
+
+                PreparedStatement ps = session.Prepare(todo);
+
+                BoundStatement bs = ps.Bind(artist);
+
+                // Execute Query
+                RowSet rows = session.Execute(bs);
+                foreach (Row r in rows) 
+                {
+
+                    String trackName = r["track_name"].ToString();
+                    Guid id = (Guid)r["track_id"];
+                    String album = r["album"].ToString();
+                    String fileLocation = r["file_loc"].ToString();
+                    int year = (int)r["year"];
+                    int length = (int)r["length"];
+                    String genre = r["genre"].ToString();
+
+                    Song theSong = new Song(artist, album, year, genre, fileLocation, length, trackName, id);
+
+                    songs.Add(theSong);
+                }
+
+                return songs;
+
+                // Catch exceptions
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("SOMETHING WENT WRONG in GET BY ARTIST: " + ex.Message);
+                return songs;
+            }
+        }
+
     }
 }
 

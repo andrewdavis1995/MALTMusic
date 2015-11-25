@@ -23,7 +23,7 @@ namespace MALT_Music
         {
             InitializeComponent();
             keyspaces keys = new keyspaces();
-            keys.populateTracks();            
+            keys.populateTracks();
         }
 
         /*
@@ -57,7 +57,7 @@ namespace MALT_Music
          */
         private void txtUsername_Leave(object sender, EventArgs e)
         {
-            if(txtUsername.Text == "")
+            if (txtUsername.Text == "")
             {
                 txtUsername.Text = "Username...";
             }
@@ -108,10 +108,10 @@ namespace MALT_Music
                 homeForm.Show();
 
                 // Hide the current form
-                this.Hide();                
+                this.Hide();
 
             }
-            else 
+            else
             {
                 MessageBox.Show("UNSUCCESSFUL LOGIN");
 
@@ -172,6 +172,45 @@ namespace MALT_Music
             ViewPlaylist playlists = new ViewPlaylist();
             playlists.currentUser = Microsoft.VisualBasic.Interaction.InputBox("Which user do you want playlists for?", "Select User");
             playlists.Show();
+        }
+
+        private void cmdCreatePlaylist_Click(object sender, EventArgs e)
+        {
+            String playlist = Microsoft.VisualBasic.Interaction.InputBox("Playlist Name: ", "Playlist Name");
+            String owner = Microsoft.VisualBasic.Interaction.InputBox("Owner: ", "Owner");
+            Guid id = Guid.NewGuid();
+            List<Song> songs = new List<Song>();
+
+            Playlist newPlaylist = new Playlist(playlist, id, owner, songs);
+
+            PlaylistModel playlistModel = new PlaylistModel();
+            playlistModel.createPlaylist(newPlaylist);
+
+        }
+
+        private void cmdAddSongToPlaylist_Click(object sender, EventArgs e)
+        {
+            String plName = Microsoft.VisualBasic.Interaction.InputBox("Playlist Name:");
+            String owner = Microsoft.VisualBasic.Interaction.InputBox("Owner:");
+
+            PlaylistModel playlistModel = new PlaylistModel();
+            Playlist thePlaylist = playlistModel.getPlaylist(plName, owner);
+
+            SongModel songModel = new SongModel();
+            String artist = Microsoft.VisualBasic.Interaction.InputBox("Search for Artist: ");
+            List<Song> songs = songModel.getSongsByArtist(artist);
+
+            Song theSong = new Song();
+
+            if (songs.Count > 0)
+            {
+                theSong = songs[0];
+                if (thePlaylist != null)
+                {
+                    playlistModel.addSongToPlaylist(thePlaylist, theSong);
+                }
+            }
+
         }
 
 
