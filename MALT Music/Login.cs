@@ -167,6 +167,13 @@ namespace MALT_Music
 
         }
 
+        private void cmdGetPlaylists_Click(object sender, EventArgs e)
+        {
+            ViewPlaylist playlists = new ViewPlaylist();
+            playlists.currentUser = Microsoft.VisualBasic.Interaction.InputBox("Which user do you want playlists for?", "Select User");
+            playlists.Show();
+        }
+
 
 
     }
