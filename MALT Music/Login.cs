@@ -23,8 +23,7 @@ namespace MALT_Music
         {
             InitializeComponent();
             keyspaces keys = new keyspaces();
-            keys.populateTracks();
-            
+            keys.populateTracks();            
         }
 
         /*
