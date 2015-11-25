@@ -31,6 +31,15 @@ namespace MALT_Music.DataObjects
             this.songID = id;
         }
 
+        public Song(String artist, String location, String name, Guid tid) 
+        {
+            this.artist = artist;
+            this.file_loc = location;
+            this.track_name = name;
+            this.songID = tid;
+        
+        }
+
         public String getArtist() { return this.artist; }
         public String getAlbum() { return this.album; }
         public int getYear() { return this.year; }

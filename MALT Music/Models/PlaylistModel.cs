@@ -102,6 +102,101 @@ namespace MALT_Music.Models
 
         }
 
+        public Playlist getPlaylist(String plname)
+        {
+            try
+            {
+                // Call to initialise cluster connection
+                init();
+                // Connect to cluster
+                ISession session = cluster.Connect("maltmusic");
+
+                plname = plname.ToLower();
+
+                String todo = ("select * from list_playlist where playlist_name = :plnm");
+                PreparedStatement ps = session.Prepare(todo);
+                BoundStatement bs = ps.Bind(plname);
+                // Execute Query
+                RowSet rows = session.Execute(bs);
+                foreach (Row row in rows)
+                {
+                    Playlist toGet;
+
+                    // Get Things
+                    Guid pid = (Guid)row["playlist_id"];
+                    String owner = (String)row["owner"];
+
+                    List<Song> songs = new List<Song>();
+                    songs = getTracksInPlist(pid, session);
+                    //Playlist is name, ID user, songs 
+                    toGet = new Playlist(plname, pid, owner, songs);
+
+                    return toGet;
+                }
+                return null;
+            }
+            catch (Exception e){
+                Console.WriteLine("Errors Occured In here " + e);
+                return null;
+            }
+        }
+
+        public List<Song> getTracksInPlist(Guid pid, ISession session)
+        {
+            List<Song> songs = new List<Song>();
+            String todo = ("select * from playlist where playlist_id = :pid");
+            PreparedStatement ps = session.Prepare(todo);
+            BoundStatement bs = ps.Bind(pid);
+            // Execute Query
+            RowSet rows = session.Execute(bs);
+            foreach (Row row in rows)
+            {
+                //under duress i do this
+                Guid tid = (Guid)row["track_id"];
+
+                String things = ("select track_name,artist,file_loc  from track where track_id = :tid");
+                PreparedStatement prep = session.Prepare(things);
+                BoundStatement bound = ps.Bind(tid);
+                // Execute Query
+                RowSet rows2 = session.Execute(bs);
+
+                foreach (Row rowset in rows2)
+                {
+                    //this one
+                    //public Song(String artist, String location, String name, Guid tid) 
+                    String name = (String)row["track_name"];
+                    String artist = (String)row["artist"];
+                    String file_loc= (String)row["file_loc"];
+
+                    Song toadd = new Song(artist, file_loc, name, tid);
+                    songs.Add(toadd);
+                }
+
+            }
+
+            return songs;
+        }
+
+        public List<Playlist> getPlaylistsForUser(String plOwner)
+        {
+            // Connect to cluster
+            ISession session = cluster.Connect("maltmusic");
+
+            List<Playlist> playlists = new List<Playlist>();
+            String todo = ("select playlist_name from list_playlist where owner = :own");
+            PreparedStatement ps = session.Prepare(todo);
+            BoundStatement bs = ps.Bind(plOwner);
+            // Execute Query
+            RowSet rows = session.Execute(bs);
+            foreach (Row row in rows)
+            {
+                String plname = (String)row["playlist_name"];
+                Playlist toadd = getPlaylist(plname);
+            }
+
+            return playlists;
+        }
+
         public void removeSongFromPlaylist(Playlist playlist, Song song)
         {
             throw new NotImplementedException();
