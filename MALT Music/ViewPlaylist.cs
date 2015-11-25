@@ -25,16 +25,16 @@ namespace MALT_Music
         private void ViewPlaylist_Load(object sender, EventArgs e)
         {
             PlaylistModel playlistModel = new PlaylistModel();
-            List<Playlist> playlists = new List<Playlist>(); // = playlistModel.getPlaylistsForUsers();
+            List<Playlist> playlists = playlistModel.getPlaylistsForUsers(this.currentUser);
 
-            Playlist newPlaylist = new Playlist("bananana", new Guid(), "new user");
-            playlists.Add(newPlaylist);
-            newPlaylist = new Playlist("bananana", new Guid(), "andrewd95");
-            playlists.Add(newPlaylist);
-            newPlaylist = new Playlist("my playlist", new Guid(), "andrewd95");
-            playlists.Add(newPlaylist);
-            newPlaylist = new Playlist("my playlist2", new Guid(), "andrewd95");
-            playlists.Add(newPlaylist);
+            //Playlist newPlaylist = new Playlist("bananana", new Guid(), "new user");
+            //playlists.Add(newPlaylist);
+            //newPlaylist = new Playlist("bananana", new Guid(), "andrewd95");
+            //playlists.Add(newPlaylist);
+            //newPlaylist = new Playlist("my playlist", new Guid(), "andrewd95");
+            //playlists.Add(newPlaylist);
+            //newPlaylist = new Playlist("my playlist2", new Guid(), "andrewd95");
+            //playlists.Add(newPlaylist);
 
             int count = 0;
 
