@@ -55,11 +55,11 @@ namespace MALT_Music.lib
                     + "downvote int)";
 
                 String createListPlaylist = "create table  if not exists maltmusic.list_playlist(\n"
-                    + "Playlist_ID UUID,\n"
-                    + "Owner UUID,\n"
-                    + "PRIMARY KEY (Playlist_ID, Owner)\n"
+                    + "playlist_id UUID,\n"
+                    + "owner UUID,\n"
+                    + "playlist_name text,"
+                    + "PRIMARY KEY (playlist_ID, owner, playlist_name)\n"
                     + ")";
-
 
                 //Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
                 ISession session = c.Connect();
