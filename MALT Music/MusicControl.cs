@@ -12,6 +12,6 @@ namespace MALT_Music
     /// </summary>
     class MusicController
     {
-        static MediaPlayer mediaControl;
+        MediaPlayer mediaControl;
     }
 }
