@@ -108,5 +108,10 @@ namespace MALT_Music.Models
             return null;
         }
 
+        public void updateUserDetails() 
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

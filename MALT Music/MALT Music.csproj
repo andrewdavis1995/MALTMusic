@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataObjects\Playlist.cs" />
     <Compile Include="DataObjects\Song.cs" />
     <Compile Include="DataObjects\User.cs" />
     <Compile Include="HomePage.cs">
@@ -69,6 +70,7 @@
     <Compile Include="Models\InsertTrackModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="lib\keyspaces.cs" />
+    <Compile Include="Models\PlaylistModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="MusicControl.cs" />
     <Compile Include="MusicPlayer.cs">
