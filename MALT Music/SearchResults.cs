@@ -28,6 +28,14 @@ namespace MALT_Music
             InitializeComponent();
         }
 
+
+        private void hoverEvent(object sender, System.EventArgs e) 
+        {
+            Label theLabel = (Label)sender;
+            String theTag = theLabel.Tag.ToString();
+        }
+
+
         public void createSongList() {
             int i = 0;
             while (i < 9 && i < this.songList.Count) {
@@ -40,8 +48,9 @@ namespace MALT_Music
                 newLabelSongName.ForeColor = Color.White;
                 if (i % 2 == 0) { newLabelSongName.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongName.BackColor = Color.FromArgb(90, 90, 90); }
                 newLabelSongName.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
                 newLabelSongName.Tag = songList[i].getTrackName() + "|" + songList[i].getArtist();
+
+                newLabelSongName.MouseHover += hoverEvent;
 
                 pnlSongs.Controls.Add(newLabelSongName);
 
