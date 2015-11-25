@@ -155,7 +155,7 @@ namespace MALT_Music
             if (txtPassword.Text == "Password...")
             {
                 txtPassword.Text = "";
-                txtPassword.PasswordChar = '\0';
+                txtPassword.PasswordChar = '*';
             }
         }
 
@@ -164,24 +164,24 @@ namespace MALT_Music
             if (txtPassword.Text == "")
             {
                 txtPassword.Text = "Password...";
-                txtPassword.PasswordChar = '*';
+                txtPassword.PasswordChar = '\0';
             }
         }
 
         private void txtConfirmPassword_Enter(object sender, EventArgs e)
         {
-            if (txtConfirmPassword.Text == "")
+            if (txtConfirmPassword.Text == "Confirm Password...")
             {
-                txtConfirmPassword.Text = "Confirm Password...";
+                txtConfirmPassword.Text = "";
                 txtConfirmPassword.PasswordChar = '*';
             }
         }
 
         private void txtConfirmPassword_Leave(object sender, EventArgs e)
         {
-            if (txtConfirmPassword.Text == "Confirm Password...")
+            if (txtConfirmPassword.Text == "")
             {
-                txtConfirmPassword.Text = "";
+                txtConfirmPassword.Text = "Confirm Password...";
                 txtConfirmPassword.PasswordChar = '\0';
             }
         }
