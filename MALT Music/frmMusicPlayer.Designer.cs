@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
@@ -35,58 +36,75 @@
             this.lblFileName = new System.Windows.Forms.Label();
             this.ofdMusicOpener = new System.Windows.Forms.OpenFileDialog();
             this.picBoxAlbumArt = new System.Windows.Forms.PictureBox();
+            this.prbTrackBar = new System.Windows.Forms.ProgressBar();
+            this.tmrTracker = new System.Windows.Forms.Timer(this.components);
+            this.btnPause = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPlay
             // 
+            this.btnPlay.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.btnPlay.Enabled = false;
-            this.btnPlay.Location = new System.Drawing.Point(11, 55);
+            this.btnPlay.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnPlay.Location = new System.Drawing.Point(225, 93);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(91, 35);
+            this.btnPlay.Size = new System.Drawing.Size(93, 24);
             this.btnPlay.TabIndex = 0;
             this.btnPlay.Text = "Play";
-            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.UseVisualStyleBackColor = false;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(689, 3);
+            this.btnStop.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnStop.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnStop.Location = new System.Drawing.Point(423, 93);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(91, 35);
+            this.btnStop.Size = new System.Drawing.Size(93, 24);
             this.btnStop.TabIndex = 1;
             this.btnStop.Text = "Stop";
-            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.UseVisualStyleBackColor = false;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(689, 44);
+            this.btnTest.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnTest.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnTest.Location = new System.Drawing.Point(324, 12);
             this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(91, 35);
+            this.btnTest.Size = new System.Drawing.Size(93, 24);
             this.btnTest.TabIndex = 2;
             this.btnTest.Text = "Load Test File";
-            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.UseVisualStyleBackColor = false;
             this.btnTest.Click += new System.EventHandler(this.openTest);
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(11, 12);
+            this.btnOpen.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnOpen.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpen.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnOpen.Location = new System.Drawing.Point(225, 12);
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(91, 35);
+            this.btnOpen.Size = new System.Drawing.Size(93, 24);
             this.btnOpen.TabIndex = 3;
             this.btnOpen.Text = "Open";
-            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.UseVisualStyleBackColor = false;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // lblFileName
             // 
             this.lblFileName.AutoSize = true;
-            this.lblFileName.Location = new System.Drawing.Point(620, 104);
+            this.lblFileName.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblFileName.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFileName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblFileName.Location = new System.Drawing.Point(222, 77);
             this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(35, 13);
+            this.lblFileName.Size = new System.Drawing.Size(0, 14);
             this.lblFileName.TabIndex = 4;
-            this.lblFileName.Text = "label1";
             // 
             // ofdMusicOpener
             // 
@@ -106,18 +124,53 @@
             this.picBoxAlbumArt.TabIndex = 5;
             this.picBoxAlbumArt.TabStop = false;
             // 
+            // prbTrackBar
+            // 
+            this.prbTrackBar.Location = new System.Drawing.Point(225, 64);
+            this.prbTrackBar.Name = "prbTrackBar";
+            this.prbTrackBar.Size = new System.Drawing.Size(390, 10);
+            this.prbTrackBar.Step = 1;
+            this.prbTrackBar.TabIndex = 6;
+            // 
+            // tmrTracker
+            // 
+            this.tmrTracker.Interval = 1000;
+            this.tmrTracker.Tick += new System.EventHandler(this.tmrTracker_Tick);
+            // 
+            // btnPause
+            // 
+            this.btnPause.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnPause.Enabled = false;
+            this.btnPause.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPause.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnPause.Location = new System.Drawing.Point(324, 94);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(93, 23);
+            this.btnPause.TabIndex = 7;
+            this.btnPause.Text = "Pause";
+            this.btnPause.UseVisualStyleBackColor = false;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
             // frmMusicPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(927, 127);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnPause);
+            this.Controls.Add(this.prbTrackBar);
             this.Controls.Add(this.picBoxAlbumArt);
             this.Controls.Add(this.lblFileName);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnPlay);
+            this.MaximumSize = new System.Drawing.Size(943, 166);
+            this.MinimumSize = new System.Drawing.Size(943, 166);
             this.Name = "frmMusicPlayer";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MusicPlayer";
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).EndInit();
             this.ResumeLayout(false);
@@ -134,5 +187,8 @@
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.OpenFileDialog ofdMusicOpener;
         private System.Windows.Forms.PictureBox picBoxAlbumArt;
+        private System.Windows.Forms.ProgressBar prbTrackBar;
+        private System.Windows.Forms.Timer tmrTracker;
+        private System.Windows.Forms.Button btnPause;
     }
 }
