@@ -32,11 +32,9 @@ namespace MALT_Music
         /// </summary>
         /// <param name="fileInput"></param>
         /// <returns>The total length (time) of the track</returns>
-        public TimeSpan setSong(string fileInput)
+        public void setSong(string fileInput)
         {
             audioFileReader = new AudioFileReader(fileInput);
-
-            return audioFileReader.TotalTime;
         }
 
         /// <summary>
@@ -46,6 +44,15 @@ namespace MALT_Music
         {
             waveOut.Init(audioFileReader);
             waveOut.Play();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="newSpan">Holds the new time indicator</param>
+        public void updatePlayTime(TimeSpan newSpan)
+        {
+            audioFileReader.CurrentTime = newSpan;
         }
 
         /// <summary>
@@ -63,6 +70,18 @@ namespace MALT_Music
         {
             waveOut.Stop();
             audioFileReader.Dispose();
+        }
+
+        /// <summary>
+        /// Gets the track length
+        /// </summary>
+        /// <returns>The length of track as int (seconds)</returns>
+        public int getTrackLength()
+        {
+            double trackLengthDB = audioFileReader.TotalTime.TotalSeconds;
+            int trackLength = Convert.ToInt32(trackLengthDB);
+
+            return trackLength;
         }
     }
 }

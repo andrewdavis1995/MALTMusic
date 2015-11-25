@@ -16,6 +16,7 @@ namespace MALT_Music
     {
         // Contains functions for the music controller
         MusicController musicController;
+        int trackLength;
 
         /// <summary>
         /// Init for form
@@ -35,8 +36,15 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            TimeSpan thisTrack = musicController.setSong(lblFileName.Text);
-            prbTrackBar.Maximum = Convert.ToInt32(thisTrack.TotalSeconds);
+            musicController.setSong(lblFileName.Text);
+
+            trackLength = musicController.getTrackLength();
+            TimeSpan totalLength = TimeSpan.FromSeconds(trackLength);
+            lblTimeTwo.Text = totalLength.ToString("mm':'ss");
+
+            trbTrackSelect.Maximum = trackLength;
+            prbTrackBar.Maximum = trackLength;
+            trbTrackSelect.Value = 0;
             prbTrackBar.Value = 0;
 
             tmrTracker.Enabled = true;
@@ -48,6 +56,8 @@ namespace MALT_Music
             btnTest.Enabled = false;
             btnOpen.Enabled = false;
         }
+
+       
 
         /// <summary>
         /// Opens an mp3 file
@@ -73,6 +83,7 @@ namespace MALT_Music
             btnTest.Enabled = true;
             btnPause.Enabled = false;
 
+            trbTrackSelect.Value = 0;
             prbTrackBar.Value = 0;
             tmrTracker.Enabled = false;
         }
@@ -113,17 +124,44 @@ namespace MALT_Music
             btnPlay.Enabled = true;
         }
 
+        /// <summary>
+        /// Increments the progress bar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tmrTracker_Tick(object sender, EventArgs e)
         {
-            if (prbTrackBar.Value != prbTrackBar.Maximum)
+            // If not at maximum
+            if (trbTrackSelect.Value != trbTrackSelect.Maximum)
             {
-                prbTrackBar.PerformStep();
+                trbTrackSelect.Value++;
+                prbTrackBar.Value = trbTrackSelect.Value;
+                TimeSpan timeFactor = TimeSpan.FromSeconds(trackLength - trbTrackSelect.Value);
+                lblTimeOne.Text = timeFactor.ToString("mm':'ss");
             }
-            else
+            else // If at max, disable
             {
                 this.Enabled = false;
             }
-            
+        }
+
+        /// <summary>
+        /// Sets up form settings for initial load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmMusicPlayer_Load(object sender, EventArgs e)
+        {
+            lblTimeOne.Text = "";
+            lblTimeTwo.Text = "";
+        }
+
+
+        private void trbTrackSelect_Scroll(object sender, EventArgs e)
+        {
+            TimeSpan newTrackTime = TimeSpan.FromSeconds(trackLength * trbTrackSelect.Value / 100.0);
+            prbTrackBar.Value = trbTrackSelect.Value;
+            musicController.updatePlayTime(newTrackTime);
         }
     }
 }
