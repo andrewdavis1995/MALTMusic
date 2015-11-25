@@ -74,5 +74,14 @@ namespace MALT_Music
             }
         }
 
+        private void HomePage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+            System.Environment.Exit(0);
+
+        }
+
+
+
     }
 }
