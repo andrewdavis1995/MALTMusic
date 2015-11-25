@@ -64,29 +64,126 @@ namespace MALT_Music
 
         }
 
-        private void txtUsername_Leave(object sender, EventArgs e)
-        {
-            picUsernameStatus.Visible = true;
-            
-            RegisterModel registerModel = new RegisterModel();
-
-            String username = txtUsername.Text;
-
-            bool taken = registerModel.checkUsername(username);
-
-            if (taken)
-            {
-                picUsernameStatus.Image = Properties.Resources.small_cross;
-            }
-            else {
-                picUsernameStatus.Image = Properties.Resources.small_tick;
-            }
-        }
 
         private void txtUsername_Enter(object sender, EventArgs e)
         {
+            if (txtUsername.Text == "Username...")
+            {
+                txtUsername.Text = "";
+            }
+
             picUsernameStatus.Visible = false;
             picUsernameStatus.Image = Properties.Resources.spinningWheel;
+        }
+
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            if (txtUsername.Text == "")
+            {
+                txtUsername.Text = "Username...";
+            }
+            else
+            {
+                picUsernameStatus.Image = Properties.Resources.spinningWheel;
+
+                RegisterModel registerModel = new RegisterModel();
+                bool taken = registerModel.checkUsername(txtUsername.Text);
+
+                picUsernameStatus.Visible = true;
+
+                if (!taken) {
+                    picUsernameStatus.Image = Properties.Resources.small_tick;
+                }
+                else
+                {
+                    picUsernameStatus.Image = Properties.Resources.small_cross;
+                }
+
+            }
+        }
+
+        private void txtFirstName_Leave(object sender, EventArgs e)
+        {
+            if (txtFirstName.Text == "")
+            {
+                txtFirstName.Text = "First Name...";
+            }
+        }
+
+        private void txtFirstName_Enter(object sender, EventArgs e)
+        {
+            if (txtFirstName.Text == "First Name...")
+            {
+                txtFirstName.Text = "";
+            }
+        }
+
+        private void txtLastName_Leave(object sender, EventArgs e)
+        {
+            if (txtLastName.Text == "")
+            {
+                txtLastName.Text = "Last Name...";
+            }
+        }
+
+        private void txtLastName_Enter(object sender, EventArgs e)
+        {
+            if (txtLastName.Text == "Last Name...")
+            {
+                txtLastName.Text = "";
+            }
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (txtEmail.Text == "")
+            {
+                txtEmail.Text = "Email...";
+            }
+        }
+
+        private void txtEmail_Enter(object sender, EventArgs e)
+        {
+            if (txtEmail.Text == "Email...")
+            {
+                txtEmail.Text = "";
+            }
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "Password...")
+            {
+                txtPassword.Text = "";
+                txtPassword.PasswordChar = '*';
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == "")
+            {
+                txtPassword.Text = "Password...";
+                txtPassword.PasswordChar = '\0';
+            }
+        }
+
+        private void txtConfirmPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtConfirmPassword.Text == "Confirm Password...")
+            {
+                txtConfirmPassword.Text = "";
+                txtConfirmPassword.PasswordChar = '*';
+            }
+        }
+
+        private void txtConfirmPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtConfirmPassword.Text == "")
+            {
+                txtConfirmPassword.Text = "Confirm Password...";
+                txtConfirmPassword.PasswordChar = '\0';
+            }
         }
     }
 }

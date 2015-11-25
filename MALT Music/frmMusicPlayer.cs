@@ -14,8 +14,8 @@ namespace MALT_Music
 {
     public partial class frmMusicPlayer : Form
     {
-        // Hosts the player
-        //MusicControl musicControl;
+        // Contains functions for the music controller
+        MusicController musicController;
 
         /// <summary>
         /// Init for form
@@ -25,17 +25,21 @@ namespace MALT_Music
             InitializeComponent();
 
             // Setup music controller
-            //musicControl = new MusicControl();
+            musicController = new MusicController();
         }
 
         /// <summary>
         /// Plays the mp3
-        /// </summary>
+        /// </summary>.
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            //musicControl.play();
+            musicController.setSong(lblFileName.Text);
+            musicController.playSong();
+
+            btnTest.Enabled = false;
+            btnOpen.Enabled = false;
         }
 
         /// <summary>
@@ -55,13 +59,22 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void btnStop_Click(object sender, EventArgs e)
         {
-            //musicControl.stop();
+            musicController.stopSong();
+
+            btnPlay.Enabled = false;
+            btnOpen.Enabled = true;
+            btnTest.Enabled = true;
         }
 
+        /// <summary>
+        /// Sets the song to be played
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ofdMusicOpener_FileOk(object sender, CancelEventArgs e)
         {
             lblFileName.Text = ofdMusicOpener.FileName;
-            //musicControl.open(lblFileName.Text);
+            btnPlay.Enabled = true;
         }
 
         /// <summary>
@@ -71,23 +84,9 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void openTest(object sender, EventArgs e)
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            string[] resourceList = assembly.GetManifestResourceNames();
-
-            var resourceName = "MALT_Music.Resources.Test.mp3";
-
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                string filePath = reader.ReadToEnd();
-                string path = Path.GetFullPath(@"..\..\Resources\Test.mp3");
-                lblFileName.Text = path;
-                //musicControl.open(path);
-            }
-
-            
-            
-            //musicControl.open();
+            string path = Path.GetFullPath(@"..\..\Resources\Test.mp3");
+            lblFileName.Text = path;
+            btnPlay.Enabled = true;
         }
     }
 }

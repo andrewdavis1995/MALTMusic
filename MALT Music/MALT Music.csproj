@@ -39,12 +39,8 @@
       <HintPath>..\packages\lz4net.1.0.5.93\lib\net40-client\LZ4.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.Xna.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Xna.Framework.MediaLibraryExtensions">
-      <HintPath>..\packages\Microsoft.Xna.Framework.MediaLibraryExtensions.dll</HintPath>
+    <Reference Include="NAudio">
+      <HintPath>..\packages\NAudio.1.7.3\lib\net35\NAudio.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -80,7 +76,7 @@
     <Compile Include="lib\keyspaces.cs" />
     <Compile Include="Models\PlaylistModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
-    <Compile Include="MusicControl.cs" />
+    <Compile Include="MusicController.cs" />
     <Compile Include="frmMusicPlayer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +91,12 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewPlaylist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewPlaylist.Designer.cs">
+      <DependentUpon>ViewPlaylist.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,6 +110,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewPlaylist.resx">
+      <DependentUpon>ViewPlaylist.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -138,11 +143,14 @@
     <EmbeddedResource Include="Resources\Test.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Magnifying_glass_icon_white.png" />
+    <None Include="Resources\Music_icon_white.png" />
     <None Include="Resources\spinningWheel.gif" />
     <None Include="Resources\small tick.png" />
     <None Include="Resources\small cross.png" />
     <None Include="Resources\Music-Treble-Clef-icon.png" />
     <None Include="Resources\List.png" />
+    <None Include="Resources\List_white.png" />
     <Content Include="Resources\Magnifying_glass_icon.png" />
     <None Include="Resources\Magnifying_glass_icon1.png" />
   </ItemGroup>

@@ -40,7 +40,8 @@
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(373, 82);
+            this.btnPlay.Enabled = false;
+            this.btnPlay.Location = new System.Drawing.Point(11, 55);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(91, 35);
             this.btnPlay.TabIndex = 0;
@@ -50,7 +51,7 @@
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(470, 82);
+            this.btnStop.Location = new System.Drawing.Point(689, 3);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(91, 35);
             this.btnStop.TabIndex = 1;
@@ -60,7 +61,7 @@
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(567, 82);
+            this.btnTest.Location = new System.Drawing.Point(689, 44);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(91, 35);
             this.btnTest.TabIndex = 2;
@@ -70,7 +71,7 @@
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(276, 82);
+            this.btnOpen.Location = new System.Drawing.Point(11, 12);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(91, 35);
             this.btnOpen.TabIndex = 3;
@@ -81,7 +82,7 @@
             // lblFileName
             // 
             this.lblFileName.AutoSize = true;
-            this.lblFileName.Location = new System.Drawing.Point(281, 38);
+            this.lblFileName.Location = new System.Drawing.Point(620, 104);
             this.lblFileName.Name = "lblFileName";
             this.lblFileName.Size = new System.Drawing.Size(35, 13);
             this.lblFileName.TabIndex = 4;
@@ -105,7 +106,7 @@
             this.picBoxAlbumArt.TabIndex = 5;
             this.picBoxAlbumArt.TabStop = false;
             // 
-            // MusicPlayer
+            // frmMusicPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -116,7 +117,7 @@
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnPlay);
-            this.Name = "MusicPlayer";
+            this.Name = "frmMusicPlayer";
             this.Text = "MusicPlayer";
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).EndInit();
             this.ResumeLayout(false);
