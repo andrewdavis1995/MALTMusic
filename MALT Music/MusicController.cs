@@ -49,7 +49,7 @@ namespace MALT_Music
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="newSpan">Holds the new time indicator</param>
+        /// <param name="newSpan">Holds the new time </param>
         public void updatePlayTime(TimeSpan newSpan)
         {
             audioFileReader.CurrentTime = newSpan;

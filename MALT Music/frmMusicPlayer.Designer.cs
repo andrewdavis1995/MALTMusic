@@ -46,11 +46,11 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblTimeOne = new System.Windows.Forms.Label();
             this.lblTimeTwo = new System.Windows.Forms.Label();
-            this.trbTrackSelect = new System.Windows.Forms.TrackBar();
-            this.prbTrackBar = new System.Windows.Forms.ProgressBar();
+            this.pcbSliderBar = new System.Windows.Forms.PictureBox();
+            this.ttpSliderIndicator = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).BeginInit();
             this.grpRepeat.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trbTrackSelect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSliderBar)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPlay
@@ -70,6 +70,7 @@
             // btnStop
             // 
             this.btnStop.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnStop.Enabled = false;
             this.btnStop.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnStop.Location = new System.Drawing.Point(493, 13);
@@ -228,7 +229,7 @@
             // lblTimeOne
             // 
             this.lblTimeOne.AutoSize = true;
-            this.lblTimeOne.Location = new System.Drawing.Point(261, 66);
+            this.lblTimeOne.Location = new System.Drawing.Point(152, 67);
             this.lblTimeOne.Name = "lblTimeOne";
             this.lblTimeOne.Size = new System.Drawing.Size(49, 14);
             this.lblTimeOne.TabIndex = 10;
@@ -237,29 +238,25 @@
             // lblTimeTwo
             // 
             this.lblTimeTwo.AutoSize = true;
-            this.lblTimeTwo.Location = new System.Drawing.Point(668, 67);
+            this.lblTimeTwo.Location = new System.Drawing.Point(1020, 67);
             this.lblTimeTwo.Name = "lblTimeTwo";
             this.lblTimeTwo.Size = new System.Drawing.Size(49, 14);
             this.lblTimeTwo.TabIndex = 11;
             this.lblTimeTwo.Text = "label2";
             // 
-            // trbTrackSelect
+            // pcbSliderBar
             // 
-            this.trbTrackSelect.Location = new System.Drawing.Point(147, 80);
-            this.trbTrackSelect.Name = "trbTrackSelect";
-            this.trbTrackSelect.Size = new System.Drawing.Size(917, 45);
-            this.trbTrackSelect.TabIndex = 12;
-            this.trbTrackSelect.Value = 10;
-            this.trbTrackSelect.Scroll += new System.EventHandler(this.trbTrackSelect_Scroll);
-            // 
-            // prbTrackBar
-            // 
-            this.prbTrackBar.Location = new System.Drawing.Point(160, 102);
-            this.prbTrackBar.Name = "prbTrackBar";
-            this.prbTrackBar.Size = new System.Drawing.Size(890, 12);
-            this.prbTrackBar.Step = 1;
-            this.prbTrackBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.prbTrackBar.TabIndex = 13;
+            this.pcbSliderBar.BackColor = System.Drawing.Color.MidnightBlue;
+            this.pcbSliderBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pcbSliderBar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.pcbSliderBar.Location = new System.Drawing.Point(155, 84);
+            this.pcbSliderBar.Name = "pcbSliderBar";
+            this.pcbSliderBar.Size = new System.Drawing.Size(914, 41);
+            this.pcbSliderBar.TabIndex = 12;
+            this.pcbSliderBar.TabStop = false;
+            this.pcbSliderBar.Paint += new System.Windows.Forms.PaintEventHandler(this.picSliderBar_Paint);
+            this.pcbSliderBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pcbSliderBar_MouseDown);
+            this.pcbSliderBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pcbSliderBar_MouseMove);
             // 
             // frmMusicPlayer
             // 
@@ -268,8 +265,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1081, 137);
             this.ControlBox = false;
-            this.Controls.Add(this.prbTrackBar);
-            this.Controls.Add(this.trbTrackSelect);
+            this.Controls.Add(this.pcbSliderBar);
             this.Controls.Add(this.lblTimeTwo);
             this.Controls.Add(this.lblTimeOne);
             this.Controls.Add(this.lblStatus);
@@ -293,7 +289,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).EndInit();
             this.grpRepeat.ResumeLayout(false);
             this.grpRepeat.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trbTrackSelect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSliderBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,7 +314,7 @@
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblTimeOne;
         private System.Windows.Forms.Label lblTimeTwo;
-        private System.Windows.Forms.TrackBar trbTrackSelect;
-        private System.Windows.Forms.ProgressBar prbTrackBar;
+        private System.Windows.Forms.PictureBox pcbSliderBar;
+        private System.Windows.Forms.ToolTip ttpSliderIndicator;
     }
 }

@@ -9,15 +9,27 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
 
 namespace MALT_Music
 {
+    // Contains functions for the music controller
     public partial class frmMusicPlayer : Form
     {
-        // Contains functions for the music controller
+        // Class variables
         MusicController musicController;
         int trackLength;
 
+        /// <summary>
+        /// Variables for slider bar.
+        /// Information on this found <see cref="http://csharphelper.com/blog/2011/07/use-a-picturebox-to-make-a-slider-with-a-needle-in-c/"/> HERE
+        /// </summary>
+        private float sliderValue;
+        private float maxValue;
+        private float minValue;
+        private bool mouseIsDown;
+        
         /// <summary>
         /// Init for form
         /// </summary>
@@ -27,6 +39,12 @@ namespace MALT_Music
 
             // Setup music controller
             musicController = new MusicController();
+
+            // Initialise slider
+            sliderValue = 0f;
+            maxValue = 0f;
+            minValue = 0f;
+            mouseIsDown = false;
         }
 
         /// <summary>
@@ -41,11 +59,7 @@ namespace MALT_Music
             trackLength = musicController.getTrackLength();
             TimeSpan totalLength = TimeSpan.FromSeconds(trackLength);
             lblTimeTwo.Text = totalLength.ToString("mm':'ss");
-
-            trbTrackSelect.Maximum = trackLength;
-            prbTrackBar.Maximum = trackLength;
-            trbTrackSelect.Value = 0;
-            prbTrackBar.Value = 0;
+            maxValue = totalLength.Minutes;
 
             tmrTracker.Enabled = true;
 
@@ -83,8 +97,6 @@ namespace MALT_Music
             btnTest.Enabled = true;
             btnPause.Enabled = false;
 
-            trbTrackSelect.Value = 0;
-            prbTrackBar.Value = 0;
             tmrTracker.Enabled = false;
         }
 
@@ -131,18 +143,15 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void tmrTracker_Tick(object sender, EventArgs e)
         {
-            // If not at maximum
-            if (trbTrackSelect.Value != trbTrackSelect.Maximum)
+            if (sliderValue != maxValue)
             {
-                trbTrackSelect.Value++;
-                prbTrackBar.Value = trbTrackSelect.Value;
-                TimeSpan timeFactor = TimeSpan.FromSeconds(trackLength - trbTrackSelect.Value);
-                lblTimeOne.Text = timeFactor.ToString("mm':'ss");
+                SetValue(sliderValue + 0.01f);
             }
-            else // If at max, disable
+            else
             {
                 this.Enabled = false;
             }
+            
         }
 
         /// <summary>
@@ -157,11 +166,80 @@ namespace MALT_Music
         }
 
 
-        private void trbTrackSelect_Scroll(object sender, EventArgs e)
+        #region SliderControl ## Functions for slider control
+        /// <summary>
+        /// Convert an X coordinate to a value
+        /// </summary>
+        /// <param name="x">int value to convert to float</param>
+        /// <returns>Returned coordinate</returns>
+        private float XtoValue(int x)
         {
-            TimeSpan newTrackTime = TimeSpan.FromSeconds(trackLength * trbTrackSelect.Value / 100.0);
-            prbTrackBar.Value = trbTrackSelect.Value;
-            musicController.updatePlayTime(newTrackTime);
+            return minValue + (maxValue - minValue) * x / (float)(pcbSliderBar.ClientSize.Width - 1);
         }
+
+        /// <summary>
+        /// Convert value to an X coordinate
+        /// </summary>
+        /// <param name="value">coordinate to convert to float</param>
+        /// <returns>Returned float</returns>
+        private float ValueToX(float value)
+        {
+            return (pcbSliderBar.ClientSize.Width - 1) *
+                (value - minValue) / (float)(maxValue - minValue);
+        }
+
+        private void SetValue(float value)
+        {
+            // Make sure the new value is within bounds.
+            if (value < minValue) value = minValue;
+            if (value > maxValue) value = maxValue;
+
+            // See if the value has changed.
+            if (sliderValue == value) return;
+
+            // Save the new value.
+            sliderValue = value;
+
+            // Redraw to show the new value.
+            pcbSliderBar.Refresh();
+
+            // Display the value tooltip.
+            int tip_x = pcbSliderBar.Left + (int)ValueToX(sliderValue);
+            int tip_y = pcbSliderBar.Top;
+            ttpSliderIndicator.Show(sliderValue.ToString("0.00"), this, tip_x, tip_y, 3000);
+
+            // Take action here if desired.
+            TimeSpan newTime = TimeSpan.FromMinutes(sliderValue);
+            musicController.updatePlayTime(newTime);
+            lblTimeOne.Text = sliderValue.ToString("0.00");
+        }
+
+        // Draw the needle.
+        private void picSliderBar_Paint(object sender, PaintEventArgs e)
+        {
+            // Calculate the needle's X coordinate.
+            float x = ValueToX(sliderValue);
+
+            if (x > 0)
+            {
+                // Draw it.
+                e.Graphics.DrawLine(Pens.White,
+                    x, 0,
+                    x, pcbSliderBar.ClientSize.Height);
+            }
+        }
+
+        private void pcbSliderBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseIsDown = true;
+            SetValue(XtoValue(e.X));
+        }
+
+        private void pcbSliderBar_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!mouseIsDown) return;
+            SetValue(XtoValue(e.X));
+        }
+        #endregion
     }
 }
