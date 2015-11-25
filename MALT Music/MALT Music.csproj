@@ -95,6 +95,12 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewPlaylist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewPlaylist.Designer.cs">
+      <DependentUpon>ViewPlaylist.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
