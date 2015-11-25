@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cassandra;
+using MALT_Music.Models;
 
 
 namespace MALT_Music.lib
@@ -55,11 +56,11 @@ namespace MALT_Music.lib
                     + "downvote int)";
 
                 String createListPlaylist = "create table  if not exists maltmusic.list_playlist(\n"
-                    + "Playlist_ID UUID,\n"
-                    + "Owner UUID,\n"
-                    + "PRIMARY KEY (Playlist_ID, Owner)\n"
+                    + "playlist_id UUID,\n"
+                    + "owner UUID,\n"
+                    + "playlist_name text,"
+                    + "PRIMARY KEY (playlist_ID, owner, playlist_name)\n"
                     + ")";
-
 
                 //Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
                 ISession session = c.Connect();
@@ -140,6 +141,10 @@ namespace MALT_Music.lib
                     Console.WriteLine("Creating List Playlist broke - " + et);
                 }
 
+
+                //populate database with things
+                SongModel s = new SongModel();
+                s.populateDB();
 
 
                 //session.End();
