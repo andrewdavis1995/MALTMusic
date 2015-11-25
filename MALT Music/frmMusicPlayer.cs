@@ -35,9 +35,16 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            musicController.setSong(lblFileName.Text);
+            TimeSpan thisTrack = musicController.setSong(lblFileName.Text);
+            prbTrackBar.Maximum = Convert.ToInt32(thisTrack.TotalSeconds);
+            prbTrackBar.Value = 0;
+
+            tmrTracker.Enabled = true;
+
             musicController.playSong();
 
+            btnPause.Enabled = true;
+            btnPlay.Enabled = false;
             btnTest.Enabled = false;
             btnOpen.Enabled = false;
         }
@@ -64,6 +71,10 @@ namespace MALT_Music
             btnPlay.Enabled = false;
             btnOpen.Enabled = true;
             btnTest.Enabled = true;
+            btnPause.Enabled = false;
+
+            prbTrackBar.Value = 0;
+            tmrTracker.Enabled = false;
         }
 
         /// <summary>
@@ -87,6 +98,32 @@ namespace MALT_Music
             string path = Path.GetFullPath(@"..\..\Resources\Test.mp3");
             lblFileName.Text = path;
             btnPlay.Enabled = true;
+        }
+
+        /// <summary>
+        /// Pauses the track
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            musicController.pauseSong();
+            tmrTracker.Enabled = false;
+            btnPause.Enabled = false;
+            btnPlay.Enabled = true;
+        }
+
+        private void tmrTracker_Tick(object sender, EventArgs e)
+        {
+            if (prbTrackBar.Value != prbTrackBar.Maximum)
+            {
+                prbTrackBar.PerformStep();
+            }
+            else
+            {
+                this.Enabled = false;
+            }
+            
         }
     }
 }

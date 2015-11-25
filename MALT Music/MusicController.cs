@@ -30,9 +30,13 @@ namespace MALT_Music
         /// <summary>
         /// Sets the song to be played by the player
         /// </summary>
-        public void setSong(string fileInput)
+        /// <param name="fileInput"></param>
+        /// <returns>The total length (time) of the track</returns>
+        public TimeSpan setSong(string fileInput)
         {
             audioFileReader = new AudioFileReader(fileInput);
+
+            return audioFileReader.TotalTime;
         }
 
         /// <summary>
@@ -42,6 +46,14 @@ namespace MALT_Music
         {
             waveOut.Init(audioFileReader);
             waveOut.Play();
+        }
+
+        /// <summary>
+        /// Pauses the track
+        /// </summary>
+        public void pauseSong()
+        {
+            waveOut.Pause();
         }
 
         /// <summary>
