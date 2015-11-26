@@ -18,6 +18,8 @@ namespace MALT_Music
     {
         //Initialise other forms here
         frmMusicPlayer musicPlayer = new frmMusicPlayer();
+        ViewPlaylist playlists = new ViewPlaylist();
+        SearchResults searchResults = new SearchResults();
 
         public User currentUser;
 
@@ -46,7 +48,11 @@ namespace MALT_Music
 
         private void hideForms()
         {
-            musicPlayer.Hide();
+            //Music player is never hidden
+
+            playlists.Hide();
+            searchResults.Hide();
+            
         }
 
         private void loadMusicPlayer()
@@ -78,6 +84,8 @@ namespace MALT_Music
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            hideForms();
+
             String searchText = txtSearchBox.Text;
             SongModel songModel = new SongModel();
 
@@ -102,7 +110,6 @@ namespace MALT_Music
         //Method to load search results window in child form
         private void loadSearchResults(List<Song> songs, String searchText)
         {
-            SearchResults searchResults = new SearchResults();
             searchResults.setSongList(songs);
 
             searchResults.setCurrentUser(currentUser);
@@ -123,6 +130,18 @@ namespace MALT_Music
         private void HomePage_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void picBoxPlaylist_Click(object sender, EventArgs e)
+        {
+            hideForms();
+
+            playlists.currentUser = currentUser.getUsername();
+
+            playlists.TopLevel = false;
+            playlists.Parent = this;
+            playlists.FormBorderStyle = FormBorderStyle.None;
+            playlists.Show();
         }
 
     }

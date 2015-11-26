@@ -136,6 +136,7 @@
             this.picBoxPlaylist.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxPlaylist.TabIndex = 1;
             this.picBoxPlaylist.TabStop = false;
+            this.picBoxPlaylist.Click += new System.EventHandler(this.picBoxPlaylist_Click);
             // 
             // panel1
             // 
