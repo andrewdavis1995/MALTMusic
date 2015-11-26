@@ -15,7 +15,10 @@ namespace MALT_Music
     {
 
         private List<Song> songList = new List<Song>();
-        List<Label> songLabels = new List<Label>();
+        List<Label> songLabelsA = new List<Label>();
+        List<Label> songLabelsB = new List<Label>();
+        List<Label> songLabelsC = new List<Label>();
+        List<Label> songLabelsD = new List<Label>();
 
         bool songsState = false;
         bool artistState = false;
@@ -35,7 +38,10 @@ namespace MALT_Music
             Label theLabel = (Label)sender;
             int id = int.Parse(theLabel.Tag.ToString());
 
-            songLabels[id].BackColor = Color.DodgerBlue;
+            songLabelsA[id].BackColor = Color.DodgerBlue;
+            songLabelsB[id].BackColor = Color.DodgerBlue;
+            songLabelsC[id].BackColor = Color.DodgerBlue;
+            songLabelsD[id].BackColor = Color.DodgerBlue;
         }
 
         private void leaveEvent(object sender, System.EventArgs e)
@@ -43,12 +49,28 @@ namespace MALT_Music
             Label theLabel = (Label)sender;
             int id = int.Parse(theLabel.Tag.ToString());
 
-            if (id % 2 == 0) { songLabels[id].BackColor = Color.FromArgb(60, 60, 60); } else { songLabels[id].BackColor = Color.FromArgb(90, 90, 90); }
+            if (id % 2 == 0)
+            {
+                songLabelsA[id].BackColor = Color.FromArgb(60, 60, 60);
+                songLabelsB[id].BackColor = Color.FromArgb(60, 60, 60);
+                songLabelsC[id].BackColor = Color.FromArgb(60, 60, 60);
+                songLabelsD[id].BackColor = Color.FromArgb(60, 60, 60);
+            }
+            else
+            {
+                songLabelsA[id].BackColor = Color.FromArgb(90, 90, 90);
+                songLabelsB[id].BackColor = Color.FromArgb(90, 90, 90);
+                songLabelsC[id].BackColor = Color.FromArgb(90, 90, 90);
+                songLabelsD[id].BackColor = Color.FromArgb(90, 90, 90); 
+            }
                 
         }
 
 
-        public void createSongList() {
+        public void createSongList(String searchText) {
+
+            this.lblSearchedFor.Text = "Search Results for: '" + searchText + "':";
+
             int i = 0;
             while (i < 9 && i < this.songList.Count) {
 
@@ -65,8 +87,59 @@ namespace MALT_Music
                 newLabelSongName.MouseEnter += hoverEvent;
                 newLabelSongName.MouseLeave += leaveEvent;
 
-                songLabels.Add(newLabelSongName);
-                pnlSongs.Controls.Add(songLabels[i]);
+
+                Label newLabelSongArtist = new Label();
+                newLabelSongArtist.Text = songList[i].getArtist();
+                newLabelSongArtist.Size = new Size(196, 30);
+                newLabelSongArtist.Location = new Point(309, (20 + (i * 32)));
+                newLabelSongArtist.TextAlign = ContentAlignment.MiddleLeft;
+                newLabelSongArtist.ForeColor = Color.White;
+                if (i % 2 == 0) { newLabelSongArtist.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongArtist.BackColor = Color.FromArgb(90, 90, 90); }
+                newLabelSongArtist.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                newLabelSongArtist.Tag = i.ToString();
+
+                newLabelSongArtist.MouseEnter += hoverEvent;
+                newLabelSongArtist.MouseLeave += leaveEvent;
+
+
+                Label newLabelSongAlbum = new Label();
+                newLabelSongAlbum.Text = songList[i].getAlbum();
+                newLabelSongAlbum.Size = new Size(196, 30);
+                newLabelSongAlbum.Location = new Point(508, (20 + (i * 32)));
+                newLabelSongAlbum.TextAlign = ContentAlignment.MiddleLeft;
+                newLabelSongAlbum.ForeColor = Color.White;
+                if (i % 2 == 0) { newLabelSongAlbum.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongAlbum.BackColor = Color.FromArgb(90, 90, 90); }
+                newLabelSongAlbum.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                newLabelSongAlbum.Tag = i.ToString();
+
+                newLabelSongAlbum.MouseEnter += hoverEvent;
+                newLabelSongAlbum.MouseLeave += leaveEvent;
+
+
+                Label newLabelSongYear = new Label();
+                newLabelSongYear.Text = songList[i].getYear().ToString();
+                newLabelSongYear.Size = new Size(73, 30);
+                newLabelSongYear.Location = new Point(707, (20 + (i * 32)));
+                newLabelSongYear.TextAlign = ContentAlignment.MiddleLeft;
+                newLabelSongYear.ForeColor = Color.White;
+                if (i % 2 == 0) { newLabelSongYear.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongYear.BackColor = Color.FromArgb(90, 90, 90); }
+                newLabelSongYear.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                newLabelSongYear.Tag = i.ToString();
+
+                newLabelSongYear.MouseEnter += hoverEvent;
+                newLabelSongYear.MouseLeave += leaveEvent;
+
+                songLabelsA.Add(newLabelSongName);
+                pnlSongs.Controls.Add(songLabelsA[i]);
+                
+                songLabelsB.Add(newLabelSongArtist);
+                pnlSongs.Controls.Add(songLabelsB[i]);
+                
+                songLabelsC.Add(newLabelSongAlbum);
+                pnlSongs.Controls.Add(songLabelsC[i]);
+                
+                songLabelsD.Add(newLabelSongYear);
+                pnlSongs.Controls.Add(songLabelsD[i]);
 
                 i++;
             }
