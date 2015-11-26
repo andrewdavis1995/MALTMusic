@@ -35,6 +35,20 @@ namespace MALT_Music
             {
                 lblBioText.Text = currentUser.getBio();
             }
+
+            //Display full name
+            lblFullName.Text = currentUser.getFirstName() + " " + currentUser.getLastName();
+
+            //Display username
+            lblUsername.Text = currentUser.getUsername();
+
+            //TODO - DISPLAY PROFILE PIC
+
+            //Display info in text boxes
+            txtEmail.Text = currentUser.getEmailString();
+            txtFirstName.Text = currentUser.getFirstName();
+            txtLastName.Text = currentUser.getLastName();
+
         }
 
         private void lblBioText_Click(object sender, EventArgs e)
