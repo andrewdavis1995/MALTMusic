@@ -186,10 +186,6 @@ namespace MALT_Music
             {
                 SetValue(sliderValue + 1);
             }
-            else
-            {
-                this.Enabled = false;
-            }
         }
 
         /// <summary>
@@ -234,11 +230,13 @@ namespace MALT_Music
         /// Updates the first time box text
         /// </summary>
         /// <param name="value">Float of time value</param>
-        private void updateTimeIndicator()
+        private TimeSpan updateTimeIndicator()
         {
             int num = trackLength - sliderValue;
             TimeSpan currentTime = TimeSpan.FromSeconds(num);
-            lblTimeOne.Text = currentTime.ToString("mm':'ss");
+            lblTimeOne.Text = "-" + currentTime.ToString("mm':'ss");
+
+            return currentTime;
         }
 
         /// <summary>
@@ -249,7 +247,32 @@ namespace MALT_Music
         {
             // Make sure the new value is within bounds.
             if (value < 0) value = 0;
-            if (value > trackLength) value = trackLength;
+            if (value > trackLength)
+            {
+                // Checks repeat status
+                if (rbnNone.Checked)
+                {
+                    sliderValue = 0;
+                    stopSong();
+                }
+                // Checks status of repeat
+                if (rbnOnce.Checked) // Repeat Once
+                {
+                    SetValue(0);
+                    musicController.updatePlayTime(TimeSpan.FromSeconds(0));
+                    rbnNone.Checked = true;
+                }
+                else if (rbnCurrent.Checked) // Repeat eternally
+                {
+                    SetValue(0);
+                    musicController.updatePlayTime(TimeSpan.FromSeconds(0));
+                }
+                else // Else if 'none'
+                {
+                    stopSong();
+                    tmrTracker.Enabled = false;
+                }
+            }
 
             // See if the value has changed.
             if (sliderValue == value) return;
@@ -261,7 +284,7 @@ namespace MALT_Music
             pcbSliderBar.Refresh();
 
             // Updates the time indicator
-            updateTimeIndicator();
+            TimeSpan currentTime = updateTimeIndicator();
 
             // If tracking position
             if (mouseIsDown)
@@ -269,7 +292,7 @@ namespace MALT_Music
                 // Display the value tooltip.
                 int tip_x = pcbSliderBar.Left + (int)ValueToX(sliderValue);
                 int tip_y = pcbSliderBar.Top;
-                ttpSliderIndicator.Show(sliderValue.ToString("00.00"), this, tip_x, tip_y, 3000);
+                ttpSliderIndicator.Show(currentTime.ToString("mm':'ss"), this, tip_x, tip_y, 3000);
             }
         }
 
@@ -340,5 +363,15 @@ namespace MALT_Music
             ttpSliderIndicator.Hide(this);
         }
         #endregion
+
+        /// <summary>
+        /// Tells the controller what to do with the song after completing play
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rbnOnce_CheckedChanged(object sender, EventArgs e)
+        {
+            musicController.updateRepeatStatus(1);
+        }
     }
 }
