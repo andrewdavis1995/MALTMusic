@@ -239,10 +239,13 @@ namespace MALT_Music.Models
         {
             int pos = -1;
 
-            String todo = ("select track_pos from playlist where track_id = :tid and playlist_id = :pid");
+            //String todo = ("select * from playlist where track_id = :tid and playlist_id = :pid");
+
+            String todo = ("select * from playlist where playlist_id = :pid");
 
             PreparedStatement ps = session.Prepare(todo);
-            BoundStatement bs = ps.Bind(tid, pid);
+            //BoundStatement bs = ps.Bind(tid, pid);
+            BoundStatement bs = ps.Bind(pid);
             // Execute Query
             RowSet rows = session.Execute(bs);
 
@@ -251,6 +254,7 @@ namespace MALT_Music.Models
             // When the username finds a match...
             foreach (Row row in rows)
             {
+
                 if (row["track_pos"] != null)
                 {
                     int x = (int)row["track_pos"];
@@ -279,7 +283,7 @@ namespace MALT_Music.Models
                     }
 
                 }
-                pos = max;
+                pos = max + 1;
                 return pos;
             }
             else
