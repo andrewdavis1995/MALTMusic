@@ -255,7 +255,7 @@
             this.rbnAndrewIsA.TabStop = true;
             this.rbnAndrewIsA.Text = "Andrew Is a...";
             this.rbnAndrewIsA.UseVisualStyleBackColor = true;
-            this.rbnAndrewIsA.CheckedChanged += new System.EventHandler(this.rbnAndrewIsA_CheckedChanged);
+            this.rbnAndrewIsA.Click += new System.EventHandler(this.rbnAndrewIsA_CheckedChanged);
             // 
             // frmMusicPlayer
             // 
