@@ -17,6 +17,7 @@ namespace MALT_Music
         {
             InitializeComponent();
         }
+
         public SearchResults(frmMusicPlayer musicPlayer)
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace MALT_Music
         List<Label> songLabelsB = new List<Label>();
         List<Label> songLabelsC = new List<Label>();
         List<Label> songLabelsD = new List<Label>();
+        Label endLabel = new Label();
 
         List<Label> playlistLabels = new List<Label>();
 
@@ -40,11 +42,157 @@ namespace MALT_Music
         bool songsState = false;
         bool artistState = false;
 
-        public void setSongList(List<Song> songs){
-            this.songList = songs;
+
+        public void createSongList(String searchText)
+        {
+            this.lblSearchedFor.Text = "Search Results for: '" + searchText + "':";
+
+            int i = 0;
+            while (i < 9 && i < this.songList.Count)
+            {
+
+                Label newLabelSongName = new Label();
+                newLabelSongName.Text = songList[i].getTrackName();
+                newLabelSongName.Size = new Size(306, 30);
+                newLabelSongName.Location = new Point(0, (20 + (i * 32)));
+                newLabelSongName.TextAlign = ContentAlignment.MiddleLeft;
+                newLabelSongName.ForeColor = Color.White;
+                if (i % 2 == 0) { newLabelSongName.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongName.BackColor = Color.FromArgb(90, 90, 90); }
+                newLabelSongName.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                newLabelSongName.Tag = i.ToString();
+                newLabelSongName.Click += clickEvent;
+                newLabelSongName.MouseEnter += hoverEvent;
+                newLabelSongName.MouseLeave += leaveEvent;
+
+
+                Label newLabelSongArtist = new Label();
+                newLabelSongArtist.Text = songList[i].getArtist();
+                newLabelSongArtist.Size = new Size(196, 30);
+                newLabelSongArtist.Location = new Point(309, (20 + (i * 32)));
+                newLabelSongArtist.TextAlign = ContentAlignment.MiddleLeft;
+                newLabelSongArtist.ForeColor = Color.White;
+                if (i % 2 == 0) { newLabelSongArtist.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongArtist.BackColor = Color.FromArgb(90, 90, 90); }
+                newLabelSongArtist.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                newLabelSongArtist.Tag = i.ToString();
+
+                newLabelSongArtist.Click += clickEvent;
+                newLabelSongArtist.MouseEnter += hoverEvent;
+                newLabelSongArtist.MouseLeave += leaveEvent;
+
+
+                Label newLabelSongAlbum = new Label();
+                newLabelSongAlbum.Text = songList[i].getAlbum();
+                newLabelSongAlbum.Size = new Size(196, 30);
+                newLabelSongAlbum.Location = new Point(508, (20 + (i * 32)));
+                newLabelSongAlbum.TextAlign = ContentAlignment.MiddleLeft;
+                newLabelSongAlbum.ForeColor = Color.White;
+                if (i % 2 == 0) { newLabelSongAlbum.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongAlbum.BackColor = Color.FromArgb(90, 90, 90); }
+                newLabelSongAlbum.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                newLabelSongAlbum.Tag = i.ToString();
+
+                newLabelSongAlbum.Click += clickEvent;
+                newLabelSongAlbum.MouseEnter += hoverEvent;
+                newLabelSongAlbum.MouseLeave += leaveEvent;
+
+
+                Label newLabelSongYear = new Label();
+                newLabelSongYear.Text = songList[i].getYear().ToString();
+                newLabelSongYear.Size = new Size(73, 30);
+                newLabelSongYear.Location = new Point(707, (20 + (i * 32)));
+                newLabelSongYear.TextAlign = ContentAlignment.MiddleLeft;
+                newLabelSongYear.ForeColor = Color.White;
+                if (i % 2 == 0) { newLabelSongYear.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongYear.BackColor = Color.FromArgb(90, 90, 90); }
+                newLabelSongYear.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                newLabelSongYear.Tag = i.ToString();
+
+                newLabelSongYear.Click += clickEvent;
+                newLabelSongYear.MouseEnter += hoverEvent;
+                newLabelSongYear.MouseLeave += leaveEvent;
+
+                songLabelsA.Add(newLabelSongName);
+                pnlSongs.Controls.Add(songLabelsA[i]);
+
+                songLabelsB.Add(newLabelSongArtist);
+                pnlSongs.Controls.Add(songLabelsB[i]);
+
+                songLabelsC.Add(newLabelSongAlbum);
+                pnlSongs.Controls.Add(songLabelsC[i]);
+
+                songLabelsD.Add(newLabelSongYear);
+                pnlSongs.Controls.Add(songLabelsD[i]);
+
+                i++;
+            }
+
+
+            if (i >= songList.Count)
+            {
+                endLabel.Text = "No More Results";
+            }
+            else
+            {
+                int remaining = songList.Count - i;
+                endLabel.Text = "(" + remaining + " other results)";
+            }
+
+            endLabel.Size = new Size(780, 30);
+            endLabel.Location = new Point(0, (20 + (i * 32)));
+            endLabel.TextAlign = ContentAlignment.MiddleCenter;
+            endLabel.ForeColor = Color.White;
+            endLabel.BackColor = Color.FromArgb(20, 20, 20);
+            endLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+
+            pnlSongs.Controls.Add(endLabel);
+
+            addPlaylistLabels();
+
+        }
+
+        public void resetSearch() 
+        {
+            for (int i = 0; i < songLabelsA.Count; i++)
+            {
+                this.pnlSongs.Controls.Remove(songLabelsA[i]);
+                this.pnlSongs.Controls.Remove(songLabelsB[i]);
+                this.pnlSongs.Controls.Remove(songLabelsC[i]);
+                this.pnlSongs.Controls.Remove(songLabelsD[i]);
+            }
+
+            songLabelsA.Clear();
+            songLabelsB.Clear();
+            songLabelsC.Clear();
+            songLabelsD.Clear();
+
+            this.pnlSongs.Controls.Remove(endLabel);
+
+        }
+
+        public void addPlaylistLabels()
+        {
+            for (int i = 0; i < usersPlaylists.Count; i++)
+            {
+                Label newLabel = new Label();
+
+                newLabel.Location = new Point(1, 1);
+                newLabel.ForeColor = Color.White;
+                newLabel.BackColor = Color.FromArgb(40, 40, 40);
+                newLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                newLabel.Tag = i.ToString();
+                newLabel.Size = new Size(140, 26);
+                newLabel.Text = usersPlaylists[i].getPlaylistName();
+                newLabel.TextAlign = ContentAlignment.MiddleCenter;
+
+                playlistLabels.Add(newLabel);
+                pnlPlaylists.Controls.Add(playlistLabels[i]);
+            }
         }
 
 
+        public void setSongList(List<Song> songs){
+            this.songList = songs;
+        }
+        
         public void setCurrentUser(User u){
             this.currentUser = u;
         }
@@ -114,136 +262,7 @@ namespace MALT_Music
             
 
         }
-
-
-        public void createSongList(String searchText) {
-
-            this.lblSearchedFor.Text = "Search Results for: '" + searchText + "':";
-
-            int i = 0;
-            while (i < 9 && i < this.songList.Count) {
-
-                Label newLabelSongName = new Label();
-                newLabelSongName.Text = songList[i].getTrackName();
-                newLabelSongName.Size = new Size(306, 30);
-                newLabelSongName.Location = new Point(0, (20 + (i*32)));
-                newLabelSongName.TextAlign = ContentAlignment.MiddleLeft;
-                newLabelSongName.ForeColor = Color.White;
-                if (i % 2 == 0) { newLabelSongName.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongName.BackColor = Color.FromArgb(90, 90, 90); }
-                newLabelSongName.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                newLabelSongName.Tag = i.ToString();
-                newLabelSongName.Click += clickEvent;
-                newLabelSongName.MouseEnter += hoverEvent;
-                newLabelSongName.MouseLeave += leaveEvent;
-
-
-                Label newLabelSongArtist = new Label();
-                newLabelSongArtist.Text = songList[i].getArtist();
-                newLabelSongArtist.Size = new Size(196, 30);
-                newLabelSongArtist.Location = new Point(309, (20 + (i * 32)));
-                newLabelSongArtist.TextAlign = ContentAlignment.MiddleLeft;
-                newLabelSongArtist.ForeColor = Color.White;
-                if (i % 2 == 0) { newLabelSongArtist.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongArtist.BackColor = Color.FromArgb(90, 90, 90); }
-                newLabelSongArtist.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                newLabelSongArtist.Tag = i.ToString();
-
-                newLabelSongArtist.Click += clickEvent;
-                newLabelSongArtist.MouseEnter += hoverEvent;
-                newLabelSongArtist.MouseLeave += leaveEvent;
-
-
-                Label newLabelSongAlbum = new Label();
-                newLabelSongAlbum.Text = songList[i].getAlbum();
-                newLabelSongAlbum.Size = new Size(196, 30);
-                newLabelSongAlbum.Location = new Point(508, (20 + (i * 32)));
-                newLabelSongAlbum.TextAlign = ContentAlignment.MiddleLeft;
-                newLabelSongAlbum.ForeColor = Color.White;
-                if (i % 2 == 0) { newLabelSongAlbum.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongAlbum.BackColor = Color.FromArgb(90, 90, 90); }
-                newLabelSongAlbum.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                newLabelSongAlbum.Tag = i.ToString();
-
-                newLabelSongAlbum.Click += clickEvent;
-                newLabelSongAlbum.MouseEnter += hoverEvent;
-                newLabelSongAlbum.MouseLeave += leaveEvent;
-
-
-                Label newLabelSongYear = new Label();
-                newLabelSongYear.Text = songList[i].getYear().ToString();
-                newLabelSongYear.Size = new Size(73, 30);
-                newLabelSongYear.Location = new Point(707, (20 + (i * 32)));
-                newLabelSongYear.TextAlign = ContentAlignment.MiddleLeft;
-                newLabelSongYear.ForeColor = Color.White;
-                if (i % 2 == 0) { newLabelSongYear.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongYear.BackColor = Color.FromArgb(90, 90, 90); }
-                newLabelSongYear.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                newLabelSongYear.Tag = i.ToString();
-
-                newLabelSongYear.Click += clickEvent;
-                newLabelSongYear.MouseEnter += hoverEvent;
-                newLabelSongYear.MouseLeave += leaveEvent;
-
-                songLabelsA.Add(newLabelSongName);
-                pnlSongs.Controls.Add(songLabelsA[i]);
-                
-                songLabelsB.Add(newLabelSongArtist);
-                pnlSongs.Controls.Add(songLabelsB[i]);
-                
-                songLabelsC.Add(newLabelSongAlbum);
-                pnlSongs.Controls.Add(songLabelsC[i]);
-                
-                songLabelsD.Add(newLabelSongYear);
-                pnlSongs.Controls.Add(songLabelsD[i]);
-
-                i++;
-            }
-
-
-
-            Label endLabel = new Label();
-            if (i >= songList.Count)
-            {
-                endLabel.Text = "No More Results";
-            }
-            else {
-                int remaining = songList.Count - i;
-                endLabel.Text = "(" + remaining + " other results)";
-            }
-
-            endLabel.Size = new Size(780, 30);
-            endLabel.Location = new Point(0, (20 + (i * 32)));
-            endLabel.TextAlign = ContentAlignment.MiddleCenter;
-            endLabel.ForeColor = Color.White;
-            endLabel.BackColor = Color.FromArgb(20, 20, 20);
-            endLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-
-            pnlSongs.Controls.Add(endLabel);
-
-            addPlaylistLabels();
-
-
-        }
-
-        public void addPlaylistLabels() 
-        {
-
-            for(int i = 0; i < usersPlaylists.Count; i++)
-            {
-                Label newLabel = new Label();
-
-                newLabel.Location = new Point(1, 1);
-                newLabel.ForeColor = Color.White;
-                newLabel.BackColor = Color.FromArgb(40, 40, 40);
-                newLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                newLabel.Tag = i.ToString();
-                newLabel.Size = new Size(140, 26);
-                newLabel.Text = usersPlaylists[i].getPlaylistName();
-                newLabel.TextAlign = ContentAlignment.MiddleCenter;
-
-                playlistLabels.Add(newLabel);
-                pnlPlaylists.Controls.Add(playlistLabels[i]);
-            } 
-        }
-
+        
         private void lblSongsHeading_Click(object sender, EventArgs e)
         {
             tmrSlideSongs.Start();
@@ -307,6 +326,7 @@ namespace MALT_Music
             }
         }
 
+        #region Event Handlers for Making labels light up and stuff
         private void lblArtists_Click(object sender, EventArgs e)
         {
             tmrSlideArtists.Start();
@@ -379,11 +399,12 @@ namespace MALT_Music
             {
                 String filePath = songList[selectedSong].getFileLocation();
                 musicPlayer.setSongPath(@"" + filePath);
-                //musicPlayer.setSongPath(@"" + "../../tracks/Powerglove/Kids Songs/Test.mp3");
                 musicPlayer.playCurrentSong();
             }
 
-        }
+            pnlOptions.Visible = false;
 
+        }
+        #endregion
     }
 }

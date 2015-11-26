@@ -102,8 +102,9 @@ namespace MALT_Music
             songThread.Start();
 
 
-            bool artists = false;
-            Thread artistThread = new Thread(() => { artists = songModel.populateDB(); });
+            bool artists;
+            Thread artistThread = new Thread(() => { artists = songModel.getAllArtists(); });
+            //Thread artistThread = new Thread(() => { artists = songModel.populateDB(); });
             artistThread.Start();
 
 
@@ -118,6 +119,8 @@ namespace MALT_Music
         //Method to load search results window in child form
         private void loadSearchResults(List<Song> songs, String searchText)
         {
+
+            searchResults.resetSearch();
             searchResults.setSongList(songs);
 
             searchResults.setCurrentUser(currentUser);
