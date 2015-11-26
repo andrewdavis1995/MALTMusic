@@ -139,6 +139,8 @@ namespace MALT_Music
             // Allows using test track
             btnTest.Enabled = true;
 
+            btnPlay.Text = "Play";
+
             // If a file is loaded
             if (lblFileName.Text != "")
             {

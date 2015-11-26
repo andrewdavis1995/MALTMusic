@@ -451,6 +451,7 @@ namespace MALT_Music
             if (selectedSong > -1)
             {
                 String filePath = songList[selectedSong].getFileLocation();
+                musicPlayer.stopSong();
                 musicPlayer.setSongPath(@"" + filePath);
                 musicPlayer.playCurrentSong();
             }
