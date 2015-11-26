@@ -139,7 +139,10 @@ namespace MALT_Music
             // Allows using test track
             btnTest.Enabled = true;
 
+            // Updates status of controls
             btnPlay.Text = "Play";
+            lblTimeOne.Text = "";
+            lblTimeTwo.Text = "";
 
             // If a file is loaded
             if (lblFileName.Text != "")

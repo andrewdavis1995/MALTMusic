@@ -69,6 +69,12 @@ namespace MALT_Music
         public void stopSong()
         {
             waveOut.Stop();
+
+            // If audio reader exists, kill it
+            if (audioFileReader != null)
+            {
+                audioFileReader.Dispose();
+            }
         }
 
         /// <summary>
