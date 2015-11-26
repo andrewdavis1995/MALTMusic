@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MALT_Music.DataObjects;
+using MALT_Music.Models;
 
 namespace MALT_Music
 {
@@ -24,6 +25,7 @@ namespace MALT_Music
             this.musicPlayer = musicPlayer;
         }
 
+        #region variables
         frmMusicPlayer musicPlayer;
         int selectedSong;
 
@@ -41,7 +43,7 @@ namespace MALT_Music
 
         bool songsState = false;
         bool artistState = false;
-
+        #endregion
 
         public void createSongList(String searchText)
         {
@@ -182,6 +184,9 @@ namespace MALT_Music
                 newLabel.Size = new Size(140, 26);
                 newLabel.Text = usersPlaylists[i].getPlaylistName();
                 newLabel.TextAlign = ContentAlignment.MiddleCenter;
+                newLabel.Click += addSongToPlaylist;
+                newLabel.MouseEnter += playlistHover;
+                newLabel.MouseLeave += playlistLeave;
 
                 playlistLabels.Add(newLabel);
                 pnlPlaylists.Controls.Add(playlistLabels[i]);
@@ -213,35 +218,40 @@ namespace MALT_Music
 
         private void hoverEvent(object sender, System.EventArgs e) 
         {
-            Label theLabel = (Label)sender;
-            int id = int.Parse(theLabel.Tag.ToString());
+            if (selectedSong < 0)
+            {
+                Label theLabel = (Label)sender;
+                int id = int.Parse(theLabel.Tag.ToString());
 
-            songLabelsA[id].BackColor = Color.DodgerBlue;
-            songLabelsB[id].BackColor = Color.DodgerBlue;
-            songLabelsC[id].BackColor = Color.DodgerBlue;
-            songLabelsD[id].BackColor = Color.DodgerBlue;
+                songLabelsA[id].BackColor = Color.DodgerBlue;
+                songLabelsB[id].BackColor = Color.DodgerBlue;
+                songLabelsC[id].BackColor = Color.DodgerBlue;
+                songLabelsD[id].BackColor = Color.DodgerBlue;
+            }
         }
 
         private void leaveEvent(object sender, System.EventArgs e)
         {
-            Label theLabel = (Label)sender;
-            int id = int.Parse(theLabel.Tag.ToString());
+            if (selectedSong < 0)
+            {
+                Label theLabel = (Label)sender;
+                int id = int.Parse(theLabel.Tag.ToString());
 
-            if (id % 2 == 0)
-            {
-                songLabelsA[id].BackColor = Color.FromArgb(60, 60, 60);
-                songLabelsB[id].BackColor = Color.FromArgb(60, 60, 60);
-                songLabelsC[id].BackColor = Color.FromArgb(60, 60, 60);
-                songLabelsD[id].BackColor = Color.FromArgb(60, 60, 60);
-            }
-            else
-            {
-                songLabelsA[id].BackColor = Color.FromArgb(90, 90, 90);
-                songLabelsB[id].BackColor = Color.FromArgb(90, 90, 90);
-                songLabelsC[id].BackColor = Color.FromArgb(90, 90, 90);
-                songLabelsD[id].BackColor = Color.FromArgb(90, 90, 90); 
-            }
-                
+                if (id % 2 == 0)
+                {
+                    songLabelsA[id].BackColor = Color.FromArgb(60, 60, 60);
+                    songLabelsB[id].BackColor = Color.FromArgb(60, 60, 60);
+                    songLabelsC[id].BackColor = Color.FromArgb(60, 60, 60);
+                    songLabelsD[id].BackColor = Color.FromArgb(60, 60, 60);
+                }
+                else
+                {
+                    songLabelsA[id].BackColor = Color.FromArgb(90, 90, 90);
+                    songLabelsB[id].BackColor = Color.FromArgb(90, 90, 90);
+                    songLabelsC[id].BackColor = Color.FromArgb(90, 90, 90);
+                    songLabelsD[id].BackColor = Color.FromArgb(90, 90, 90);
+                }
+            }  
         }
 
         private void clickEvent(object sender, System.EventArgs e)
@@ -251,10 +261,10 @@ namespace MALT_Music
 
             selectedSong = id;
            
-            songLabelsA[id].BackColor = Color.FromArgb(50, 255, 50);
-            songLabelsB[id].BackColor = Color.FromArgb(50, 255, 50);
-            songLabelsC[id].BackColor = Color.FromArgb(50, 255, 50);
-            songLabelsD[id].BackColor = Color.FromArgb(50, 255, 50);
+            songLabelsA[id].BackColor = Color.FromArgb(255, 50, 50);
+            songLabelsB[id].BackColor = Color.FromArgb(255, 50, 50);
+            songLabelsC[id].BackColor = Color.FromArgb(255, 50, 50);
+            songLabelsD[id].BackColor = Color.FromArgb(255, 50, 50);
 
             pnlOptions.Visible = true;
             pnlOptions.Top = 200 + (id * 32);
@@ -326,6 +336,32 @@ namespace MALT_Music
             }
         }
 
+        private void addSongToPlaylist(object sender, EventArgs e)
+        {
+            PlaylistModel playlistModel = new PlaylistModel();
+        }
+
+        private void playlistHover(object sender, EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            int id = int.Parse(theLabel.Tag.ToString());
+
+            playlistLabels[id].BackColor = Color.DodgerBlue;
+
+        }
+
+        private void playlistLeave(object sender, EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            int id = int.Parse(theLabel.Tag.ToString());
+
+            playlistLabels[id].BackColor = Color.FromArgb(40, 40, 40);
+
+        }
+
+
+
+
         #region Event Handlers for Making labels light up and stuff
         private void lblArtists_Click(object sender, EventArgs e)
         {
@@ -387,6 +423,23 @@ namespace MALT_Music
             if (!pnlPlaylists.Bounds.Contains(PointToClient(Control.MousePosition)) && !pnlOptions.Bounds.Contains(PointToClient(Control.MousePosition)))
             {
                 pnlOptions.Visible = false;
+
+
+                if (selectedSong % 2 == 0)
+                {
+                    songLabelsA[selectedSong].BackColor = Color.FromArgb(60, 60, 60);
+                    songLabelsB[selectedSong].BackColor = Color.FromArgb(60, 60, 60);
+                    songLabelsC[selectedSong].BackColor = Color.FromArgb(60, 60, 60);
+                    songLabelsD[selectedSong].BackColor = Color.FromArgb(60, 60, 60);
+                }
+                else
+                {
+                    songLabelsA[selectedSong].BackColor = Color.FromArgb(90, 90, 90);
+                    songLabelsB[selectedSong].BackColor = Color.FromArgb(90, 90, 90);
+                    songLabelsC[selectedSong].BackColor = Color.FromArgb(90, 90, 90);
+                    songLabelsD[selectedSong].BackColor = Color.FromArgb(90, 90, 90);
+                }
+
                 selectedSong = -1;
                 pnlPlaylists.Visible = false;
             }
