@@ -89,11 +89,9 @@ namespace MALT_Music
             bool artists = false;
             Thread artistThread = new Thread(() => { artists = songModel.populateDB(); });
             artistThread.Start();
-            MessageBox.Show(artists.ToString());
 
 
             songThread.Join();
-            MessageBox.Show(songs.Count.ToString());
             artistThread.Join();
 
 
