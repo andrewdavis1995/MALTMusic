@@ -56,6 +56,14 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void btnPlay_Click(object sender, EventArgs e)
         {
+            playCurrentSong();
+        }
+
+        /// <summary>
+        /// Plays the current song
+        /// </summary>
+        public void playCurrentSong()
+        {
             if (btnPlay.Text == "Play")
             {
                 // Change to pause

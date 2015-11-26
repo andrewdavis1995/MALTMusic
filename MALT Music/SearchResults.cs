@@ -378,7 +378,9 @@ namespace MALT_Music
             if (selectedSong > -1)
             {
                 String filePath = songList[selectedSong].getFileLocation();
-                musicPlayer.setSongPath(filePath);
+                //musicPlayer.setSongPath(@"" + filePath);
+                musicPlayer.setSongPath(@"" + "../../tracks/Powerglove/Kids Songs/Test.mp3");
+                musicPlayer.playCurrentSong();
             }
 
         }
