@@ -112,9 +112,8 @@ namespace MALT_Music
             songThread.Start();
 
 
-            List<String> artists;
+            List<String> artists = new List<String>();
             Thread artistThread = new Thread(() => { artists = songModel.getAllArtists(); });
-            //Thread artistThread = new Thread(() => { artists = songModel.populateDB(); });
             artistThread.Start();
 
 
@@ -122,16 +121,17 @@ namespace MALT_Music
             artistThread.Join();
 
 
-            loadSearchResults(songs, searchText);         
+            loadSearchResults(songs, artists, searchText);         
 
         }
 
         //Method to load search results window in child form
-        private void loadSearchResults(List<Song> songs, String searchText)
+        private void loadSearchResults(List<Song> songs, List<String> artists, String searchText)
         {
 
             searchResults.resetSearch();
             searchResults.setSongList(songs);
+            searchResults.setArtistList(artists);
 
             searchResults.setCurrentUser(currentUser);
             List<Playlist> lp = new List<Playlist>();
@@ -141,6 +141,8 @@ namespace MALT_Music
             lp = pm.getPlaylistsForUser(currentUser.getUsername());
             searchResults.setUsersPlaylists(lp);
             searchResults.createSongList(searchText);
+            searchResults.createArtistList();
+            searchResults.addPlaylistLabels();
 
             searchResults.TopLevel = false;
             searchResults.Parent = this;
