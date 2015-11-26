@@ -9,8 +9,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NAudio.Wave;
-using NAudio.Wave.SampleProviders;
 
 namespace MALT_Music
 {
