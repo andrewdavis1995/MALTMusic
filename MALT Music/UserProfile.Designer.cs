@@ -43,6 +43,7 @@
             this.lblENE = new System.Windows.Forms.Label();
             this.lblBio = new System.Windows.Forms.Label();
             this.lblBioText = new System.Windows.Forms.Label();
+            this.txtBioEdit = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxProfilePic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -202,6 +203,17 @@
             this.lblBioText.Size = new System.Drawing.Size(281, 40);
             this.lblBioText.TabIndex = 17;
             this.lblBioText.Text = "I\'m a person who enjoys long walks on the beach, music and dogs.";
+            this.lblBioText.Click += new System.EventHandler(this.lblBioText_Click);
+            // 
+            // txtBioEdit
+            // 
+            this.txtBioEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBioEdit.Location = new System.Drawing.Point(247, 338);
+            this.txtBioEdit.Multiline = true;
+            this.txtBioEdit.Name = "txtBioEdit";
+            this.txtBioEdit.Size = new System.Drawing.Size(277, 37);
+            this.txtBioEdit.TabIndex = 18;
+            this.txtBioEdit.MouseLeave += new System.EventHandler(this.txtBioEdit_MouseLeave);
             // 
             // UserProfile
             // 
@@ -209,6 +221,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1249, 533);
+            this.Controls.Add(this.txtBioEdit);
             this.Controls.Add(this.lblBioText);
             this.Controls.Add(this.lblBio);
             this.Controls.Add(this.lblENE);
@@ -249,6 +262,7 @@
         private System.Windows.Forms.Label lblENE;
         private System.Windows.Forms.Label lblBio;
         private System.Windows.Forms.Label lblBioText;
+        private System.Windows.Forms.TextBox txtBioEdit;
 
     }
 }
