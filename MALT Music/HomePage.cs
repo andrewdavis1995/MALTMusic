@@ -105,7 +105,7 @@ namespace MALT_Music
             songThread.Start();
 
 
-            bool artists;
+            List<String> artists;
             Thread artistThread = new Thread(() => { artists = songModel.getAllArtists(); });
             //Thread artistThread = new Thread(() => { artists = songModel.populateDB(); });
             artistThread.Start();
