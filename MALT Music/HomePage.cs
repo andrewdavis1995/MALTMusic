@@ -97,7 +97,7 @@ namespace MALT_Music
 
             SearchResults searchResults = new SearchResults();
             searchResults.setSongList(songs);
-            searchResults.createSongList();
+            searchResults.createSongList(searchText);
             searchResults.Show();            
 
         }

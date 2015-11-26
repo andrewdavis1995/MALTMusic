@@ -75,9 +75,9 @@
             this.lblSearchedFor.ForeColor = System.Drawing.Color.White;
             this.lblSearchedFor.Location = new System.Drawing.Point(76, 7);
             this.lblSearchedFor.Name = "lblSearchedFor";
-            this.lblSearchedFor.Size = new System.Drawing.Size(242, 26);
+            this.lblSearchedFor.Size = new System.Drawing.Size(234, 26);
             this.lblSearchedFor.TabIndex = 1;
-            this.lblSearchedFor.Text = "Search Results for: \"XYZ\":";
+            this.lblSearchedFor.Text = "Search Results for: \'XYZ\':";
             // 
             // tmrSlideSongs
             // 
