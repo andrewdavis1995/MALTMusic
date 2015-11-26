@@ -146,6 +146,8 @@ namespace MALT_Music
 
             homePage.setCurrentUser(newUser);
             homePage.Show();
+
+            this.Hide();
         }
 
         private void cmdAddSong_Click(object sender, EventArgs e)
