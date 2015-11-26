@@ -62,6 +62,13 @@ namespace MALT_Music.lib
                     + "PRIMARY KEY (playlist_ID, owner, playlist_name)\n"
                     + ")";
 
+                String createUserVotes = "create table if not exists maltmusic.user_votes(\n"
+                    + " track_ID UUID,\n"
+                    + " voter text, \n"
+                    + " howvoted text,\n"
+                    + " Primary Key (track_id, voter)\n"
+                    + " ); ";
+
                 //Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
                 ISession session = c.Connect();
 
@@ -140,7 +147,19 @@ namespace MALT_Music.lib
                 {
                     Console.WriteLine("Creating List Playlist broke - " + et);
                 }
+
                 
+                try
+                {
+                    PreparedStatement statement = session.Prepare(createUserVotes);
+                    BoundStatement bs = new BoundStatement(statement);
+                    RowSet rs = session.Execute(bs);
+                    Console.WriteLine("Created User Votes ");
+                }
+                catch (Exception et)
+                {
+                    Console.WriteLine("Creating User Votes broke - " + et);
+                }
 
                 //session.End();
             }

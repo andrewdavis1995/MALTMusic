@@ -30,6 +30,7 @@ namespace MALT_Music.Models
             try
             {
                 //THIS NULL POINTERS
+                // no it doesn't
                 init();
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
