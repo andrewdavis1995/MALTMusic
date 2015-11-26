@@ -56,7 +56,7 @@
             this.btnPlay.Enabled = false;
             this.btnPlay.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnPlay.Location = new System.Drawing.Point(265, 12);
+            this.btnPlay.Location = new System.Drawing.Point(147, 12);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(108, 26);
             this.btnPlay.TabIndex = 0;
@@ -70,7 +70,7 @@
             this.btnStop.Enabled = false;
             this.btnStop.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnStop.Location = new System.Drawing.Point(493, 13);
+            this.btnStop.Location = new System.Drawing.Point(261, 12);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(108, 26);
             this.btnStop.TabIndex = 1;
@@ -83,7 +83,7 @@
             this.btnTest.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.btnTest.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnTest.Location = new System.Drawing.Point(151, 12);
+            this.btnTest.Location = new System.Drawing.Point(621, 12);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(108, 26);
             this.btnTest.TabIndex = 2;
@@ -98,9 +98,9 @@
             this.lblFileName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblFileName.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFileName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblFileName.Location = new System.Drawing.Point(367, 52);
+            this.lblFileName.Location = new System.Drawing.Point(250, 51);
             this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(350, 15);
+            this.lblFileName.Size = new System.Drawing.Size(479, 15);
             this.lblFileName.TabIndex = 4;
             this.lblFileName.Text = "No file selected";
             // 
@@ -130,7 +130,7 @@
             this.grpRepeat.Controls.Add(this.rbnNone);
             this.grpRepeat.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpRepeat.ForeColor = System.Drawing.Color.White;
-            this.grpRepeat.Location = new System.Drawing.Point(734, 12);
+            this.grpRepeat.Location = new System.Drawing.Point(735, 22);
             this.grpRepeat.Name = "grpRepeat";
             this.grpRepeat.Size = new System.Drawing.Size(334, 44);
             this.grpRepeat.TabIndex = 8;
@@ -185,7 +185,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(261, 52);
+            this.lblStatus.Location = new System.Drawing.Point(148, 52);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(105, 14);
             this.lblStatus.TabIndex = 9;
@@ -194,7 +194,7 @@
             // lblTimeOne
             // 
             this.lblTimeOne.AutoSize = true;
-            this.lblTimeOne.Location = new System.Drawing.Point(152, 67);
+            this.lblTimeOne.Location = new System.Drawing.Point(148, 67);
             this.lblTimeOne.Name = "lblTimeOne";
             this.lblTimeOne.Size = new System.Drawing.Size(49, 14);
             this.lblTimeOne.TabIndex = 10;
@@ -214,7 +214,7 @@
             this.pcbSliderBar.BackColor = System.Drawing.Color.MidnightBlue;
             this.pcbSliderBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pcbSliderBar.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.pcbSliderBar.Location = new System.Drawing.Point(155, 84);
+            this.pcbSliderBar.Location = new System.Drawing.Point(147, 84);
             this.pcbSliderBar.Name = "pcbSliderBar";
             this.pcbSliderBar.Size = new System.Drawing.Size(914, 41);
             this.pcbSliderBar.TabIndex = 12;
@@ -264,7 +264,6 @@
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnTest;
-        private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.PictureBox picBoxAlbumArt;
         private System.Windows.Forms.Timer tmrTracker;
         private System.Windows.Forms.GroupBox grpRepeat;
@@ -276,6 +275,7 @@
         private System.Windows.Forms.Label lblTimeOne;
         private System.Windows.Forms.Label lblTimeTwo;
         private System.Windows.Forms.PictureBox pcbSliderBar;
+        private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.ToolTip ttpSliderIndicator;
     }
 }
