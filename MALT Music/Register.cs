@@ -34,7 +34,7 @@ namespace MALT_Music
             emailSet.Add(email);
 
             // Create a user object
-            User newUser = new User(username, password, first_name, last_name, emailSet);
+            User newUser = new User(username, password, first_name, last_name, emailSet, "Enter your bio here...");
 
             // Create a registerModel
             RegisterModel registerModel = new RegisterModel();

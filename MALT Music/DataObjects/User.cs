@@ -14,6 +14,7 @@ namespace MALT_Music.DataObjects
         private String first_name;
         private String last_name;
         private HashSet<String> email;
+        private String bio;
 
         /*
          * BLANK CONSTRUCTOR
@@ -30,13 +31,14 @@ namespace MALT_Music.DataObjects
          *             - surname: the user's surname
          * @AUTHOR: Andrew Davis
          */
-        public User(String username, String password, String firstName, String surname, HashSet<String> email) 
+        public User(String username, String password, String firstName, String surname, HashSet<String> email, String bio) 
         {
             this.username = username;
             this.password = password;
             this.first_name = firstName;
             this.last_name = surname;
             this.email = email;
+            this.bio = bio;
         }
 
         /*
@@ -74,6 +76,13 @@ namespace MALT_Music.DataObjects
          * @RETURNS: the Last Name property for the current User
          */
         public HashSet<String> getEmail() { return this.email; }
+
+        /*
+         * @PARAMETERS: none
+         * @AUTHOR: Lewis Davie
+         * @RETURNS: the Bio property for the current User
+         */
+        public String getBio() { return this.bio; }
 
         public void setUsername(String username) { this.username = username; }
     }

@@ -19,9 +19,6 @@ namespace MALT_Music
 
         public UserProfile()
         {
-            //Set user
-            //this.currentUser = currentUser;
-
             InitializeComponent();
             txtBioEdit.Hide();
         }
@@ -29,6 +26,7 @@ namespace MALT_Music
         public void setUser(User theUser)
         {
             currentUser = theUser;
+            lblBioText.Text = currentUser.getBio();
         }
 
         private void lblBioText_Click(object sender, EventArgs e)

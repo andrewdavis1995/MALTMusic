@@ -78,6 +78,7 @@ namespace MALT_Music.Models
                         // If it does, set up a new User object
                         String first_name = row["first_name"].ToString();
                         String last_name = row["last_name"].ToString();
+                        String bio = row["bio"].ToString();
                         if (row["email"]!=null)
                         {
                             String email = row["email"].ToString();
@@ -86,11 +87,11 @@ namespace MALT_Music.Models
                             HashSet<String> emailSet = new HashSet<String>();
                             emailSet.Add(email);
 
-                            user = new User(username, password, first_name, last_name, emailSet);
+                            user = new User(username, password, first_name, last_name, emailSet, bio);
                         }
                         else {
 
-                            user = new User(username, password, first_name, last_name, null);
+                            user = new User(username, password, first_name, last_name, null, null);
                         }
                        
 
