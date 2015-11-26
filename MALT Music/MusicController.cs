@@ -56,7 +56,10 @@ namespace MALT_Music
         /// <param name="newSpan">Holds the new time </param>
         public void updatePlayTime(TimeSpan newSpan)
         {
-            audioFileReader.CurrentTime = newSpan;
+            if (audioFileReader != null)
+            {
+                audioFileReader.CurrentTime = newSpan;
+            }
         }
 
         /// <summary>
