@@ -211,12 +211,20 @@ namespace MALT_Music
                 this.pnlSongs.Controls.Remove(songLabelsD[i]);
             }
 
+            for (int i = 0; i < artistLabel.Count; i++)
+            {
+                this.pnlArtists.Controls.Remove(artistLabel[i]);
+            }
+
             songLabelsA.Clear();
             songLabelsB.Clear();
             songLabelsC.Clear();
             songLabelsD.Clear();
 
+            artistLabel.Clear();
+
             this.pnlSongs.Controls.Remove(endLabel);
+            this.pnlArtists.Controls.Remove(endLabel);
 
         }
 
@@ -451,9 +459,7 @@ namespace MALT_Music
             playlistLabels[id].BackColor = Color.FromArgb(40, 40, 40);
 
         }
-
-
-
+        
 
         #region Event Handlers for Making labels light up and stuff
         private void lblArtists_Click(object sender, EventArgs e)
@@ -472,23 +478,43 @@ namespace MALT_Music
             lblPlay.BackColor = Color.FromArgb(40, 40, 40);
         }
 
+        /// <summary>
+        /// when the mouse enters the add to playlist label
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblAddToPLaylist_Enter(object sender, EventArgs e)
         {
             lblAddToPlaylist.BackColor = Color.DodgerBlue;
             pnlPlaylists.Visible = true;
         }
 
+        /// <summary>
+        /// when the mouse leaves the add to playist label
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblAddToPLaylist_Leave(object sender, EventArgs e)
         {
             lblAddToPlaylist.BackColor = Color.FromArgb(40, 40, 40);
             tmrPlaylistDelay.Start();
         }
 
+        /// <summary>
+        /// when the mouse enters the playlist panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlPlaylists_MouseEnter(object sender, EventArgs e)
         {
             pnlPlaylists.Visible = true;
         }
 
+        /// <summary>
+        /// timer to control when the playlist panel disappears
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tmrPlaylistDelay_Tick(object sender, EventArgs e)
         {
             if (!pnlPlaylists.Bounds.Contains(PointToClient(Control.MousePosition)))
@@ -498,6 +524,11 @@ namespace MALT_Music
             tmrPlaylistDelay.Stop();
         }
 
+        /// <summary>
+        /// when the mouse leaves the playlist panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlPlaylists_MouseLeave(object sender, EventArgs e)
         {
             if (!pnlPlaylists.Bounds.Contains(PointToClient(Control.MousePosition)))
@@ -506,11 +537,21 @@ namespace MALT_Music
             }
         }
 
+        /// <summary>
+        /// when the mouse leaves the option panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlOptions_MouseLeave(object sender, EventArgs e)
         {
             tmrOptionsDelay.Start();
         }
 
+        /// <summary>
+        /// controls when the options thing disappears
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tmrOptionsDelay_Tick(object sender, EventArgs e)
         {
             if (!pnlPlaylists.Bounds.Contains(PointToClient(Control.MousePosition)) && !pnlOptions.Bounds.Contains(PointToClient(Control.MousePosition)))
@@ -539,6 +580,11 @@ namespace MALT_Music
             tmrOptionsDelay.Stop();
         }
 
+        /// <summary>
+        /// When the user clicks the play button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblPlay_Click(object sender, EventArgs e)
         {
             if (selectedSong > -1)
