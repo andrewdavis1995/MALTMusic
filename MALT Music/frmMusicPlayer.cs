@@ -23,9 +23,7 @@ namespace MALT_Music
         /// <summary>
         /// Variables for slider bar.
         /// </summary>
-        private float sliderValue;
-        private float maxValue;
-        private float minValue;
+        private int sliderValue;
         private bool mouseIsDown;
         
         /// <summary>
@@ -41,9 +39,8 @@ namespace MALT_Music
             isPlaying = false;
 
             // Initialise slider
-            sliderValue = 0f;
-            maxValue = 0f;
-            minValue = 0f;
+            sliderValue = 0;
+            trackLength = 0;
             mouseIsDown = false;
             ttpSliderIndicator.Hide(this);
         }
@@ -83,8 +80,7 @@ namespace MALT_Music
                     lblTimeTwo.Text = totalLength.ToString("mm':'ss");
 
                     // Sets upper threshold for track
-                    maxValue = totalLength.Minutes;
-                    sliderValue = 0f;
+                    sliderValue = 0;
                     isPlaying = true;
                 }
 
@@ -119,11 +115,19 @@ namespace MALT_Music
         }
 
         /// <summary>
-        /// Stops playing the track
+        /// Calls function to stop the playback
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnStop_Click(object sender, EventArgs e)
+        {
+            stopSong();
+        }
+
+        /// <summary>
+        /// Stops playing the track
+        /// </summary>
+        public void stopSong()
         {
             // Disables track timer
             tmrTracker.Enabled = false;
@@ -132,7 +136,7 @@ namespace MALT_Music
             musicController.stopSong();
             isPlaying = false;
 
-            // 
+            // Allows using test track
             btnTest.Enabled = true;
 
             // If a file is loaded
@@ -173,9 +177,9 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void tmrTracker_Tick(object sender, EventArgs e)
         {
-            if (sliderValue != maxValue)
+            if (sliderValue != trackLength)
             {
-                SetValue(sliderValue + 0.01f);
+                SetValue(sliderValue + 1);
             }
             else
             {
@@ -201,9 +205,9 @@ namespace MALT_Music
         /// </summary>
         /// <param name="x">int value to convert to float</param>
         /// <returns>Returned coordinate</returns>
-        private float XtoValue(int x)
+        private int XtoValue(int x)
         {
-            return minValue + (maxValue - minValue) * x / (float)(pcbSliderBar.ClientSize.Width - 1);
+            return trackLength * x / (pcbSliderBar.ClientSize.Width - 1);
         }
 
         /// <summary>
@@ -211,10 +215,14 @@ namespace MALT_Music
         /// </summary>
         /// <param name="value">coordinate to convert to float</param>
         /// <returns>Returned float</returns>
-        private float ValueToX(float value)
+        private int ValueToX(int value)
         {
-            return (pcbSliderBar.ClientSize.Width - 1) *
-                (value - minValue) / (float)(maxValue - minValue);
+            if (trackLength == 0)
+            { return 0; }
+            else
+            {
+                return (pcbSliderBar.ClientSize.Width - 1) * (value / trackLength);
+            }
         }
 
         /// <summary>
@@ -223,21 +231,20 @@ namespace MALT_Music
         /// <param name="value">Float of time value</param>
         private void updateTimeIndicator()
         {
-            float num = trackLength - (Convert.ToInt32(sliderValue) * 60);
+            int num = trackLength - sliderValue;
             TimeSpan currentTime = TimeSpan.FromSeconds(num);
             lblTimeOne.Text = currentTime.ToString("mm':'ss");
-            lblTimeOne.Text = "Fuck you, Andrew.";
         }
 
         /// <summary>
         /// Updates the position of the slider based on the passed value
         /// </summary>
         /// <param name="value">The new value of the slider</param>
-        private void SetValue(float value)
+        private void SetValue(int value)
         {
             // Make sure the new value is within bounds.
-            if (value < minValue) value = minValue;
-            if (value > maxValue) value = maxValue;
+            if (value < 0) value = 0;
+            if (value > trackLength) value = trackLength;
 
             // See if the value has changed.
             if (sliderValue == value) return;
@@ -269,7 +276,7 @@ namespace MALT_Music
         private void picSliderBar_Paint(object sender, PaintEventArgs e)
         {
             // Calculate the needle's X coordinate.
-            float x = ValueToX(sliderValue);
+            int x = ValueToX(sliderValue);
 
             if (x > 0)
             {
