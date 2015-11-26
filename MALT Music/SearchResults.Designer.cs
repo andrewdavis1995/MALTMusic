@@ -34,10 +34,6 @@
             this.lblSearchedFor = new System.Windows.Forms.Label();
             this.tmrSlideSongs = new System.Windows.Forms.Timer(this.components);
             this.pnlArtists = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
             this.lblArtists = new System.Windows.Forms.Label();
             this.tmrSlideArtists = new System.Windows.Forms.Timer(this.components);
             this.glassIcon = new System.Windows.Forms.PictureBox();
@@ -96,63 +92,11 @@
             // 
             this.pnlArtists.AutoScroll = true;
             this.pnlArtists.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.pnlArtists.Controls.Add(this.label25);
-            this.pnlArtists.Controls.Add(this.label42);
-            this.pnlArtists.Controls.Add(this.label45);
-            this.pnlArtists.Controls.Add(this.label49);
             this.pnlArtists.Controls.Add(this.lblArtists);
             this.pnlArtists.Location = new System.Drawing.Point(242, 264);
             this.pnlArtists.Name = "pnlArtists";
             this.pnlArtists.Size = new System.Drawing.Size(800, 115);
             this.pnlArtists.TabIndex = 28;
-            // 
-            // label25
-            // 
-            this.label25.BackColor = System.Drawing.Color.Transparent;
-            this.label25.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(0, 121);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(780, 30);
-            this.label25.TabIndex = 27;
-            this.label25.Text = "No More Results";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label42
-            // 
-            this.label42.BackColor = System.Drawing.SystemColors.GrayText;
-            this.label42.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.ForeColor = System.Drawing.Color.White;
-            this.label42.Location = new System.Drawing.Point(0, 84);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(780, 30);
-            this.label42.TabIndex = 11;
-            this.label42.Text = "Machineheart";
-            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label45
-            // 
-            this.label45.BackColor = System.Drawing.SystemColors.Desktop;
-            this.label45.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.ForeColor = System.Drawing.Color.White;
-            this.label45.Location = new System.Drawing.Point(0, 52);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(780, 30);
-            this.label45.TabIndex = 7;
-            this.label45.Text = "Men Without Hats";
-            this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label49
-            // 
-            this.label49.BackColor = System.Drawing.SystemColors.GrayText;
-            this.label49.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.ForeColor = System.Drawing.Color.White;
-            this.label49.Location = new System.Drawing.Point(0, 20);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(780, 30);
-            this.label49.TabIndex = 3;
-            this.label49.Text = "Lewis Davie";
-            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblArtists
             // 
@@ -293,10 +237,6 @@
         private System.Windows.Forms.Label lblSearchedFor;
         private System.Windows.Forms.Timer tmrSlideSongs;
         private System.Windows.Forms.Panel pnlArtists;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label lblArtists;
         private System.Windows.Forms.Timer tmrSlideArtists;
         private System.Windows.Forms.PictureBox glassIcon;

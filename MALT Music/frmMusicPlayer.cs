@@ -245,9 +245,15 @@ namespace MALT_Music
         /// <param name="value">The new value of the slider</param>
         private void SetValue(int value)
         {
+            // If a song isn't playing
+            if (!isPlaying)
+            {
+                return;
+            }
+
             // Make sure the new value is within bounds.
             if (value < 0) value = 0;
-            if (value > trackLength)
+            if (value >= trackLength)
             {
                 // Checks repeat status
                 if (rbnNone.Checked)
@@ -255,19 +261,20 @@ namespace MALT_Music
                     sliderValue = 0;
                     stopSong();
                 }
-                // Checks status of repeat
-                if (rbnOnce.Checked) // Repeat Once
+                else if (rbnOnce.Checked) // Repeat Once
                 {
-                    SetValue(0);
+                    sliderValue = 0;
                     musicController.updatePlayTime(TimeSpan.FromSeconds(0));
+                    playCurrentSong();
                     rbnNone.Checked = true;
                 }
                 else if (rbnCurrent.Checked) // Repeat eternally
                 {
-                    SetValue(0);
+                    sliderValue = 0;
+                    playCurrentSong();
                     musicController.updatePlayTime(TimeSpan.FromSeconds(0));
                 }
-                else // Else if 'none'
+                else // Repeat playlist
                 {
                     stopSong();
                     tmrTracker.Enabled = false;

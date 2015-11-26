@@ -29,17 +29,24 @@ namespace MALT_Music
         frmMusicPlayer musicPlayer;
         int selectedSong;
 
+        List<Label> playlistLabels = new List<Label>();
+
+        User currentUser = new User();
+        List <Playlist> usersPlaylists = new List<Playlist>();
+
+
         private List<Song> songList = new List<Song>();
+        private List<String> artists = new List<String>();
+
         List<Label> songLabelsA = new List<Label>();
         List<Label> songLabelsB = new List<Label>();
         List<Label> songLabelsC = new List<Label>();
         List<Label> songLabelsD = new List<Label>();
         Label endLabel = new Label();
 
-        List<Label> playlistLabels = new List<Label>();
 
-        User currentUser = new User();
-        List <Playlist> usersPlaylists = new List<Playlist>();
+        List<Label> artistLabel = new List<Label>();
+
 
         bool songsState = false;
         bool artistState = false;
@@ -147,8 +154,51 @@ namespace MALT_Music
 
             pnlSongs.Controls.Add(endLabel);
 
-            addPlaylistLabels();
 
+        }
+        public void createArtistList()
+        {
+            int i = 0;
+            while (i < 9 && i < this.artists.Count)
+            {
+                Label newArtist = new Label();
+                newArtist.Text = artists[i];
+                newArtist.Size = new Size(780, 30);
+                newArtist.Location = new Point(0, (20 + (i * 32)));
+                newArtist.TextAlign = ContentAlignment.MiddleLeft;
+                newArtist.ForeColor = Color.White;
+                if (i % 2 == 0) { newArtist.BackColor = Color.FromArgb(60, 60, 60); } else { newArtist.BackColor = Color.FromArgb(90, 90, 90); }
+                newArtist.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                newArtist.Tag = i.ToString();
+
+
+                artistLabel.Add(newArtist);
+                pnlArtists.Controls.Add(artistLabel[i]);
+
+                i++;
+            }
+
+
+            if (i >= songList.Count)
+            {
+                endLabel.Text = "No More Results";
+            }
+            else
+            {
+                int remaining = songList.Count - i;
+                endLabel.Text = "(" + remaining + " other results)";
+            }
+
+            endLabel.Size = new Size(780, 30);
+            endLabel.Location = new Point(0, (20 + (i * 32)));
+            endLabel.TextAlign = ContentAlignment.MiddleCenter;
+            endLabel.ForeColor = Color.White;
+            endLabel.BackColor = Color.FromArgb(20, 20, 20);
+            endLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+
+            pnlSongs.Controls.Add(endLabel);
+            
         }
 
         public void resetSearch() 
@@ -193,9 +243,12 @@ namespace MALT_Music
             }
         }
 
-
         public void setSongList(List<Song> songs){
             this.songList = songs;
+        }
+        public void setArtistList(List<String> artists)
+        {
+            this.artists = artists;
         }
         
         public void setCurrentUser(User u){
