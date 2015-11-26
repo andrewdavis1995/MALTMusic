@@ -63,7 +63,7 @@ namespace MALT_Music.Models
                     else
                     {
 
-                        user = new User(username, password, fname, sname, null, null);
+                        user = new User(username, password, fname, sname, null, "Enter your details here...");
                     }
                     return user;
                 }
