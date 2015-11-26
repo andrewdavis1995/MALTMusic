@@ -67,6 +67,7 @@ namespace MALT_Music
                 newLabelSongName.Location = new Point(0, (20 + (i * 32)));
                 newLabelSongName.TextAlign = ContentAlignment.MiddleLeft;
                 newLabelSongName.ForeColor = Color.White;
+                newLabelSongName.UseMnemonic = false;   // & symbol thing
                 if (i % 2 == 0) { newLabelSongName.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongName.BackColor = Color.FromArgb(90, 90, 90); }
                 newLabelSongName.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 newLabelSongName.Tag = i.ToString();
@@ -81,6 +82,7 @@ namespace MALT_Music
                 newLabelSongArtist.Location = new Point(309, (20 + (i * 32)));
                 newLabelSongArtist.TextAlign = ContentAlignment.MiddleLeft;
                 newLabelSongArtist.ForeColor = Color.White;
+                newLabelSongArtist.UseMnemonic = false;   // & symbol thing
                 if (i % 2 == 0) { newLabelSongArtist.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongArtist.BackColor = Color.FromArgb(90, 90, 90); }
                 newLabelSongArtist.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 newLabelSongArtist.Tag = i.ToString();
@@ -96,6 +98,7 @@ namespace MALT_Music
                 newLabelSongAlbum.Location = new Point(508, (20 + (i * 32)));
                 newLabelSongAlbum.TextAlign = ContentAlignment.MiddleLeft;
                 newLabelSongAlbum.ForeColor = Color.White;
+                newLabelSongAlbum.UseMnemonic = false;   // & symbol thing
                 if (i % 2 == 0) { newLabelSongAlbum.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongAlbum.BackColor = Color.FromArgb(90, 90, 90); }
                 newLabelSongAlbum.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 newLabelSongAlbum.Tag = i.ToString();
@@ -111,6 +114,7 @@ namespace MALT_Music
                 newLabelSongYear.Location = new Point(707, (20 + (i * 32)));
                 newLabelSongYear.TextAlign = ContentAlignment.MiddleLeft;
                 newLabelSongYear.ForeColor = Color.White;
+                newLabelSongYear.UseMnemonic = false;   // & symbol thing
                 if (i % 2 == 0) { newLabelSongYear.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongYear.BackColor = Color.FromArgb(90, 90, 90); }
                 newLabelSongYear.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 newLabelSongYear.Tag = i.ToString();
@@ -168,6 +172,7 @@ namespace MALT_Music
                 newArtist.Location = new Point(0, (20 + (i * 32)));
                 newArtist.TextAlign = ContentAlignment.MiddleLeft;
                 newArtist.ForeColor = Color.White;
+                newArtist.UseMnemonic = false;
                 if (i % 2 == 0) { newArtist.BackColor = Color.FromArgb(60, 60, 60); } else { newArtist.BackColor = Color.FromArgb(90, 90, 90); }
                 newArtist.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 newArtist.Tag = i.ToString();
@@ -463,8 +468,7 @@ namespace MALT_Music
             playlistLabels[id].BackColor = Color.FromArgb(40, 40, 40);
 
         }
-
-
+        
         private void artistClick(object sender, EventArgs e)
         {
             Label theLabel = (Label)sender;
@@ -475,8 +479,7 @@ namespace MALT_Music
             MessageBox.Show("Going to Page for: " + artist);
 
         }
-
-
+        
         private void artistHover(object sender, EventArgs e)
         {
             Label theLabel = (Label)sender;
@@ -517,6 +520,7 @@ namespace MALT_Music
 
         private void lblPlay_Leave(object sender, EventArgs e)
         {
+            tmrOptionsDelay.Start();
             lblPlay.BackColor = Color.FromArgb(40, 40, 40);
         }
 
@@ -538,8 +542,8 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void lblAddToPLaylist_Leave(object sender, EventArgs e)
         {
-            lblAddToPlaylist.BackColor = Color.FromArgb(40, 40, 40);
             tmrPlaylistDelay.Start();
+            lblAddToPlaylist.BackColor = Color.FromArgb(40, 40, 40);
         }
 
         /// <summary>
