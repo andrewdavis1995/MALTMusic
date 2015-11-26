@@ -22,7 +22,6 @@ namespace MALT_Music
 
         /// <summary>
         /// Variables for slider bar.
-        /// Information on this found <see cref="http://csharphelper.com/blog/2011/07/use-a-picturebox-to-make-a-slider-with-a-needle-in-c/"/> HERE
         /// </summary>
         private float sliderValue;
         private float maxValue;
@@ -50,17 +49,20 @@ namespace MALT_Music
         }
 
         /// <summary>
-        /// Plays the mp3
+        /// Triggers the play routine
         /// </summary>.
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnPlay_Click(object sender, EventArgs e)
         {
             playCurrentSong();
+            btnPlay.Enabled = true;
+            btnStop.Enabled = true;
+            btnTest.Enabled = false;
         }
 
         /// <summary>
-        /// Plays the current song
+        /// Plays the currently loaded song in the NAudio drivers
         /// </summary>
         public void playCurrentSong()
         {
@@ -123,13 +125,21 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void btnStop_Click(object sender, EventArgs e)
         {
+            // Disables track timer
+            tmrTracker.Enabled = false;
+
+            // Stops the track
             musicController.stopSong();
             isPlaying = false;
 
-            btnPlay.Enabled = false;
+            // 
             btnTest.Enabled = true;
 
-            tmrTracker.Enabled = false;
+            // If a file is loaded
+            if (lblFileName.Text != "")
+            {
+                btnPlay.Enabled = true;
+            }
         }
 
         /// <summary>
@@ -184,6 +194,7 @@ namespace MALT_Music
             lblTimeTwo.Text = "";
         }
 
+        // Information on this found http://csharphelper.com/blog/2011/07/use-a-picturebox-to-make-a-slider-with-a-needle-in-c/"/>
         #region SliderControl ## Functions for slider control
         /// <summary>
         /// Convert an X coordinate to a value
@@ -210,10 +221,12 @@ namespace MALT_Music
         /// Updates the first time box text
         /// </summary>
         /// <param name="value">Float of time value</param>
-        private void updateTimeIndicator(float value)
+        private void updateTimeIndicator()
         {
-            TimeSpan currentTime = TimeSpan.FromMinutes(value);
-            lblTimeOne.Text = currentTime.TotalMinutes.ToString();
+            float num = trackLength - (Convert.ToInt32(sliderValue) * 60);
+            TimeSpan currentTime = TimeSpan.FromSeconds(num);
+            lblTimeOne.Text = currentTime.ToString("mm':'ss");
+            lblTimeOne.Text = "Fuck you, Andrew.";
         }
 
         /// <summary>
@@ -236,7 +249,7 @@ namespace MALT_Music
             pcbSliderBar.Refresh();
 
             // Updates the time indicator
-            updateTimeIndicator(value);
+            updateTimeIndicator();
 
             // If tracking position
             if (mouseIsDown)
