@@ -113,7 +113,7 @@ namespace MALT_Music
 
 
             List<String> artists = new List<String>();
-            Thread artistThread = new Thread(() => { artists = songModel.searchArtists(searchText); });
+            Thread artistThread = new Thread(() => { artists = songModel.searchArtists(searchText.ToLower()); });
             artistThread.Start();
 
 

@@ -77,7 +77,7 @@ namespace MALT_Music.Models
 
                 // Prepare and bind statement passing in the relevant fields
                 String todo = ("insert into playlist (track_id,playlist_id,track_pos)\n" +
-                 "values (:tid, :pid,:tpos);");
+                 "values (:tid, :pid,:tpos) if not exists;");
                 PreparedStatement ps = session.Prepare(todo);
 
                 // Getting Appropriate ID's for query

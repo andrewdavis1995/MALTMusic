@@ -152,7 +152,7 @@ namespace MALT_Music.Models
             for (int i = 0; i < allArtists.Count(); i++) 
             { 
                 curr = allArtists[i];
-                if(curr.Contains(target))
+                if(curr.ToLower().Contains(target))
                 {
                     matches.Add(curr);
                 }

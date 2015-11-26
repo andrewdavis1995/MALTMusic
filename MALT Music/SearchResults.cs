@@ -46,6 +46,7 @@ namespace MALT_Music
 
 
         List<Label> artistLabel = new List<Label>();
+        Label endLabel2 = new Label();
 
 
         bool songsState = false;
@@ -170,6 +171,9 @@ namespace MALT_Music
                 if (i % 2 == 0) { newArtist.BackColor = Color.FromArgb(60, 60, 60); } else { newArtist.BackColor = Color.FromArgb(90, 90, 90); }
                 newArtist.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 newArtist.Tag = i.ToString();
+                newArtist.Click += artistClick;
+                newArtist.MouseLeave += artistLeave;
+                newArtist.MouseEnter += artistHover;
 
 
                 artistLabel.Add(newArtist);
@@ -181,23 +185,23 @@ namespace MALT_Music
 
             if (i >= songList.Count)
             {
-                endLabel.Text = "No More Results";
+                endLabel2.Text = "No More Results";
             }
             else
             {
-                int remaining = songList.Count - i;
-                endLabel.Text = "(" + remaining + " other results)";
+                int remaining = artists.Count - i;
+                endLabel2.Text = "(" + remaining + " other results)";
             }
 
-            endLabel.Size = new Size(780, 30);
-            endLabel.Location = new Point(0, (20 + (i * 32)));
-            endLabel.TextAlign = ContentAlignment.MiddleCenter;
-            endLabel.ForeColor = Color.White;
-            endLabel.BackColor = Color.FromArgb(20, 20, 20);
-            endLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            endLabel2.Size = new Size(780, 30);
+            endLabel2.Location = new Point(0, (20 + (i * 32)));
+            endLabel2.TextAlign = ContentAlignment.MiddleCenter;
+            endLabel2.ForeColor = Color.White;
+            endLabel2.BackColor = Color.FromArgb(20, 20, 20);
+            endLabel2.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
 
-            pnlSongs.Controls.Add(endLabel);
+            pnlArtists.Controls.Add(endLabel2);
             
         }
 
@@ -457,6 +461,44 @@ namespace MALT_Music
             int id = int.Parse(theLabel.Tag.ToString());
 
             playlistLabels[id].BackColor = Color.FromArgb(40, 40, 40);
+
+        }
+
+
+        private void artistClick(object sender, EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            int id = int.Parse(theLabel.Tag.ToString());
+
+            String artist = artistLabel[id].Text;
+
+            MessageBox.Show("Going to Page for: " + artist);
+
+        }
+
+
+        private void artistHover(object sender, EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            int id = int.Parse(theLabel.Tag.ToString());
+
+            artistLabel[id].BackColor = Color.DodgerBlue;
+
+        }
+
+        private void artistLeave(object sender, EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            int id = int.Parse(theLabel.Tag.ToString());
+
+            if (id % 2 == 0)
+            {
+                artistLabel[id].BackColor = Color.FromArgb(60, 60, 60);
+            }
+            else
+            {
+                artistLabel[id].BackColor = Color.FromArgb(90, 90, 90);
+            }
 
         }
         
