@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MALT_Music.Models;
 using MALT_Music.DataObjects;
 using MALT_Music.lib;
+using Cassandra;
 
 namespace MALT_Music
 {
@@ -23,6 +24,8 @@ namespace MALT_Music
         {
             InitializeComponent();
             keyspaces keys = new keyspaces();
+            Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
+            keyspaces.SetUpKeySpaces(cluster);
             keys.populateTracks();
         }
 
