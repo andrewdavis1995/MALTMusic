@@ -41,9 +41,17 @@
             this.lblArtists = new System.Windows.Forms.Label();
             this.tmrSlideArtists = new System.Windows.Forms.Timer(this.components);
             this.glassIcon = new System.Windows.Forms.PictureBox();
+            this.pnlPlaylists = new System.Windows.Forms.Panel();
+            this.pnlOptions = new System.Windows.Forms.Panel();
+            this.lblShare = new System.Windows.Forms.Label();
+            this.lblAddToPlaylist = new System.Windows.Forms.Label();
+            this.lblPlay = new System.Windows.Forms.Label();
+            this.tmrPlaylistDelay = new System.Windows.Forms.Timer(this.components);
+            this.tmrOptionsDelay = new System.Windows.Forms.Timer(this.components);
             this.pnlSongs.SuspendLayout();
             this.pnlArtists.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.glassIcon)).BeginInit();
+            this.pnlOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSongs
@@ -173,6 +181,85 @@
             this.glassIcon.TabIndex = 29;
             this.glassIcon.TabStop = false;
             // 
+            // pnlPlaylists
+            // 
+            this.pnlPlaylists.AutoScroll = true;
+            this.pnlPlaylists.AutoSize = true;
+            this.pnlPlaylists.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pnlPlaylists.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.pnlPlaylists.Location = new System.Drawing.Point(897, 117);
+            this.pnlPlaylists.MaximumSize = new System.Drawing.Size(170, 211);
+            this.pnlPlaylists.Name = "pnlPlaylists";
+            this.pnlPlaylists.Size = new System.Drawing.Size(144, 84);
+            this.pnlPlaylists.TabIndex = 31;
+            this.pnlPlaylists.Visible = false;
+            this.pnlPlaylists.MouseEnter += new System.EventHandler(this.pnlPlaylists_MouseEnter);
+            this.pnlPlaylists.MouseLeave += new System.EventHandler(this.pnlPlaylists_MouseLeave);
+            // 
+            // pnlOptions
+            // 
+            this.pnlOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pnlOptions.Controls.Add(this.lblShare);
+            this.pnlOptions.Controls.Add(this.lblAddToPlaylist);
+            this.pnlOptions.Controls.Add(this.lblPlay);
+            this.pnlOptions.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.pnlOptions.Location = new System.Drawing.Point(752, 117);
+            this.pnlOptions.Name = "pnlOptions";
+            this.pnlOptions.Size = new System.Drawing.Size(139, 141);
+            this.pnlOptions.TabIndex = 30;
+            this.pnlOptions.Visible = false;
+            this.pnlOptions.MouseLeave += new System.EventHandler(this.pnlOptions_MouseLeave);
+            // 
+            // lblShare
+            // 
+            this.lblShare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblShare.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShare.ForeColor = System.Drawing.Color.DimGray;
+            this.lblShare.Location = new System.Drawing.Point(0, 97);
+            this.lblShare.Name = "lblShare";
+            this.lblShare.Size = new System.Drawing.Size(139, 43);
+            this.lblShare.TabIndex = 2;
+            this.lblShare.Text = "Share...";
+            this.lblShare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblAddToPlaylist
+            // 
+            this.lblAddToPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblAddToPlaylist.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddToPlaylist.ForeColor = System.Drawing.Color.White;
+            this.lblAddToPlaylist.Location = new System.Drawing.Point(0, 48);
+            this.lblAddToPlaylist.Name = "lblAddToPlaylist";
+            this.lblAddToPlaylist.Size = new System.Drawing.Size(139, 43);
+            this.lblAddToPlaylist.TabIndex = 1;
+            this.lblAddToPlaylist.Text = "Add To Playlist >";
+            this.lblAddToPlaylist.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAddToPlaylist.MouseEnter += new System.EventHandler(this.lblAddToPLaylist_Enter);
+            this.lblAddToPlaylist.MouseLeave += new System.EventHandler(this.lblAddToPLaylist_Leave);
+            // 
+            // lblPlay
+            // 
+            this.lblPlay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblPlay.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlay.ForeColor = System.Drawing.Color.White;
+            this.lblPlay.Location = new System.Drawing.Point(0, 0);
+            this.lblPlay.Name = "lblPlay";
+            this.lblPlay.Size = new System.Drawing.Size(139, 43);
+            this.lblPlay.TabIndex = 0;
+            this.lblPlay.Text = "Play";
+            this.lblPlay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPlay.Click += new System.EventHandler(this.lblPlay_Click);
+            this.lblPlay.MouseEnter += new System.EventHandler(this.lblPlay_Enter);
+            this.lblPlay.MouseLeave += new System.EventHandler(this.lblPlay_Leave);
+            // 
+            // tmrPlaylistDelay
+            // 
+            this.tmrPlaylistDelay.Interval = 700;
+            // 
+            // tmrOptionsDelay
+            // 
+            this.tmrOptionsDelay.Interval = 700;
+            this.tmrOptionsDelay.Tick += new System.EventHandler(this.tmrOptionsDelay_Tick);
+            // 
             // SearchResults
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,6 +267,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1124, 457);
+            this.Controls.Add(this.pnlPlaylists);
+            this.Controls.Add(this.pnlOptions);
             this.Controls.Add(this.glassIcon);
             this.Controls.Add(this.pnlArtists);
             this.Controls.Add(this.lblSearchedFor);
@@ -191,6 +280,7 @@
             this.pnlArtists.ResumeLayout(false);
             this.pnlArtists.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.glassIcon)).EndInit();
+            this.pnlOptions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,5 +300,12 @@
         private System.Windows.Forms.Label lblArtists;
         private System.Windows.Forms.Timer tmrSlideArtists;
         private System.Windows.Forms.PictureBox glassIcon;
+        private System.Windows.Forms.Panel pnlPlaylists;
+        private System.Windows.Forms.Panel pnlOptions;
+        private System.Windows.Forms.Label lblShare;
+        private System.Windows.Forms.Label lblAddToPlaylist;
+        private System.Windows.Forms.Label lblPlay;
+        private System.Windows.Forms.Timer tmrPlaylistDelay;
+        private System.Windows.Forms.Timer tmrOptionsDelay;
     }
 }

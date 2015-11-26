@@ -104,7 +104,6 @@ namespace MALT_Music
         {
             SearchResults searchResults = new SearchResults();
             searchResults.setSongList(songs);
-            searchResults.createSongList(searchText);
 
             searchResults.setCurrentUser(currentUser);
             List<Playlist> lp = new List<Playlist>();
@@ -113,6 +112,7 @@ namespace MALT_Music
 
             lp = pm.getPlaylistsForUser(currentUser.getUsername());
             searchResults.setUsersPlaylists(lp);
+            searchResults.createSongList(searchText);
 
             searchResults.TopLevel = false;
             searchResults.Parent = this;
