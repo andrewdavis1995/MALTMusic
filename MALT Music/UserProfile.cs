@@ -26,27 +26,44 @@ namespace MALT_Music
         public void setUser(User theUser)
         {
             currentUser = theUser;
-            lblBioText.Text = currentUser.getBio();
+
+            if((lblBioText.Text.Equals("")) || (lblBioText.Text.Equals(null)))
+            {
+                lblBioText.Text = "Enter your bio here...";
+            }
+            else
+            {
+                lblBioText.Text = currentUser.getBio();
+            }
         }
 
         private void lblBioText_Click(object sender, EventArgs e)
         {
+            txtBioEdit.Text = lblBioText.Text;
             txtBioEdit.Show();
         }
 
         private void txtBioEdit_MouseLeave(object sender, EventArgs e)
         {
-            //Update text for user
-            lblBioText.Text = txtBioEdit.Text;
+            if (txtBioEdit.Text != "")
+            {
 
-            //Convert to string for use in method
-            string newBio = txtBioEdit.Text;
+                //Update text for user
+                lblBioText.Text = txtBioEdit.Text;
 
-            //TODO: Update bio in database
-            model.updateBio(newBio, currentUser.getUsername());
+                //Convert to string for use in method
+                string newBio = txtBioEdit.Text;
 
-            //Hide textbox
-            txtBioEdit.Hide();
+                //TODO: Update bio in database
+                model.updateBio(newBio, currentUser.getUsername());
+
+                //Hide textbox
+                txtBioEdit.Hide();
+            }
+            else
+            {
+                //Do nothing
+            }
         }
 
     }
