@@ -45,6 +45,7 @@
             this.lblTimeTwo = new System.Windows.Forms.Label();
             this.pcbSliderBar = new System.Windows.Forms.PictureBox();
             this.ttpSliderIndicator = new System.Windows.Forms.ToolTip(this.components);
+            this.rbnAndrewIsA = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).BeginInit();
             this.grpRepeat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSliderBar)).BeginInit();
@@ -54,12 +55,12 @@
             // 
             this.btnPlay.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.btnPlay.Enabled = false;
-            this.btnPlay.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlay.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnPlay.Location = new System.Drawing.Point(231, 15);
-            this.btnPlay.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnPlay.Location = new System.Drawing.Point(149, 12);
+            this.btnPlay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(170, 32);
+            this.btnPlay.Size = new System.Drawing.Size(108, 30);
             this.btnPlay.TabIndex = 0;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = false;
@@ -69,12 +70,12 @@
             // 
             this.btnStop.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.btnStop.Enabled = false;
-            this.btnStop.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStop.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnStop.Location = new System.Drawing.Point(410, 15);
-            this.btnStop.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnStop.Location = new System.Drawing.Point(263, 12);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(170, 32);
+            this.btnStop.Size = new System.Drawing.Size(108, 30);
             this.btnStop.TabIndex = 1;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = false;
@@ -83,12 +84,12 @@
             // btnTest
             // 
             this.btnTest.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnTest.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnTest.Location = new System.Drawing.Point(976, 15);
-            this.btnTest.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnTest.Location = new System.Drawing.Point(607, 12);
+            this.btnTest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(170, 32);
+            this.btnTest.Size = new System.Drawing.Size(108, 30);
             this.btnTest.TabIndex = 2;
             this.btnTest.Text = "Load Test File";
             this.btnTest.UseVisualStyleBackColor = false;
@@ -99,12 +100,11 @@
             this.lblFileName.AutoEllipsis = true;
             this.lblFileName.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblFileName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFileName.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFileName.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFileName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblFileName.Location = new System.Drawing.Point(393, 62);
-            this.lblFileName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblFileName.Location = new System.Drawing.Point(236, 56);
             this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(752, 18);
+            this.lblFileName.Size = new System.Drawing.Size(479, 18);
             this.lblFileName.TabIndex = 4;
             this.lblFileName.Text = "No file selected";
             // 
@@ -114,10 +114,10 @@
             this.picBoxAlbumArt.ErrorImage = global::MALT_Music.Properties.Resources.logo;
             this.picBoxAlbumArt.Image = global::MALT_Music.Properties.Resources.logo;
             this.picBoxAlbumArt.InitialImage = global::MALT_Music.Properties.Resources.logo;
-            this.picBoxAlbumArt.Location = new System.Drawing.Point(19, 15);
-            this.picBoxAlbumArt.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.picBoxAlbumArt.Location = new System.Drawing.Point(12, 14);
+            this.picBoxAlbumArt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picBoxAlbumArt.Name = "picBoxAlbumArt";
-            this.picBoxAlbumArt.Size = new System.Drawing.Size(200, 136);
+            this.picBoxAlbumArt.Size = new System.Drawing.Size(129, 128);
             this.picBoxAlbumArt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxAlbumArt.TabIndex = 5;
             this.picBoxAlbumArt.TabStop = false;
@@ -129,17 +129,18 @@
             // 
             // grpRepeat
             // 
+            this.grpRepeat.Controls.Add(this.rbnAndrewIsA);
             this.grpRepeat.Controls.Add(this.rbnPlaylist);
             this.grpRepeat.Controls.Add(this.rbnOnce);
             this.grpRepeat.Controls.Add(this.rbnCurrent);
             this.grpRepeat.Controls.Add(this.rbnNone);
-            this.grpRepeat.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpRepeat.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpRepeat.ForeColor = System.Drawing.Color.White;
-            this.grpRepeat.Location = new System.Drawing.Point(1155, 27);
-            this.grpRepeat.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.grpRepeat.Location = new System.Drawing.Point(727, 12);
+            this.grpRepeat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grpRepeat.Name = "grpRepeat";
-            this.grpRepeat.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.grpRepeat.Size = new System.Drawing.Size(525, 53);
+            this.grpRepeat.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.grpRepeat.Size = new System.Drawing.Size(143, 130);
             this.grpRepeat.TabIndex = 8;
             this.grpRepeat.TabStop = false;
             this.grpRepeat.Text = "Repeat Options";
@@ -147,10 +148,10 @@
             // rbnPlaylist
             // 
             this.rbnPlaylist.AutoSize = true;
-            this.rbnPlaylist.Location = new System.Drawing.Point(374, 22);
-            this.rbnPlaylist.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.rbnPlaylist.Location = new System.Drawing.Point(7, 84);
+            this.rbnPlaylist.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbnPlaylist.Name = "rbnPlaylist";
-            this.rbnPlaylist.Size = new System.Drawing.Size(127, 22);
+            this.rbnPlaylist.Size = new System.Drawing.Size(61, 20);
             this.rbnPlaylist.TabIndex = 3;
             this.rbnPlaylist.TabStop = true;
             this.rbnPlaylist.Text = "Playlist";
@@ -159,10 +160,10 @@
             // rbnOnce
             // 
             this.rbnOnce.AutoSize = true;
-            this.rbnOnce.Location = new System.Drawing.Point(119, 22);
-            this.rbnOnce.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.rbnOnce.Location = new System.Drawing.Point(7, 44);
+            this.rbnOnce.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbnOnce.Name = "rbnOnce";
-            this.rbnOnce.Size = new System.Drawing.Size(83, 22);
+            this.rbnOnce.Size = new System.Drawing.Size(57, 20);
             this.rbnOnce.TabIndex = 2;
             this.rbnOnce.TabStop = true;
             this.rbnOnce.Text = "Once";
@@ -172,10 +173,10 @@
             // rbnCurrent
             // 
             this.rbnCurrent.AutoSize = true;
-            this.rbnCurrent.Location = new System.Drawing.Point(228, 22);
-            this.rbnCurrent.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.rbnCurrent.Location = new System.Drawing.Point(7, 64);
+            this.rbnCurrent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbnCurrent.Name = "rbnCurrent";
-            this.rbnCurrent.Size = new System.Drawing.Size(116, 22);
+            this.rbnCurrent.Size = new System.Drawing.Size(66, 20);
             this.rbnCurrent.TabIndex = 1;
             this.rbnCurrent.TabStop = true;
             this.rbnCurrent.Text = "Current";
@@ -185,10 +186,10 @@
             // 
             this.rbnNone.AutoSize = true;
             this.rbnNone.Checked = true;
-            this.rbnNone.Location = new System.Drawing.Point(11, 24);
-            this.rbnNone.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.rbnNone.Location = new System.Drawing.Point(7, 22);
+            this.rbnNone.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rbnNone.Name = "rbnNone";
-            this.rbnNone.Size = new System.Drawing.Size(83, 22);
+            this.rbnNone.Size = new System.Drawing.Size(55, 20);
             this.rbnNone.TabIndex = 0;
             this.rbnNone.TabStop = true;
             this.rbnNone.Text = "None";
@@ -197,30 +198,29 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(233, 63);
-            this.lblStatus.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblStatus.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(150, 57);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(157, 17);
+            this.lblStatus.Size = new System.Drawing.Size(80, 16);
             this.lblStatus.TabIndex = 9;
             this.lblStatus.Text = "Player Status:";
             // 
             // lblTimeOne
             // 
             this.lblTimeOne.AutoSize = true;
-            this.lblTimeOne.Location = new System.Drawing.Point(233, 81);
-            this.lblTimeOne.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblTimeOne.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeOne.Location = new System.Drawing.Point(150, 74);
             this.lblTimeOne.Name = "lblTimeOne";
-            this.lblTimeOne.Size = new System.Drawing.Size(74, 17);
+            this.lblTimeOne.Size = new System.Drawing.Size(41, 16);
             this.lblTimeOne.TabIndex = 10;
             this.lblTimeOne.Text = "label1";
             // 
             // lblTimeTwo
             // 
             this.lblTimeTwo.AutoSize = true;
-            this.lblTimeTwo.Location = new System.Drawing.Point(1603, 81);
-            this.lblTimeTwo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblTimeTwo.Location = new System.Drawing.Point(683, 74);
             this.lblTimeTwo.Name = "lblTimeTwo";
-            this.lblTimeTwo.Size = new System.Drawing.Size(74, 17);
+            this.lblTimeTwo.Size = new System.Drawing.Size(41, 16);
             this.lblTimeTwo.TabIndex = 11;
             this.lblTimeTwo.Text = "label2";
             // 
@@ -229,10 +229,10 @@
             this.pcbSliderBar.BackColor = System.Drawing.Color.MidnightBlue;
             this.pcbSliderBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pcbSliderBar.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.pcbSliderBar.Location = new System.Drawing.Point(231, 102);
-            this.pcbSliderBar.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.pcbSliderBar.Location = new System.Drawing.Point(147, 96);
+            this.pcbSliderBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pcbSliderBar.Name = "pcbSliderBar";
-            this.pcbSliderBar.Size = new System.Drawing.Size(1434, 49);
+            this.pcbSliderBar.Size = new System.Drawing.Size(577, 46);
             this.pcbSliderBar.TabIndex = 12;
             this.pcbSliderBar.TabStop = false;
             this.pcbSliderBar.Paint += new System.Windows.Forms.PaintEventHandler(this.picSliderBar_Paint);
@@ -245,12 +245,24 @@
             this.ttpSliderIndicator.UseAnimation = false;
             this.ttpSliderIndicator.UseFading = false;
             // 
+            // rbnAndrewIsA
+            // 
+            this.rbnAndrewIsA.AutoSize = true;
+            this.rbnAndrewIsA.Location = new System.Drawing.Point(7, 103);
+            this.rbnAndrewIsA.Name = "rbnAndrewIsA";
+            this.rbnAndrewIsA.Size = new System.Drawing.Size(98, 20);
+            this.rbnAndrewIsA.TabIndex = 4;
+            this.rbnAndrewIsA.TabStop = true;
+            this.rbnAndrewIsA.Text = "Andrew Is a...";
+            this.rbnAndrewIsA.UseVisualStyleBackColor = true;
+            this.rbnAndrewIsA.CheckedChanged += new System.EventHandler(this.rbnAndrewIsA_CheckedChanged);
+            // 
             // frmMusicPlayer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1751, 166);
+            this.ClientSize = new System.Drawing.Size(1114, 156);
             this.ControlBox = false;
             this.Controls.Add(this.pcbSliderBar);
             this.Controls.Add(this.lblTimeTwo);
@@ -262,11 +274,11 @@
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnPlay);
-            this.Font = new System.Drawing.Font("Webdings", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
-            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.MaximumSize = new System.Drawing.Size(1767, 205);
-            this.MinimumSize = new System.Drawing.Size(1767, 205);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(1130, 195);
+            this.MinimumSize = new System.Drawing.Size(1130, 195);
             this.Name = "frmMusicPlayer";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -299,5 +311,6 @@
         private System.Windows.Forms.PictureBox pcbSliderBar;
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.ToolTip ttpSliderIndicator;
+        private System.Windows.Forms.RadioButton rbnAndrewIsA;
     }
 }

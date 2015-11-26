@@ -373,5 +373,13 @@ namespace MALT_Music
         {
             musicController.updateRepeatStatus(1);
         }
+
+        private void rbnAndrewIsA_CheckedChanged(object sender, EventArgs e)
+        {
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Is a what?", "Tell me", "Default", -1, -1);
+            rbnAndrewIsA.Text = "Andrew is a..." + input;
+
+            rbnNone.Checked = true;
+        }
     }
 }
