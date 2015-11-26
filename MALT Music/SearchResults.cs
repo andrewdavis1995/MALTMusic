@@ -20,6 +20,9 @@ namespace MALT_Music
         List<Label> songLabelsC = new List<Label>();
         List<Label> songLabelsD = new List<Label>();
 
+         User currentUser = new User();
+        List <Playlist> usersPlaylists = new List<Playlist>();
+
         bool songsState = false;
         bool artistState = false;
 
@@ -31,6 +34,25 @@ namespace MALT_Music
         {
             InitializeComponent();
         }
+
+        public void setCurrentUser(User u){
+            this.currentUser = u;
+        }
+
+        public User getCurrentUser() {
+            return this.currentUser;
+        }
+
+        public void setUsersPlaylists(List<Playlist> lp)
+        {
+            this.usersPlaylists = lp;
+        }
+
+        public List<Playlist> getUsersPlaylists()
+        {
+            return this.usersPlaylists;
+        }
+
 
 
         private void hoverEvent(object sender, System.EventArgs e) 

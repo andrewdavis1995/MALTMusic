@@ -104,7 +104,15 @@ namespace MALT_Music
         {
             SearchResults searchResults = new SearchResults();
             searchResults.setSongList(songs);
-            searchResults.createSongList(searchText);   
+            searchResults.createSongList(searchText);
+
+            searchResults.setCurrentUser(currentUser);
+            List<Playlist> lp = new List<Playlist>();
+
+            PlaylistModel pm = new PlaylistModel();
+
+            lp = pm.getPlaylistsForUser(currentUser.getUsername());
+            searchResults.setUsersPlaylists(lp);
 
             searchResults.TopLevel = false;
             searchResults.Parent = this;

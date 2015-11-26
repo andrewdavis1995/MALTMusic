@@ -216,7 +216,7 @@ namespace MALT_Music.Models
 
                     String trackName = r["track_name"].ToString();
 
-                    if (trackName.ToLower().Contains(searchText))
+                    if (trackName.ToLower().Contains(searchText.ToLower()))
                     {
                         Guid id = (Guid)r["track_id"];
                         String album = r["album"].ToString();

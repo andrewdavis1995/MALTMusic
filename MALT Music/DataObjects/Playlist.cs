@@ -7,7 +7,7 @@ using MALT_Music.DataObjects;
 
 namespace MALT_Music.DataObjects
 {
-    class Playlist
+    public class Playlist
     {
         private String playlistName;
         private Guid pID;
