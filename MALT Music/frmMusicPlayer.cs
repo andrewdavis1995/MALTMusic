@@ -45,6 +45,7 @@ namespace MALT_Music
             maxValue = 0f;
             minValue = 0f;
             mouseIsDown = false;
+            ttpSliderIndicator.Hide(this);
         }
 
         /// <summary>
@@ -65,6 +66,7 @@ namespace MALT_Music
 
             musicController.playSong();
 
+            btnStop.Enabled = true;
             btnPause.Enabled = true;
             btnPlay.Enabled = false;
             btnTest.Enabled = false;
@@ -209,8 +211,6 @@ namespace MALT_Music
             ttpSliderIndicator.Show(sliderValue.ToString("0.00"), this, tip_x, tip_y, 3000);
 
             // Take action here if desired.
-            TimeSpan newTime = TimeSpan.FromMinutes(sliderValue);
-            musicController.updatePlayTime(newTime);
             lblTimeOne.Text = sliderValue.ToString("0.00");
         }
 
@@ -233,12 +233,20 @@ namespace MALT_Music
         {
             mouseIsDown = true;
             SetValue(XtoValue(e.X));
+            TimeSpan newTime = TimeSpan.FromMinutes(sliderValue);
+            musicController.updatePlayTime(newTime);
         }
 
         private void pcbSliderBar_MouseMove(object sender, MouseEventArgs e)
         {
             if (!mouseIsDown) return;
             SetValue(XtoValue(e.X));
+        }
+
+        private void picSliderBar_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseIsDown = false;
+            ttpSliderIndicator.Hide(this);
         }
         #endregion
     }
