@@ -37,7 +37,6 @@
             this.ofdMusicOpener = new System.Windows.Forms.OpenFileDialog();
             this.picBoxAlbumArt = new System.Windows.Forms.PictureBox();
             this.tmrTracker = new System.Windows.Forms.Timer(this.components);
-            this.btnPause = new System.Windows.Forms.Button();
             this.grpRepeat = new System.Windows.Forms.GroupBox();
             this.rbnPlaylist = new System.Windows.Forms.RadioButton();
             this.rbnOnce = new System.Windows.Forms.RadioButton();
@@ -142,20 +141,6 @@
             // 
             this.tmrTracker.Interval = 1000;
             this.tmrTracker.Tick += new System.EventHandler(this.tmrTracker_Tick);
-            // 
-            // btnPause
-            // 
-            this.btnPause.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnPause.Enabled = false;
-            this.btnPause.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPause.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnPause.Location = new System.Drawing.Point(379, 13);
-            this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(108, 25);
-            this.btnPause.TabIndex = 7;
-            this.btnPause.Text = "Pause";
-            this.btnPause.UseVisualStyleBackColor = false;
-            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // grpRepeat
             // 
@@ -271,7 +256,6 @@
             this.Controls.Add(this.lblTimeOne);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.grpRepeat);
-            this.Controls.Add(this.btnPause);
             this.Controls.Add(this.picBoxAlbumArt);
             this.Controls.Add(this.lblFileName);
             this.Controls.Add(this.btnOpen);
@@ -306,7 +290,6 @@
         private System.Windows.Forms.OpenFileDialog ofdMusicOpener;
         private System.Windows.Forms.PictureBox picBoxAlbumArt;
         private System.Windows.Forms.Timer tmrTracker;
-        private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.GroupBox grpRepeat;
         private System.Windows.Forms.RadioButton rbnPlaylist;
         private System.Windows.Forms.RadioButton rbnOnce;

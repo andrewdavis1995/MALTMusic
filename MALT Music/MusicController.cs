@@ -35,6 +35,7 @@ namespace MALT_Music
         public void setSong(string fileInput)
         {
             audioFileReader = new AudioFileReader(fileInput);
+            waveOut.Init(audioFileReader);
         }
 
         /// <summary>
@@ -42,7 +43,6 @@ namespace MALT_Music
         /// </summary>
         public void playSong()
         {
-            waveOut.Init(audioFileReader);
             waveOut.Play();
         }
 
