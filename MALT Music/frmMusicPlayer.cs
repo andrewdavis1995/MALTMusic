@@ -22,7 +22,6 @@ namespace MALT_Music
 
         /// <summary>
         /// Variables for slider bar.
-        /// Information on this found <see cref="http://csharphelper.com/blog/2011/07/use-a-picturebox-to-make-a-slider-with-a-needle-in-c/"/> HERE
         /// </summary>
         private float sliderValue;
         private float maxValue;
@@ -50,17 +49,20 @@ namespace MALT_Music
         }
 
         /// <summary>
-        /// Plays the mp3
+        /// Triggers the play routine
         /// </summary>.
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnPlay_Click(object sender, EventArgs e)
         {
             playCurrentSong();
+            btnPlay.Enabled = true;
+            btnStop.Enabled = true;
+            btnTest.Enabled = false;
         }
 
         /// <summary>
-        /// Plays the current song
+        /// Plays the currently loaded song in the NAudio drivers
         /// </summary>
         public void playCurrentSong()
         {
@@ -184,6 +186,7 @@ namespace MALT_Music
             lblTimeTwo.Text = "";
         }
 
+        // Information on this found http://csharphelper.com/blog/2011/07/use-a-picturebox-to-make-a-slider-with-a-needle-in-c/"/>
         #region SliderControl ## Functions for slider control
         /// <summary>
         /// Convert an X coordinate to a value
