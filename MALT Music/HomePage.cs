@@ -63,6 +63,9 @@ namespace MALT_Music
             searchResults.Hide();
         }
 
+        /// <summary>
+        /// Loads the music player into the application
+        /// </summary>
         private void loadMusicPlayer()
         {
             musicPlayer.TopLevel = false;

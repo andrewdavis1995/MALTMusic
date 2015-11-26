@@ -87,6 +87,9 @@
     <Compile Include="frmMusicPlayer.Designer.cs">
       <DependentUpon>frmMusicPlayer.cs</DependentUpon>
     </Compile>
+    <Compile Include="OvalPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.cs">
@@ -100,6 +103,12 @@
     </Compile>
     <Compile Include="SearchResults.Designer.cs">
       <DependentUpon>SearchResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserProfile.Designer.cs">
+      <DependentUpon>UserProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewPlaylist.cs">
       <SubType>Form</SubType>
@@ -123,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchResults.resx">
       <DependentUpon>SearchResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserProfile.resx">
+      <DependentUpon>UserProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewPlaylist.resx">
       <DependentUpon>ViewPlaylist.cs</DependentUpon>
