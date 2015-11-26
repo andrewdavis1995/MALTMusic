@@ -74,8 +74,19 @@ namespace MALT_Music.Models
             return null;
         }
 
+        public void updateBio(String newBio, String userID) 
+        { 
+            //this is to do
+            //update userprofiles set bio = 'blehhehehegfdyuqibvy'where user_id = 'andrew7';
+        
+        }
 
+        public void updateDeets(User u)
+        {
+            //this is to do
+            //;
 
+        }
 
 
 
