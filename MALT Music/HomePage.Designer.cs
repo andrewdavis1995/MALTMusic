@@ -53,7 +53,7 @@
             this.lblFullName.AutoSize = true;
             this.lblFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFullName.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblFullName.Location = new System.Drawing.Point(82, 4);
+            this.lblFullName.Location = new System.Drawing.Point(71, 4);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(61, 24);
             this.lblFullName.TabIndex = 0;
@@ -170,7 +170,7 @@
             this.panel2.Controls.Add(this.picBoxBrowse);
             this.panel2.Location = new System.Drawing.Point(-3, 124);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(233, 336);
+            this.panel2.Size = new System.Drawing.Size(233, 293);
             this.panel2.TabIndex = 7;
             // 
             // HomePage
@@ -183,6 +183,7 @@
             this.IsMdiContainer = true;
             this.Name = "HomePage";
             this.Text = "MALT Music";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HomePage_FormClosed);
             this.Load += new System.EventHandler(this.HomePage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxMALTLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBrowse)).EndInit();

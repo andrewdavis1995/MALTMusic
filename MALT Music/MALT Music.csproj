@@ -40,7 +40,7 @@
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="NAudio">
-      <HintPath>..\packages\NAudio\NAudio.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Dropbox\MALT\packages\NAudio.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
