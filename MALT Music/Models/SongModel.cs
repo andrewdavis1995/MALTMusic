@@ -143,6 +143,26 @@ namespace MALT_Music.Models
         }
 
 
+        public List<String> searchArtists(String target) 
+        {
+            List<String> allArtists = getAllArtists();
+            List<String> matches = new List<String>();
+            String curr;
+
+            for (int i = 0; i < allArtists.Count(); i++) 
+            { 
+                curr = allArtists[i];
+                if(curr.Contains(target))
+                {
+                    matches.Add(curr);
+                }
+            
+            }
+            return matches;
+ 
+        }
+
+
         public bool populateDB()
         {
             try
