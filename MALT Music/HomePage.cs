@@ -16,19 +16,31 @@ namespace MALT_Music
 {
     public partial class HomePage : Form
     {
-        // Initialise the forms
-        frmMusicPlayer musicPlayer = new frmMusicPlayer();
-        ViewPlaylist playlists = new ViewPlaylist();
-        SearchResults searchResults = new SearchResults();
+        // Class variables
+        frmMusicPlayer musicPlayer;
+        ViewPlaylist playlists;
+        SearchResults searchResults;
 
         public User currentUser;
 
+        /// <summary>
+        /// Intialiser for home page
+        /// </summary>
         public HomePage()
         {
             InitializeComponent();
+
+            // Sets up form components
+            musicPlayer = new frmMusicPlayer();
+            playlists = new ViewPlaylist();
+            searchResults = new SearchResults(musicPlayer);
         }
 
-
+        /// <summary>
+        /// On form load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HomePage_Load(object sender, EventArgs e)
         {
             lblFullName.Text = currentUser.getFirstName() + " " + currentUser.getLastName();
@@ -47,10 +59,8 @@ namespace MALT_Music
         private void hideForms()
         {
             //Music player is never hidden
-
             playlists.Hide();
             searchResults.Hide();
-            
         }
 
         private void loadMusicPlayer()

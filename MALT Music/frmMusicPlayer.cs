@@ -56,6 +56,14 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void btnPlay_Click(object sender, EventArgs e)
         {
+            playCurrentSong();
+        }
+
+        /// <summary>
+        /// Plays the current song
+        /// </summary>
+        public void playCurrentSong()
+        {
             if (btnPlay.Text == "Play")
             {
                 // Change to pause
@@ -87,7 +95,6 @@ namespace MALT_Music
                 // Updates button states
                 btnStop.Enabled = true;
                 btnTest.Enabled = false;
-                btnOpen.Enabled = false;
             }
             else
             {
@@ -101,13 +108,12 @@ namespace MALT_Music
         }
 
         /// <summary>
-        /// Opens an mp3 file
+        /// Updates the file path to the passed song
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnOpen_Click(object sender, EventArgs e)
+        /// <param name="pathName">The location of the path</param>
+        public void setSongPath(string pathName)
         {
-            ofdMusicOpener.ShowDialog();
+            lblFileName.Text = pathName;
         }
 
         /// <summary>
@@ -121,21 +127,9 @@ namespace MALT_Music
             isPlaying = false;
 
             btnPlay.Enabled = false;
-            btnOpen.Enabled = true;
             btnTest.Enabled = true;
 
             tmrTracker.Enabled = false;
-        }
-
-        /// <summary>
-        /// Sets the song to be played
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ofdMusicOpener_FileOk(object sender, CancelEventArgs e)
-        {
-            lblFileName.Text = ofdMusicOpener.FileName;
-            btnPlay.Enabled = true;
         }
 
         /// <summary>
