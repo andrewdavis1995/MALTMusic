@@ -20,6 +20,9 @@ namespace MALT_Music
         int trackLength;
         bool isPlaying;
 
+        // TEMPORARY THING
+        int count = 0;
+
         /// <summary>
         /// Variables for slider bar.
         /// </summary>
@@ -164,27 +167,19 @@ namespace MALT_Music
         }
 
         /// <summary>
-        /// Pauses the track
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnPause_Click(object sender, EventArgs e)
-        {
-            musicController.pauseSong();
-            tmrTracker.Enabled = false;
-            btnPlay.Enabled = true;
-        }
-
-        /// <summary>
         /// Increments the progress bar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void tmrTracker_Tick(object sender, EventArgs e)
         {
+            count++;
+            string message = "SliderValue: " + sliderValue + " | TrackLength: " + trackLength + " | TimerCount: " + count;
+            lblTimerChecker.Text = message;
+
             if (sliderValue != trackLength)
             {
-                SetValue(sliderValue + 1);
+                SetValue(sliderValue + 1);    
             }
         }
 
@@ -245,6 +240,22 @@ namespace MALT_Music
         /// <param name="value">The new value of the slider</param>
         private void SetValue(int value)
         {
+            long small = musicController.getPlayTime();
+            long big = musicController.getBigNum();
+            string message;
+            
+            if (small < big)
+            {
+                message = "IsOk";
+            }
+            else
+            {
+                message = "IsNotOk";
+            }
+
+            message += " | Current Pos: " + small.ToString() + " | Total Length: " + big.ToString();
+            lblPosition.Text = message;
+
             // If a song isn't playing
             if (!isPlaying)
             {
@@ -253,6 +264,7 @@ namespace MALT_Music
 
             // Make sure the new value is within bounds.
             if (value < 0) value = 0;
+            if (value > trackLength) value = trackLength;
             if (value >= trackLength)
             {
                 // Checks repeat status
@@ -263,21 +275,18 @@ namespace MALT_Music
                 }
                 else if (rbnOnce.Checked) // Repeat Once
                 {
-                    sliderValue = 0;
+                    value = 0;
                     musicController.updatePlayTime(TimeSpan.FromSeconds(0));
-                    playCurrentSong();
                     rbnNone.Checked = true;
                 }
                 else if (rbnCurrent.Checked) // Repeat eternally
                 {
-                    sliderValue = 0;
-                    playCurrentSong();
+                    value = 0;
                     musicController.updatePlayTime(TimeSpan.FromSeconds(0));
                 }
-                else // Repeat playlist
+                else if (rbnPlaylist.Checked) // Repeat playlist
                 {
                     stopSong();
-                    tmrTracker.Enabled = false;
                 }
             }
 
@@ -337,7 +346,9 @@ namespace MALT_Music
             SetValue(XtoValue(e.X));
 
             // Send new position (time) to player
-            TimeSpan newTime = TimeSpan.FromMinutes(sliderValue);
+            TimeSpan newTime = TimeSpan.FromSeconds(sliderValue);
+            //lblPosition.Text = newTime.ToString();
+
             musicController.updatePlayTime(newTime);
         }
 
@@ -354,7 +365,7 @@ namespace MALT_Music
             SetValue(XtoValue(e.X));
 
             // Send new position (time) to player
-            TimeSpan newTime = TimeSpan.FromMinutes(sliderValue);
+            TimeSpan newTime = TimeSpan.FromSeconds(sliderValue);
             musicController.updatePlayTime(newTime);
         }
 
@@ -376,10 +387,6 @@ namespace MALT_Music
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void rbnOnce_CheckedChanged(object sender, EventArgs e)
-        {
-            musicController.updateRepeatStatus(1);
-        }
 
         private void rbnAndrewIsA_CheckedChanged(object sender, EventArgs e)
         {
