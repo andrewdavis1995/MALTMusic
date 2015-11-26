@@ -39,7 +39,8 @@
             // 
             this.lblFullName.AutoSize = true;
             this.lblFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFullName.Location = new System.Drawing.Point(620, 86);
+            this.lblFullName.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblFullName.Location = new System.Drawing.Point(395, 113);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(184, 39);
             this.lblFullName.TabIndex = 1;
@@ -49,7 +50,8 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(626, 127);
+            this.lblUsername.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblUsername.Location = new System.Drawing.Point(401, 154);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(95, 24);
             this.lblUsername.TabIndex = 2;
@@ -58,7 +60,7 @@
             // btnChangeProfilePic
             // 
             this.btnChangeProfilePic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeProfilePic.Location = new System.Drawing.Point(465, 228);
+            this.btnChangeProfilePic.Location = new System.Drawing.Point(240, 255);
             this.btnChangeProfilePic.Name = "btnChangeProfilePic";
             this.btnChangeProfilePic.Size = new System.Drawing.Size(163, 38);
             this.btnChangeProfilePic.TabIndex = 3;
@@ -71,7 +73,7 @@
             this.picBoxProfilePic.ErrorImage = global::MALT_Music.Properties.Resources.icon_profile;
             this.picBoxProfilePic.Image = global::MALT_Music.Properties.Resources.icon_profile;
             this.picBoxProfilePic.InitialImage = global::MALT_Music.Properties.Resources.icon_profile;
-            this.picBoxProfilePic.Location = new System.Drawing.Point(472, 71);
+            this.picBoxProfilePic.Location = new System.Drawing.Point(247, 98);
             this.picBoxProfilePic.Name = "picBoxProfilePic";
             this.picBoxProfilePic.Size = new System.Drawing.Size(150, 150);
             this.picBoxProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -82,8 +84,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1039, 387);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(1249, 533);
             this.Controls.Add(this.btnChangeProfilePic);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblFullName);

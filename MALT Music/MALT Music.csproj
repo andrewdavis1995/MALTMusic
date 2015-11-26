@@ -176,6 +176,9 @@
     <None Include="Resources\Music-Treble-Clef-icon.png" />
     <None Include="Resources\List.png" />
     <None Include="Resources\List_white.png" />
+    <None Include="Resources\icon-profile.png" />
+    <None Include="Resources\black.png" />
+    <None Include="Resources\loadingplaceholder.png" />
     <Content Include="Resources\Magnifying_glass_icon.png" />
     <None Include="Resources\Magnifying_glass_icon1.png" />
   </ItemGroup>

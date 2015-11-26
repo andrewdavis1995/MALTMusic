@@ -164,7 +164,12 @@ namespace MALT_Music
 
         private void lblFullName_Click(object sender, EventArgs e)
         {
+            hideForms();
 
+            profileScreen.TopLevel = false;
+            profileScreen.Parent = this;
+            profileScreen.FormBorderStyle = FormBorderStyle.None;
+            profileScreen.Show();
         }
 
     }
