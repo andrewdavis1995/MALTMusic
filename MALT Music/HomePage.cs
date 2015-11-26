@@ -20,6 +20,7 @@ namespace MALT_Music
         frmMusicPlayer musicPlayer;
         ViewPlaylist playlists;
         SearchResults searchResults;
+        UserProfile profileScreen;
 
         public User currentUser;
 
@@ -34,6 +35,8 @@ namespace MALT_Music
             musicPlayer = new frmMusicPlayer();
             playlists = new ViewPlaylist();
             searchResults = new SearchResults(musicPlayer);
+            profileScreen = new UserProfile();
+
         }
 
         /// <summary>
@@ -61,6 +64,7 @@ namespace MALT_Music
             //Music player is never hidden
             playlists.Hide();
             searchResults.Hide();
+            profileScreen.Hide();
         }
 
         /// <summary>
@@ -156,6 +160,16 @@ namespace MALT_Music
             playlists.Parent = this;
             playlists.FormBorderStyle = FormBorderStyle.None;
             playlists.Show();
+        }
+
+        private void lblFullName_Click(object sender, EventArgs e)
+        {
+            hideForms();
+
+            profileScreen.TopLevel = false;
+            profileScreen.Parent = this;
+            profileScreen.FormBorderStyle = FormBorderStyle.None;
+            profileScreen.Show();
         }
 
     }
