@@ -17,6 +17,7 @@ namespace MALT_Music
         // Class variables
         IWavePlayer waveOut;
         AudioFileReader audioFileReader;
+        int repeatStatus;
 
         /// <summary>
         /// Constructor
@@ -25,6 +26,7 @@ namespace MALT_Music
         {
             // Initialises the WaveOut Device
             waveOut = new WaveOut();
+            
         }
         
         /// <summary>
@@ -38,6 +40,8 @@ namespace MALT_Music
             waveOut.Init(audioFileReader);
         }
 
+        
+
         /// <summary>
         /// Plays loaded song
         /// </summary>
@@ -47,7 +51,7 @@ namespace MALT_Music
         }
 
         /// <summary>
-        /// 
+        /// Changes the time position of the song
         /// </summary>
         /// <param name="newSpan">Holds the new time </param>
         public void updatePlayTime(TimeSpan newSpan)
@@ -68,6 +72,7 @@ namespace MALT_Music
         /// </summary>
         public void stopSong()
         {
+            // Stops playback
             waveOut.Stop();
 
             // If audio reader exists, kill it
@@ -87,6 +92,15 @@ namespace MALT_Music
             int trackLength = Convert.ToInt32(trackLengthDB);
 
             return trackLength;
+        }
+
+        /// <summary>
+        /// Updates the repeater status of the track
+        /// </summary>
+        /// <param name="repeatValue">New value of repeater</param>
+        public void updateRepeatStatus(int repeatValue)
+        {
+            repeatStatus = repeatValue;
         }
     }
 }
