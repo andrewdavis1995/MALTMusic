@@ -84,6 +84,25 @@ namespace MALT_Music.DataObjects
          */
         public String getBio() { return this.bio; }
 
+        /*
+         * @PARAMETERS: none
+         * @AUTHOR: Lewis Davie
+         * @RETURNS: Returns the user's email, in string form instead of hashset
+         */
+        public String getEmailString()
+        {
+            String emailString = "";
+
+           // emailString = string.Join("", email);
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in email)
+                sb.Append(item);
+            emailString = sb.ToString();
+
+            return emailString;
+        }
+
         public void setUsername(String username) { this.username = username; }
     }
 }
