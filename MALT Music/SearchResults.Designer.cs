@@ -215,7 +215,7 @@
             this.lblShare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.lblShare.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShare.ForeColor = System.Drawing.Color.DimGray;
-            this.lblShare.Location = new System.Drawing.Point(0, 97);
+            this.lblShare.Location = new System.Drawing.Point(0, 96);
             this.lblShare.Name = "lblShare";
             this.lblShare.Size = new System.Drawing.Size(139, 43);
             this.lblShare.TabIndex = 2;
