@@ -27,6 +27,7 @@ namespace MALT_Music.lib
                 String createUserProfile = "CREATE TABLE if not exists maltmusic.userprofiles (\n"
                     + "User_ID text PRIMARY KEY,\n"
                     + "password text,\n"
+                    + "bio text,\n"
                     + "first_name text,\n"
                     + "last_name text,\n"
                     + "email set<text>,\n"
@@ -51,9 +52,9 @@ namespace MALT_Music.lib
 
                 String createVotes = "create table if not exists maltmusic.votecount(\n"
                     + " track_ID UUID Primary Key, \n"
-                    + " playcount int,\n"
-                    + "upvotes int,\n"
-                    + "downvote int)";
+                    + " playcount counter,\n"
+                    + "upvotes counter,\n"
+                    + "downvote counter)";
 
                 String createListPlaylist = "create table  if not exists maltmusic.list_playlist(\n"
                     + "playlist_id UUID,\n"
