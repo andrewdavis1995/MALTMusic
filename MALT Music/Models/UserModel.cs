@@ -74,8 +74,28 @@ namespace MALT_Music.Models
             return null;
         }
 
+        public void updateBio(String newBio, String userID) 
+        { 
+            //this is to do
+            //update userprofiles set bio = 'blehhehehegfdyuqibvy'where user_id = 'andrew7';
 
+            init();
+            // Connect to cluster
+            ISession session = cluster.Connect("maltmusic");
 
+            String todo = ("update userprofiles set bio = :bio where user_id = :uid");
+            PreparedStatement ps = session.Prepare(todo);
+            BoundStatement bs = ps.Bind(newBio, userID);
+            // Execute Query
+            session.Execute(bs);
+        }
+
+        public void updateDeets(User u)
+        {
+            //this is to do
+            //;
+
+        }
 
 
 
