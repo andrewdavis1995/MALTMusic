@@ -15,6 +15,7 @@ namespace MALT_Music
     {
 
         private List<Song> songList = new List<Song>();
+        List<Label> songLabels = new List<Label>();
 
         bool songsState = false;
         bool artistState = false;
@@ -32,7 +33,18 @@ namespace MALT_Music
         private void hoverEvent(object sender, System.EventArgs e) 
         {
             Label theLabel = (Label)sender;
-            String theTag = theLabel.Tag.ToString();
+            int id = int.Parse(theLabel.Tag.ToString());
+
+            songLabels[id].BackColor = Color.DodgerBlue;
+        }
+
+        private void leaveEvent(object sender, System.EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            int id = int.Parse(theLabel.Tag.ToString());
+
+            if (id % 2 == 0) { songLabels[id].BackColor = Color.FromArgb(60, 60, 60); } else { songLabels[id].BackColor = Color.FromArgb(90, 90, 90); }
+                
         }
 
 
@@ -48,11 +60,13 @@ namespace MALT_Music
                 newLabelSongName.ForeColor = Color.White;
                 if (i % 2 == 0) { newLabelSongName.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongName.BackColor = Color.FromArgb(90, 90, 90); }
                 newLabelSongName.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                newLabelSongName.Tag = songList[i].getTrackName() + "|" + songList[i].getArtist();
+                newLabelSongName.Tag = i.ToString();
 
-                newLabelSongName.MouseHover += hoverEvent;
+                newLabelSongName.MouseEnter += hoverEvent;
+                newLabelSongName.MouseLeave += leaveEvent;
 
-                pnlSongs.Controls.Add(newLabelSongName);
+                songLabels.Add(newLabelSongName);
+                pnlSongs.Controls.Add(songLabels[i]);
 
                 i++;
             }
