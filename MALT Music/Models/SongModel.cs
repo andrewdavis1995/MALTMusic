@@ -42,6 +42,8 @@ namespace MALT_Music.Models
                 // Call to initialise cluster connection
                 init();
 
+
+                Guid tid = song.getSongID();
                 String artist = song.getArtist();
                 String album = song.getAlbum();
                 int year = song.getYear();
@@ -54,7 +56,7 @@ namespace MALT_Music.Models
                 ISession session = cluster.Connect("maltmusic");
 
 
-                Guid tid = Guid.NewGuid();
+                //Guid tid = Guid.NewGuid();
 
 
                 // Prepare and bind statement passing in username
@@ -107,13 +109,14 @@ namespace MALT_Music.Models
                         System.Console.WriteLine(s);
                     }
 
-                    Guid sid = new Guid();
-                    String artist = text[0].Trim();
-                    String album = text[1].Trim();
-                    int year = int.Parse(text[2]);
-                    String genre = text[3].Trim();
-                    int length = int.Parse(text[4]);
-                    String tname = text[5].Trim();
+                    //Guid sid = new Guid();
+                    Guid sid = new Guid(text[0]);
+                    String artist = text[1].Trim();
+                    String album = text[2].Trim();
+                    int year = int.Parse(text[3]);
+                    String genre = text[4].Trim();
+                    int length = int.Parse(text[5]);
+                    String tname = text[6].Trim();
 
                     String file_loc = ("../../tracks/" + artist + "/" + album + "/" + tname + ".mp3");
 
