@@ -102,5 +102,10 @@ namespace MALT_Music
 
         }
 
+        private void HomePage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }

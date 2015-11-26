@@ -194,12 +194,12 @@ namespace MALT_Music.Models
         {
 
             //THIS NULL POINTERS
-
+            init();
             // Connect to cluster
             ISession session = cluster.Connect("maltmusic");
 
             List<Playlist> playlists = new List<Playlist>();
-            String todo = ("select playlist_name from list_playlist where owner = :own");
+            String todo = ("select playlist_name from list_playlist where owner = :own ALLOW FILTERING");
             PreparedStatement ps = session.Prepare(todo);
             BoundStatement bs = ps.Bind(plOwner);
             // Execute Query
@@ -208,6 +208,7 @@ namespace MALT_Music.Models
             {
                 String plname = (String)row["playlist_name"];
                 Playlist toadd = getPlaylist(plname, plOwner);
+                playlists.Add(toadd);
             }
 
             return playlists;
