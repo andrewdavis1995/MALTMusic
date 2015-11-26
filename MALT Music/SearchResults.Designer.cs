@@ -51,9 +51,9 @@
             this.pnlSongs.AutoScroll = true;
             this.pnlSongs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnlSongs.Controls.Add(this.lblSongsHeading);
-            this.pnlSongs.Location = new System.Drawing.Point(46, 58);
+            this.pnlSongs.Location = new System.Drawing.Point(242, 134);
             this.pnlSongs.Name = "pnlSongs";
-            this.pnlSongs.Size = new System.Drawing.Size(800, 140);
+            this.pnlSongs.Size = new System.Drawing.Size(800, 101);
             this.pnlSongs.TabIndex = 0;
             // 
             // lblSongsHeading
@@ -93,9 +93,9 @@
             this.pnlArtists.Controls.Add(this.label45);
             this.pnlArtists.Controls.Add(this.label49);
             this.pnlArtists.Controls.Add(this.lblArtists);
-            this.pnlArtists.Location = new System.Drawing.Point(46, 220);
+            this.pnlArtists.Location = new System.Drawing.Point(242, 264);
             this.pnlArtists.Name = "pnlArtists";
-            this.pnlArtists.Size = new System.Drawing.Size(800, 140);
+            this.pnlArtists.Size = new System.Drawing.Size(800, 115);
             this.pnlArtists.TabIndex = 28;
             // 
             // label25
@@ -179,7 +179,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(901, 457);
+            this.ClientSize = new System.Drawing.Size(1124, 457);
             this.Controls.Add(this.glassIcon);
             this.Controls.Add(this.pnlArtists);
             this.Controls.Add(this.lblSearchedFor);

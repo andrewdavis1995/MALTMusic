@@ -88,7 +88,7 @@
             this.txtSearchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchBox.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.txtSearchBox.Location = new System.Drawing.Point(384, 47);
+            this.txtSearchBox.Location = new System.Drawing.Point(384, 18);
             this.txtSearchBox.Name = "txtSearchBox";
             this.txtSearchBox.Size = new System.Drawing.Size(539, 33);
             this.txtSearchBox.TabIndex = 0;
@@ -99,9 +99,9 @@
             // picBoxMALTLogo
             // 
             this.picBoxMALTLogo.Image = global::MALT_Music.Properties.Resources.logo;
-            this.picBoxMALTLogo.Location = new System.Drawing.Point(54, 16);
+            this.picBoxMALTLogo.Location = new System.Drawing.Point(44, 8);
             this.picBoxMALTLogo.Name = "picBoxMALTLogo";
-            this.picBoxMALTLogo.Size = new System.Drawing.Size(176, 89);
+            this.picBoxMALTLogo.Size = new System.Drawing.Size(167, 72);
             this.picBoxMALTLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxMALTLogo.TabIndex = 2;
             this.picBoxMALTLogo.TabStop = false;
@@ -120,7 +120,7 @@
             // 
             this.picBoxMagnifyingGlass.Image = global::MALT_Music.Properties.Resources.Magnifying_glass_icon_white;
             this.picBoxMagnifyingGlass.InitialImage = ((System.Drawing.Image)(resources.GetObject("picBoxMagnifyingGlass.InitialImage")));
-            this.picBoxMagnifyingGlass.Location = new System.Drawing.Point(324, 41);
+            this.picBoxMagnifyingGlass.Location = new System.Drawing.Point(324, 12);
             this.picBoxMagnifyingGlass.Name = "picBoxMagnifyingGlass";
             this.picBoxMagnifyingGlass.Size = new System.Drawing.Size(50, 47);
             this.picBoxMagnifyingGlass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -146,13 +146,13 @@
             this.panel1.Controls.Add(this.picBoxMALTLogo);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1113, 125);
+            this.panel1.Size = new System.Drawing.Size(1113, 89);
             this.panel1.TabIndex = 6;
             // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(930, 47);
+            this.btnSearch.Location = new System.Drawing.Point(930, 18);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(48, 33);
             this.btnSearch.TabIndex = 3;
@@ -168,9 +168,9 @@
             this.panel2.Controls.Add(this.lblBrowse);
             this.panel2.Controls.Add(this.lblPlaylist);
             this.panel2.Controls.Add(this.picBoxBrowse);
-            this.panel2.Location = new System.Drawing.Point(-3, 124);
+            this.panel2.Location = new System.Drawing.Point(-3, 87);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(233, 293);
+            this.panel2.Size = new System.Drawing.Size(233, 323);
             this.panel2.TabIndex = 7;
             // 
             // HomePage

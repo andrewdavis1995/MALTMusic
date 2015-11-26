@@ -95,11 +95,21 @@ namespace MALT_Music
             artistThread.Join();
 
 
+            loadSearchResults(songs, searchText);         
+
+        }
+
+        //Method to load search results window in child form
+        private void loadSearchResults(List<Song> songs, String searchText)
+        {
             SearchResults searchResults = new SearchResults();
             searchResults.setSongList(songs);
-            searchResults.createSongList(searchText);
-            searchResults.Show();            
+            searchResults.createSongList(searchText);   
 
+            searchResults.TopLevel = false;
+            searchResults.Parent = this;
+            searchResults.FormBorderStyle = FormBorderStyle.None;
+            searchResults.Show();
         }
 
         private void HomePage_FormClosed(object sender, FormClosedEventArgs e)
