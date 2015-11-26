@@ -229,7 +229,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1081, 137);
+            this.ClientSize = new System.Drawing.Size(1114, 137);
             this.ControlBox = false;
             this.Controls.Add(this.pcbSliderBar);
             this.Controls.Add(this.lblTimeTwo);
@@ -243,8 +243,8 @@
             this.Controls.Add(this.btnPlay);
             this.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
-            this.MaximumSize = new System.Drawing.Size(1097, 176);
-            this.MinimumSize = new System.Drawing.Size(1097, 176);
+            this.MaximumSize = new System.Drawing.Size(1130, 176);
+            this.MinimumSize = new System.Drawing.Size(1130, 176);
             this.Name = "frmMusicPlayer";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
