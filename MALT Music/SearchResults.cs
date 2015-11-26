@@ -13,6 +13,18 @@ namespace MALT_Music
 {
     public partial class SearchResults : Form
     {
+        public SearchResults()
+        {
+            InitializeComponent();
+        }
+        public SearchResults(frmMusicPlayer musicPlayer)
+        {
+            InitializeComponent();
+            this.musicPlayer = musicPlayer;
+        }
+
+        frmMusicPlayer musicPlayer;
+        int selectedSong;
 
         private List<Song> songList = new List<Song>();
         List<Label> songLabelsA = new List<Label>();
@@ -32,10 +44,6 @@ namespace MALT_Music
             this.songList = songs;
         }
 
-        public SearchResults()
-        {
-            InitializeComponent();
-        }
 
         public void setCurrentUser(User u){
             this.currentUser = u;
@@ -93,6 +101,7 @@ namespace MALT_Music
             Label theLabel = (Label)sender;
             int id = int.Parse(theLabel.Tag.ToString());
 
+            selectedSong = id;
            
             songLabelsA[id].BackColor = Color.FromArgb(50, 255, 50);
             songLabelsB[id].BackColor = Color.FromArgb(50, 255, 50);
@@ -358,6 +367,7 @@ namespace MALT_Music
             if (!pnlPlaylists.Bounds.Contains(PointToClient(Control.MousePosition)) && !pnlOptions.Bounds.Contains(PointToClient(Control.MousePosition)))
             {
                 pnlOptions.Visible = false;
+                selectedSong = -1;
                 pnlPlaylists.Visible = false;
             }
             tmrOptionsDelay.Stop();
@@ -365,11 +375,12 @@ namespace MALT_Music
 
         private void lblPlay_Click(object sender, EventArgs e)
         {
-            /*
-             * 
-             * "tracks/artist/album/songname.mp3"
-             * 
-             */
+            if (selectedSong > -1)
+            {
+                String filePath = songList[selectedSong].getFileLocation();
+
+                MessageBox.Show(filePath);
+            }
 
         }
 

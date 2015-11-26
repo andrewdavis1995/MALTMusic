@@ -18,6 +18,7 @@ namespace MALT_Music
         // Class variables
         MusicController musicController;
         int trackLength;
+        bool isPlaying;
 
         /// <summary>
         /// Variables for slider bar.
@@ -38,6 +39,8 @@ namespace MALT_Music
             // Setup music controller
             musicController = new MusicController();
 
+            isPlaying = false;
+
             // Initialise slider
             sliderValue = 0f;
             maxValue = 0f;
@@ -53,25 +56,49 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            musicController.setSong(lblFileName.Text);
+            if (btnPlay.Text == "Play")
+            {
+                // Change to pause
+                btnPlay.Text = "Pause";
 
-            trackLength = musicController.getTrackLength();
-            TimeSpan totalLength = TimeSpan.FromSeconds(trackLength);
-            lblTimeTwo.Text = totalLength.ToString("mm':'ss");
-            maxValue = totalLength.Minutes;
+                // If not playing active track
+                if (!isPlaying)
+                {
+                    // Sets song to be played
+                    musicController.setSong(lblFileName.Text);
 
-            tmrTracker.Enabled = true;
+                    // Sets the length of the track
+                    trackLength = musicController.getTrackLength();
+                    TimeSpan totalLength = TimeSpan.FromSeconds(trackLength);
+                    lblTimeTwo.Text = totalLength.ToString("mm':'ss");
 
-            musicController.playSong();
+                    // Sets upper threshold for track
+                    maxValue = totalLength.Minutes;
+                    sliderValue = 0f;
+                    isPlaying = true;
+                }
 
-            btnStop.Enabled = true;
-            btnPause.Enabled = true;
-            btnPlay.Enabled = false;
-            btnTest.Enabled = false;
-            btnOpen.Enabled = false;
+                // Begins the timer
+                tmrTracker.Enabled = true;
+                
+                // Initiates playing of song
+                musicController.playSong();
+
+                // Updates button states
+                btnStop.Enabled = true;
+                btnTest.Enabled = false;
+                btnOpen.Enabled = false;
+            }
+            else
+            {
+                // Sets up for paused playback
+                tmrTracker.Enabled = false;
+                btnPlay.Text = "Play";
+
+                // Pauses playback
+                musicController.pauseSong();
+            }
         }
-
-       
 
         /// <summary>
         /// Opens an mp3 file
@@ -91,11 +118,11 @@ namespace MALT_Music
         private void btnStop_Click(object sender, EventArgs e)
         {
             musicController.stopSong();
+            isPlaying = false;
 
             btnPlay.Enabled = false;
             btnOpen.Enabled = true;
             btnTest.Enabled = true;
-            btnPause.Enabled = false;
 
             tmrTracker.Enabled = false;
         }
@@ -132,7 +159,6 @@ namespace MALT_Music
         {
             musicController.pauseSong();
             tmrTracker.Enabled = false;
-            btnPause.Enabled = false;
             btnPlay.Enabled = true;
         }
 
@@ -151,7 +177,6 @@ namespace MALT_Music
             {
                 this.Enabled = false;
             }
-            
         }
 
         /// <summary>
@@ -164,7 +189,6 @@ namespace MALT_Music
             lblTimeOne.Text = "";
             lblTimeTwo.Text = "";
         }
-
 
         #region SliderControl ## Functions for slider control
         /// <summary>
@@ -188,6 +212,20 @@ namespace MALT_Music
                 (value - minValue) / (float)(maxValue - minValue);
         }
 
+        /// <summary>
+        /// Updates the first time box text
+        /// </summary>
+        /// <param name="value">Float of time value</param>
+        private void updateTimeIndicator(float value)
+        {
+            TimeSpan currentTime = TimeSpan.FromMinutes(value);
+            lblTimeOne.Text = currentTime.TotalMinutes.ToString();
+        }
+
+        /// <summary>
+        /// Updates the position of the slider based on the passed value
+        /// </summary>
+        /// <param name="value">The new value of the slider</param>
         private void SetValue(float value)
         {
             // Make sure the new value is within bounds.
@@ -203,16 +241,24 @@ namespace MALT_Music
             // Redraw to show the new value.
             pcbSliderBar.Refresh();
 
-            // Display the value tooltip.
-            int tip_x = pcbSliderBar.Left + (int)ValueToX(sliderValue);
-            int tip_y = pcbSliderBar.Top;
-            ttpSliderIndicator.Show(sliderValue.ToString("0.00"), this, tip_x, tip_y, 3000);
+            // Updates the time indicator
+            updateTimeIndicator(value);
 
-            // Take action here if desired.
-            lblTimeOne.Text = sliderValue.ToString("0.00");
+            // If tracking position
+            if (mouseIsDown)
+            {
+                // Display the value tooltip.
+                int tip_x = pcbSliderBar.Left + (int)ValueToX(sliderValue);
+                int tip_y = pcbSliderBar.Top;
+                ttpSliderIndicator.Show(sliderValue.ToString("00.00"), this, tip_x, tip_y, 3000);
+            }
         }
 
-        // Draw the needle.
+        /// <summary>
+        /// Draws the 'needle' of the slider onto the image
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void picSliderBar_Paint(object sender, PaintEventArgs e)
         {
             // Calculate the needle's X coordinate.
@@ -227,20 +273,48 @@ namespace MALT_Music
             }
         }
 
+        /// <summary>
+        /// When the mouse button is pressed,
+        /// update song play position
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pcbSliderBar_MouseDown(object sender, MouseEventArgs e)
         {
+            // Update mouse down tracker
             mouseIsDown = true;
+
+            // Updates value of slider
             SetValue(XtoValue(e.X));
+
+            // Send new position (time) to player
             TimeSpan newTime = TimeSpan.FromMinutes(sliderValue);
             musicController.updatePlayTime(newTime);
         }
 
+        /// <summary>
+        /// When the mouse is moved over the component,
+        /// updates the value of the bar if the button is pushed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pcbSliderBar_MouseMove(object sender, MouseEventArgs e)
         {
+            // If mouse button is pushed, update position
             if (!mouseIsDown) return;
             SetValue(XtoValue(e.X));
+
+            // Send new position (time) to player
+            TimeSpan newTime = TimeSpan.FromMinutes(sliderValue);
+            musicController.updatePlayTime(newTime);
         }
 
+        /// <summary>
+        /// If mouse button is no longer pushed,
+        /// hide the tip, and set mouse to not being pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void picSliderBar_MouseUp(object sender, MouseEventArgs e)
         {
             mouseIsDown = false;
