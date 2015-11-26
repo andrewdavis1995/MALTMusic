@@ -56,6 +56,12 @@ namespace MALT_Music.Models
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="playlist"></param>
+        /// <param name="song"></param>
+        /// <returns></returns>
         public bool addSongToPlaylist(Playlist playlist, Song song)
         {
             try
@@ -71,16 +77,14 @@ namespace MALT_Music.Models
                 // Prepare and bind statement passing in the relevant fields
                 String todo = ("insert into playlist (track_id,playlist_id,track_pos)\n" +
                  "values (:tid, :pid,:tpos);");
-
-
                 PreparedStatement ps = session.Prepare(todo);
 
+                // Getting Appropriate ID's for query
                 Guid tid = song.getSongID();
                 Guid pid = playlist.getID();
 
-
-
                 // Matt - change this
+                // done
                 int pos = getListPos(session, tid, pid);
 
 
