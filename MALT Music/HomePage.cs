@@ -49,6 +49,9 @@ namespace MALT_Music
             lblFullName.Text = currentUser.getFirstName() + " " + currentUser.getLastName();
             IsMdiContainer = true;
 
+            //Present so search box isn't automatically selected on startup
+            this.ActiveControl = picBoxMagnifyingGlass;
+
             hideForms();
 
             loadMusicPlayer();
@@ -166,6 +169,7 @@ namespace MALT_Music
         {
             hideForms();
 
+            profileScreen.setUser(currentUser);
             profileScreen.TopLevel = false;
             profileScreen.Parent = this;
             profileScreen.FormBorderStyle = FormBorderStyle.None;
