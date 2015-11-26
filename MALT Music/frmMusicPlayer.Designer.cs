@@ -36,6 +36,7 @@
             this.picBoxAlbumArt = new System.Windows.Forms.PictureBox();
             this.tmrTracker = new System.Windows.Forms.Timer(this.components);
             this.grpRepeat = new System.Windows.Forms.GroupBox();
+            this.rbnAndrewIsA = new System.Windows.Forms.RadioButton();
             this.rbnPlaylist = new System.Windows.Forms.RadioButton();
             this.rbnOnce = new System.Windows.Forms.RadioButton();
             this.rbnCurrent = new System.Windows.Forms.RadioButton();
@@ -45,7 +46,9 @@
             this.lblTimeTwo = new System.Windows.Forms.Label();
             this.pcbSliderBar = new System.Windows.Forms.PictureBox();
             this.ttpSliderIndicator = new System.Windows.Forms.ToolTip(this.components);
-            this.rbnAndrewIsA = new System.Windows.Forms.RadioButton();
+            this.lblPosition = new System.Windows.Forms.Label();
+            this.btnTemp = new System.Windows.Forms.Button();
+            this.lblTimerChecker = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).BeginInit();
             this.grpRepeat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSliderBar)).BeginInit();
@@ -145,6 +148,18 @@
             this.grpRepeat.TabStop = false;
             this.grpRepeat.Text = "Repeat Options";
             // 
+            // rbnAndrewIsA
+            // 
+            this.rbnAndrewIsA.AutoSize = true;
+            this.rbnAndrewIsA.Location = new System.Drawing.Point(7, 103);
+            this.rbnAndrewIsA.Name = "rbnAndrewIsA";
+            this.rbnAndrewIsA.Size = new System.Drawing.Size(98, 20);
+            this.rbnAndrewIsA.TabIndex = 4;
+            this.rbnAndrewIsA.TabStop = true;
+            this.rbnAndrewIsA.Text = "Andrew Is a...";
+            this.rbnAndrewIsA.UseVisualStyleBackColor = true;
+            this.rbnAndrewIsA.Click += new System.EventHandler(this.rbnAndrewIsA_CheckedChanged);
+            // 
             // rbnPlaylist
             // 
             this.rbnPlaylist.AutoSize = true;
@@ -168,7 +183,6 @@
             this.rbnOnce.TabStop = true;
             this.rbnOnce.Text = "Once";
             this.rbnOnce.UseVisualStyleBackColor = true;
-            this.rbnOnce.CheckedChanged += new System.EventHandler(this.rbnOnce_CheckedChanged);
             // 
             // rbnCurrent
             // 
@@ -209,20 +223,20 @@
             // 
             this.lblTimeOne.AutoSize = true;
             this.lblTimeOne.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeOne.Location = new System.Drawing.Point(150, 74);
+            this.lblTimeOne.Location = new System.Drawing.Point(150, 76);
             this.lblTimeOne.Name = "lblTimeOne";
-            this.lblTimeOne.Size = new System.Drawing.Size(41, 16);
+            this.lblTimeOne.Size = new System.Drawing.Size(72, 16);
             this.lblTimeOne.TabIndex = 10;
-            this.lblTimeOne.Text = "label1";
+            this.lblTimeOne.Text = "CurrentTime";
             // 
             // lblTimeTwo
             // 
             this.lblTimeTwo.AutoSize = true;
             this.lblTimeTwo.Location = new System.Drawing.Point(683, 74);
             this.lblTimeTwo.Name = "lblTimeTwo";
-            this.lblTimeTwo.Size = new System.Drawing.Size(41, 16);
+            this.lblTimeTwo.Size = new System.Drawing.Size(58, 16);
             this.lblTimeTwo.TabIndex = 11;
-            this.lblTimeTwo.Text = "label2";
+            this.lblTimeTwo.Text = "TotalTime";
             // 
             // pcbSliderBar
             // 
@@ -245,17 +259,30 @@
             this.ttpSliderIndicator.UseAnimation = false;
             this.ttpSliderIndicator.UseFading = false;
             // 
-            // rbnAndrewIsA
+            // lblPosition
             // 
-            this.rbnAndrewIsA.AutoSize = true;
-            this.rbnAndrewIsA.Location = new System.Drawing.Point(7, 103);
-            this.rbnAndrewIsA.Name = "rbnAndrewIsA";
-            this.rbnAndrewIsA.Size = new System.Drawing.Size(98, 20);
-            this.rbnAndrewIsA.TabIndex = 4;
-            this.rbnAndrewIsA.TabStop = true;
-            this.rbnAndrewIsA.Text = "Andrew Is a...";
-            this.rbnAndrewIsA.UseVisualStyleBackColor = true;
-            this.rbnAndrewIsA.Click += new System.EventHandler(this.rbnAndrewIsA_CheckedChanged);
+            this.lblPosition.AutoSize = true;
+            this.lblPosition.Location = new System.Drawing.Point(374, 35);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(109, 16);
+            this.lblPosition.TabIndex = 13;
+            this.lblPosition.Text = "Diret Position Value";
+            // 
+            // btnTemp
+            // 
+            this.btnTemp.Location = new System.Drawing.Point(0, 0);
+            this.btnTemp.Name = "btnTemp";
+            this.btnTemp.Size = new System.Drawing.Size(75, 23);
+            this.btnTemp.TabIndex = 0;
+            // 
+            // lblTimerChecker
+            // 
+            this.lblTimerChecker.AutoSize = true;
+            this.lblTimerChecker.Location = new System.Drawing.Point(374, 19);
+            this.lblTimerChecker.Name = "lblTimerChecker";
+            this.lblTimerChecker.Size = new System.Drawing.Size(41, 16);
+            this.lblTimerChecker.TabIndex = 14;
+            this.lblTimerChecker.Text = "label1";
             // 
             // frmMusicPlayer
             // 
@@ -264,6 +291,9 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1114, 156);
             this.ControlBox = false;
+            this.Controls.Add(this.lblTimerChecker);
+            this.Controls.Add(this.btnTemp);
+            this.Controls.Add(this.lblPosition);
             this.Controls.Add(this.pcbSliderBar);
             this.Controls.Add(this.lblTimeTwo);
             this.Controls.Add(this.lblTimeOne);
@@ -312,5 +342,8 @@
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.ToolTip ttpSliderIndicator;
         private System.Windows.Forms.RadioButton rbnAndrewIsA;
+        private System.Windows.Forms.Label lblPosition;
+        private System.Windows.Forms.Button btnTemp;
+        private System.Windows.Forms.Label lblTimerChecker;
     }
 }
