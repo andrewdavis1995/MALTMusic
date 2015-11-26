@@ -218,24 +218,27 @@ namespace MALT_Music
 
         private void hoverEvent(object sender, System.EventArgs e) 
         {
-            if (selectedSong < 0)
-            {
-                Label theLabel = (Label)sender;
-                int id = int.Parse(theLabel.Tag.ToString());
+            Label theLabel = (Label)sender;
+            int id = int.Parse(theLabel.Tag.ToString());
 
+            if (!(songLabelsA[id].BackColor == Color.FromArgb(255, 50, 50)))
+            {
                 songLabelsA[id].BackColor = Color.DodgerBlue;
                 songLabelsB[id].BackColor = Color.DodgerBlue;
                 songLabelsC[id].BackColor = Color.DodgerBlue;
                 songLabelsD[id].BackColor = Color.DodgerBlue;
             }
+            
         }
 
         private void leaveEvent(object sender, System.EventArgs e)
         {
-            if (selectedSong < 0)
+            
+            Label theLabel = (Label)sender;
+            int id = int.Parse(theLabel.Tag.ToString());
+
+            if (!(songLabelsA[id].BackColor == Color.FromArgb(255, 50, 50)))
             {
-                Label theLabel = (Label)sender;
-                int id = int.Parse(theLabel.Tag.ToString());
 
                 if (id % 2 == 0)
                 {
@@ -251,7 +254,8 @@ namespace MALT_Music
                     songLabelsC[id].BackColor = Color.FromArgb(90, 90, 90);
                     songLabelsD[id].BackColor = Color.FromArgb(90, 90, 90);
                 }
-            }  
+            }
+            
         }
 
         private void clickEvent(object sender, System.EventArgs e)
