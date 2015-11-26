@@ -28,23 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.picBoxProfilePic = new MALT_Music.OvalPictureBox();
             this.lblFullName = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnChangeProfilePic = new System.Windows.Forms.Button();
+            this.picBoxProfilePic = new MALT_Music.OvalPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxProfilePic)).BeginInit();
             this.SuspendLayout();
-            // 
-            // picBoxProfilePic
-            // 
-            this.picBoxProfilePic.BackColor = System.Drawing.Color.Silver;
-            this.picBoxProfilePic.Image = global::MALT_Music.Properties.Resources.Music_Treble_Clef_icon;
-            this.picBoxProfilePic.Location = new System.Drawing.Point(472, 71);
-            this.picBoxProfilePic.Name = "picBoxProfilePic";
-            this.picBoxProfilePic.Size = new System.Drawing.Size(150, 150);
-            this.picBoxProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxProfilePic.TabIndex = 0;
-            this.picBoxProfilePic.TabStop = false;
             // 
             // lblFullName
             // 
@@ -75,6 +64,19 @@
             this.btnChangeProfilePic.TabIndex = 3;
             this.btnChangeProfilePic.Text = "Change Profile Picture";
             this.btnChangeProfilePic.UseVisualStyleBackColor = true;
+            // 
+            // picBoxProfilePic
+            // 
+            this.picBoxProfilePic.BackColor = System.Drawing.Color.LightGray;
+            this.picBoxProfilePic.ErrorImage = global::MALT_Music.Properties.Resources.icon_profile;
+            this.picBoxProfilePic.Image = global::MALT_Music.Properties.Resources.icon_profile;
+            this.picBoxProfilePic.InitialImage = global::MALT_Music.Properties.Resources.icon_profile;
+            this.picBoxProfilePic.Location = new System.Drawing.Point(472, 71);
+            this.picBoxProfilePic.Name = "picBoxProfilePic";
+            this.picBoxProfilePic.Size = new System.Drawing.Size(150, 150);
+            this.picBoxProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxProfilePic.TabIndex = 0;
+            this.picBoxProfilePic.TabStop = false;
             // 
             // UserProfile
             // 
