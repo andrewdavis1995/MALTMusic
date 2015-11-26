@@ -378,8 +378,7 @@ namespace MALT_Music
             if (selectedSong > -1)
             {
                 String filePath = songList[selectedSong].getFileLocation();
-
-                MessageBox.Show(filePath);
+                musicPlayer.setSongPath(filePath);
             }
 
         }

@@ -32,9 +32,7 @@
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
-            this.btnOpen = new System.Windows.Forms.Button();
             this.lblFileName = new System.Windows.Forms.Label();
-            this.ofdMusicOpener = new System.Windows.Forms.OpenFileDialog();
             this.picBoxAlbumArt = new System.Windows.Forms.PictureBox();
             this.tmrTracker = new System.Windows.Forms.Timer(this.components);
             this.grpRepeat = new System.Windows.Forms.GroupBox();
@@ -85,26 +83,13 @@
             this.btnTest.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.btnTest.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnTest.Location = new System.Drawing.Point(151, 41);
+            this.btnTest.Location = new System.Drawing.Point(151, 12);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(108, 26);
             this.btnTest.TabIndex = 2;
             this.btnTest.Text = "Load Test File";
             this.btnTest.UseVisualStyleBackColor = false;
             this.btnTest.Click += new System.EventHandler(this.openTest);
-            // 
-            // btnOpen
-            // 
-            this.btnOpen.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnOpen.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpen.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnOpen.Location = new System.Drawing.Point(151, 12);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(108, 26);
-            this.btnOpen.TabIndex = 3;
-            this.btnOpen.Text = "Open";
-            this.btnOpen.UseVisualStyleBackColor = false;
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // lblFileName
             // 
@@ -118,11 +103,6 @@
             this.lblFileName.Size = new System.Drawing.Size(350, 15);
             this.lblFileName.TabIndex = 4;
             this.lblFileName.Text = "No file selected";
-            // 
-            // ofdMusicOpener
-            // 
-            this.ofdMusicOpener.FileName = "Test.mp3";
-            this.ofdMusicOpener.FileOk += new System.ComponentModel.CancelEventHandler(this.ofdMusicOpener_FileOk);
             // 
             // picBoxAlbumArt
             // 
@@ -258,7 +238,6 @@
             this.Controls.Add(this.grpRepeat);
             this.Controls.Add(this.picBoxAlbumArt);
             this.Controls.Add(this.lblFileName);
-            this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnPlay);
@@ -285,9 +264,7 @@
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnTest;
-        private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Label lblFileName;
-        private System.Windows.Forms.OpenFileDialog ofdMusicOpener;
         private System.Windows.Forms.PictureBox picBoxAlbumArt;
         private System.Windows.Forms.Timer tmrTracker;
         private System.Windows.Forms.GroupBox grpRepeat;
