@@ -69,7 +69,6 @@ namespace MALT_Music
         public void stopSong()
         {
             waveOut.Stop();
-            audioFileReader.Dispose();
         }
 
         /// <summary>
