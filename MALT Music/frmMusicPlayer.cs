@@ -211,13 +211,13 @@ namespace MALT_Music
         /// </summary>
         /// <param name="value">coordinate to convert to float</param>
         /// <returns>Returned float</returns>
-        private int ValueToX(int value)
+        private float ValueToX(int value)
         {
             if (trackLength == 0)
             { return 0; }
             else
             {
-                return (pcbSliderBar.ClientSize.Width - 1) * (value / trackLength);
+                return (pcbSliderBar.ClientSize.Width - 1) * value / (float)trackLength;
             }
         }
 
@@ -320,7 +320,7 @@ namespace MALT_Music
         private void picSliderBar_Paint(object sender, PaintEventArgs e)
         {
             // Calculate the needle's X coordinate.
-            int x = ValueToX(sliderValue);
+            float x = ValueToX(sliderValue);
 
             if (x > 0)
             {

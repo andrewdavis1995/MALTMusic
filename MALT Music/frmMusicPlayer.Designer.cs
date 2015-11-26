@@ -270,7 +270,7 @@
             // 
             // btnTemp
             // 
-            this.btnTemp.Location = new System.Drawing.Point(0, 0);
+            this.btnTemp.Location = new System.Drawing.Point(507, 12);
             this.btnTemp.Name = "btnTemp";
             this.btnTemp.Size = new System.Drawing.Size(75, 23);
             this.btnTemp.TabIndex = 0;
