@@ -16,19 +16,12 @@ namespace MALT_Music
 {
     public partial class HomePage : Form
     {
-        //Initialise other forms here
+        // Initialise the forms
         frmMusicPlayer musicPlayer = new frmMusicPlayer();
         ViewPlaylist playlists = new ViewPlaylist();
         SearchResults searchResults = new SearchResults();
 
         public User currentUser;
-
-
-        public void setCurrentUser(User theUser) 
-        {
-            this.currentUser = theUser;
-        }
-
 
         public HomePage()
         {
@@ -44,6 +37,11 @@ namespace MALT_Music
             hideForms();
 
             loadMusicPlayer();
+        }
+
+        public void setCurrentUser(User theUser)
+        {
+            this.currentUser = theUser;
         }
 
         private void hideForms()
