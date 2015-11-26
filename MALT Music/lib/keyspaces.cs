@@ -54,7 +54,7 @@ namespace MALT_Music.lib
                     + " track_ID UUID Primary Key, \n"
                     + " playcount counter,\n"
                     + "upvotes counter,\n"
-                    + "downvote counter)";
+                    + "downvotes counter)";
 
                 String createListPlaylist = "create table  if not exists maltmusic.list_playlist(\n"
                     + "playlist_id UUID,\n"
