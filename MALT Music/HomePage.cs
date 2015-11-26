@@ -169,6 +169,7 @@ namespace MALT_Music
         {
             hideForms();
 
+            profileScreen.setUser(currentUser);
             profileScreen.TopLevel = false;
             profileScreen.Parent = this;
             profileScreen.FormBorderStyle = FormBorderStyle.None;
