@@ -115,11 +115,19 @@ namespace MALT_Music
         }
 
         /// <summary>
-        /// Stops playing the track
+        /// Calls function to stop the playback
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnStop_Click(object sender, EventArgs e)
+        {
+            stopSong();
+        }
+
+        /// <summary>
+        /// Stops playing the track
+        /// </summary>
+        public void stopSong()
         {
             // Disables track timer
             tmrTracker.Enabled = false;
@@ -128,7 +136,7 @@ namespace MALT_Music
             musicController.stopSong();
             isPlaying = false;
 
-            // 
+            // Allows using test track
             btnTest.Enabled = true;
 
             // If a file is loaded
