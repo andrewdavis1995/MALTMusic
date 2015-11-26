@@ -176,7 +176,7 @@ namespace MALT_Music
             {
                 Label newLabel = new Label();
 
-                newLabel.Location = new Point(1, 1);
+                newLabel.Location = new Point(1, 1 + (i* 29));
                 newLabel.ForeColor = Color.White;
                 newLabel.BackColor = Color.FromArgb(40, 40, 40);
                 newLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -233,11 +233,10 @@ namespace MALT_Music
 
         private void leaveEvent(object sender, System.EventArgs e)
         {
-            
             Label theLabel = (Label)sender;
             int id = int.Parse(theLabel.Tag.ToString());
 
-            if (!(songLabelsA[id].BackColor == Color.FromArgb(255, 50, 50)))
+            if (!(songLabelsA[id].BackColor == Color.FromArgb(50, 255, 50)))
             {
 
                 if (id % 2 == 0)
@@ -264,11 +263,35 @@ namespace MALT_Music
             int id = int.Parse(theLabel.Tag.ToString());
 
             selectedSong = id;
-           
-            songLabelsA[id].BackColor = Color.FromArgb(255, 50, 50);
-            songLabelsB[id].BackColor = Color.FromArgb(255, 50, 50);
-            songLabelsC[id].BackColor = Color.FromArgb(255, 50, 50);
-            songLabelsD[id].BackColor = Color.FromArgb(255, 50, 50);
+
+
+            songLabelsA[id].BackColor = Color.FromArgb(50, 255, 50);
+            songLabelsB[id].BackColor = Color.FromArgb(50, 255, 50);
+            songLabelsC[id].BackColor = Color.FromArgb(50, 255, 50);
+            songLabelsD[id].BackColor = Color.FromArgb(50, 255, 50);
+
+
+            for (int i = 0; i < songLabelsA.Count; i++)
+            {
+                if (i != id)
+                {
+                    if (i % 2 == 0)
+                    {
+                        songLabelsA[i].BackColor = Color.FromArgb(60, 60, 60);
+                        songLabelsB[i].BackColor = Color.FromArgb(60, 60, 60);
+                        songLabelsC[i].BackColor = Color.FromArgb(60, 60, 60);
+                        songLabelsD[i].BackColor = Color.FromArgb(60, 60, 60);
+                    }
+                    else
+                    {
+                        songLabelsA[i].BackColor = Color.FromArgb(90, 90, 90);
+                        songLabelsB[i].BackColor = Color.FromArgb(90, 90, 90);
+                        songLabelsC[i].BackColor = Color.FromArgb(90, 90, 90);
+                        songLabelsD[i].BackColor = Color.FromArgb(90, 90, 90);
+                    }
+                }
+            }
+
 
             pnlOptions.Visible = true;
             pnlOptions.Top = 200 + (id * 32);
@@ -342,7 +365,20 @@ namespace MALT_Music
 
         private void addSongToPlaylist(object sender, EventArgs e)
         {
+            int playListIndex;
+
+            Label theLabel = (Label)sender;
+            playListIndex = int.Parse(theLabel.Tag.ToString());
+
+            Playlist thePlaylist = usersPlaylists[playListIndex];
+            Song toAdd = songList[selectedSong]; 
+
             PlaylistModel playlistModel = new PlaylistModel();
+
+            playlistModel.addSongToPlaylist(thePlaylist, toAdd);
+
+
+
         }
 
         private void playlistHover(object sender, EventArgs e)
@@ -454,6 +490,11 @@ namespace MALT_Music
         {
             if (selectedSong > -1)
             {
+                songLabelsA[selectedSong].BackColor = Color.FromArgb(255, 50, 50);
+                songLabelsB[selectedSong].BackColor = Color.FromArgb(255, 50, 50);
+                songLabelsC[selectedSong].BackColor = Color.FromArgb(255, 50, 50);
+                songLabelsD[selectedSong].BackColor = Color.FromArgb(255, 50, 50);
+
                 String filePath = songList[selectedSong].getFileLocation();
                 musicPlayer.stopSong();
                 musicPlayer.setSongPath(@"" + filePath);
