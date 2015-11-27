@@ -33,7 +33,10 @@ namespace MALT_Music.Models
          * @AUTHORS: Andrew Davis and Matt Malone
          * NOTE - Commented code left in by Matt - just in case it breaks
          */
-        public User doLogin(String username, String password) {
+        public User doLogin(String username, String password)
+        {
+            //Need to encrypt attempted password to compare to encrypted one stored in database
+            password = Encryption.calcMD5(password);
 
             try
             {     

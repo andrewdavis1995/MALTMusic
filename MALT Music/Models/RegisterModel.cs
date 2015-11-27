@@ -12,6 +12,7 @@ namespace MALT_Music.Models
     class RegisterModel
     {
         private Cluster cluster;
+
         public void init()
         {
             try
@@ -39,8 +40,10 @@ namespace MALT_Music.Models
                 String sname = toRegister.getLastName();
                 String password = toRegister.getPassword();
                 String bio = toRegister.getBio();
-                //HashSet<String> email = toRegister.getEmail();
                 String email = toRegister.getEmail();
+
+                //Encrypt the password
+                password = Encryption.calcMD5(password);
 
 
                 // Connect to cluster
@@ -138,7 +141,6 @@ namespace MALT_Music.Models
             }
             return false;
         }
-
 
     }
 }
