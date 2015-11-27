@@ -70,6 +70,7 @@ namespace MALT_Music
             }
 
             picUsernameStatus.Visible = false;
+            lblUsernameTaken.Visible = false;
             picUsernameStatus.Image = Properties.Resources.spinningWheel;
         }
 
@@ -94,6 +95,7 @@ namespace MALT_Music
                 else
                 {
                     picUsernameStatus.Image = Properties.Resources.small_cross;
+                    lblUsernameTaken.Visible = true;
                 }
 
             }
@@ -149,6 +151,7 @@ namespace MALT_Music
 
         private void txtPassword_Enter(object sender, EventArgs e)
         {
+
             if (txtPassword.Text == "Password...")
             {
                 txtPassword.Text = "";
@@ -158,6 +161,7 @@ namespace MALT_Music
 
         private void txtPassword_Leave(object sender, EventArgs e)
         {
+
             if (txtPassword.Text == "")
             {
                 txtPassword.Text = "Password...";
@@ -167,6 +171,7 @@ namespace MALT_Music
 
         private void txtConfirmPassword_Enter(object sender, EventArgs e)
         {
+
             if (txtConfirmPassword.Text == "Confirm Password...")
             {
                 txtConfirmPassword.Text = "";
@@ -176,6 +181,7 @@ namespace MALT_Music
 
         private void txtConfirmPassword_Leave(object sender, EventArgs e)
         {
+
             if (txtConfirmPassword.Text == "")
             {
                 txtConfirmPassword.Text = "Confirm Password...";

@@ -66,7 +66,7 @@ namespace MALT_Music
 
                 Panel pnlInner = new Panel();
                 pnlInner.Size = new Size(693, 100);
-                pnlInner.Location = new Point(110, 0);
+                pnlInner.Location = new Point(100, 0);
                 pnlInner.BackColor = Color.FromArgb(20, 20, 20);
                 pnlInner.AutoScroll = true;
 
@@ -108,7 +108,7 @@ namespace MALT_Music
                     }
                     else
                     {
-                        theSongLabel.BackColor = Color.FromArgb(20, 20, 20);
+                        theSongLabel.BackColor = Color.FromArgb(40, 40, 40);
                     }
                     #endregion
 
@@ -129,7 +129,7 @@ namespace MALT_Music
                     }
                     else
                     {
-                        theLengthLabel.BackColor = Color.FromArgb(20, 20, 20);
+                        theLengthLabel.BackColor = Color.FromArgb(40, 40, 40);
                     }
                     #endregion
 
