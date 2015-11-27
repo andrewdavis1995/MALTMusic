@@ -75,6 +75,7 @@
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="lib\CassHosts.cs" />
+    <Compile Include="lib\ImageThings.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
