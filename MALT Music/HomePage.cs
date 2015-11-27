@@ -180,5 +180,22 @@ namespace MALT_Music
             profileScreen.Show();
         }
 
+        public void artistSelected(String name, List<Song> songs)
+        {
+            hideForms();
+
+            ArtistView artistView = new ArtistView();
+
+            artistView.setupVariables(name, songs);
+            artistView.createAlbums();
+
+            artistView.TopLevel = false;
+            artistView.Parent = this;
+            artistView.FormBorderStyle = FormBorderStyle.None;
+            artistView.Show();
+
+            artistView.Show();
+        }
+
     }
 }
