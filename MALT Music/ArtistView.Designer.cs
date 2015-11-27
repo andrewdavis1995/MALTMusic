@@ -30,8 +30,8 @@
         {
             this.lblArtistName = new System.Windows.Forms.Label();
             this.pnlTopInfo = new System.Windows.Forms.Panel();
-            this.lblPopularity = new System.Windows.Forms.Label();
             this.lblNumAlbums = new System.Windows.Forms.Label();
+            this.lblPopularity = new System.Windows.Forms.Label();
             this.pnlTopInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,18 +57,6 @@
             this.pnlTopInfo.Size = new System.Drawing.Size(858, 97);
             this.pnlTopInfo.TabIndex = 1;
             // 
-            // lblPopularity
-            // 
-            this.lblPopularity.AutoSize = true;
-            this.lblPopularity.BackColor = System.Drawing.Color.Black;
-            this.lblPopularity.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPopularity.ForeColor = System.Drawing.Color.White;
-            this.lblPopularity.Location = new System.Drawing.Point(7, 47);
-            this.lblPopularity.Name = "lblPopularity";
-            this.lblPopularity.Size = new System.Drawing.Size(103, 20);
-            this.lblPopularity.TabIndex = 1;
-            this.lblPopularity.Text = "Popularity: 0%";
-            // 
             // lblNumAlbums
             // 
             this.lblNumAlbums.AutoSize = true;
@@ -80,6 +68,18 @@
             this.lblNumAlbums.Size = new System.Drawing.Size(145, 20);
             this.lblNumAlbums.TabIndex = 2;
             this.lblNumAlbums.Text = "Number of Albums: 0";
+            // 
+            // lblPopularity
+            // 
+            this.lblPopularity.AutoSize = true;
+            this.lblPopularity.BackColor = System.Drawing.Color.Black;
+            this.lblPopularity.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPopularity.ForeColor = System.Drawing.Color.White;
+            this.lblPopularity.Location = new System.Drawing.Point(7, 47);
+            this.lblPopularity.Name = "lblPopularity";
+            this.lblPopularity.Size = new System.Drawing.Size(103, 20);
+            this.lblPopularity.TabIndex = 1;
+            this.lblPopularity.Text = "Popularity: 0%";
             // 
             // ArtistView
             // 

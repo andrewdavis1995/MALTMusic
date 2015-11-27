@@ -33,6 +33,9 @@ namespace MALT_Music
             List<Album> albums = sortIntoAlbums();
 
             for (int i = 0; i < albums.Count; i++) {
+
+                lblNumAlbums.Text = "Number of Albums: " + albums.Count;
+
                 Label topLabel = new Label();
                 topLabel.Text = albums[i].getName();
                 topLabel.Left = 12;

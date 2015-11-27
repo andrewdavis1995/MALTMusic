@@ -45,7 +45,7 @@ namespace MALT_Music
             //TODO - DISPLAY PROFILE PIC
 
             //Display info in text boxes
-            txtEmail.Text = currentUser.getEmailString();
+            txtEmail.Text = currentUser.getEmail();
             txtFirstName.Text = currentUser.getFirstName();
             txtLastName.Text = currentUser.getLastName();
 

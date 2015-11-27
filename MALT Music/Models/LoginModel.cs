@@ -89,16 +89,13 @@ namespace MALT_Music.Models
                         if (row["email"]!=null)
                         {
                             String email = row["email"].ToString();
-                            email = email.Substring(0, email.Length - 2);
+                            //email = email.Substring(0, email.Length - 2);
 
-                            HashSet<String> emailSet = new HashSet<String>();
-                            emailSet.Add(email);
-
-                            user = new User(username, password, first_name, last_name, emailSet, bio);
+                            user = new User(username, password, first_name, last_name, email, bio);
                         }
                         else {
 
-                            user = new User(username, password, first_name, last_name, null, null);
+                            user = new User(username, password, first_name, last_name, null, "Enter your bio here...");
                         }
                        
 

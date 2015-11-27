@@ -13,7 +13,7 @@ namespace MALT_Music.DataObjects
         private String password;
         private String first_name;
         private String last_name;
-        private HashSet<String> email;
+        private String email;
         private String bio;
 
         /*
@@ -31,7 +31,7 @@ namespace MALT_Music.DataObjects
          *             - surname: the user's surname
          * @AUTHOR: Andrew Davis
          */
-        public User(String username, String password, String firstName, String surname, HashSet<String> email, String bio) 
+        public User(String username, String password, String firstName, String surname, String email, String bio) 
         {
             this.username = username;
             this.password = password;
@@ -75,7 +75,7 @@ namespace MALT_Music.DataObjects
          * @AUTHOR: Andrew Davis
          * @RETURNS: the Last Name property for the current User
          */
-        public HashSet<String> getEmail() { return this.email; }
+        public String getEmail() { return this.email; }
 
         /*
          * @PARAMETERS: none
@@ -84,24 +84,6 @@ namespace MALT_Music.DataObjects
          */
         public String getBio() { return this.bio; }
 
-        /*
-         * @PARAMETERS: none
-         * @AUTHOR: Lewis Davie
-         * @RETURNS: Returns the user's email, in string form instead of hashset
-         */
-        public String getEmailString()
-        {
-            String emailString = "";
-
-           // emailString = string.Join("", email);
-
-            StringBuilder sb = new StringBuilder();
-            foreach (var item in email)
-                sb.Append(item);
-            emailString = sb.ToString();
-
-            return emailString;
-        }
 
         public void setUsername(String username) { this.username = username; }
     }

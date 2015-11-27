@@ -39,7 +39,9 @@ namespace MALT_Music.Models
                 String sname = toRegister.getLastName();
                 String password = toRegister.getPassword();
                 String bio = toRegister.getBio();
-                HashSet<String> email = toRegister.getEmail();
+                //HashSet<String> email = toRegister.getEmail();
+                String email = toRegister.getEmail();
+
 
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
@@ -74,21 +76,21 @@ namespace MALT_Music.Models
          *  @RETURNS: a boolean value: whether or not the data is valid
          *  @AUTHOR: Andrew Davis
          */
-        public Validation validateData(User user, String confirmPassword) 
+        public Validation validateData(User user, String confirmPassword)
         {
 
             // First Name Validation:
             String fName = user.getFirstName();
             fName = fName.Trim(); // Trim trailing/leading whitespaces
             if (fName == null || fName.Length == 0) { return new Validation("First Name must be at least 7 characters long", false); }   // Length Check
-            
+
 
             // Last Name Validation:
             String lName = user.getLastName();
             lName = lName.Trim(); // Trim trailing/leading whitespaces
             if (lName == null || lName.Length == 0) { return new Validation("Last Name must be at least 7 characters long", false); }   // Length Check
 
-            
+
             // User Name Validation:
             String username = user.getUsername();
             username = username.Trim(); // Trim trailing/leading whitespaces
@@ -99,14 +101,11 @@ namespace MALT_Music.Models
 
 
             // Email Validation:
-            HashSet<String> email = user.getEmail();
+            String email = user.getEmail();
 
-            foreach (String address in email)
-            {
-                if (address.Trim().Length < 7) { return new Validation("Email address is not long enough", false); }    // Length validation
-                if (!address.Contains('@')) { return new Validation("Email address must contain a '@'", false); }   // Content validation
-                if (!address.Contains('.')) { return new Validation("Email address must contain a '.'", false); }   // Content validation
-            }
+            if (email.Trim().Length < 7) { return new Validation("Email address is not long enough", false); }    // Length validation
+            if (!email.Contains('@')) { return new Validation("Email address must contain a '@'", false); }   // Content validation
+            if (!email.Contains('.')) { return new Validation("Email address must contain a '.'", false); }   // Content validation
 
 
             // Password Validation: 
@@ -116,13 +115,13 @@ namespace MALT_Music.Models
             if (!password.Any(char.IsDigit)) { return new Validation("Password must contain at least 1 number", false); }   // Content validation   // Length validation
             if (!password.Any(char.IsUpper)) { return new Validation("Password must contain at least 1 Upper Case letter", false); }   // Content validation
 
-            
+
             return new Validation("SUCCESS", true);
 
         }
 
 
-        public bool checkUsername(String username) 
+        public bool checkUsername(String username)
         {
             init();
 

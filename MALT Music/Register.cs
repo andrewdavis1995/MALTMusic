@@ -29,12 +29,9 @@ namespace MALT_Music
             String password = txtPassword.Text;
             String confirmPassword = txtConfirmPassword.Text;
 
-            // Convert the email to a set
-            HashSet<String> emailSet = new HashSet<String>();
-            emailSet.Add(email);
 
             // Create a user object
-            User newUser = new User(username, password, first_name, last_name, emailSet, "Enter your bio here...");
+            User newUser = new User(username, password, first_name, last_name, email, "Enter your bio here...");
 
             // Create a registerModel
             RegisterModel registerModel = new RegisterModel();

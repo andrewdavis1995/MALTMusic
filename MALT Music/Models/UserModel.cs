@@ -53,12 +53,9 @@ namespace MALT_Music.Models
                     if (row["email"] != null)
                     {
                         String email = row["email"].ToString();
-                        email = email.Substring(0, email.Length - 2);
+                        
 
-                        HashSet<String> emailSet = new HashSet<String>();
-                        emailSet.Add(email);
-
-                        user = new User(username, password, fname, sname, emailSet, bio);
+                        user = new User(username, password, fname, sname, email, bio);
                     }
                     else
                     {

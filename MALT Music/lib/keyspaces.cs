@@ -30,7 +30,7 @@ namespace MALT_Music.lib
                     + "bio text,\n"
                     + "first_name text,\n"
                     + "last_name text,\n"
-                    + "email set<text>,\n"
+                    + "email text,\n"
                     + "profpic  UUID);";
 
                 String createTracks = "create table if not exists maltmusic.tracks (\n"
