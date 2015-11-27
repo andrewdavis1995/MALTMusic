@@ -479,12 +479,11 @@ namespace MALT_Music
             SongModel songModel = new SongModel();
             List<Song> songsForArtist = songModel.getSongsByArtist(artist);
 
-            ArtistView artistView = new ArtistView();
+            //Set the parent to be the home page
+            HomePage parent = (HomePage)this.Parent;
 
-            artistView.setupVariables(artist, songsForArtist);
-            artistView.createAlbums();
-
-            artistView.Show();
+            //Call the method in parent to open artist window, passing data back
+            parent.artistSelected(artist, songsForArtist);
 
         }
         
