@@ -120,6 +120,7 @@
             this.btnUpdateDetails.TabIndex = 9;
             this.btnUpdateDetails.Text = "Update Details";
             this.btnUpdateDetails.UseVisualStyleBackColor = true;
+            this.btnUpdateDetails.Click += new System.EventHandler(this.btnUpdateDetails_Click);
             // 
             // txtFirstName
             // 
