@@ -107,7 +107,7 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(760, 232);
+            this.txtEmail.Location = new System.Drawing.Point(862, 232);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(163, 26);
             this.txtEmail.TabIndex = 7;
@@ -115,7 +115,7 @@
             // btnUpdateDetails
             // 
             this.btnUpdateDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateDetails.Location = new System.Drawing.Point(676, 271);
+            this.btnUpdateDetails.Location = new System.Drawing.Point(778, 271);
             this.btnUpdateDetails.Name = "btnUpdateDetails";
             this.btnUpdateDetails.Size = new System.Drawing.Size(163, 38);
             this.btnUpdateDetails.TabIndex = 9;
@@ -126,7 +126,7 @@
             // txtFirstName
             // 
             this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.Location = new System.Drawing.Point(760, 168);
+            this.txtFirstName.Location = new System.Drawing.Point(862, 168);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(163, 26);
             this.txtFirstName.TabIndex = 10;
@@ -134,7 +134,7 @@
             // txtLastName
             // 
             this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.Location = new System.Drawing.Point(760, 200);
+            this.txtLastName.Location = new System.Drawing.Point(862, 200);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(163, 26);
             this.txtLastName.TabIndex = 11;
@@ -144,7 +144,7 @@
             this.lblEdit.AutoSize = true;
             this.lblEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEdit.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblEdit.Location = new System.Drawing.Point(716, 121);
+            this.lblEdit.Location = new System.Drawing.Point(818, 121);
             this.lblEdit.Name = "lblEdit";
             this.lblEdit.Size = new System.Drawing.Size(69, 33);
             this.lblEdit.TabIndex = 12;
@@ -155,7 +155,7 @@
             this.lblFNE.AutoSize = true;
             this.lblFNE.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFNE.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblFNE.Location = new System.Drawing.Point(639, 168);
+            this.lblFNE.Location = new System.Drawing.Point(741, 168);
             this.lblFNE.Name = "lblFNE";
             this.lblFNE.Size = new System.Drawing.Size(101, 24);
             this.lblFNE.TabIndex = 13;
@@ -166,7 +166,7 @@
             this.lblLNE.AutoSize = true;
             this.lblLNE.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLNE.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblLNE.Location = new System.Drawing.Point(641, 200);
+            this.lblLNE.Location = new System.Drawing.Point(743, 200);
             this.lblLNE.Name = "lblLNE";
             this.lblLNE.Size = new System.Drawing.Size(99, 24);
             this.lblLNE.TabIndex = 14;
@@ -177,7 +177,7 @@
             this.lblENE.AutoSize = true;
             this.lblENE.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblENE.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblENE.Location = new System.Drawing.Point(659, 231);
+            this.lblENE.Location = new System.Drawing.Point(761, 231);
             this.lblENE.Name = "lblENE";
             this.lblENE.Size = new System.Drawing.Size(63, 24);
             this.lblENE.TabIndex = 15;
@@ -220,7 +220,7 @@
             // btnChangePassword
             // 
             this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePassword.Location = new System.Drawing.Point(676, 327);
+            this.btnChangePassword.Location = new System.Drawing.Point(778, 327);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(163, 38);
             this.btnChangePassword.TabIndex = 19;
