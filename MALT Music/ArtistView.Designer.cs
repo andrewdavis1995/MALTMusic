@@ -32,7 +32,11 @@
             this.pnlTopInfo = new System.Windows.Forms.Panel();
             this.lblNumAlbums = new System.Windows.Forms.Label();
             this.lblPopularity = new System.Windows.Forms.Label();
+            this.picUp = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlTopInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picUp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblArtistName
@@ -81,17 +85,41 @@
             this.lblPopularity.TabIndex = 1;
             this.lblPopularity.Text = "Popularity: 0%";
             // 
+            // picUp
+            // 
+            this.picUp.BackgroundImage = global::MALT_Music.Properties.Resources.upvote;
+            this.picUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picUp.Location = new System.Drawing.Point(823, 121);
+            this.picUp.Name = "picUp";
+            this.picUp.Size = new System.Drawing.Size(30, 22);
+            this.picUp.TabIndex = 2;
+            this.picUp.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::MALT_Music.Properties.Resources.downvote;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(823, 149);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 22);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // ArtistView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(882, 461);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picUp);
             this.Controls.Add(this.pnlTopInfo);
             this.Name = "ArtistView";
             this.Text = "ArtistView";
             this.pnlTopInfo.ResumeLayout(false);
             this.pnlTopInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picUp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -102,5 +130,7 @@
         private System.Windows.Forms.Panel pnlTopInfo;
         private System.Windows.Forms.Label lblNumAlbums;
         private System.Windows.Forms.Label lblPopularity;
+        private System.Windows.Forms.PictureBox picUp;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

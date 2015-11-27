@@ -16,6 +16,10 @@ namespace MALT_Music
         private String artistName;
         private List<Song> songs;
 
+        List<List<Label>> songLabelsName = new List<List<Label>>();
+        List<List<Label>> songLabelsLength = new List<List<Label>>();
+
+
         public ArtistView()
         {
             InitializeComponent();
@@ -34,6 +38,11 @@ namespace MALT_Music
 
             for (int i = 0; i < albums.Count; i++) {
 
+                List<Label> songList = new List<Label>();
+                songLabelsName.Add(songList);
+                List<Label> lengthList = new List<Label>();
+                songLabelsLength.Add(lengthList);
+
                 lblNumAlbums.Text = "Number of Albums: " + albums.Count;
 
                 Label topLabel = new Label();
@@ -43,6 +52,8 @@ namespace MALT_Music
                 topLabel.Top = 120 + (i * 145);
                 topLabel.Width = 400;
                 topLabel.Height = 20;
+                topLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 12.0F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                
 
                 Panel pnlOuter = new Panel();
                 pnlOuter.Size = new Size(858, 100);
@@ -70,6 +81,65 @@ namespace MALT_Music
                 // loop through each song in album -> add 2 labels for each - Song Title and Length (convert length to mm:ss)
                 // store the labels as a global 2-D Array - e.g. trackLabel[i][j] where i is the album index and j is the track index
                 // e.g. if i1 = i2 then the two tracks are in the same album
+                List<Song> songs = albums[i].getSongs();
+
+                for (int j = 0; j < songs.Count; j++) 
+                {
+                    String songName = songs[j].getTrackName();
+                    int length = songs[j].getLength();
+
+                    TimeSpan totalLength = TimeSpan.FromSeconds(length);
+                    String lengthOutput = totalLength.ToString("mm':'ss");
+
+                    #region songName Label
+
+                    Label theSongLabel = new Label();
+
+                    theSongLabel.Text = songName;
+                    theSongLabel.Size = new Size(543, 30);
+                    theSongLabel.Location = new Point(0, 0 + (33 * j));
+                    theSongLabel.ForeColor = Color.FromArgb(205, 205, 205);
+                    theSongLabel.TextAlign = ContentAlignment.MiddleLeft;
+                    theSongLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+                    if (j % 2 == 0)
+                    {
+                        theSongLabel.BackColor = Color.FromArgb(60, 60, 60);
+                    }
+                    else
+                    {
+                        theSongLabel.BackColor = Color.FromArgb(20, 20, 20);
+                    }
+                    #endregion
+
+
+                    #region songLength Label
+
+                    Label theLengthLabel = new Label();
+                    theLengthLabel.Text = lengthOutput;
+                    theLengthLabel.Size = new Size(80, 30);
+                    theLengthLabel.Location = new Point(549, 0 + (33 * j));
+                    theLengthLabel.ForeColor = Color.FromArgb(205, 205, 205);
+                    theLengthLabel.TextAlign = ContentAlignment.MiddleLeft;
+                    theLengthLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+                    if (j % 2 == 0)
+                    {
+                        theLengthLabel.BackColor = Color.FromArgb(60, 60, 60);
+                    }
+                    else
+                    {
+                        theLengthLabel.BackColor = Color.FromArgb(20, 20, 20);
+                    }
+                    #endregion
+
+                    songLabelsName[i].Add(theSongLabel);
+                    songLabelsLength[i].Add(theLengthLabel);
+
+                    pnlInner.Controls.Add(songLabelsName[i][j]);
+                    pnlInner.Controls.Add(songLabelsLength[i][j]);
+
+                }
 
             }
 

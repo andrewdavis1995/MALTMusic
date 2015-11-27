@@ -34,6 +34,11 @@ namespace MALT_Music.DataObjects
             this.songs.Add(song);
         }
 
+        public List<Song> getSongs()
+        {
+            return this.songs;
+        }
+
         public bool compareName(String albumName) 
         { 
             return albumName == this.name;
