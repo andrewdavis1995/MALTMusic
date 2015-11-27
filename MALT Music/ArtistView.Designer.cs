@@ -53,7 +53,7 @@
             this.pnlTopInfo.Controls.Add(this.lblNumAlbums);
             this.pnlTopInfo.Controls.Add(this.lblPopularity);
             this.pnlTopInfo.Controls.Add(this.lblArtistName);
-            this.pnlTopInfo.Location = new System.Drawing.Point(278, 109);
+            this.pnlTopInfo.Location = new System.Drawing.Point(242, 92);
             this.pnlTopInfo.Name = "pnlTopInfo";
             this.pnlTopInfo.Size = new System.Drawing.Size(858, 97);
             this.pnlTopInfo.TabIndex = 1;
@@ -86,8 +86,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1330, 461);
+            this.ClientSize = new System.Drawing.Size(1330, 391);
             this.Controls.Add(this.pnlTopInfo);
             this.Name = "ArtistView";
             this.Text = "ArtistView";

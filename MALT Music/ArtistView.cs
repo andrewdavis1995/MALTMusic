@@ -47,9 +47,9 @@ namespace MALT_Music
 
                 Label topLabel = new Label();
                 topLabel.Text = albums[i].getName();
-                topLabel.Left = 12;
+                topLabel.Left = 247;
                 topLabel.ForeColor = Color.White;
-                topLabel.Top = 120 + (i * 145);
+                topLabel.Top = 205 + (i * 145);
                 topLabel.Width = 400;
                 topLabel.Height = 20;
                 topLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 12.0F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -57,7 +57,7 @@ namespace MALT_Music
 
                 Panel pnlOuter = new Panel();
                 pnlOuter.Size = new Size(858, 100);
-                pnlOuter.Location = new Point(12, 142+(i*145));
+                pnlOuter.Location = new Point(242, 230+(i*145));
                 pnlOuter.BackColor = Color.FromArgb(20, 20, 20);
 
                 this.Controls.Add(pnlOuter);
@@ -73,8 +73,15 @@ namespace MALT_Music
                 PictureBox albumCover = new PictureBox();
                 albumCover.Size = new Size(100, 100);
                 albumCover.Location = new Point(0, 0);
-                albumCover.BackColor = Color.Red;
-
+                albumCover.BackColor = Color.FromArgb(20, 20, 20);
+                albumCover.BackgroundImageLayout = ImageLayout.Stretch;
+                try
+                {
+                    albumCover.BackgroundImage = Image.FromFile("../../tracks/" + albums[i].getSongs()[0].getArtist() + "/" + albums[i].getSongs()[0].getAlbum() + "/" + albums[i].getSongs()[0].getAlbum() + ".jpg");
+                }
+                catch(Exception){
+                    albumCover.BackgroundImage = Properties.Resources.logo;
+                }
                 pnlOuter.Controls.Add(pnlInner);
                 pnlOuter.Controls.Add(albumCover);
 

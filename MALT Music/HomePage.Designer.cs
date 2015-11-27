@@ -154,7 +154,7 @@
             this.panel2.Controls.Add(this.picBoxBrowse);
             this.panel2.Location = new System.Drawing.Point(-3, 87);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(233, 323);
+            this.panel2.Size = new System.Drawing.Size(233, 313);
             this.panel2.TabIndex = 7;
             // 
             // picBoxPlaylist

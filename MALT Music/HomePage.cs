@@ -21,6 +21,7 @@ namespace MALT_Music
         ViewPlaylist playlists;
         SearchResults searchResults;
         UserProfile profileScreen;
+        ArtistView artistView = new ArtistView();
 
         public User currentUser;
 
@@ -68,7 +69,9 @@ namespace MALT_Music
             playlists.Hide();
             searchResults.Hide();
             profileScreen.Hide();
+            artistView.Hide();
         }
+
 
         /// <summary>
         /// Loads the music player into the application
@@ -184,8 +187,7 @@ namespace MALT_Music
         {
             hideForms();
 
-            ArtistView artistView = new ArtistView();
-
+            artistView = new ArtistView();
             artistView.setupVariables(name, songs);
             artistView.createAlbums();
 

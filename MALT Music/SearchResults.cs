@@ -364,8 +364,6 @@ namespace MALT_Music
 
 
             pnlOptions.Visible = true;
-            pnlOptions.Top = 200 + (id * 32);
-            pnlPlaylists.Top = 200 + (id * 32);
             
 
         }
