@@ -476,7 +476,15 @@ namespace MALT_Music
 
             String artist = artistLabel[id].Text;
 
-            MessageBox.Show("Going to Page for: " + artist);
+            SongModel songModel = new SongModel();
+            List<Song> songsForArtist = songModel.getSongsByArtist(artist);
+
+            ArtistView artistView = new ArtistView();
+
+            artistView.setupVariables(artist, songsForArtist);
+            artistView.createAlbums();
+
+            artistView.Show();
 
         }
         

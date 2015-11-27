@@ -42,6 +42,7 @@
             this.cmdCreatePlaylist = new System.Windows.Forms.Button();
             this.cmdAddSongToPlaylist = new System.Windows.Forms.Button();
             this.cmdSearchResults = new System.Windows.Forms.Button();
+            this.cmdArtistSongs = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,12 +178,23 @@
             this.cmdSearchResults.UseVisualStyleBackColor = true;
             this.cmdSearchResults.Click += new System.EventHandler(this.cmdSearchResults_Click);
             // 
+            // cmdArtistSongs
+            // 
+            this.cmdArtistSongs.Location = new System.Drawing.Point(138, 295);
+            this.cmdArtistSongs.Name = "cmdArtistSongs";
+            this.cmdArtistSongs.Size = new System.Drawing.Size(111, 48);
+            this.cmdArtistSongs.TabIndex = 19;
+            this.cmdArtistSongs.Text = "Artist Thing";
+            this.cmdArtistSongs.UseVisualStyleBackColor = true;
+            this.cmdArtistSongs.Click += new System.EventHandler(this.cmdArtistSongs_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1006, 484);
+            this.Controls.Add(this.cmdArtistSongs);
             this.Controls.Add(this.cmdSearchResults);
             this.Controls.Add(this.cmdAddSongToPlaylist);
             this.Controls.Add(this.cmdCreatePlaylist);
@@ -221,5 +233,6 @@
         private System.Windows.Forms.Button cmdCreatePlaylist;
         private System.Windows.Forms.Button cmdAddSongToPlaylist;
         private System.Windows.Forms.Button cmdSearchResults;
+        private System.Windows.Forms.Button cmdArtistSongs;
     }
 }

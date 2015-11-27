@@ -57,6 +57,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArtistView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArtistView.Designer.cs">
+      <DependentUpon>ArtistView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataObjects\Album.cs" />
     <Compile Include="DataObjects\Playlist.cs" />
     <Compile Include="DataObjects\Song.cs" />
     <Compile Include="DataObjects\User.cs" />
@@ -116,6 +123,9 @@
     <Compile Include="ViewPlaylist.Designer.cs">
       <DependentUpon>ViewPlaylist.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ArtistView.resx">
+      <DependentUpon>ArtistView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>

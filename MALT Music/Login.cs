@@ -224,6 +224,21 @@ namespace MALT_Music
             searchResults.Show();
         }
 
+        private void cmdArtistSongs_Click(object sender, EventArgs e)
+        {
+            String artist = Microsoft.VisualBasic.Interaction.InputBox("Artist Name:");
+
+            SongModel songModel = new SongModel();
+            List<Song> songsForArtist = songModel.getSongsByArtist(artist);
+
+            ArtistView artistView = new ArtistView();
+
+            artistView.setupVariables(artist, songsForArtist);
+            artistView.createAlbums();
+
+            artistView.Show();
+        }
+
 
 
     }
