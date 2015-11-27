@@ -129,5 +129,46 @@ namespace MALT_Music
             }
         }
 
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            //Show password change window
+            PasswordChange changeWindow = new PasswordChange(currentUser);
+            changeWindow.Show();
+        }
+
+        //Button to change the user's profile picture
+        private void btnChangeProfilePic_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileSearch = new OpenFileDialog();
+            
+            //Filter so the user can only select jpeg or png files
+            fileSearch.Filter = "Images (*.JPG;*.PNG)|*.JPG;*.PNG";
+
+            //if statement that means the code will only continue if the user clicks OK and doesn't cancel the window
+            if (fileSearch.ShowDialog() == DialogResult.OK)
+            {
+                //This is the path and file name. Not sure if we need it but we have it
+                //SAFEFileName has the full path
+                String filename = fileSearch.FileName;
+
+                try
+                {
+                    //Set image location to be the loading one
+                    picBoxProfilePic.ImageLocation = filename;
+
+                    //This is where we put it into the database. MAAAAAATTTTTTT
+
+                }
+                catch (Exception IOException)
+                {
+                    MessageBox.Show("ABORT ABORT");
+                }
+
+
+
+
+            }
+        }
+
     }
 }

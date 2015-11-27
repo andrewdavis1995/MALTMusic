@@ -38,6 +38,7 @@
             this.lblRegisterLabel = new System.Windows.Forms.Label();
             this.picUsernameStatus = new System.Windows.Forms.PictureBox();
             this.picLogo = new System.Windows.Forms.PictureBox();
+            this.lblUsernameTaken = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picUsernameStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
@@ -115,11 +116,11 @@
             // lblRegisterLabel
             // 
             this.lblRegisterLabel.AutoSize = true;
-            this.lblRegisterLabel.Font = new System.Drawing.Font("Impact", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegisterLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegisterLabel.ForeColor = System.Drawing.Color.White;
             this.lblRegisterLabel.Location = new System.Drawing.Point(373, 47);
             this.lblRegisterLabel.Name = "lblRegisterLabel";
-            this.lblRegisterLabel.Size = new System.Drawing.Size(150, 43);
+            this.lblRegisterLabel.Size = new System.Drawing.Size(168, 41);
             this.lblRegisterLabel.TabIndex = 11;
             this.lblRegisterLabel.Text = "REGISTER";
             // 
@@ -144,12 +145,25 @@
             this.picLogo.TabIndex = 10;
             this.picLogo.TabStop = false;
             // 
+            // lblUsernameTaken
+            // 
+            this.lblUsernameTaken.AutoSize = true;
+            this.lblUsernameTaken.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsernameTaken.ForeColor = System.Drawing.Color.White;
+            this.lblUsernameTaken.Location = new System.Drawing.Point(645, 251);
+            this.lblUsernameTaken.Name = "lblUsernameTaken";
+            this.lblUsernameTaken.Size = new System.Drawing.Size(154, 17);
+            this.lblUsernameTaken.TabIndex = 13;
+            this.lblUsernameTaken.Text = "Username has been taken";
+            this.lblUsernameTaken.Visible = false;
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(891, 474);
+            this.Controls.Add(this.lblUsernameTaken);
             this.Controls.Add(this.picUsernameStatus);
             this.Controls.Add(this.lblRegisterLabel);
             this.Controls.Add(this.picLogo);
@@ -181,5 +195,6 @@
         private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Label lblRegisterLabel;
         private System.Windows.Forms.PictureBox picUsernameStatus;
+        private System.Windows.Forms.Label lblUsernameTaken;
     }
 }
