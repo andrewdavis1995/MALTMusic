@@ -129,5 +129,12 @@ namespace MALT_Music
             }
         }
 
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            //Show password change window
+            PasswordChange changeWindow = new PasswordChange(currentUser);
+            changeWindow.Show();
+        }
+
     }
 }

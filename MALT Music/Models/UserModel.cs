@@ -106,7 +106,22 @@ namespace MALT_Music.Models
 
         }
 
+        //Update password
+        //You made this? I made this.
+        public void updatePassword(String pass, String uname)
+        {
+            pass = Encryption.calcMD5(pass);
 
+            init();
+            // Connect to cluster
+            ISession session = cluster.Connect("maltmusic");
+
+            String todo = ("update userprofiles set password = :pass where user_id = :uname");
+            PreparedStatement ps = session.Prepare(todo);
+            BoundStatement bs = ps.Bind(pass, uname);
+
+            session.Execute(bs);
+        }
 
 
     }

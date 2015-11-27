@@ -44,6 +44,7 @@
             this.lblBio = new System.Windows.Forms.Label();
             this.lblBioText = new System.Windows.Forms.Label();
             this.txtBioEdit = new System.Windows.Forms.TextBox();
+            this.btnChangePassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxProfilePic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -216,12 +217,24 @@
             this.txtBioEdit.TabIndex = 18;
             this.txtBioEdit.MouseLeave += new System.EventHandler(this.txtBioEdit_MouseLeave);
             // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePassword.Location = new System.Drawing.Point(676, 327);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(163, 38);
+            this.btnChangePassword.TabIndex = 19;
+            this.btnChangePassword.Text = "Change Password";
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            // 
             // UserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1249, 533);
+            this.Controls.Add(this.btnChangePassword);
             this.Controls.Add(this.txtBioEdit);
             this.Controls.Add(this.lblBioText);
             this.Controls.Add(this.lblBio);
@@ -264,6 +277,7 @@
         private System.Windows.Forms.Label lblBio;
         private System.Windows.Forms.Label lblBioText;
         private System.Windows.Forms.TextBox txtBioEdit;
+        private System.Windows.Forms.Button btnChangePassword;
 
     }
 }
