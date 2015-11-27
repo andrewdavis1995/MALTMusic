@@ -77,8 +77,10 @@ namespace MALT_Music
         {
             musicPlayer.TopLevel = false;
             musicPlayer.Parent = this;
+            
             musicPlayer.Dock = DockStyle.Bottom;
             musicPlayer.FormBorderStyle = FormBorderStyle.None;
+            musicPlayer.Size = new Size(1130, 195);
             musicPlayer.Show();
         }
 
