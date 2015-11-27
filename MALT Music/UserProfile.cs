@@ -100,7 +100,7 @@ namespace MALT_Music
                 lblEmail.Text = txtEmail.Text;
 
                 //Do the database update
-                //model.updateDetails(currentUser.getUsername(), txtFirstName.Text, txtLastName.Text, txtEmail.Text);
+                model.updateDetails(currentUser.getUsername(), txtFirstName.Text, txtLastName.Text, txtEmail.Text);
                 //MAAAAAAAAAAAAATTTTTTTTTTTTTTTTTTTTTTTTTTT
                 MessageBox.Show(result.getError());
             }
