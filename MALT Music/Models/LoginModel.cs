@@ -78,7 +78,14 @@ namespace MALT_Music.Models
                         // If it does, set up a new User object
                         String first_name = row["first_name"].ToString();
                         String last_name = row["last_name"].ToString();
-                        String bio = row["bio"].ToString();
+                        String bio = "";
+                        if (row["bio"] != null)
+                        {
+                            bio = row["bio"].ToString();
+                        }
+                        else {
+                            bio = "";
+                        }
                         if (row["email"]!=null)
                         {
                             String email = row["email"].ToString();

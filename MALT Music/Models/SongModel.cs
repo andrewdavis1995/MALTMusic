@@ -184,7 +184,7 @@ namespace MALT_Music.Models
 
                     foreach (string s in text)
                     {
-                        System.Console.WriteLine(s);
+                        //System.Console.WriteLine(s);
                     }
 
                     //Guid sid = new Guid();

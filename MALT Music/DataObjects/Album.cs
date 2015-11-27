@@ -11,9 +11,15 @@ namespace MALT_Music.DataObjects
         String name;
         List<Song> songs;
 
+        public String getName()
+        {
+            return this.name;
+        }
+
         public Album(string name)
         {
             this.name = name;
+            songs = new List<Song>();
         }
 
         public Album(string name, List<Song> songs) 

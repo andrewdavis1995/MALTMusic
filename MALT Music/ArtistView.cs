@@ -34,14 +34,16 @@ namespace MALT_Music
 
             for (int i = 0; i < albums.Count; i++) {
                 Label topLabel = new Label();
+                topLabel.Text = albums[i].getName();
                 topLabel.Left = 12;
-                topLabel.Top = 120 + (i * 110);
+                topLabel.ForeColor = Color.White;
+                topLabel.Top = 120 + (i * 145);
                 topLabel.Width = 400;
                 topLabel.Height = 20;
 
                 Panel pnlOuter = new Panel();
                 pnlOuter.Size = new Size(858, 100);
-                pnlOuter.Location = new Point(12, 132);
+                pnlOuter.Location = new Point(12, 142+(i*145));
                 pnlOuter.BackColor = Color.FromArgb(20, 20, 20);
 
                 this.Controls.Add(pnlOuter);
@@ -50,13 +52,13 @@ namespace MALT_Music
 
                 Panel pnlInner = new Panel();
                 pnlInner.Size = new Size(693, 100);
-                pnlInner.Location = new Point(12, 132);
+                pnlInner.Location = new Point(110, 0);
                 pnlInner.BackColor = Color.FromArgb(20, 20, 20);
                 pnlInner.AutoScroll = true;
 
                 PictureBox albumCover = new PictureBox();
                 albumCover.Size = new Size(100, 100);
-                albumCover.Location = new Point(759, 0);
+                albumCover.Location = new Point(0, 0);
                 albumCover.BackColor = Color.Red;
 
                 pnlOuter.Controls.Add(pnlInner);
@@ -81,9 +83,9 @@ namespace MALT_Music
 
                 for (int j = 0; j < albums.Count; j++)
                 {
-                    if (albums[i].compareName(songs[i].getAlbum()))
+                    if (albums[j].compareName(songs[i].getAlbum()))
                     {
-                        albums[i].addSong(songs[i]);
+                        albums[j].addSong(songs[i]);
                         add = false;
                         break;
                     }
