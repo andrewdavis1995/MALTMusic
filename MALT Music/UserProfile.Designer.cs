@@ -79,6 +79,7 @@
             this.btnChangeProfilePic.TabIndex = 3;
             this.btnChangeProfilePic.Text = "Change Profile Picture";
             this.btnChangeProfilePic.UseVisualStyleBackColor = true;
+            this.btnChangeProfilePic.Click += new System.EventHandler(this.btnChangeProfilePic_Click);
             // 
             // picBoxProfilePic
             // 
