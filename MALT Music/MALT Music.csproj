@@ -75,10 +75,11 @@
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="lib\CassHosts.cs" />
+
     <Compile Include="lib\ImageThings.cs" />
-=======
+
     <Compile Include="lib\Encryption.cs" />
->>>>>>> 253433b53e86a2b9749dff1b7a51517d452d2e8b
+
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
