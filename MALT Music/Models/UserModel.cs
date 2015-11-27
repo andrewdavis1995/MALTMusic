@@ -88,10 +88,21 @@ namespace MALT_Music.Models
             session.Execute(bs);
         }
 
-        public void updateDeets(User u)
+        public void updateDetails(String uname, String first,String last,String email)
         {
+            // user, first, last, email
             //this is to do
             //;
+
+            init();
+            // Connect to cluster
+            ISession session = cluster.Connect("maltmusic");
+
+            String todo = ("update userprofiles set first_name = :first, last_name = :last,email = :email where user_id = :uname");
+            PreparedStatement ps = session.Prepare(todo);
+            BoundStatement bs = ps.Bind(first, last, email, uname);
+
+            session.Execute(bs);
 
         }
 

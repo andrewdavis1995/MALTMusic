@@ -171,17 +171,11 @@ namespace MALT_Music.Models
 
                 foreach (string line in lines)
                 {
-
-
                     // Use a tab to indent each line of the file.
-                    Console.WriteLine("\t" + line);
-
+                    //Console.WriteLine("\t" + line);
                     char[] delimiterChars = { '|' };
-
-                    System.Console.WriteLine("Original text: '{0}'", line);
-
+                    //System.Console.WriteLine("Original text: '{0}'", line);
                     string[] text = line.Split(delimiterChars);
-
                     foreach (string s in text)
                     {
                         //System.Console.WriteLine(s);
@@ -197,8 +191,6 @@ namespace MALT_Music.Models
                     String tname = text[6].Trim();
 
                     String file_loc = ("../../tracks/" + artist + "/" + album + "/" + tname + ".mp3");
-
-
                     Song toAdd = new Song(artist, album, year, genre, file_loc, length, tname, sid);
                     doInsertTrack(toAdd);
 

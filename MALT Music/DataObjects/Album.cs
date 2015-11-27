@@ -10,6 +10,7 @@ namespace MALT_Music.DataObjects
     {
         String name;
         List<Song> songs;
+        String artist; //do things
 
         public String getName()
         {

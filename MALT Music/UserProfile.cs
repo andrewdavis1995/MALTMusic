@@ -42,6 +42,9 @@ namespace MALT_Music
             //Display username
             lblUsername.Text = currentUser.getUsername();
 
+            //Display email
+            lblEmail.Text = currentUser.getEmail();
+
             //TODO - DISPLAY PROFILE PIC
 
             //Display info in text boxes
@@ -77,6 +80,52 @@ namespace MALT_Music
             else
             {
                 //Do nothing
+            }
+        }
+
+        //Update details for name and email
+        private void btnUpdateDetails_Click(object sender, EventArgs e)
+        {
+            Validation result = textFieldValidation();
+
+            if (result.getValidity() == false)
+            {
+                MessageBox.Show(result.getError());
+
+            }
+            else
+            {
+                //Update labels on form
+                lblFullName.Text = txtFirstName.Text + " " + txtLastName.Text;
+                lblEmail.Text = txtEmail.Text;
+
+                //Do the database update
+                model.updateDetails(currentUser.getUsername(), txtFirstName.Text, txtLastName.Text, txtEmail.Text);
+                //MAAAAAAAAAAAAATTTTTTTTTTTTTTTTTTTTTTTTTTT
+                MessageBox.Show(result.getError());
+            }
+            
+        }
+
+        private Validation textFieldValidation()
+        {
+            //Validation step 1 - make sure the fields aren't empty
+            if ((txtFirstName.Text.Equals("")) || (txtLastName.Text.Equals("")) || (txtEmail.Text.Equals("")))
+            {
+                return new Validation("Cannot update info as one or more fields have been left blank.", false);
+            }
+            else
+            {
+                //Step 2 - check e-mail
+                if (txtEmail.Text.Trim().Length < 7) { return new Validation("Email address is not long enough", false); }    // Length validation
+                if (!txtEmail.Text.Contains('@')) { return new Validation("Email address must contain a '@'", false); }   // Content validation
+                if (!txtEmail.Text.Contains('.')) { return new Validation("Email address must contain a '.'", false); }   // Content validation
+                
+                //Otherwise it's fine
+                else
+                {
+                    return new Validation("Successfully updated info.", true);
+                }
             }
         }
 
