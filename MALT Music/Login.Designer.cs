@@ -43,13 +43,7 @@
             this.cmdAddSongToPlaylist = new System.Windows.Forms.Button();
             this.cmdSearchResults = new System.Windows.Forms.Button();
             this.cmdArtistSongs = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.plezoutput = new System.Windows.Forms.PictureBox();
-            this.testbox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plezoutput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.testbox)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -193,7 +187,6 @@
             this.cmdArtistSongs.Text = "Artist Thing";
             this.cmdArtistSongs.UseVisualStyleBackColor = true;
             this.cmdArtistSongs.Click += new System.EventHandler(this.cmdArtistSongs_Click);
-            
             // 
             // Login
             // 
@@ -201,10 +194,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1006, 484);
-            this.Controls.Add(this.testbox);
-            this.Controls.Add(this.plezoutput);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.cmdArtistSongs);
             this.Controls.Add(this.cmdSearchResults);
             this.Controls.Add(this.cmdAddSongToPlaylist);
@@ -224,8 +213,6 @@
             this.Name = "Login";
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.plezoutput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.testbox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,9 +234,5 @@
         private System.Windows.Forms.Button cmdAddSongToPlaylist;
         private System.Windows.Forms.Button cmdSearchResults;
         private System.Windows.Forms.Button cmdArtistSongs;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.PictureBox plezoutput;
-        private System.Windows.Forms.PictureBox testbox;
     }
 }

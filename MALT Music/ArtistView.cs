@@ -18,6 +18,9 @@ namespace MALT_Music
 
         List<List<Label>> songLabelsName = new List<List<Label>>();
         List<List<Label>> songLabelsLength = new List<List<Label>>();
+        List<List<PictureBox>> upvoteButtons = new List<List<PictureBox>>();
+        List<List<PictureBox>> downvoteButtons = new List<List<PictureBox>>();
+        List<List<PictureBox>> voteDisplay = new List<List<PictureBox>>();
 
 
         public ArtistView()
@@ -42,12 +45,18 @@ namespace MALT_Music
                 songLabelsName.Add(songList);
                 List<Label> lengthList = new List<Label>();
                 songLabelsLength.Add(lengthList);
+                List<PictureBox> upList = new List<PictureBox>();
+                upvoteButtons.Add(upList);
+                List<PictureBox> downList = new List<PictureBox>();
+                downvoteButtons.Add(downList);
+                List<PictureBox> voteList = new List<PictureBox>();
+                voteDisplay.Add(voteList);
 
                 lblNumAlbums.Text = "Number of Albums: " + albums.Count;
 
                 Label topLabel = new Label();
                 topLabel.Text = albums[i].getName();
-                topLabel.Left = 247;
+                topLabel.Left = 242;
                 topLabel.ForeColor = Color.White;
                 topLabel.Top = 205 + (i * 145);
                 topLabel.Width = 400;
@@ -103,8 +112,9 @@ namespace MALT_Music
                     Label theSongLabel = new Label();
 
                     theSongLabel.Text = songName;
-                    theSongLabel.Size = new Size(543, 30);
+                    theSongLabel.Size = new Size(483, 30);
                     theSongLabel.Location = new Point(0, 0 + (33 * j));
+                    theSongLabel.Tag = i + "," + j;
                     theSongLabel.ForeColor = Color.FromArgb(205, 205, 205);
                     theSongLabel.TextAlign = ContentAlignment.MiddleLeft;
                     theSongLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,8 +134,9 @@ namespace MALT_Music
 
                     Label theLengthLabel = new Label();
                     theLengthLabel.Text = lengthOutput;
-                    theLengthLabel.Size = new Size(80, 30);
-                    theLengthLabel.Location = new Point(549, 0 + (33 * j));
+                    theLengthLabel.Size = new Size(60, 30);
+                    theLengthLabel.Location = new Point(486, 0 + (33 * j));
+                    theLengthLabel.Tag = i + "," + j;
                     theLengthLabel.ForeColor = Color.FromArgb(205, 205, 205);
                     theLengthLabel.TextAlign = ContentAlignment.MiddleLeft;
                     theLengthLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -140,12 +151,55 @@ namespace MALT_Music
                     }
                     #endregion
 
+
+                    PictureBox upvote = new PictureBox();
+                    upvote.Size = new Size(22, 15);
+                    upvote.Location = new Point(557, 0 + (33 * j));
+                    upvote.BackgroundImage = Properties.Resources.upvote;
+                    upvote.BackgroundImageLayout = ImageLayout.Stretch;
+                    upvote.Tag = i + "," + j;
+
+                    PictureBox downvote = new PictureBox();
+                    downvote.Size = new Size(22, 15);
+                    downvote.Location = new Point(557, 15 + (33 * j));
+                    downvote.BackgroundImage = Properties.Resources.downvote;
+                    downvote.BackgroundImageLayout = ImageLayout.Stretch;
+                    downvote.Tag = i + "," + j;
+
+                    PictureBox voteDisplayBox = new PictureBox();
+                    voteDisplayBox.Size = new Size(100, 8);
+                    voteDisplayBox.BackColor = Color.Gray;
+                    voteDisplayBox.Location = new Point(586, 11 + (33 * j));
+                    voteDisplayBox.Tag = i + "," + j;
+
+
+                    int ups = 5;
+                    int downs = 2;
+                    float percent = (float)downs / ((float)ups + (float)downs) * 100;
+
+                    int pbUnit = voteDisplayBox.Width / 100;
+
+                    Bitmap bmp = new Bitmap(voteDisplayBox.Width, voteDisplayBox.Height);
+                    Graphics g;
+                    g = Graphics.FromImage(bmp);
+                    g.Clear(Color.Green);
+                    g.FillRectangle(Brushes.Red, new Rectangle(0, 0, (int)(percent * pbUnit), (int)voteDisplayBox.Height));
+
+                    voteDisplayBox.Image = bmp;
+                    g.Dispose();
+
+
                     songLabelsName[i].Add(theSongLabel);
                     songLabelsLength[i].Add(theLengthLabel);
+                    upvoteButtons[i].Add(upvote);
+                    downvoteButtons[i].Add(downvote);
+                    voteDisplay[i].Add(voteDisplayBox);
 
                     pnlInner.Controls.Add(songLabelsName[i][j]);
                     pnlInner.Controls.Add(songLabelsLength[i][j]);
-
+                    pnlInner.Controls.Add(upvoteButtons[i][j]);
+                    pnlInner.Controls.Add(downvoteButtons[i][j]);
+                    pnlInner.Controls.Add(voteDisplay[i][j]);
                 }
 
             }
