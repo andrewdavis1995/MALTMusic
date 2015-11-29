@@ -364,9 +364,11 @@ namespace MALT_Music
 
         private void doDownvote(object sender, EventArgs e)
         {
+            // Get the tag for which button was clicked
             PictureBox theLabel = (PictureBox)sender;
             String[] tag = theLabel.Tag.ToString().Split(',');
 
+            // Convert to coordinates
             int x = int.Parse(tag[0]);
             int y = int.Parse(tag[1]);
 
