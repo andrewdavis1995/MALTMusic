@@ -338,6 +338,9 @@ namespace MALT_Music
             int y = int.Parse(tag[1]);
 
             String songName = songLabelsName[x][y].Text;
+
+            upvoteButtons[x][y].BackgroundImage = Properties.Resources.upvoted;
+
             Guid songId = new Guid();
             int index = -1;
 
@@ -368,6 +371,9 @@ namespace MALT_Music
             int y = int.Parse(tag[1]);
 
             String songName = songLabelsName[x][y].Text;
+
+            downvoteButtons[x][y].BackgroundImage = Properties.Resources.downvoted;
+
             Guid songId = new Guid();
             int index = -1;
 

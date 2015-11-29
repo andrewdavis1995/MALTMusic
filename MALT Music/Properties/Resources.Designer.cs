@@ -83,6 +83,16 @@ namespace MALT_Music.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap downvoted {
+            get {
+                object obj = ResourceManager.GetObject("downvoted", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_profile {
             get {
                 object obj = ResourceManager.GetObject("icon-profile", resourceCulture);
@@ -216,6 +226,16 @@ namespace MALT_Music.Properties {
         internal static System.Drawing.Bitmap upvote {
             get {
                 object obj = ResourceManager.GetObject("upvote", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upvoted {
+            get {
+                object obj = ResourceManager.GetObject("upvoted", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
