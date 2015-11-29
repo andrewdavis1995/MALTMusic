@@ -232,7 +232,7 @@ namespace MALT_Music
             SongModel songModel = new SongModel();
             List<Song> songsForArtist = songModel.getSongsByArtist(artist);
 
-            ArtistView artistView = new ArtistView();
+            ArtistView artistView = new ArtistView(new User(), null);
 
             artistView.setupVariables(artist, songsForArtist);
             artistView.createAlbums();

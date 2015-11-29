@@ -21,7 +21,7 @@ namespace MALT_Music
         ViewPlaylist playlists;
         SearchResults searchResults;
         UserProfile profileScreen;
-        ArtistView artistView = new ArtistView();
+        ArtistView artistView = new ArtistView(new User(), null);
 
         public User currentUser;
 
@@ -187,7 +187,7 @@ namespace MALT_Music
         {
             hideForms();
 
-            artistView = new ArtistView();
+            artistView = new ArtistView(this.currentUser, this.musicPlayer);
             artistView.setupVariables(name, songs);
             artistView.createAlbums();
 

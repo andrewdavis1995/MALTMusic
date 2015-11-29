@@ -239,24 +239,39 @@ namespace MALT_Music
 
         public void addPlaylistLabels()
         {
-            for (int i = 0; i < usersPlaylists.Count; i++)
+            if (usersPlaylists.Count > 0)
             {
+                for (int i = 0; i < usersPlaylists.Count; i++)
+                {
+                    Label newLabel = new Label();
+
+                    newLabel.Location = new Point(1, 1 + (i * 29));
+                    newLabel.ForeColor = Color.White;
+                    newLabel.BackColor = Color.FromArgb(40, 40, 40);
+                    newLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    newLabel.Tag = i.ToString();
+                    newLabel.Size = new Size(140, 26);
+                    newLabel.Text = usersPlaylists[i].getPlaylistName();
+                    newLabel.TextAlign = ContentAlignment.MiddleCenter;
+                    newLabel.Click += addSongToPlaylist;
+                    newLabel.MouseEnter += playlistHover;
+                    newLabel.MouseLeave += playlistLeave;
+
+                    playlistLabels.Add(newLabel);
+                    pnlPlaylists.Controls.Add(playlistLabels[i]);
+                }
+            }
+            else {
                 Label newLabel = new Label();
 
-                newLabel.Location = new Point(1, 1 + (i* 29));
-                newLabel.ForeColor = Color.White;
-                newLabel.BackColor = Color.FromArgb(40, 40, 40);
+                newLabel.Location = new Point(1, 1);
+                newLabel.ForeColor = Color.Gray;
                 newLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                newLabel.Tag = i.ToString();
-                newLabel.Size = new Size(140, 26);
-                newLabel.Text = usersPlaylists[i].getPlaylistName();
+                newLabel.Size = new Size(140, 50);
+                newLabel.Text = "You currently have no playlists";
                 newLabel.TextAlign = ContentAlignment.MiddleCenter;
-                newLabel.Click += addSongToPlaylist;
-                newLabel.MouseEnter += playlistHover;
-                newLabel.MouseLeave += playlistLeave;
 
-                playlistLabels.Add(newLabel);
-                pnlPlaylists.Controls.Add(playlistLabels[i]);
+                pnlPlaylists.Controls.Add(newLabel);
             }
         }
 
@@ -444,8 +459,6 @@ namespace MALT_Music
             PlaylistModel playlistModel = new PlaylistModel();
 
             playlistModel.addSongToPlaylist(thePlaylist, toAdd);
-
-
 
         }
 
