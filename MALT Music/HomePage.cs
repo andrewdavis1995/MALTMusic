@@ -90,6 +90,21 @@ namespace MALT_Music
             artistView.Hide();
         }
 
+        //Method to open single playlist view
+        public void showViewPlaylist(Playlist playlist)
+        {
+            ViewPlaylist viewPlaylist = new ViewPlaylist(playlist);
+
+            viewPlaylist.TopLevel = false;
+            viewPlaylist.Parent = this;
+
+            viewPlaylist.Dock = DockStyle.Bottom;
+            viewPlaylist.FormBorderStyle = FormBorderStyle.None;
+            viewPlaylist.Size = new Size(1130, 195);        
+            
+            viewPlaylist.Show();
+        }
+
 
         /// <summary>
         /// Loads the music player into the application

@@ -52,8 +52,12 @@ namespace MALT_Music
             Label theLabel = (Label)sender;
             int index = int.Parse(theLabel.Tag.ToString());
 
-            ViewPlaylist viewPlaylist = new ViewPlaylist(playlists[index]);
-            viewPlaylist.Show();
+            //Set the parent to be the home page
+            HomePage parent = (HomePage)this.Parent;
+            parent.showViewPlaylist(playlists[index]);
+
+            //ViewPlaylist viewPlaylist = new ViewPlaylist(playlists[index]);
+            //viewPlaylist.Show();
         }
 
     }
