@@ -12,7 +12,6 @@ namespace MALT_Music.lib
     {
         // thanks andy
         // http://ac31004.blogspot.co.uk/2014/03/saving-image-in-cassandra-blob-field.html
-        // this helped
 
         private Cluster cluster;
         public void init()
@@ -31,29 +30,25 @@ namespace MALT_Music.lib
 
 
 
-        public void doThings()
+        public void setImage(String filepath)
         {
-            String filePath = ("../../tracks/nigeBatman.png");
-            FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            filepath = ("../../tracks/nigeBatman.png");
+            FileStream fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
             byte[] b = new byte[fileStream.Length + 1];
             int length = b.Length;
             fileStream.Read(b,0,length);
-
-            //ByteBuffer buffer = ByteBuffer.wrap(b);
 
             MemoryStream stream = new MemoryStream();
             using (BinaryWriter writer = new BinaryWriter(stream))
             {
                 writer.Write(b);
-                //writer.Write(myInt32);
-                //writer.Write("Hello");
             }
             byte[] bytes = stream.ToArray();
 
             //Guid pic_id = new Guid();
             //pic_id = Guid.NewGuid();
 
-            String fuckyou = "insert into images (image, user_id, timeadded ,imagelength) values(:im,:uid,:time,:len)";
+            String todo = "insert into images (image, user_id, timeadded ,imagelength) values(:im,:uid,:time,:len)";
 
             init();
             ISession session = cluster.Connect("maltmusic");
@@ -62,31 +57,27 @@ namespace MALT_Music.lib
             DateTime theTime;
             theTime = DateTime.Now;
 
-            PreparedStatement ps = session.Prepare(fuckyou);
+            PreparedStatement ps = session.Prepare(todo);
             BoundStatement bs = ps.Bind(bytes, user_id, theTime, length);
 
             session.Execute(bs);
         }
 
-        public byte [] maybeGetThings()
+        public byte [] getImage(String username)
         {
             //Getting the image back is simple.  Use a Select to get the result set:
             init();
             ISession session = cluster.Connect("maltmusic");
 
-            String username = "adminstuff";
+            //String username = "adminstuff";
 
             PreparedStatement ps = session.Prepare("select user_id,image,imagelength from images where user_id =:user");
             BoundStatement bs = ps.Bind(username);
             RowSet rs = session.Execute(bs);
 
-            int length;
-
             foreach (Row row in rs)
             {
                 byte[] bytethings = (byte[]) row["image"];
-                //writer.Write((String)row["image"]);
-                //length = (int)row["imagelength"];
                 return bytethings;
             }
 
@@ -98,8 +89,10 @@ namespace MALT_Music.lib
             ///////NNNNEEEEEEEEEEEEEEEEEEEEEEDDDDD ALLLLLLLL THIS
             /*   private void button1_Click(object sender, EventArgs e)
                     {
+                        //Need to get string filepath for this
+                        //String filepath = "something.png";
                         ImageThings it = new ImageThings();
-                        it.doThings();
+                        it.setImage(filepath);
                     }
 
                     private void button2_Click(object sender, EventArgs e)
@@ -118,7 +111,7 @@ namespace MALT_Music.lib
                              plezoutput.BackgroundImage = img;
                          }
                          else {
-                             MessageBox.Show("FUCKED");
+                             MessageBox.Show("Error in image retrieval ");
                          }
                     }
                             }*/

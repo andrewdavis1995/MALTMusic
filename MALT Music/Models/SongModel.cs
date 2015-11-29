@@ -214,7 +214,7 @@ namespace MALT_Music.Models
                 ISession session = cluster.Connect("maltmusic");
 
                 // Prepare and bind statement passing in username
-                String todo = ("update votecount SET upvotes = upvotes+1, Where track_id = :tid");
+                String todo = ("update votecount SET upvotes = upvotes+1 Where track_id = :tid");
                 // votecount SET playcount = playcount+1, Where track_id = 81ad3117-1b1c-4a75-8658-77df7814a02a;
                 PreparedStatement ps = session.Prepare(todo);
                 //BoundStatement bs = ps.Bind(artist);
@@ -245,7 +245,7 @@ namespace MALT_Music.Models
                 ISession session = cluster.Connect("maltmusic");
 
                 // Prepare and bind statement passing in username
-                String todo = ("update votecount SET downvotes = downvotes+1, Where track_id = :tid");
+                String todo = ("update votecount SET downvotes = downvotes+1 Where track_id = :tid");
                 // votecount SET playcount = playcount+1, Where track_id = 81ad3117-1b1c-4a75-8658-77df7814a02a;
                 PreparedStatement ps = session.Prepare(todo);
                 //BoundStatement bs = ps.Bind(artist);
@@ -281,13 +281,60 @@ namespace MALT_Music.Models
                 return;
             }
             // Prepare and bind statement passing in things
-            String todo = ("insert into user_votes (track_id, voter, howvoted) values (:tid, :vtr, :hwvt");
+            String todo = ("insert into user_votes (track_id, voter, howvoted) values (:tid, :vtr, :hwvt) if not exists");
             PreparedStatement ps = session.Prepare(todo);
             BoundStatement bs = ps.Bind(tid,voter, vtype);
             // Execute Query
             session.Execute(bs);
 
         
+        }
+
+        public Vote getVotesForTrack(Guid tid)
+        {
+            try
+            {
+                // Call to initialise cluster connection
+                init();
+
+                // Connect to cluster
+                ISession session = cluster.Connect("maltmusic");
+
+                // Prepare and bind statement passing in things
+                String todo = ("select * from votecount where track_id = :tid");
+                PreparedStatement ps = session.Prepare(todo);
+                BoundStatement bs = ps.Bind(tid);
+                // Execute Query
+                RowSet rows = session.Execute(bs);
+
+               
+                foreach (Row row in rows)
+                { 
+                    int upVotes;
+                    int downVotes;
+                    if (row["upvotes"] != null)
+                    {
+                        upVotes = (int)row["upvotes"];
+                    }
+                    else {
+                        upVotes = 0;
+                    }
+                    if (row["downvotes"] != null)
+                    {
+                        downVotes = (int)row["downvotes"]; 
+                    }
+                    else
+                    {
+                        downVotes = 0;
+                    }
+                    Vote v = new Vote(tid, upVotes, downVotes);
+                    return v;
+                }
+                return null;
+            }catch(Exception e){
+                Console.WriteLine("Error in vote retrieval " + e);
+                return null;
+            }
         }
 
 
