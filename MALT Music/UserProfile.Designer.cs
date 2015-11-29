@@ -254,6 +254,7 @@
             this.Controls.Add(this.picBoxProfilePic);
             this.Name = "UserProfile";
             this.Text = "UserProfile";
+            this.Load += new System.EventHandler(this.UserProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxProfilePic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
