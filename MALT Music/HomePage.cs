@@ -180,6 +180,7 @@ namespace MALT_Music
             profileScreen.Show();
         }
 
+        //Method to show artist and their songs based on selection within SearchResults
         public void artistSelected(String name, List<Song> songs)
         {
             hideForms();
@@ -195,6 +196,14 @@ namespace MALT_Music
             artistView.Show();
 
             artistView.Show();
+        }
+
+        //Method to load or change the user's profile picture on the home panel
+        public void loadProfilePicHome()
+        {
+            //Get the image from the database
+
+            //Set it to be the image inside picBoxProfPicThumb
         }
 
     }

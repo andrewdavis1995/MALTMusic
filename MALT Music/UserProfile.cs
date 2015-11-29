@@ -158,6 +158,12 @@ namespace MALT_Music
 
                     //This is where we put it into the database. MAAAAAATTTTTTT
 
+                    //Set the parent to be the home page
+                    HomePage parent = (HomePage)this.Parent;
+
+                    //And call the method to change the profile pic on the home panel
+                    parent.loadProfilePicHome();
+
                 }
                 catch (Exception IOException)
                 {
@@ -168,6 +174,17 @@ namespace MALT_Music
 
 
             }
+        }
+
+        private void UserProfile_Load(object sender, EventArgs e)
+        {
+            //Call method to load picture
+            loadProfilePic();
+        }
+
+        private void loadProfilePic()
+        {
+            //MAAAAAATTTTTTT
         }
 
     }
