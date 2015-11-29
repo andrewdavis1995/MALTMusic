@@ -50,6 +50,10 @@ namespace MALT_Music
             addPlaylistLabels();
         }
 
+        public void setUsersPlaylists(List<Playlist> lp)
+        {
+            this.usersPlaylists = lp;
+        }
 
         public void addPlaylistLabels()
         {

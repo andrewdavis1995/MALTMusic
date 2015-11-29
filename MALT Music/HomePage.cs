@@ -139,11 +139,10 @@ namespace MALT_Music
             searchResults.setArtistList(artists);
 
             searchResults.setCurrentUser(currentUser);
-            List<Playlist> lp = new List<Playlist>();
 
             PlaylistModel pm = new PlaylistModel();
+            List<Playlist> lp = pm.getPlaylistsForUser(currentUser.getUsername());
 
-            lp = pm.getPlaylistsForUser(currentUser.getUsername());
             searchResults.setUsersPlaylists(lp);
             searchResults.createSongList(searchText);
             searchResults.createArtistList();
@@ -188,6 +187,12 @@ namespace MALT_Music
             hideForms();
 
             artistView = new ArtistView(this.currentUser, this.musicPlayer);
+
+
+
+            PlaylistModel pm = new PlaylistModel();
+            List<Playlist> lp = pm.getPlaylistsForUser(currentUser.getUsername());
+            artistView.setUsersPlaylists(lp);
             artistView.setupVariables(name, songs);
             artistView.createAlbums();
 
@@ -196,7 +201,6 @@ namespace MALT_Music
             artistView.FormBorderStyle = FormBorderStyle.None;
             artistView.Show();
 
-            artistView.Show();
         }
 
     }
