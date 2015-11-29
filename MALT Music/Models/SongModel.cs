@@ -287,7 +287,6 @@ namespace MALT_Music.Models
             // Execute Query
             session.Execute(bs);
 
-        
         }
 
         public Vote getVotesForTrack(Guid tid)
@@ -314,14 +313,14 @@ namespace MALT_Music.Models
                     int downVotes;
                     if (row["upvotes"] != null)
                     {
-                        upVotes = (int)row["upvotes"];
+                        upVotes = int.Parse(row["upvotes"].ToString());
                     }
                     else {
                         upVotes = 0;
                     }
                     if (row["downvotes"] != null)
                     {
-                        downVotes = (int)row["downvotes"]; 
+                        downVotes = int.Parse(row["downvotes"].ToString());
                     }
                     else
                     {
@@ -330,10 +329,10 @@ namespace MALT_Music.Models
                     Vote v = new Vote(tid, upVotes, downVotes);
                     return v;
                 }
-                return null;
+                return new Vote();
             }catch(Exception e){
                 Console.WriteLine("Error in vote retrieval " + e);
-                return null;
+                return new Vote();
             }
         }
 

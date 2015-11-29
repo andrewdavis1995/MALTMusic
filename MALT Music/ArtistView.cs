@@ -219,6 +219,7 @@ namespace MALT_Music
                     upvote.BackgroundImage = Properties.Resources.upvote;
                     upvote.BackgroundImageLayout = ImageLayout.Stretch;
                     upvote.Tag = i + "," + j;
+                    upvote.Click += doUpvote;
 
                     PictureBox downvote = new PictureBox();
                     downvote.Size = new Size(22, 15);
@@ -226,6 +227,7 @@ namespace MALT_Music
                     downvote.BackgroundImage = Properties.Resources.downvote;
                     downvote.BackgroundImageLayout = ImageLayout.Stretch;
                     downvote.Tag = i + "," + j;
+                    downvote.Click += doDownvote;
 
                     PictureBox voteDisplayBox = new PictureBox();
                     voteDisplayBox.Size = new Size(100, 8);
@@ -233,22 +235,8 @@ namespace MALT_Music
                     voteDisplayBox.Location = new Point(586, 11 + (33 * j));
                     voteDisplayBox.Tag = i + "," + j;
 
-
-                    int ups = 5;
-                    int downs = 2;
-                    float percent = (float)downs / ((float)ups + (float)downs) * 100;
-
-                    int pbUnit = voteDisplayBox.Width / 100;
-
-                    Bitmap bmp = new Bitmap(voteDisplayBox.Width, voteDisplayBox.Height);
-                    Graphics g;
-                    g = Graphics.FromImage(bmp);
-                    g.Clear(Color.Green);
-                    g.FillRectangle(Brushes.Red, new Rectangle(0, 0, (int)(percent * pbUnit), (int)voteDisplayBox.Height));
-
-                    voteDisplayBox.Image = bmp;
-                    g.Dispose();
-
+                    voteDisplayBox = createVotePercentage(voteDisplayBox, j);
+                    
 
                     songLabelsName[i].Add(theSongLabel);
                     songLabelsLength[i].Add(theLengthLabel);
@@ -264,6 +252,41 @@ namespace MALT_Music
                 }
 
             }
+
+        }
+
+        private PictureBox createVotePercentage(PictureBox voteDisplayBox, int j) 
+        {
+            SongModel songModel = new SongModel();
+            Vote vote = songModel.getVotesForTrack(songs[j].getSongID());
+
+            int ups = vote.getUpVotes();
+            int downs = vote.getDownVotes();
+            float percent = (float)downs / ((float)ups + (float)downs) * 100;
+
+            if (!float.IsNaN(percent))
+            {
+                // Do the popularity label thing here
+                // **********************************
+                
+
+                int pbUnit = voteDisplayBox.Width / 100;
+
+                Bitmap bmp = new Bitmap(voteDisplayBox.Width, voteDisplayBox.Height);
+                Graphics g;
+                g = Graphics.FromImage(bmp);
+                g.Clear(Color.Green);
+                g.FillRectangle(Brushes.Red, new Rectangle(0, 0, (int)(percent * pbUnit), (int)voteDisplayBox.Height));
+
+                voteDisplayBox.Image = bmp;
+                g.Dispose();
+            }
+            else 
+            {
+                voteDisplayBox.BackColor = Color.Gray;
+            }
+
+            return voteDisplayBox;
 
         }
 
@@ -304,6 +327,66 @@ namespace MALT_Music
             int id = int.Parse(theLabel.Tag.ToString());
 
             playlistLabels[id].BackColor = Color.DodgerBlue;
+
+        }
+        private void doUpvote(object sender, EventArgs e)
+        {
+            PictureBox theLabel = (PictureBox)sender;
+            String[] tag = theLabel.Tag.ToString().Split(',');
+
+            int x = int.Parse(tag[0]);
+            int y = int.Parse(tag[1]);
+
+            String songName = songLabelsName[x][y].Text;
+            Guid songId = new Guid();
+            int index = -1;
+
+            for (int i = 0; i < songs.Count; i++)
+            {
+                if (songs[i].getTrackName().Equals(songName))
+                {
+                    songId = songs[i].getSongID();
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index > -1) 
+            {
+                SongModel songModel = new SongModel();
+                songModel.doUpVote(songId, currentUser.getUsername());
+                createVotePercentage(voteDisplay[x][y], index);
+            }
+        }
+
+        private void doDownvote(object sender, EventArgs e)
+        {
+            PictureBox theLabel = (PictureBox)sender;
+            String[] tag = theLabel.Tag.ToString().Split(',');
+
+            int x = int.Parse(tag[0]);
+            int y = int.Parse(tag[1]);
+
+            String songName = songLabelsName[x][y].Text;
+            Guid songId = new Guid();
+            int index = -1;
+
+            for (int i = 0; i < songs.Count; i++)
+            {
+                if (songs[i].getTrackName().Equals(songName))
+                {
+                    songId = songs[i].getSongID();
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index > -1)
+            {
+                SongModel songModel = new SongModel();
+                songModel.doDownVote(songId, currentUser.getUsername());
+                createVotePercentage(voteDisplay[x][y], index);
+            }
 
         }
 
@@ -356,8 +439,7 @@ namespace MALT_Music
         {
             Label theLabel = (Label)sender;
 
-            selectedSong = theLabel.Tag.ToString(); ;
-
+            selectedSong = theLabel.Tag.ToString();
             
             pnlOptions.Visible = true;
 
