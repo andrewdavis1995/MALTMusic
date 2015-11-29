@@ -508,6 +508,7 @@ namespace MALT_Music
 
         }
 
+        //Change backcolour when leaving artist hover selection
         private void artistLeave(object sender, EventArgs e)
         {
             Label theLabel = (Label)sender;
