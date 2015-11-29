@@ -167,7 +167,8 @@ namespace MALT_Music
                 }
                 catch (Exception IOException)
                 {
-                    MessageBox.Show("ABORT ABORT");
+                    MessageBox.Show("ABORT ABORT ");
+                    Console.WriteLine("Error occured on things " + IOException);
                 }
 
 

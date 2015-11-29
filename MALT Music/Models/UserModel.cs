@@ -22,7 +22,7 @@ namespace MALT_Music.Models
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception Occurred Getting Cluster INIT");
+                Console.WriteLine("Exception Occurred Getting Cluster INIT  " + e);
             }
         }
         public User getDetailsForUser(String username)

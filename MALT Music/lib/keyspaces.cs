@@ -70,6 +70,14 @@ namespace MALT_Music.lib
                     + " Primary Key (track_id, voter)\n"
                     + " ); ";
 
+                String CreateImage = "CREATE TABLE if not exists maltmusic.images (" +
+                " user_id text," +
+                " timeadded timestamp," +
+                " image blob," +
+                " imagelength int," +
+                " PRIMARY KEY (user_id,timeadded)" +
+                ") WITH CLUSTERING ORDER BY (timeadded DESC);";
+
                 //Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
                 ISession session = c.Connect();
 
@@ -82,6 +90,18 @@ namespace MALT_Music.lib
                      Console.WriteLine("Created Malt ");
                 } catch (Exception et) {
                 Console.WriteLine("Creation of keyspace broke - " + et);
+                }
+
+                try
+                {
+                    PreparedStatement statement = session.Prepare(CreateImage);
+                    BoundStatement bs = new BoundStatement(statement);
+                    RowSet rs = session.Execute(bs);
+                    Console.WriteLine("Created Image Table ");
+                }
+                catch (Exception et)
+                {
+                    Console.WriteLine("Creation of image table broke - " + et);
                 }
 
                 try

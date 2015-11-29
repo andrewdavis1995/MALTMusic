@@ -68,6 +68,7 @@
     <Compile Include="DataObjects\Song.cs" />
     <Compile Include="DataObjects\User.cs" />
     <Compile Include="DataObjects\Validation.cs" />
+    <Compile Include="DataObjects\Vote.cs" />
     <Compile Include="HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +76,7 @@
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="lib\CassHosts.cs" />
+    <Compile Include="lib\ImageThings.cs" />
     <Compile Include="lib\Encryption.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>

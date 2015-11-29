@@ -8,20 +8,36 @@ using System.Text;
 using System.Threading.Tasks;
 using MALT_Music.DataObjects;
 using System.Windows.Forms;
+using MALT_Music.Models;
 
 namespace MALT_Music
 {
     public partial class ArtistView : Form
     {
+
+        private User currentUser;
+
         private String artistName;
         private List<Song> songs;
 
+        String selectedSong;
+
         List<List<Label>> songLabelsName = new List<List<Label>>();
         List<List<Label>> songLabelsLength = new List<List<Label>>();
+        List<List<PictureBox>> upvoteButtons = new List<List<PictureBox>>();
+        List<List<PictureBox>> downvoteButtons = new List<List<PictureBox>>();
+        List<List<PictureBox>> voteDisplay = new List<List<PictureBox>>();
+
+        frmMusicPlayer musicPlayer;
+
+        List<Label> playlistLabels = new List<Label>();
+        List<Playlist> usersPlaylists = new List<Playlist>();
 
 
-        public ArtistView()
+        public ArtistView(User currentUser, frmMusicPlayer mscPl)
         {
+            this.currentUser = currentUser;
+            this.musicPlayer = mscPl;
             InitializeComponent();
         }
 
@@ -30,6 +46,48 @@ namespace MALT_Music
             this.songs = songs;
             this.artistName = artist;
             lblArtistName.Text = artist;
+
+            addPlaylistLabels();
+        }
+
+
+        public void addPlaylistLabels()
+        {
+            if (usersPlaylists.Count > 0)
+            {
+                for (int i = 0; i < usersPlaylists.Count; i++)
+                {
+                    Label newLabel = new Label();
+
+                    newLabel.Location = new Point(1, 1 + (i * 29));
+                    newLabel.ForeColor = Color.White;
+                    newLabel.BackColor = Color.FromArgb(40, 40, 40);
+                    newLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    newLabel.Tag = i.ToString();
+                    newLabel.Size = new Size(140, 26);
+                    newLabel.Text = usersPlaylists[i].getPlaylistName();
+                    newLabel.TextAlign = ContentAlignment.MiddleCenter;
+                    newLabel.Click += addSongToPlaylist;
+                    newLabel.MouseEnter += playlistHover;
+                    newLabel.MouseLeave += playlistLeave;
+
+                    playlistLabels.Add(newLabel);
+                    pnlPlaylists.Controls.Add(playlistLabels[i]);
+                }
+            }
+            else
+            {
+                Label newLabel = new Label();
+
+                newLabel.Location = new Point(1, 1);
+                newLabel.ForeColor = Color.Gray;
+                newLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                newLabel.Size = new Size(140, 50);
+                newLabel.Text = "You currently have no playlists";
+                newLabel.TextAlign = ContentAlignment.MiddleCenter;
+
+                pnlPlaylists.Controls.Add(newLabel);
+            }
         }
 
         public void createAlbums()
@@ -42,14 +100,20 @@ namespace MALT_Music
                 songLabelsName.Add(songList);
                 List<Label> lengthList = new List<Label>();
                 songLabelsLength.Add(lengthList);
+                List<PictureBox> upList = new List<PictureBox>();
+                upvoteButtons.Add(upList);
+                List<PictureBox> downList = new List<PictureBox>();
+                downvoteButtons.Add(downList);
+                List<PictureBox> voteList = new List<PictureBox>();
+                voteDisplay.Add(voteList);
 
                 lblNumAlbums.Text = "Number of Albums: " + albums.Count;
 
                 Label topLabel = new Label();
                 topLabel.Text = albums[i].getName();
-                topLabel.Left = 12;
+                topLabel.Left = 242;
                 topLabel.ForeColor = Color.White;
-                topLabel.Top = 120 + (i * 145);
+                topLabel.Top = 205 + (i * 145);
                 topLabel.Width = 400;
                 topLabel.Height = 20;
                 topLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 12.0F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -57,7 +121,7 @@ namespace MALT_Music
 
                 Panel pnlOuter = new Panel();
                 pnlOuter.Size = new Size(858, 100);
-                pnlOuter.Location = new Point(12, 142+(i*145));
+                pnlOuter.Location = new Point(242, 230+(i*145));
                 pnlOuter.BackColor = Color.FromArgb(20, 20, 20);
 
                 this.Controls.Add(pnlOuter);
@@ -73,8 +137,15 @@ namespace MALT_Music
                 PictureBox albumCover = new PictureBox();
                 albumCover.Size = new Size(100, 100);
                 albumCover.Location = new Point(0, 0);
-                albumCover.BackColor = Color.Red;
-
+                albumCover.BackColor = Color.FromArgb(20, 20, 20);
+                albumCover.BackgroundImageLayout = ImageLayout.Stretch;
+                try
+                {
+                    albumCover.BackgroundImage = Image.FromFile("../../tracks/" + albums[i].getSongs()[0].getArtist() + "/" + albums[i].getSongs()[0].getAlbum() + "/" + albums[i].getSongs()[0].getAlbum() + ".jpg");
+                }
+                catch(Exception){
+                    albumCover.BackgroundImage = Properties.Resources.logo;
+                }
                 pnlOuter.Controls.Add(pnlInner);
                 pnlOuter.Controls.Add(albumCover);
 
@@ -96,8 +167,10 @@ namespace MALT_Music
                     Label theSongLabel = new Label();
 
                     theSongLabel.Text = songName;
-                    theSongLabel.Size = new Size(543, 30);
+                    theSongLabel.Size = new Size(483, 30);
                     theSongLabel.Location = new Point(0, 0 + (33 * j));
+                    theSongLabel.Tag = i + "," + j;
+                    theSongLabel.Click += clickEvent;
                     theSongLabel.ForeColor = Color.FromArgb(205, 205, 205);
                     theSongLabel.TextAlign = ContentAlignment.MiddleLeft;
                     theSongLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,8 +190,10 @@ namespace MALT_Music
 
                     Label theLengthLabel = new Label();
                     theLengthLabel.Text = lengthOutput;
-                    theLengthLabel.Size = new Size(80, 30);
-                    theLengthLabel.Location = new Point(549, 0 + (33 * j));
+                    theLengthLabel.Size = new Size(60, 30);
+                    theLengthLabel.Location = new Point(486, 0 + (33 * j));
+                    theLengthLabel.Tag = i + "," + j;
+                    theLengthLabel.Click += clickEvent;
                     theLengthLabel.ForeColor = Color.FromArgb(205, 205, 205);
                     theLengthLabel.TextAlign = ContentAlignment.MiddleLeft;
                     theLengthLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -133,12 +208,55 @@ namespace MALT_Music
                     }
                     #endregion
 
+
+                    PictureBox upvote = new PictureBox();
+                    upvote.Size = new Size(22, 15);
+                    upvote.Location = new Point(557, 0 + (33 * j));
+                    upvote.BackgroundImage = Properties.Resources.upvote;
+                    upvote.BackgroundImageLayout = ImageLayout.Stretch;
+                    upvote.Tag = i + "," + j;
+
+                    PictureBox downvote = new PictureBox();
+                    downvote.Size = new Size(22, 15);
+                    downvote.Location = new Point(557, 15 + (33 * j));
+                    downvote.BackgroundImage = Properties.Resources.downvote;
+                    downvote.BackgroundImageLayout = ImageLayout.Stretch;
+                    downvote.Tag = i + "," + j;
+
+                    PictureBox voteDisplayBox = new PictureBox();
+                    voteDisplayBox.Size = new Size(100, 8);
+                    voteDisplayBox.BackColor = Color.Gray;
+                    voteDisplayBox.Location = new Point(586, 11 + (33 * j));
+                    voteDisplayBox.Tag = i + "," + j;
+
+
+                    int ups = 5;
+                    int downs = 2;
+                    float percent = (float)downs / ((float)ups + (float)downs) * 100;
+
+                    int pbUnit = voteDisplayBox.Width / 100;
+
+                    Bitmap bmp = new Bitmap(voteDisplayBox.Width, voteDisplayBox.Height);
+                    Graphics g;
+                    g = Graphics.FromImage(bmp);
+                    g.Clear(Color.Green);
+                    g.FillRectangle(Brushes.Red, new Rectangle(0, 0, (int)(percent * pbUnit), (int)voteDisplayBox.Height));
+
+                    voteDisplayBox.Image = bmp;
+                    g.Dispose();
+
+
                     songLabelsName[i].Add(theSongLabel);
                     songLabelsLength[i].Add(theLengthLabel);
+                    upvoteButtons[i].Add(upvote);
+                    downvoteButtons[i].Add(downvote);
+                    voteDisplay[i].Add(voteDisplayBox);
 
                     pnlInner.Controls.Add(songLabelsName[i][j]);
                     pnlInner.Controls.Add(songLabelsLength[i][j]);
-
+                    pnlInner.Controls.Add(upvoteButtons[i][j]);
+                    pnlInner.Controls.Add(downvoteButtons[i][j]);
+                    pnlInner.Controls.Add(voteDisplay[i][j]);
                 }
 
             }
@@ -176,6 +294,139 @@ namespace MALT_Music
 
         }
 
+        private void playlistHover(object sender, EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            int id = int.Parse(theLabel.Tag.ToString());
+
+            playlistLabels[id].BackColor = Color.DodgerBlue;
+
+        }
+
+        private void playlistLeave(object sender, EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            int id = int.Parse(theLabel.Tag.ToString());
+
+            playlistLabels[id].BackColor = Color.FromArgb(40, 40, 40);
+
+        }
+
+
+        private void addSongToPlaylist(object sender, EventArgs e)
+        {
+            int playListIndex;
+
+            Label theLabel = (Label)sender;
+            playListIndex = int.Parse(theLabel.Tag.ToString());
+
+            Playlist thePlaylist = usersPlaylists[playListIndex];
+
+            String[] tmp = selectedSong.Split(',');
+            int x = int.Parse(tmp[0]);
+            int y = int.Parse(tmp[1]);
+
+            String songName = songLabelsName[x][y].Text;
+
+            Song toAdd = new Song();
+
+            for (int i = 0; i < songs.Count; i++) 
+            {
+                if (songs[i].getTrackName().Equals(songName)) 
+                {
+                    toAdd = songs[i];
+                    break;
+                }
+            }
+
+            if (toAdd.getTrackName() != null && toAdd.getTrackName() != "")
+            {
+                PlaylistModel playlistModel = new PlaylistModel();
+
+                playlistModel.addSongToPlaylist(thePlaylist, toAdd);
+            }
+
+        }
+
+        private void clickEvent(object sender, System.EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+
+            selectedSong = theLabel.Tag.ToString(); ;
+
+            
+            pnlOptions.Visible = true;
+
+        }
+
+        /// <summary>
+        /// when the mouse enters the add to playlist label
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lblAddToPLaylist_Enter(object sender, EventArgs e)
+        {
+            lblAddToPlaylist.BackColor = Color.DodgerBlue;
+            pnlPlaylists.Visible = true;
+        }
+
+        /// <summary>
+        /// when the mouse leaves the add to playist label
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lblAddToPLaylist_Leave(object sender, EventArgs e)
+        {
+            tmrPlaylistDelay.Start();
+            lblAddToPlaylist.BackColor = Color.FromArgb(40, 40, 40);
+        }
+
+
+        private void lblPlay_Click(object sender, EventArgs e)
+        {
+            Song toAdd = new Song();
+
+            String[] tmp = selectedSong.Split(',');
+            int x = int.Parse(tmp[0]);
+            int y = int.Parse(tmp[1]);
+
+            String songName = songLabelsName[x][y].Text;
+
+            for (int i = 0; i < songs.Count; i++) 
+            {
+                if (songs[i].getTrackName().Equals(songName)) 
+                {
+                    toAdd = songs[i];
+                    break;
+                }
+            }
+
+            if (toAdd.getTrackName() != null && toAdd.getTrackName() != "")
+            {
+
+
+                String filePath = toAdd.getFileLocation();
+                musicPlayer.stopSong();
+                musicPlayer.setSongPath(@"" + filePath);
+                musicPlayer.playCurrentSong();
+
+            }
+            pnlOptions.Visible = false;
+
+        }
+
+
+        private void lblPlay_Enter(object sender, EventArgs e)
+        {
+            lblPlay.BackColor = Color.DodgerBlue;
+            pnlPlaylists.Visible = false;
+        }
+
+        private void lblPlay_Leave(object sender, EventArgs e)
+        {
+            tmrOptionsDelay.Start();
+            lblPlay.BackColor = Color.FromArgb(40, 40, 40);
+        }
 
     }
 }

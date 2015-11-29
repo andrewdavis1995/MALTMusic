@@ -11,6 +11,7 @@ using MALT_Music.Models;
 using MALT_Music.DataObjects;
 using MALT_Music.lib;
 using Cassandra;
+using System.IO;
 
 namespace MALT_Music
 {
@@ -231,7 +232,7 @@ namespace MALT_Music
             SongModel songModel = new SongModel();
             List<Song> songsForArtist = songModel.getSongsByArtist(artist);
 
-            ArtistView artistView = new ArtistView();
+            ArtistView artistView = new ArtistView(new User(), null);
 
             artistView.setupVariables(artist, songsForArtist);
             artistView.createAlbums();
@@ -239,7 +240,47 @@ namespace MALT_Music
             artistView.Show();
         }
 
+        /*
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ImageThings it = new ImageThings();
+            it.doThings();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            String filePath = @"../../tracks/nigeBatman.png";
+            //byte[] byteArrayIn =  System.Convert.ToBase64String(System.IO.File.ReadAllBytes(filePath));
+            byte[] byteArrayIn = System.IO.File.ReadAllBytes(filePath);
+
+
+             //ImageThings it = new ImageThings();
+             //byte[] byteArrayIn = it.maybeGetThings();
+
+
+
+             if (byteArrayIn != null)
+             {
+
+                 Image img = null;
+                 using (MemoryStream ms = new MemoryStream(byteArrayIn))
+                 {
+                     img = Image.FromStream(ms);
+                 }
+                 //return returnImage;
+
+
+                 plezoutput.BackgroundImage = img;
+             }
+             else {
+
+                 MessageBox.Show("FUCKED");
+             }
+
+            
+        }
+
+        */
 
     }
 }

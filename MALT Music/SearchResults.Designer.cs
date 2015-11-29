@@ -55,7 +55,7 @@
             this.pnlSongs.AutoScroll = true;
             this.pnlSongs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnlSongs.Controls.Add(this.lblSongsHeading);
-            this.pnlSongs.Location = new System.Drawing.Point(242, 134);
+            this.pnlSongs.Location = new System.Drawing.Point(242, 127);
             this.pnlSongs.Name = "pnlSongs";
             this.pnlSongs.Size = new System.Drawing.Size(800, 101);
             this.pnlSongs.TabIndex = 0;
@@ -77,7 +77,7 @@
             this.lblSearchedFor.AutoSize = true;
             this.lblSearchedFor.Font = new System.Drawing.Font("Franklin Gothic Medium", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearchedFor.ForeColor = System.Drawing.Color.White;
-            this.lblSearchedFor.Location = new System.Drawing.Point(76, 7);
+            this.lblSearchedFor.Location = new System.Drawing.Point(272, 95);
             this.lblSearchedFor.Name = "lblSearchedFor";
             this.lblSearchedFor.Size = new System.Drawing.Size(234, 26);
             this.lblSearchedFor.TabIndex = 1;
@@ -93,7 +93,7 @@
             this.pnlArtists.AutoScroll = true;
             this.pnlArtists.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnlArtists.Controls.Add(this.lblArtists);
-            this.pnlArtists.Location = new System.Drawing.Point(242, 264);
+            this.pnlArtists.Location = new System.Drawing.Point(242, 257);
             this.pnlArtists.Name = "pnlArtists";
             this.pnlArtists.Size = new System.Drawing.Size(800, 115);
             this.pnlArtists.TabIndex = 28;
@@ -119,7 +119,7 @@
             // 
             this.glassIcon.BackgroundImage = global::MALT_Music.Properties.Resources.Magnifying_glass_icon_white;
             this.glassIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.glassIcon.Location = new System.Drawing.Point(46, 4);
+            this.glassIcon.Location = new System.Drawing.Point(242, 92);
             this.glassIcon.Name = "glassIcon";
             this.glassIcon.Size = new System.Drawing.Size(27, 34);
             this.glassIcon.TabIndex = 29;
@@ -131,7 +131,7 @@
             this.pnlPlaylists.AutoSize = true;
             this.pnlPlaylists.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnlPlaylists.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.pnlPlaylists.Location = new System.Drawing.Point(897, 117);
+            this.pnlPlaylists.Location = new System.Drawing.Point(897, 110);
             this.pnlPlaylists.MaximumSize = new System.Drawing.Size(170, 211);
             this.pnlPlaylists.Name = "pnlPlaylists";
             this.pnlPlaylists.Size = new System.Drawing.Size(144, 84);
@@ -147,7 +147,7 @@
             this.pnlOptions.Controls.Add(this.lblAddToPlaylist);
             this.pnlOptions.Controls.Add(this.lblPlay);
             this.pnlOptions.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.pnlOptions.Location = new System.Drawing.Point(752, 117);
+            this.pnlOptions.Location = new System.Drawing.Point(752, 110);
             this.pnlOptions.Name = "pnlOptions";
             this.pnlOptions.Size = new System.Drawing.Size(139, 141);
             this.pnlOptions.TabIndex = 30;
