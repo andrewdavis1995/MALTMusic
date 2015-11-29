@@ -21,6 +21,7 @@ namespace MALT_Music
         ViewUserPlaylists playlists;
         SearchResults searchResults;
         UserProfile profileScreen;
+        ViewPlaylist viewPlaylist;
         ArtistView artistView = new ArtistView(new User(), null);
 
         public User currentUser;
@@ -37,6 +38,7 @@ namespace MALT_Music
             playlists = new ViewUserPlaylists();
             searchResults = new SearchResults(musicPlayer);
             profileScreen = new UserProfile();
+            viewPlaylist = new ViewPlaylist();
 
         }
 
@@ -88,19 +90,23 @@ namespace MALT_Music
             searchResults.Hide();
             profileScreen.Hide();
             artistView.Hide();
+            playlists.Hide();
+            viewPlaylist.Hide();
         }
 
         //Method to open single playlist view
         public void showViewPlaylist(Playlist playlist)
         {
-            ViewPlaylist viewPlaylist = new ViewPlaylist(playlist);
+
+            hideForms();
+
+            viewPlaylist = new ViewPlaylist(playlist);
 
             viewPlaylist.TopLevel = false;
             viewPlaylist.Parent = this;
 
-            viewPlaylist.Dock = DockStyle.Bottom;
             viewPlaylist.FormBorderStyle = FormBorderStyle.None;
-            viewPlaylist.Size = new Size(1130, 195);        
+            viewPlaylist.Size = new Size(1130, 442);        
             
             viewPlaylist.Show();
         }

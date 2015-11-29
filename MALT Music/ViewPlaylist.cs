@@ -23,6 +23,10 @@ namespace MALT_Music
             lblPlaylistName.Text = thePlaylist.getPlaylistName();
             lblOwner.Text = thePlaylist.getOwner();
         }
+        public ViewPlaylist()
+        {
+            InitializeComponent();
+        }
 
     }
 }
