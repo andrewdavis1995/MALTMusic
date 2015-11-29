@@ -480,6 +480,7 @@ namespace MALT_Music
 
         }
         
+        //Method when clicking artist
         private void artistClick(object sender, EventArgs e)
         {
             Label theLabel = (Label)sender;
