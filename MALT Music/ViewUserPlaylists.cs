@@ -27,14 +27,6 @@ namespace MALT_Music
             PlaylistModel playlistModel = new PlaylistModel();
             List<Playlist> playlists = playlistModel.getPlaylistsForUser(this.currentUser);
 
-            //Playlist newPlaylist = new Playlist("bananana", new Guid(), "new user");
-            //playlists.Add(newPlaylist);
-            //newPlaylist = new Playlist("bananana", new Guid(), "andrewd95");
-            //playlists.Add(newPlaylist);
-            //newPlaylist = new Playlist("my playlist", new Guid(), "andrewd95");
-            //playlists.Add(newPlaylist);
-            //newPlaylist = new Playlist("my playlist2", new Guid(), "andrewd95");
-            //playlists.Add(newPlaylist);
 
             int count = 0;
 
