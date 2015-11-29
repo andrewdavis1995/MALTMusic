@@ -15,6 +15,7 @@ namespace MALT_Music
     public partial class ViewUserPlaylists : Form
     {
         public String currentUser;
+        List<Playlist> playlists;
 
         public ViewUserPlaylists()
         {
@@ -25,23 +26,34 @@ namespace MALT_Music
         private void ViewPlaylist_Load(object sender, EventArgs e)
         {
             PlaylistModel playlistModel = new PlaylistModel();
-            List<Playlist> playlists = playlistModel.getPlaylistsForUser(this.currentUser);
-
-
+            playlists = playlistModel.getPlaylistsForUser(this.currentUser);
+            
             int count = 0;
 
-            for (int i = 0; i < playlists.Count; i++) {
+            for (int i = 0; i < playlists.Count; i++)
+            {
                 Label newLabel = new Label();
                 newLabel.Text = playlists[i].getPlaylistName();
                 newLabel.Size = new Size(400, 30);
                 newLabel.ForeColor = Color.White;
+                newLabel.Tag = i.ToString();
+                newLabel.Click += playlistSelected;
                 if (count % 2 == 0) { newLabel.BackColor = Color.FromArgb(20, 20, 20); } else { newLabel.BackColor = Color.FromArgb(60, 60, 60); }
-                newLabel.Location = new Point(290, 102 + (i * 30)); 
-                newLabel.Font = new System.Drawing.Font("Impact", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                newLabel.Location = new Point(290, 120 + (i * 30));
+                newLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 this.Controls.Add(newLabel);
                 count++;
             }
+        }
 
+        private void playlistSelected(Object sender, EventArgs e) 
+        {
+
+            Label theLabel = (Label)sender;
+            int index = int.Parse(theLabel.Tag.ToString());
+
+            ViewPlaylist viewPlaylist = new ViewPlaylist(playlists[index]);
+            viewPlaylist.Show();
         }
 
     }
