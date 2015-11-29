@@ -471,6 +471,7 @@ namespace MALT_Music
 
         }
 
+        //Hover away from playlist
         private void playlistLeave(object sender, EventArgs e)
         {
             Label theLabel = (Label)sender;
