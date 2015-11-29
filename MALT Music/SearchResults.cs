@@ -498,6 +498,7 @@ namespace MALT_Music
 
         }
         
+        //Highlights blue over artist
         private void artistHover(object sender, EventArgs e)
         {
             Label theLabel = (Label)sender;
