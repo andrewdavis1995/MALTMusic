@@ -165,6 +165,7 @@
             // tmrOptionsDelay
             // 
             this.tmrOptionsDelay.Interval = 700;
+            this.tmrOptionsDelay.Tick += new System.EventHandler(this.tmrOptionsDelay_Tick);
             // 
             // ArtistView
             // 

@@ -1,6 +1,6 @@
 ﻿namespace MALT_Music
 {
-    partial class ViewPlaylist
+    partial class ViewUserPlaylists
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(448, 135);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Playlists by User: ";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(290, 92);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(123, 20);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Playlists by User: ";
             // 
-            // ViewPlaylist
+            // ViewUserPlaylists
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(931, 451);
-            this.Controls.Add(this.label1);
-            this.Name = "ViewPlaylist";
+            this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(1167, 451);
+            this.Controls.Add(this.lblTitle);
+            this.Name = "ViewUserPlaylists";
             this.Text = "ViewPlaylist";
             this.Load += new System.EventHandler(this.ViewPlaylist_Load);
             this.ResumeLayout(false);
@@ -57,7 +60,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitle;
 
     }
 }

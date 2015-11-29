@@ -18,7 +18,7 @@ namespace MALT_Music
     {
         // Class variables
         frmMusicPlayer musicPlayer;
-        ViewPlaylist playlists;
+        ViewUserPlaylists playlists;
         SearchResults searchResults;
         UserProfile profileScreen;
         ArtistView artistView = new ArtistView(new User(), null);
@@ -34,7 +34,7 @@ namespace MALT_Music
 
             // Sets up form components
             musicPlayer = new frmMusicPlayer();
-            playlists = new ViewPlaylist();
+            playlists = new ViewUserPlaylists();
             searchResults = new SearchResults(musicPlayer);
             profileScreen = new UserProfile();
 

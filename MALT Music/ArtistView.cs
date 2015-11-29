@@ -443,6 +443,9 @@ namespace MALT_Music
                 playlistModel.addSongToPlaylist(thePlaylist, toAdd);
             }
 
+            pnlOptions.Visible = false;
+            pnlPlaylists.Visible = false;
+
         }
 
         private void clickEvent(object sender, System.EventArgs e)
@@ -476,6 +479,8 @@ namespace MALT_Music
             tmrPlaylistDelay.Start();
             lblAddToPlaylist.BackColor = Color.FromArgb(40, 40, 40);
         }
+
+
 
 
         private void lblPlay_Click(object sender, EventArgs e)
@@ -522,6 +527,11 @@ namespace MALT_Music
         {
             tmrOptionsDelay.Start();
             lblPlay.BackColor = Color.FromArgb(40, 40, 40);
+        }
+
+        private void tmrOptionsDelay_Tick(object sender, EventArgs e)
+        {
+            pnlOptions.Visible = false;
         }
 
     }
