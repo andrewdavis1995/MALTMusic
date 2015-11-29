@@ -46,6 +46,8 @@ namespace MALT_Music
             this.songs = songs;
             this.artistName = artist;
             lblArtistName.Text = artist;
+
+            addPlaylistLabels();
         }
 
 
