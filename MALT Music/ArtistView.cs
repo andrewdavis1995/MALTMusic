@@ -375,6 +375,7 @@ namespace MALT_Music
             // Get the song name
             String songName = songLabelsName[x][y].Text;
 
+            // Set image background
             downvoteButtons[x][y].BackgroundImage = Properties.Resources.downvoted;
 
             Guid songId = new Guid();
