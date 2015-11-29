@@ -172,7 +172,7 @@ namespace MALT_Music.Models
                 //under duress i do this
                 Guid tid = (Guid)row["track_id"];
 
-                String things = ("select track_name,artist,file_loc from tracks where track_id = :tid");
+                String things = ("select track_name,artist,file_loc,length from tracks where track_id = :tid");
                 PreparedStatement prep = session.Prepare(things);
                 BoundStatement bound = prep.Bind(tid);
                 // Execute Query
@@ -184,9 +184,10 @@ namespace MALT_Music.Models
                     //public Song(String artist, String location, String name, Guid tid) 
                     String name = (String)rowset["track_name"];
                     String artist = (String)rowset["artist"];
-                    String file_loc= (String)rowset["file_loc"];
+                    String file_loc = (String)rowset["file_loc"];
+                    int length = (int)rowset["length"];
 
-                    Song toadd = new Song(artist, file_loc, name, tid);
+                    Song toadd = new Song(artist, file_loc, name, tid, length);
                     songs.Add(toadd);
                 }
 

@@ -212,7 +212,7 @@ namespace MALT_Music
             hideForms();
 
             playlists.currentUser = currentUser.getUsername();
-
+            playlists.createLabels();
             playlists.TopLevel = false;
             playlists.Parent = this;
             playlists.FormBorderStyle = FormBorderStyle.None;

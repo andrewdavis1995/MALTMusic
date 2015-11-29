@@ -25,9 +25,13 @@ namespace MALT_Music
 
         private void ViewPlaylist_Load(object sender, EventArgs e)
         {
+            createLabels();
+        }
+
+        public void createLabels() {
             PlaylistModel playlistModel = new PlaylistModel();
             playlists = playlistModel.getPlaylistsForUser(this.currentUser);
-            
+
             int count = 0;
 
             for (int i = 0; i < playlists.Count; i++)

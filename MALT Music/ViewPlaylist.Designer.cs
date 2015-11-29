@@ -35,6 +35,8 @@
             this.coverImage3 = new System.Windows.Forms.PictureBox();
             this.lblPlaylistName = new System.Windows.Forms.Label();
             this.lblOwner = new System.Windows.Forms.Label();
+            this.lblNumSongs = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.coverImage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverImage2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverImage4)).BeginInit();
@@ -103,12 +105,35 @@
             this.lblOwner.TabIndex = 5;
             this.lblOwner.Text = "Owner";
             // 
+            // lblNumSongs
+            // 
+            this.lblNumSongs.AutoSize = true;
+            this.lblNumSongs.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumSongs.ForeColor = System.Drawing.Color.White;
+            this.lblNumSongs.Location = new System.Drawing.Point(265, 243);
+            this.lblNumSongs.Name = "lblNumSongs";
+            this.lblNumSongs.Size = new System.Drawing.Size(53, 17);
+            this.lblNumSongs.TabIndex = 6;
+            this.lblNumSongs.Text = "0 Songs";
+            // 
+            // lblTime
+            // 
+            this.lblTime.Font = new System.Drawing.Font("Franklin Gothic Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.White;
+            this.lblTime.Location = new System.Drawing.Point(265, 260);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(88, 51);
+            this.lblTime.TabIndex = 7;
+            this.lblTime.Text = "0 seconds";
+            // 
             // ViewPlaylist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1129, 442);
+            this.Controls.Add(this.lblTime);
+            this.Controls.Add(this.lblNumSongs);
             this.Controls.Add(this.lblOwner);
             this.Controls.Add(this.lblPlaylistName);
             this.Controls.Add(this.coverImage4);
@@ -134,5 +159,7 @@
         private System.Windows.Forms.PictureBox coverImage3;
         private System.Windows.Forms.Label lblPlaylistName;
         private System.Windows.Forms.Label lblOwner;
+        private System.Windows.Forms.Label lblNumSongs;
+        private System.Windows.Forms.Label lblTime;
     }
 }
