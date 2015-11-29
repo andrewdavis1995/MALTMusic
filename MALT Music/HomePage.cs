@@ -47,22 +47,40 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void HomePage_Load(object sender, EventArgs e)
         {
+            //Display user's info on the panel
             lblFullName.Text = currentUser.getFirstName() + " " + currentUser.getLastName();
+            loadProfilePicHome();
+
+            //Set up tooltips
+            setTooltips();
+
+            //This form needs to contain all the sub-forms such as artist, playlist etc.
             IsMdiContainer = true;
 
             //Present so search box isn't automatically selected on startup
             this.ActiveControl = picBoxMagnifyingGlass;
 
+            //Call loading/hiding methods
             hideForms();
-
             loadMusicPlayer();
         }
 
+        //Method to set user
         public void setCurrentUser(User theUser)
         {
             this.currentUser = theUser;
         }
 
+        //Method to add tooltips to home controls
+        private void setTooltips()
+        {
+            new ToolTip().SetToolTip(lblFullName, "Click here to go to your profile");
+            new ToolTip().SetToolTip(picBoxBrowse, "Browse artists, songs and albums");
+            new ToolTip().SetToolTip(picBoxPlaylist, "View your playlists");
+            new ToolTip().SetToolTip(picBoxMALTLogo, "D3 is still a pass");
+        }
+
+        //Method to hide forms, thus avoiding issue of overlapping form displays
         private void hideForms()
         {
             //Music player is never hidden
@@ -105,27 +123,32 @@ namespace MALT_Music
             }
         }
 
+        //Method to load the search window
         private void btnSearch_Click(object sender, EventArgs e)
         {
             hideForms();
 
+            //Get user search text
             String searchText = txtSearchBox.Text;
+
+            //Create a new song model
             SongModel songModel = new SongModel();
 
+            //Populate song list with songs that fit the criteria
             List<Song> songs = new List<Song>();
             Thread songThread = new Thread(() => { songs = songModel.searchSongs(searchText); });
             songThread.Start();
 
-
+            //Populate artist list with artists that fir the criteria
             List<String> artists = new List<String>();
             Thread artistThread = new Thread(() => { artists = songModel.searchArtists(searchText.ToLower()); });
             artistThread.Start();
 
-
+            //Join threads
             songThread.Join();
             artistThread.Join();
 
-
+            //Call method to load results window
             loadSearchResults(songs, artists, searchText);         
 
         }
@@ -133,11 +156,14 @@ namespace MALT_Music
         //Method to load search results window in child form
         private void loadSearchResults(List<Song> songs, List<String> artists, String searchText)
         {
-
+            //Clear previous search
             searchResults.resetSearch();
+
+            //Set artist and song results from parameters
             searchResults.setSongList(songs);
             searchResults.setArtistList(artists);
 
+            //Set user's playlists
             searchResults.setCurrentUser(currentUser);
             List<Playlist> lp = new List<Playlist>();
 
@@ -160,6 +186,7 @@ namespace MALT_Music
             Application.Exit();
         }
 
+        //Method to show playlist window
         private void picBoxPlaylist_Click(object sender, EventArgs e)
         {
             hideForms();
@@ -172,6 +199,7 @@ namespace MALT_Music
             playlists.Show();
         }
 
+        //Method to go to user's profile page
         private void lblFullName_Click(object sender, EventArgs e)
         {
             hideForms();
