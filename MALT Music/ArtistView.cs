@@ -372,6 +372,7 @@ namespace MALT_Music
             int x = int.Parse(tag[0]);
             int y = int.Parse(tag[1]);
 
+            // Get the song name
             String songName = songLabelsName[x][y].Text;
 
             downvoteButtons[x][y].BackgroundImage = Properties.Resources.downvoted;
