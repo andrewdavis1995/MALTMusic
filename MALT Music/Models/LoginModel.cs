@@ -19,7 +19,7 @@ namespace MALT_Music.Models
                 Console.WriteLine("GOT CLUSTER");
             }
             catch(Exception e){
-                Console.WriteLine("Exception Occurred Getting Cluster INIT");            
+                Console.WriteLine("Exception Occurred Getting Cluster INIT " + e);            
             }
         }
 

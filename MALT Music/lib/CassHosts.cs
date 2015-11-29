@@ -64,7 +64,7 @@ namespace MALT_Music.lib
                 
             }
             catch (Exception e) {
-                Console.WriteLine("Exception while getting hosts");
+                Console.WriteLine("Exception while getting hosts " + e);
             }
             return null;
         }
