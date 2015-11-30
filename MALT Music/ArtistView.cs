@@ -402,7 +402,7 @@ namespace MALT_Music
                 {
                     if (downvoteButtons[x][y].Name.Equals("down"))
                     {
-                        vm.updateVote(this.currentUser.getUsername(), songs[index], -1);
+                        vm.updateVote(this.currentUser.getUsername(), songs[index].getSongID(), -1);
                         downvoteButtons[x][y].Name = "none";
                         upvoteButtons[x][y].Name = "up";
                         upvoteButtons[x][y].BackgroundImage = Properties.Resources.upvoted;
@@ -459,10 +459,21 @@ namespace MALT_Music
                 }
                 else
                 {
-                    vm.doDownVote(songId, currentUser.getUsername());
-                    //change image
-                    downvoteButtons[x][y].Name = "down";
-                    downvoteButtons[x][y].BackgroundImage = Properties.Resources.downvoted;
+                    if (upvoteButtons[x][y].Name.Equals("up"))
+                    {
+                        vm.updateVote(this.currentUser.getUsername(), songs[index].getSongID(), 1);
+                        upvoteButtons[x][y].Name = "none";
+                        downvoteButtons[x][y].Name = "down";
+                        upvoteButtons[x][y].BackgroundImage = Properties.Resources.upvote;
+                        downvoteButtons[x][y].BackgroundImage = Properties.Resources.downvoted;
+                    }
+                    else
+                    {
+                        vm.doDownVote(songId, currentUser.getUsername());
+                        //change image
+                        downvoteButtons[x][y].Name = "down";
+                        downvoteButtons[x][y].BackgroundImage = Properties.Resources.downvoted;
+                    }
                 }
                 
                 createVotePercentage(voteDisplay[x][y], index);
