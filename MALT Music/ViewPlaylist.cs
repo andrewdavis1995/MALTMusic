@@ -144,7 +144,7 @@ namespace MALT_Music
 
             while (i < songs.Count && taken.Count < 4) 
             {
-                if (!taken.Contains(songs[i].getTrackName() + songs[i].getArtist()))
+                if (!taken.Contains(songs[i].getAlbum() + songs[i].getArtist()))
                 {
                     if (taken.Count == 0)
                     {
