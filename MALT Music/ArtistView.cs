@@ -241,7 +241,7 @@ namespace MALT_Music
                     {
                         if (songs[j].getSongID() == votes[k].getID())
                         {
-                            if (votes[j].getHowVoted() == 1)
+                            if (votes[k].getHowVoted() == 1)
                             {
                                 upvote.BackgroundImage = Properties.Resources.upvoted;
                                 downvote.BackgroundImage = Properties.Resources.downvote;
