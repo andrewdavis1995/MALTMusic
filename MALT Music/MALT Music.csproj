@@ -201,6 +201,10 @@
     <EmbeddedResource Include="Resources\Test.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\prevtrackwhite.png" />
+    <None Include="Resources\playtrack.png" />
+    <None Include="Resources\pausetrack.png" />
+    <None Include="Resources\NextTrackwhite.png" />
     <None Include="Resources\recommendIcon.png" />
     <None Include="Resources\upvoted.png" />
     <None Include="Resources\upvote.png" />

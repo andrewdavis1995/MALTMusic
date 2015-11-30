@@ -19,9 +19,7 @@ namespace MALT_Music
         MusicController musicController;
         int trackLength;
         bool isPlaying;
-
-        // TEMPORARY THING
-        int count = 0;
+        bool playPause;
 
         /// <summary>
         /// Variables for slider bar.
@@ -40,6 +38,7 @@ namespace MALT_Music
             musicController = new MusicController();
 
             isPlaying = false;
+            playPause = true; // Sets to play mode
 
             // Initialise slider
             sliderValue = 0;
@@ -49,27 +48,17 @@ namespace MALT_Music
         }
 
         /// <summary>
-        /// Triggers the play routine
-        /// </summary>.
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnPlay_Click(object sender, EventArgs e)
-        {
-            playCurrentSong();
-            btnPlay.Enabled = true;
-            btnStop.Enabled = true;
-            btnTest.Enabled = false;
-        }
-
-        /// <summary>
         /// Plays the currently loaded song in the NAudio drivers
         /// </summary>
         public void playCurrentSong()
         {
-            if (btnPlay.Text == "Play")
+            if (playPause)
             {
+                // Changes button image to pause
+                pcbPlay.Image = Properties.Resources.pausetrack;
+
                 // Change to pause
-                btnPlay.Text = "Pause";
+                playPause = false;
 
                 // If not playing active track
                 if (!isPlaying)
@@ -99,9 +88,12 @@ namespace MALT_Music
             }
             else
             {
+                // Changes button image to play
+                pcbPlay.Image = Properties.Resources.playtrack;
+
                 // Sets up for paused playback
                 tmrTracker.Enabled = false;
-                btnPlay.Text = "Play";
+                playPause = true;
 
                 // Pauses playback
                 musicController.pauseSong();
@@ -115,6 +107,18 @@ namespace MALT_Music
         public void setSongPath(string pathName)
         {
             lblFileName.Text = pathName;
+        }
+
+        /// <summary>
+        /// Triggers the play routine
+        /// </summary>.
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pcbPlay_Click(object sender, EventArgs e)
+        {
+            playCurrentSong();
+            btnStop.Enabled = true;
+            btnTest.Enabled = false;
         }
 
         /// <summary>
@@ -134,6 +138,10 @@ namespace MALT_Music
         {
             // Disables track timer
             tmrTracker.Enabled = false;
+            btnStop.Enabled = false;
+
+            // Resets position of tracker
+            SetValue(0);
 
             // Stops the track
             musicController.stopSong();
@@ -143,14 +151,14 @@ namespace MALT_Music
             btnTest.Enabled = true;
 
             // Updates status of controls
-            btnPlay.Text = "Play";
+            playPause = false;
             lblTimeOne.Text = "";
             lblTimeTwo.Text = "";
 
             // If a file is loaded
             if (lblFileName.Text != "")
             {
-                btnPlay.Enabled = true;
+                pcbPlay.Enabled = true;
             }
         }
 
@@ -163,7 +171,7 @@ namespace MALT_Music
         {
             string path = Path.GetFullPath(@"..\..\Resources\Test.mp3");
             lblFileName.Text = path;
-            btnPlay.Enabled = true;
+            pcbPlay.Enabled = true;
         }
 
         /// <summary>
@@ -173,10 +181,6 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void tmrTracker_Tick(object sender, EventArgs e)
         {
-            count++;
-            string message = "SliderValue: " + sliderValue + " | TrackLength: " + trackLength + " | TimerCount: " + count;
-            lblTimerChecker.Text = message;
-
             if (sliderValue != trackLength)
             {
                 SetValue(sliderValue + 1);    
@@ -194,7 +198,7 @@ namespace MALT_Music
             lblTimeTwo.Text = "";
         }
 
-        // Information on this found http://csharphelper.com/blog/2011/07/use-a-picturebox-to-make-a-slider-with-a-needle-in-c/"/>
+        // Based on code from http://csharphelper.com/blog/2011/07/use-a-picturebox-to-make-a-slider-with-a-needle-in-c/"/>
         #region SliderControl ## Functions for slider control
         /// <summary>
         /// Convert an X coordinate to a value
@@ -240,27 +244,9 @@ namespace MALT_Music
         /// <param name="value">The new value of the slider</param>
         private void SetValue(int value)
         {
-            long small = musicController.getPlayTime();
-            long big = musicController.getBigNum();
-            string message;
-            
-            if (small < big)
-            {
-                message = "IsOk";
-            }
-            else
-            {
-                message = "IsNotOk";
-            }
-
-            message += " | Current Pos: " + small.ToString() + " | Total Length: " + big.ToString();
-            lblPosition.Text = message;
-
-            // If a song isn't playing
+            // Return if no track loaded
             if (!isPlaying)
-            {
-                return;
-            }
+            { return; }
 
             // Make sure the new value is within bounds.
             if (value < 0) value = 0;
@@ -339,6 +325,10 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void pcbSliderBar_MouseDown(object sender, MouseEventArgs e)
         {
+            // Return if no track loaded
+            if (!isPlaying)
+            { return; }
+
             // Update mouse down tracker
             mouseIsDown = true;
 
@@ -360,6 +350,10 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void pcbSliderBar_MouseMove(object sender, MouseEventArgs e)
         {
+            // Return if no track loaded
+            if (!isPlaying)
+            { return; }
+
             // If mouse button is pushed, update position
             if (!mouseIsDown) return;
             SetValue(XtoValue(e.X));
@@ -377,6 +371,10 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void picSliderBar_MouseUp(object sender, MouseEventArgs e)
         {
+            // Return if no track loaded
+            if (!isPlaying)
+            { return; }
+
             mouseIsDown = false;
             ttpSliderIndicator.Hide(this);
         }
