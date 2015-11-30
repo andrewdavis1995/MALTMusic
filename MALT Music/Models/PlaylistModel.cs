@@ -230,7 +230,6 @@ namespace MALT_Music.Models
         public List<Playlist> getPlaylistsForUser(String plOwner)
         {
 
-            //THIS NULL POINTERS
             init();
             // Connect to cluster
             ISession session = cluster.Connect("maltmusic");
@@ -251,6 +250,36 @@ namespace MALT_Music.Models
             return playlists;
         }
 
+        public List<Playlist> searchPlaylists(String target) 
+        {
+            List<Playlist> playlists = new List<Playlist>();
+
+            init();
+            // Connect to cluster
+            ISession session = cluster.Connect("maltmusic");
+
+            String todo = ("select playlist_name,owner from list_playlist");
+            PreparedStatement ps = session.Prepare(todo);
+            BoundStatement bs = ps.Bind();
+            // Execute Query
+            RowSet rows = session.Execute(bs);
+            foreach (Row row in rows)
+            {
+                String curr = (String)row["playlist_name"];
+                String current = curr.ToLower();
+                if (current.Contains(target.ToLower()))
+                {
+                    String owner = (String)row["owner"];
+                    Playlist toget = getPlaylist(curr,owner);
+                    playlists.Add(toget);
+                }
+            }
+
+            return playlists;
+        
+        
+        }
+
         public void removeSongFromPlaylist(Playlist playlist, Song song)
         {
             throw new NotImplementedException();
@@ -260,6 +289,8 @@ namespace MALT_Music.Models
         {
             throw new NotImplementedException();
         }
+
+
 
         public void deletePlaylist(Playlist playlist)
         {
