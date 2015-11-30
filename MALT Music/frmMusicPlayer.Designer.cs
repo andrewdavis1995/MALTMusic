@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnPlay = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
             this.lblFileName = new System.Windows.Forms.Label();
-            this.picBoxAlbumArt = new System.Windows.Forms.PictureBox();
             this.tmrTracker = new System.Windows.Forms.Timer(this.components);
             this.grpRepeat = new System.Windows.Forms.GroupBox();
             this.rbnAndrewIsA = new System.Windows.Forms.RadioButton();
@@ -42,32 +40,17 @@
             this.rbnCurrent = new System.Windows.Forms.RadioButton();
             this.rbnNone = new System.Windows.Forms.RadioButton();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.ttpSliderIndicator = new System.Windows.Forms.ToolTip(this.components);
             this.lblTimeOne = new System.Windows.Forms.Label();
             this.lblTimeTwo = new System.Windows.Forms.Label();
             this.pcbSliderBar = new System.Windows.Forms.PictureBox();
-            this.ttpSliderIndicator = new System.Windows.Forms.ToolTip(this.components);
-            this.lblPosition = new System.Windows.Forms.Label();
-            this.btnTemp = new System.Windows.Forms.Button();
-            this.lblTimerChecker = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).BeginInit();
+            this.picBoxAlbumArt = new System.Windows.Forms.PictureBox();
+            this.pcbPlay = new System.Windows.Forms.PictureBox();
             this.grpRepeat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSliderBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlay)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnPlay
-            // 
-            this.btnPlay.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnPlay.Enabled = false;
-            this.btnPlay.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnPlay.Location = new System.Drawing.Point(149, 12);
-            this.btnPlay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(108, 30);
-            this.btnPlay.TabIndex = 0;
-            this.btnPlay.Text = "Play";
-            this.btnPlay.UseVisualStyleBackColor = false;
-            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // btnStop
             // 
@@ -75,7 +58,7 @@
             this.btnStop.Enabled = false;
             this.btnStop.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnStop.Location = new System.Drawing.Point(263, 12);
+            this.btnStop.Location = new System.Drawing.Point(236, 14);
             this.btnStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(108, 30);
@@ -110,20 +93,6 @@
             this.lblFileName.Size = new System.Drawing.Size(479, 18);
             this.lblFileName.TabIndex = 4;
             this.lblFileName.Text = "No file selected";
-            // 
-            // picBoxAlbumArt
-            // 
-            this.picBoxAlbumArt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picBoxAlbumArt.ErrorImage = global::MALT_Music.Properties.Resources.logo;
-            this.picBoxAlbumArt.Image = global::MALT_Music.Properties.Resources.logo;
-            this.picBoxAlbumArt.InitialImage = global::MALT_Music.Properties.Resources.logo;
-            this.picBoxAlbumArt.Location = new System.Drawing.Point(12, 14);
-            this.picBoxAlbumArt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.picBoxAlbumArt.Name = "picBoxAlbumArt";
-            this.picBoxAlbumArt.Size = new System.Drawing.Size(129, 128);
-            this.picBoxAlbumArt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxAlbumArt.TabIndex = 5;
-            this.picBoxAlbumArt.TabStop = false;
             // 
             // tmrTracker
             // 
@@ -219,6 +188,11 @@
             this.lblStatus.TabIndex = 9;
             this.lblStatus.Text = "Player Status:";
             // 
+            // ttpSliderIndicator
+            // 
+            this.ttpSliderIndicator.UseAnimation = false;
+            this.ttpSliderIndicator.UseFading = false;
+            // 
             // lblTimeOne
             // 
             this.lblTimeOne.AutoSize = true;
@@ -243,7 +217,7 @@
             this.pcbSliderBar.BackColor = System.Drawing.Color.MidnightBlue;
             this.pcbSliderBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pcbSliderBar.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.pcbSliderBar.Location = new System.Drawing.Point(147, 96);
+            this.pcbSliderBar.Location = new System.Drawing.Point(147, 97);
             this.pcbSliderBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pcbSliderBar.Name = "pcbSliderBar";
             this.pcbSliderBar.Size = new System.Drawing.Size(577, 46);
@@ -254,35 +228,31 @@
             this.pcbSliderBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pcbSliderBar_MouseMove);
             this.pcbSliderBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picSliderBar_MouseUp);
             // 
-            // ttpSliderIndicator
+            // picBoxAlbumArt
             // 
-            this.ttpSliderIndicator.UseAnimation = false;
-            this.ttpSliderIndicator.UseFading = false;
+            this.picBoxAlbumArt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picBoxAlbumArt.ErrorImage = global::MALT_Music.Properties.Resources.logo;
+            this.picBoxAlbumArt.Image = global::MALT_Music.Properties.Resources.logo;
+            this.picBoxAlbumArt.InitialImage = global::MALT_Music.Properties.Resources.logo;
+            this.picBoxAlbumArt.Location = new System.Drawing.Point(12, 14);
+            this.picBoxAlbumArt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.picBoxAlbumArt.Name = "picBoxAlbumArt";
+            this.picBoxAlbumArt.Size = new System.Drawing.Size(129, 128);
+            this.picBoxAlbumArt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxAlbumArt.TabIndex = 5;
+            this.picBoxAlbumArt.TabStop = false;
             // 
-            // lblPosition
+            // pcbPlay
             // 
-            this.lblPosition.AutoSize = true;
-            this.lblPosition.Location = new System.Drawing.Point(374, 35);
-            this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(109, 16);
-            this.lblPosition.TabIndex = 13;
-            this.lblPosition.Text = "Diret Position Value";
-            // 
-            // btnTemp
-            // 
-            this.btnTemp.Location = new System.Drawing.Point(507, 12);
-            this.btnTemp.Name = "btnTemp";
-            this.btnTemp.Size = new System.Drawing.Size(75, 23);
-            this.btnTemp.TabIndex = 0;
-            // 
-            // lblTimerChecker
-            // 
-            this.lblTimerChecker.AutoSize = true;
-            this.lblTimerChecker.Location = new System.Drawing.Point(374, 19);
-            this.lblTimerChecker.Name = "lblTimerChecker";
-            this.lblTimerChecker.Size = new System.Drawing.Size(41, 16);
-            this.lblTimerChecker.TabIndex = 14;
-            this.lblTimerChecker.Text = "label1";
+            this.pcbPlay.Enabled = false;
+            this.pcbPlay.Image = global::MALT_Music.Properties.Resources.playtrack;
+            this.pcbPlay.Location = new System.Drawing.Point(147, 4);
+            this.pcbPlay.Name = "pcbPlay";
+            this.pcbPlay.Size = new System.Drawing.Size(50, 50);
+            this.pcbPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbPlay.TabIndex = 13;
+            this.pcbPlay.TabStop = false;
+            this.pcbPlay.Click += new System.EventHandler(this.pcbPlay_Click);
             // 
             // frmMusicPlayer
             // 
@@ -291,9 +261,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1114, 156);
             this.ControlBox = false;
-            this.Controls.Add(this.lblTimerChecker);
-            this.Controls.Add(this.btnTemp);
-            this.Controls.Add(this.lblPosition);
+            this.Controls.Add(this.pcbPlay);
             this.Controls.Add(this.pcbSliderBar);
             this.Controls.Add(this.lblTimeTwo);
             this.Controls.Add(this.lblTimeOne);
@@ -303,7 +271,6 @@
             this.Controls.Add(this.lblFileName);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnStop);
-            this.Controls.Add(this.btnPlay);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -312,12 +279,13 @@
             this.Name = "frmMusicPlayer";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MusicPlayer";
+            this.Text = "Music Player";
             this.Load += new System.EventHandler(this.frmMusicPlayer_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).EndInit();
             this.grpRepeat.ResumeLayout(false);
             this.grpRepeat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSliderBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPlay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,7 +293,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.PictureBox picBoxAlbumArt;
@@ -336,14 +303,12 @@
         private System.Windows.Forms.RadioButton rbnCurrent;
         private System.Windows.Forms.RadioButton rbnNone;
         private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.Label lblTimeOne;
-        private System.Windows.Forms.Label lblTimeTwo;
         private System.Windows.Forms.PictureBox pcbSliderBar;
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.ToolTip ttpSliderIndicator;
         private System.Windows.Forms.RadioButton rbnAndrewIsA;
-        private System.Windows.Forms.Label lblPosition;
-        private System.Windows.Forms.Button btnTemp;
-        private System.Windows.Forms.Label lblTimerChecker;
+        private System.Windows.Forms.Label lblTimeOne;
+        private System.Windows.Forms.Label lblTimeTwo;
+        private System.Windows.Forms.PictureBox pcbPlay;
     }
 }

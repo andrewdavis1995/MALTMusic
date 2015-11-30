@@ -84,7 +84,11 @@ namespace MALT_Music
             // If audio reader exists, kill it
             if (audioFileReader != null)
             {
-                audioFileReader.Dispose();
+                // Ensures there is a track loaded (if an audio reader exists)
+                if (audioFileReader.Position != null)
+                {
+                    audioFileReader.Dispose();
+                }
             }
         }
 
