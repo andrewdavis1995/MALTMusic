@@ -67,6 +67,7 @@
     <Compile Include="DataObjects\Playlist.cs" />
     <Compile Include="DataObjects\Song.cs" />
     <Compile Include="DataObjects\User.cs" />
+    <Compile Include="DataObjects\UserVote.cs" />
     <Compile Include="DataObjects\Validation.cs" />
     <Compile Include="DataObjects\Vote.cs" />
     <Compile Include="HomePage.cs">
