@@ -156,6 +156,7 @@ namespace MALT_Music
 
             //Create a new song model
             SongModel songModel = new SongModel();
+            PlaylistModel playlistModel = new PlaylistModel();
 
             //Populate song list with songs that fit the criteria
             List<Song> songs = new List<Song>();
@@ -167,24 +168,31 @@ namespace MALT_Music
             Thread artistThread = new Thread(() => { artists = songModel.searchArtists(searchText.ToLower()); });
             artistThread.Start();
 
+            //Populate artist list with artists that fir the criteria
+            List<Playlist> playlists = new List<Playlist>();
+            Thread playlistThread = new Thread(() => { playlists = playlistModel.searchPlaylists(searchText); });
+            playlistThread.Start();
+
             //Join threads
             songThread.Join();
             artistThread.Join();
+            playlistThread.Join();
 
             //Call method to load results window
-            loadSearchResults(songs, artists, searchText);         
+            loadSearchResults(songs, artists, playlists, searchText);         
 
         }
 
         //Method to load search results window in child form
-        private void loadSearchResults(List<Song> songs, List<String> artists, String searchText)
+        private void loadSearchResults(List<Song> songs, List<String> artists, List<Playlist> playlists, String searchText)
         {
             //Clear previous search
             searchResults.resetSearch();
 
-            //Set artist and song results from parameters
+            //Set artist and song and playlists results from parameters
             searchResults.setSongList(songs);
             searchResults.setArtistList(artists);
+            searchResults.setPlaylistList(playlists);
 
             //Set user's playlists
             searchResults.setCurrentUser(currentUser);
@@ -195,6 +203,7 @@ namespace MALT_Music
             searchResults.setUsersPlaylists(lp);
             searchResults.createSongList(searchText);
             searchResults.createArtistList();
+            searchResults.createPlaylistList();
             searchResults.addPlaylistLabels();
 
             searchResults.TopLevel = false;

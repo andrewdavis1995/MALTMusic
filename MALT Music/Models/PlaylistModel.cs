@@ -277,7 +277,6 @@ namespace MALT_Music.Models
 
             return playlists;
         
-        
         }
 
         public void removeSongFromPlaylist(Playlist playlist, Song song)

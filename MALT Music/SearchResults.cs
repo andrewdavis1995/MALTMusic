@@ -37,20 +37,24 @@ namespace MALT_Music
 
         private List<Song> songList = new List<Song>();
         private List<String> artists = new List<String>();
+        private List<Playlist> playlists = new List<Playlist>();
 
         List<Label> songLabelsA = new List<Label>();
         List<Label> songLabelsB = new List<Label>();
         List<Label> songLabelsC = new List<Label>();
         List<Label> songLabelsD = new List<Label>();
         Label endLabel = new Label();
-
-
+        
         List<Label> artistLabel = new List<Label>();
         Label endLabel2 = new Label();
 
+        List<Label> playlistLabelName = new List<Label>();
+        List<Label> playlistLabelOwner = new List<Label>();
+        Label endLabel3 = new Label();
 
         bool songsState = false;
         bool artistState = false;
+        bool playlistState = false;
         #endregion
 
         public void createSongList(String searchText)
@@ -213,6 +217,70 @@ namespace MALT_Music
             pnlArtists.Controls.Add(endLabel2);
             
         }
+        public void createPlaylistList()
+        {
+            int i = 0;
+            while (i < 9 && i < this.playlists.Count)
+            {
+                Label newPlaylist = new Label();
+                newPlaylist.Text = playlists[i].getPlaylistName();
+                newPlaylist.Size = new Size(407, 30);
+                newPlaylist.Location = new Point(0, (20 + (i * 32)));
+                newPlaylist.TextAlign = ContentAlignment.MiddleLeft;
+                newPlaylist.ForeColor = Color.White;
+                newPlaylist.UseMnemonic = false;
+                if (i % 2 == 0) { newPlaylist.BackColor = Color.FromArgb(60, 60, 60); } else { newPlaylist.BackColor = Color.FromArgb(90, 90, 90); }
+                newPlaylist.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                newPlaylist.Tag = i.ToString();
+                newPlaylist.Click += goToPlaylist;
+                /*newPlaylist.MouseLeave += artistLeave;
+                newPlaylist.MouseEnter += artistHover;*/
+
+                playlistLabelName.Add(newPlaylist);
+                pnlSearchPlaylists.Controls.Add(playlistLabelName[i]);
+
+                Label newPlayistOwner = new Label();
+                newPlayistOwner.Text = playlists[i].getOwner();
+                newPlayistOwner.Size = new Size(370, 30);
+                newPlayistOwner.Location = new Point(410, (20 + (i * 32)));
+                newPlayistOwner.TextAlign = ContentAlignment.MiddleLeft;
+                newPlayistOwner.ForeColor = Color.White;
+                newPlayistOwner.UseMnemonic = false;
+                if (i % 2 == 0) { newPlayistOwner.BackColor = Color.FromArgb(60, 60, 60); } else { newPlayistOwner.BackColor = Color.FromArgb(90, 90, 90); }
+                newPlayistOwner.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                newPlayistOwner.Tag = i.ToString();
+                newPlayistOwner.Click += goToPlaylist;
+                /*newPlayistOwner.MouseLeave += artistLeave;
+                newPlayistOwner.MouseEnter += artistHover;*/
+
+                playlistLabelOwner.Add(newPlayistOwner);
+                pnlSearchPlaylists.Controls.Add(playlistLabelOwner[i]);
+
+                i++;
+            }
+
+
+            if (i >= playlists.Count)
+            {
+                endLabel3.Text = "No More Results";
+            }
+            else
+            {
+                int remaining = playlists.Count - i;
+                endLabel3.Text = "(" + remaining + " other results)";
+            }
+
+            endLabel3.Size = new Size(780, 30);
+            endLabel3.Location = new Point(0, (20 + (i * 32)));
+            endLabel3.TextAlign = ContentAlignment.MiddleCenter;
+            endLabel3.ForeColor = Color.White;
+            endLabel3.BackColor = Color.FromArgb(20, 20, 20);
+            endLabel3.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+
+            pnlSearchPlaylists.Controls.Add(endLabel3);
+
+        }
 
 
         private void goToArtist(object sender, EventArgs e) 
@@ -250,6 +318,12 @@ namespace MALT_Music
                 this.pnlArtists.Controls.Remove(artistLabel[i]);
             }
 
+            for (int i = 0; i < playlistLabelName.Count; i++)
+            {
+                this.pnlPlaylists.Controls.Remove(playlistLabelName[i]);
+                this.pnlPlaylists.Controls.Remove(playlistLabelOwner[i]);
+            }
+
             songLabelsA.Clear();
             songLabelsB.Clear();
             songLabelsC.Clear();
@@ -257,8 +331,12 @@ namespace MALT_Music
 
             artistLabel.Clear();
 
+            playlistLabelName.Clear();
+            playlistLabelOwner.Clear();
+
             this.pnlSongs.Controls.Remove(endLabel);
             this.pnlArtists.Controls.Remove(endLabel);
+            this.pnlPlaylists.Controls.Remove(endLabel);
 
         }
 
@@ -306,6 +384,11 @@ namespace MALT_Music
         public void setArtistList(List<String> artists)
         {
             this.artists = artists;
+        }
+
+        public void setPlaylistList(List<Playlist> playlists)
+        {
+            this.playlists = playlists;
         }
         
         public void setCurrentUser(User u){
@@ -671,6 +754,22 @@ namespace MALT_Music
                 pnlPlaylists.Visible = false;
             }
             tmrOptionsDelay.Stop();
+        }
+
+        private void goToPlaylist(object sender, EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            int index = int.Parse(theLabel.Tag.ToString());
+            String playlistName = playlistLabelName[index].Text;
+            String owner = playlistLabelOwner[index].Text;
+
+            PlaylistModel playlistModel = new PlaylistModel();
+            Playlist thePlaylist = playlistModel.getPlaylist(playlistName, owner);
+
+            //Set the parent to be the home page
+            HomePage parent = (HomePage)this.Parent;
+            parent.showViewPlaylist(thePlaylist);
+
         }
 
         /// <summary>

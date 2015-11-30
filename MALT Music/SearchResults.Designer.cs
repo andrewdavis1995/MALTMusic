@@ -44,10 +44,13 @@
             this.lblPlay = new System.Windows.Forms.Label();
             this.tmrPlaylistDelay = new System.Windows.Forms.Timer(this.components);
             this.tmrOptionsDelay = new System.Windows.Forms.Timer(this.components);
+            this.pnlSearchPlaylists = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlSongs.SuspendLayout();
             this.pnlArtists.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.glassIcon)).BeginInit();
             this.pnlOptions.SuspendLayout();
+            this.pnlSearchPlaylists.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSongs
@@ -204,13 +207,35 @@
             this.tmrOptionsDelay.Interval = 700;
             this.tmrOptionsDelay.Tick += new System.EventHandler(this.tmrOptionsDelay_Tick);
             // 
+            // pnlSearchPlaylists
+            // 
+            this.pnlSearchPlaylists.AutoScroll = true;
+            this.pnlSearchPlaylists.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pnlSearchPlaylists.Controls.Add(this.label1);
+            this.pnlSearchPlaylists.Location = new System.Drawing.Point(242, 399);
+            this.pnlSearchPlaylists.Name = "pnlSearchPlaylists";
+            this.pnlSearchPlaylists.Size = new System.Drawing.Size(800, 115);
+            this.pnlSearchPlaylists.TabIndex = 29;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkGray;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Playlists>";
+            // 
             // SearchResults
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1114, 457);
+            this.ClientSize = new System.Drawing.Size(1095, 411);
+            this.Controls.Add(this.pnlSearchPlaylists);
             this.Controls.Add(this.pnlPlaylists);
             this.Controls.Add(this.pnlOptions);
             this.Controls.Add(this.glassIcon);
@@ -225,6 +250,8 @@
             this.pnlArtists.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.glassIcon)).EndInit();
             this.pnlOptions.ResumeLayout(false);
+            this.pnlSearchPlaylists.ResumeLayout(false);
+            this.pnlSearchPlaylists.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +274,7 @@
         private System.Windows.Forms.Label lblPlay;
         private System.Windows.Forms.Timer tmrPlaylistDelay;
         private System.Windows.Forms.Timer tmrOptionsDelay;
+        private System.Windows.Forms.Panel pnlSearchPlaylists;
+        private System.Windows.Forms.Label label1;
     }
 }
