@@ -220,18 +220,17 @@ namespace MALT_Music
                     PictureBox upvote = new PictureBox();
                     upvote.Size = new Size(22, 15);
                     upvote.Location = new Point(557, 0 + (33 * j));
-
-                  
                     upvote.BackgroundImageLayout = ImageLayout.Stretch;
                     upvote.Tag = i + "," + j;
+                    upvote.Name = "none";
                     upvote.Click += doUpvote;
 
                     PictureBox downvote = new PictureBox();
                     downvote.Size = new Size(22, 15);
                     downvote.Location = new Point(557, 15 + (33 * j));
-                    downvote.BackgroundImage = Properties.Resources.downvote;
                     downvote.BackgroundImageLayout = ImageLayout.Stretch;
                     downvote.Tag = i + "," + j;
+                    downvote.Name = "none";
                     downvote.Click += doDownvote;
 
 
@@ -243,11 +242,13 @@ namespace MALT_Music
                             {
                                 upvote.BackgroundImage = Properties.Resources.upvoted;
                                 downvote.BackgroundImage = Properties.Resources.downvote;
+                                upvote.Name = "up";
                             }
                             else
                             {
                                 upvote.BackgroundImage = Properties.Resources.upvote;
                                 downvote.BackgroundImage = Properties.Resources.downvoted;
+                                downvote.Name = "down";
                             }
                             break;
                         }
@@ -385,13 +386,19 @@ namespace MALT_Music
             if (index > -1) 
             {
                 VoteModel vm = new VoteModel();
-                if (upvoteButtons[x][y].BackgroundImage.Equals(Properties.Resources.upvoted))
+                if (upvoteButtons[x][y].Name.Equals("up"))
                 {
                     vm.removeAVote(this.currentUser.getUsername(), songs[index].getSongID(), 1);
+                    upvoteButtons[x][y].Name = "none";
+                    //change image
+                    upvoteButtons[x][y].BackgroundImage = Properties.Resources.upvote;
                 }
                 else
                 {
                     vm.doUpVote(songId, currentUser.getUsername());
+                    //change image
+                    upvoteButtons[x][y].Name = "up";
+                    upvoteButtons[x][y].BackgroundImage = Properties.Resources.upvoted;
                 }
 
                 createVotePercentage(voteDisplay[x][y], index);
@@ -411,9 +418,6 @@ namespace MALT_Music
             // Get the song name
             String songName = songLabelsName[x][y].Text;
 
-            // Set image background
-            downvoteButtons[x][y].BackgroundImage = Properties.Resources.downvoted;
-
             Guid songId = new Guid();
             int index = -1;
 
@@ -430,18 +434,21 @@ namespace MALT_Music
             if (index > -1)
             {
                 VoteModel vm = new VoteModel();
-                if (downvoteButtons[x][y].BackgroundImage.Equals(Properties.Resources.downvoted))
+                if (downvoteButtons[x][y].Name.Equals("down"))
                 {
-                    vm.removeAVote(this.currentUser.getUsername(), songs[index].getID(), -1);
+                    vm.removeAVote(this.currentUser.getUsername(), songs[index].getSongID(), -1);
+                    downvoteButtons[x][y].Name = "none";
+                    //change image
+                    downvoteButtons[x][y].BackgroundImage = Properties.Resources.downvote;
                 }
                 else
                 {
                     vm.doDownVote(songId, currentUser.getUsername());
+                    //change image
+                    downvoteButtons[x][y].Name = "down";
+                    downvoteButtons[x][y].BackgroundImage = Properties.Resources.downvoted;
                 }
-
-                createVotePercentage(voteDisplay[x][y], index);
-
-                vm.doDownVote(songId, currentUser.getUsername());
+                
                 createVotePercentage(voteDisplay[x][y], index);
             }
 

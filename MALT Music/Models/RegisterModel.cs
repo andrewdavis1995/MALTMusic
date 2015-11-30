@@ -126,18 +126,23 @@ namespace MALT_Music.Models
 
         public bool checkUsername(String username)
         {
-            init();
-
-            // Connect to cluster
-            ISession session = cluster.Connect("maltmusic");
-
-            username = username.ToLower();
-            PreparedStatement ps = session.Prepare("Select * from userprofiles where user_id = :user");
-            BoundStatement bs = ps.Bind(username);
-            RowSet rows = session.Execute(bs);
-            foreach (Row row in rows)
+            try
             {
-                return true;
+                init();
+
+                // Connect to cluster
+                ISession session = cluster.Connect("maltmusic");
+
+                username = username.ToLower();
+                PreparedStatement ps = session.Prepare("Select * from userprofiles where user_id = :user");
+                BoundStatement bs = ps.Bind(username);
+                RowSet rows = session.Execute(bs);
+                foreach (Row row in rows)
+                {
+                    return true;
+                }
+            }catch(Exception){
+                return false;
             }
             return false;
         }
