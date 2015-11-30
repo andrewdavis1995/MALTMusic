@@ -243,5 +243,21 @@ namespace MALT_Music.Models
                 session.Execute(bound);
             }
         }
+
+        //Update voting things
+        public void updateVote(String voter, Guid tid, int lastvote)
+        {
+            removeAVote(voter, tid,lastvote);
+            if (lastvote == -1)
+            {
+                doUpVote(tid,voter);
+            }
+            else if (lastvote == 1)
+            { 
+                doDownVote(tid, voter); 
+            }
+        }
+
+
     }
 }
