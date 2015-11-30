@@ -236,7 +236,7 @@ namespace MALT_Music.Models
             else if(lastVote == -1)
             {
                 //Increment vote
-                String things = ("update votecount set downvotes = downvotes +1 where track_id = :tid");
+                String things = ("update votecount set downvotes = downvotes -1 where track_id = :tid");
                 PreparedStatement preps = session.Prepare(things);
                 BoundStatement bound = preps.Bind(tid);
                 // Execute Query
