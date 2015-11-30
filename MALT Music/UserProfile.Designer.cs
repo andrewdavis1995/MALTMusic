@@ -84,9 +84,9 @@
             // picBoxProfilePic
             // 
             this.picBoxProfilePic.BackColor = System.Drawing.Color.LightGray;
-            this.picBoxProfilePic.ErrorImage = global::MALT_Music.Properties.Resources.icon_profile;
-            this.picBoxProfilePic.Image = global::MALT_Music.Properties.Resources.icon_profile;
-            this.picBoxProfilePic.InitialImage = global::MALT_Music.Properties.Resources.icon_profile;
+            this.picBoxProfilePic.ErrorImage = global::MALT_Music.Properties.Resources.iconprofile;
+            this.picBoxProfilePic.Image = global::MALT_Music.Properties.Resources.iconprofile;
+            this.picBoxProfilePic.InitialImage = global::MALT_Music.Properties.Resources.iconprofile;
             this.picBoxProfilePic.Location = new System.Drawing.Point(247, 98);
             this.picBoxProfilePic.Name = "picBoxProfilePic";
             this.picBoxProfilePic.Size = new System.Drawing.Size(150, 150);

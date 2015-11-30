@@ -274,6 +274,11 @@ namespace MALT_Music
 
             //Set it to be the image inside picBoxProfPicThumb
             picBoxProfPicThumb.Image = target;
+
+            if (target == null)
+            {
+                picBoxProfPicThumb.Image = Properties.Resources.iconprofile;
+            }
         }
 
     }

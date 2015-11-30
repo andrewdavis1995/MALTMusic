@@ -193,6 +193,11 @@ namespace MALT_Music
 
             //Set it to be the image inside picBoxProfilePic
             picBoxProfilePic.Image = target;
+
+            if (target == null)
+            {
+                picBoxProfilePic.Image = Properties.Resources.iconprofile;
+            }
         }
 
     }
