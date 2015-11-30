@@ -38,7 +38,7 @@ namespace MALT_Music
             musicController = new MusicController();
 
             isPlaying = false;
-            playPause = true; // Sets to play mode
+            playPause = false; // Sets to pause mode
 
             // Initialise slider
             sliderValue = 0;
