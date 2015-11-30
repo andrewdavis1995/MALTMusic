@@ -234,6 +234,9 @@ namespace MALT_Music
                     downvote.Click += doDownvote;
 
 
+                    upvote.BackgroundImage = Properties.Resources.upvote;
+                    downvote.BackgroundImage = Properties.Resources.downvote;
+
                     for (int k = 0; k < votes.Count; k++)
                     {
                         if (songs[j].getSongID() == votes[k].getID())
@@ -252,8 +255,6 @@ namespace MALT_Music
                             }
                             break;
                         }
-                        upvote.BackgroundImage = Properties.Resources.upvote;
-                        downvote.BackgroundImage = Properties.Resources.downvote;
                     }
 
 
@@ -312,7 +313,13 @@ namespace MALT_Music
             }
             else 
             {
-                voteDisplayBox.BackColor = Color.Gray;
+                Bitmap bmp = new Bitmap(voteDisplayBox.Width, voteDisplayBox.Height);
+                Graphics g;
+                g = Graphics.FromImage(bmp);
+                g.Clear(Color.Gray);
+
+                voteDisplayBox.Image = bmp;
+                g.Dispose();
             }
 
             return voteDisplayBox;
@@ -367,9 +374,7 @@ namespace MALT_Music
             int y = int.Parse(tag[1]);
 
             String songName = songLabelsName[x][y].Text;
-
-            upvoteButtons[x][y].BackgroundImage = Properties.Resources.upvoted;
-
+            
             Guid songId = new Guid();
             int index = -1;
 
@@ -395,10 +400,21 @@ namespace MALT_Music
                 }
                 else
                 {
-                    vm.doUpVote(songId, currentUser.getUsername());
-                    //change image
-                    upvoteButtons[x][y].Name = "up";
-                    upvoteButtons[x][y].BackgroundImage = Properties.Resources.upvoted;
+                    if (downvoteButtons[x][y].Name.Equals("down"))
+                    {
+                        vm.updateVote(this.currentUser.getUsername(), songs[index], -1);
+                        downvoteButtons[x][y].Name = "none";
+                        upvoteButtons[x][y].Name = "up";
+                        upvoteButtons[x][y].BackgroundImage = Properties.Resources.upvoted;
+                        downvoteButtons[x][y].BackgroundImage = Properties.Resources.downvote;
+                    }
+                    else { 
+                        vm.doUpVote(songId, currentUser.getUsername());
+                        //change image
+                        upvoteButtons[x][y].Name = "up";
+                        upvoteButtons[x][y].BackgroundImage = Properties.Resources.upvoted;
+                    }
+
                 }
 
                 createVotePercentage(voteDisplay[x][y], index);
