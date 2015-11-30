@@ -16,11 +16,19 @@ namespace MALT_Music
 
         List<Label> positionLabels = new List<Label>();
         List<Label> songLabels = new List<Label>();
+        List<Label> artistLabels = new List<Label>();
         Playlist thePlaylist;
+        int selectedSong = 0;
 
-        public ViewPlaylist(Playlist playlist)
+        List<Song> songs;
+
+        frmMusicPlayer musicPlayer;
+
+
+        public ViewPlaylist(Playlist playlist, frmMusicPlayer music)
         {
             InitializeComponent();
+            this.musicPlayer = music;
             this.thePlaylist = playlist;
             lblPlaylistName.Text = thePlaylist.getPlaylistName();
             lblOwner.Text = thePlaylist.getOwner();
@@ -72,9 +80,20 @@ namespace MALT_Music
             InitializeComponent();
         }
 
+
+        private void setSelected(Object sender, EventArgs e) {
+            Label theLabel = (Label)sender;
+            int index = int.Parse(theLabel.Tag.ToString());
+
+            this.selectedSong = index;
+
+            pnlOptions.Visible = true;
+
+        }
+
         public void setupLabels() 
         {
-            List<Song> songs = thePlaylist.getSongs();
+            songs = thePlaylist.getSongs();
 
             for (int i = 0; i < songs.Count; i++)
             {
@@ -82,10 +101,10 @@ namespace MALT_Music
                 Label theSongLabel = new Label();
 
                 theSongLabel.Text = songs[i].getTrackName();
-                theSongLabel.Size = new Size(400, 30);
+                theSongLabel.Size = new Size(344, 30);
                 theSongLabel.Location = new Point(423, 156 + (33 * i));
                 theSongLabel.Tag = i.ToString();
-                //theSongLabel.Click += clickEvent;
+                theSongLabel.Click += setSelected;
                 theSongLabel.ForeColor = Color.FromArgb(225, 225, 225);
                 theSongLabel.TextAlign = ContentAlignment.MiddleLeft;
                 theSongLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,7 +126,7 @@ namespace MALT_Music
                 #region Position Label
                 Label thePositionLabel = new Label();
 
-                thePositionLabel.Text = (i+1).ToString();
+                thePositionLabel.Text = (i + 1).ToString();
                 thePositionLabel.Size = new Size(50, 30);
                 thePositionLabel.Location = new Point(370, 156 + (33 * i));
                 thePositionLabel.Tag = i.ToString();
@@ -128,6 +147,32 @@ namespace MALT_Music
                 positionLabels.Add(thePositionLabel);
 
                 this.Controls.Add(positionLabels[i]);
+                #endregion
+                
+                #region Artist Label
+                Label theArtistLabel = new Label();
+
+                theArtistLabel.Text = songs[i].getArtist();
+                theArtistLabel.Size = new Size(250, 30);
+                theArtistLabel.Location = new Point(770, 156 + (33 * i));
+                theArtistLabel.Tag = i.ToString();
+                //theArtistLabel.Click += clickEvent;
+                theArtistLabel.ForeColor = Color.FromArgb(225, 225, 225);
+                theArtistLabel.TextAlign = ContentAlignment.MiddleLeft;
+                theArtistLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+                if (i % 2 == 0)
+                {
+                    theArtistLabel.BackColor = Color.FromArgb(60, 60, 60);
+                }
+                else
+                {
+                    theArtistLabel.BackColor = Color.FromArgb(40, 40, 40);
+                }
+
+                artistLabels.Add(theArtistLabel);
+
+                this.Controls.Add(artistLabels[i]);
                 #endregion
 
             }
@@ -169,6 +214,32 @@ namespace MALT_Music
                 i++;
 
             }
+        }
+
+        private void lblPlay_Click(object sender, EventArgs e)
+        {
+            Song toAdd = new Song();
+            
+            String songName = songLabels[selectedSong].Text;
+
+            for (int i = 0; i < songs.Count; i++)
+            {
+                if (songs[i].getTrackName().Equals(songName))
+                {
+                    toAdd = songs[i];
+                    break;
+                }
+            }
+
+            if (toAdd.getTrackName() != null && toAdd.getTrackName() != "")
+            {
+                String filePath = toAdd.getFileLocation();
+                musicPlayer.stopSong();
+                musicPlayer.setSongPath(@"" + filePath);
+                musicPlayer.playCurrentSong();
+            }
+
+            pnlOptions.Visible = false;
         }
 
     }

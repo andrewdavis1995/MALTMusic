@@ -183,6 +183,16 @@ namespace MALT_Music.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap recommendIcon {
+            get {
+                object obj = ResourceManager.GetObject("recommendIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap small_cross {
             get {
                 object obj = ResourceManager.GetObject("small_cross", resourceCulture);

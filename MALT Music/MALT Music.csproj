@@ -200,6 +200,7 @@
     <EmbeddedResource Include="Resources\Test.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\recommendIcon.png" />
     <None Include="Resources\upvoted.png" />
     <None Include="Resources\upvote.png" />
     <None Include="Resources\Magnifying_glass_icon_white.png" />

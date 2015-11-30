@@ -28,55 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.coverImage1 = new System.Windows.Forms.PictureBox();
-            this.coverImage2 = new System.Windows.Forms.PictureBox();
-            this.coverImage4 = new System.Windows.Forms.PictureBox();
-            this.coverImage3 = new System.Windows.Forms.PictureBox();
             this.lblPlaylistName = new System.Windows.Forms.Label();
             this.lblOwner = new System.Windows.Forms.Label();
             this.lblNumSongs = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.coverImage1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coverImage2)).BeginInit();
+            this.pnlPlaylists = new System.Windows.Forms.Panel();
+            this.pnlOptions = new System.Windows.Forms.Panel();
+            this.lblShare = new System.Windows.Forms.Label();
+            this.lblAddToPlaylist = new System.Windows.Forms.Label();
+            this.lblPlay = new System.Windows.Forms.Label();
+            this.picRecommend = new System.Windows.Forms.PictureBox();
+            this.coverImage4 = new System.Windows.Forms.PictureBox();
+            this.coverImage3 = new System.Windows.Forms.PictureBox();
+            this.coverImage2 = new System.Windows.Forms.PictureBox();
+            this.coverImage1 = new System.Windows.Forms.PictureBox();
+            this.pnlOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picRecommend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverImage4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverImage3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coverImage2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coverImage1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // coverImage1
-            // 
-            this.coverImage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.coverImage1.Location = new System.Drawing.Point(265, 156);
-            this.coverImage1.Name = "coverImage1";
-            this.coverImage1.Size = new System.Drawing.Size(44, 44);
-            this.coverImage1.TabIndex = 0;
-            this.coverImage1.TabStop = false;
-            // 
-            // coverImage2
-            // 
-            this.coverImage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.coverImage2.Location = new System.Drawing.Point(309, 156);
-            this.coverImage2.Name = "coverImage2";
-            this.coverImage2.Size = new System.Drawing.Size(44, 44);
-            this.coverImage2.TabIndex = 1;
-            this.coverImage2.TabStop = false;
-            // 
-            // coverImage4
-            // 
-            this.coverImage4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.coverImage4.Location = new System.Drawing.Point(309, 200);
-            this.coverImage4.Name = "coverImage4";
-            this.coverImage4.Size = new System.Drawing.Size(44, 44);
-            this.coverImage4.TabIndex = 3;
-            this.coverImage4.TabStop = false;
-            // 
-            // coverImage3
-            // 
-            this.coverImage3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.coverImage3.Location = new System.Drawing.Point(265, 200);
-            this.coverImage3.Name = "coverImage3";
-            this.coverImage3.Size = new System.Drawing.Size(44, 44);
-            this.coverImage3.TabIndex = 2;
-            this.coverImage3.TabStop = false;
             // 
             // lblPlaylistName
             // 
@@ -121,12 +93,125 @@
             this.lblTime.TabIndex = 7;
             this.lblTime.Text = "0 seconds";
             // 
+            // pnlPlaylists
+            // 
+            this.pnlPlaylists.AutoScroll = true;
+            this.pnlPlaylists.AutoSize = true;
+            this.pnlPlaylists.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pnlPlaylists.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.pnlPlaylists.Location = new System.Drawing.Point(750, 189);
+            this.pnlPlaylists.MaximumSize = new System.Drawing.Size(170, 211);
+            this.pnlPlaylists.Name = "pnlPlaylists";
+            this.pnlPlaylists.Size = new System.Drawing.Size(144, 84);
+            this.pnlPlaylists.TabIndex = 35;
+            this.pnlPlaylists.Visible = false;
+            // 
+            // pnlOptions
+            // 
+            this.pnlOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pnlOptions.Controls.Add(this.lblShare);
+            this.pnlOptions.Controls.Add(this.lblAddToPlaylist);
+            this.pnlOptions.Controls.Add(this.lblPlay);
+            this.pnlOptions.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.pnlOptions.Location = new System.Drawing.Point(605, 189);
+            this.pnlOptions.Name = "pnlOptions";
+            this.pnlOptions.Size = new System.Drawing.Size(139, 141);
+            this.pnlOptions.TabIndex = 34;
+            this.pnlOptions.Visible = false;
+            // 
+            // lblShare
+            // 
+            this.lblShare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblShare.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShare.ForeColor = System.Drawing.Color.DimGray;
+            this.lblShare.Location = new System.Drawing.Point(0, 96);
+            this.lblShare.Name = "lblShare";
+            this.lblShare.Size = new System.Drawing.Size(139, 43);
+            this.lblShare.TabIndex = 2;
+            this.lblShare.Text = "Share...";
+            this.lblShare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblAddToPlaylist
+            // 
+            this.lblAddToPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblAddToPlaylist.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddToPlaylist.ForeColor = System.Drawing.Color.DimGray;
+            this.lblAddToPlaylist.Location = new System.Drawing.Point(0, 48);
+            this.lblAddToPlaylist.Name = "lblAddToPlaylist";
+            this.lblAddToPlaylist.Size = new System.Drawing.Size(139, 43);
+            this.lblAddToPlaylist.TabIndex = 1;
+            this.lblAddToPlaylist.Text = "Add To Playlist >";
+            this.lblAddToPlaylist.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPlay
+            // 
+            this.lblPlay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblPlay.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlay.ForeColor = System.Drawing.Color.White;
+            this.lblPlay.Location = new System.Drawing.Point(0, 0);
+            this.lblPlay.Name = "lblPlay";
+            this.lblPlay.Size = new System.Drawing.Size(139, 43);
+            this.lblPlay.TabIndex = 0;
+            this.lblPlay.Text = "Play";
+            this.lblPlay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPlay.Click += new System.EventHandler(this.lblPlay_Click);
+            // 
+            // picRecommend
+            // 
+            this.picRecommend.BackgroundImage = global::MALT_Music.Properties.Resources.recommendIcon;
+            this.picRecommend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picRecommend.Location = new System.Drawing.Point(264, 318);
+            this.picRecommend.Name = "picRecommend";
+            this.picRecommend.Size = new System.Drawing.Size(78, 81);
+            this.picRecommend.TabIndex = 36;
+            this.picRecommend.TabStop = false;
+            // 
+            // coverImage4
+            // 
+            this.coverImage4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.coverImage4.Location = new System.Drawing.Point(309, 200);
+            this.coverImage4.Name = "coverImage4";
+            this.coverImage4.Size = new System.Drawing.Size(44, 44);
+            this.coverImage4.TabIndex = 3;
+            this.coverImage4.TabStop = false;
+            // 
+            // coverImage3
+            // 
+            this.coverImage3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.coverImage3.Location = new System.Drawing.Point(265, 200);
+            this.coverImage3.Name = "coverImage3";
+            this.coverImage3.Size = new System.Drawing.Size(44, 44);
+            this.coverImage3.TabIndex = 2;
+            this.coverImage3.TabStop = false;
+            // 
+            // coverImage2
+            // 
+            this.coverImage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.coverImage2.Location = new System.Drawing.Point(309, 156);
+            this.coverImage2.Name = "coverImage2";
+            this.coverImage2.Size = new System.Drawing.Size(44, 44);
+            this.coverImage2.TabIndex = 1;
+            this.coverImage2.TabStop = false;
+            // 
+            // coverImage1
+            // 
+            this.coverImage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.coverImage1.Location = new System.Drawing.Point(265, 156);
+            this.coverImage1.Name = "coverImage1";
+            this.coverImage1.Size = new System.Drawing.Size(44, 44);
+            this.coverImage1.TabIndex = 0;
+            this.coverImage1.TabStop = false;
+            // 
             // ViewPlaylist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1094, 442);
+            this.Controls.Add(this.picRecommend);
+            this.Controls.Add(this.pnlPlaylists);
+            this.Controls.Add(this.pnlOptions);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblNumSongs);
             this.Controls.Add(this.lblOwner);
@@ -137,10 +222,12 @@
             this.Controls.Add(this.coverImage1);
             this.Name = "ViewPlaylist";
             this.Text = "ViewPlaylist";
-            ((System.ComponentModel.ISupportInitialize)(this.coverImage1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coverImage2)).EndInit();
+            this.pnlOptions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picRecommend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverImage4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverImage3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coverImage2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coverImage1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,5 +243,11 @@
         private System.Windows.Forms.Label lblOwner;
         private System.Windows.Forms.Label lblNumSongs;
         private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Panel pnlPlaylists;
+        private System.Windows.Forms.Panel pnlOptions;
+        private System.Windows.Forms.Label lblShare;
+        private System.Windows.Forms.Label lblAddToPlaylist;
+        private System.Windows.Forms.Label lblPlay;
+        private System.Windows.Forms.PictureBox picRecommend;
     }
 }

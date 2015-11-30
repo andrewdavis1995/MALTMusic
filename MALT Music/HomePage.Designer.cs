@@ -136,9 +136,9 @@
             // picBoxMALTLogo
             // 
             this.picBoxMALTLogo.Image = global::MALT_Music.Properties.Resources.logo;
-            this.picBoxMALTLogo.Location = new System.Drawing.Point(44, 8);
+            this.picBoxMALTLogo.Location = new System.Drawing.Point(48, 8);
             this.picBoxMALTLogo.Name = "picBoxMALTLogo";
-            this.picBoxMALTLogo.Size = new System.Drawing.Size(167, 72);
+            this.picBoxMALTLogo.Size = new System.Drawing.Size(135, 73);
             this.picBoxMALTLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxMALTLogo.TabIndex = 2;
             this.picBoxMALTLogo.TabStop = false;

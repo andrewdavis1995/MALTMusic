@@ -133,7 +133,7 @@
             // 
             this.lblAddToPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.lblAddToPlaylist.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddToPlaylist.ForeColor = System.Drawing.Color.White;
+            this.lblAddToPlaylist.ForeColor = System.Drawing.Color.DimGray;
             this.lblAddToPlaylist.Location = new System.Drawing.Point(0, 48);
             this.lblAddToPlaylist.Name = "lblAddToPlaylist";
             this.lblAddToPlaylist.Size = new System.Drawing.Size(139, 43);
