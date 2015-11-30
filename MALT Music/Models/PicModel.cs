@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Cassandra;
+using MALT_Music.DataObjects;
+using MALT_Music.lib;
 
-namespace MALT_Music.lib
+namespace MALT_Music.Models
 {
-    class ImageThings
+    class PicModel
     {
         // thanks andy
         // http://ac31004.blogspot.co.uk/2014/03/saving-image-in-cassandra-blob-field.html
@@ -36,7 +38,7 @@ namespace MALT_Music.lib
             FileStream fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
             byte[] b = new byte[fileStream.Length + 1];
             int length = b.Length;
-            fileStream.Read(b,0,length);
+            fileStream.Read(b, 0, length);
 
             MemoryStream stream = new MemoryStream();
             using (BinaryWriter writer = new BinaryWriter(stream))
@@ -63,9 +65,8 @@ namespace MALT_Music.lib
             session.Execute(bs);
         }
 
-        public byte [] getImage(String username)
+        public byte[] getImage(String username)
         {
-            //Getting the image back is simple.  Use a Select to get the result set:
             init();
             ISession session = cluster.Connect("maltmusic");
 
@@ -77,7 +78,7 @@ namespace MALT_Music.lib
 
             foreach (Row row in rs)
             {
-                byte[] bytethings = (byte[]) row["image"];
+                byte[] bytethings = (byte[])row["image"];
                 return bytethings;
             }
 
@@ -91,8 +92,8 @@ namespace MALT_Music.lib
                     {
                         //Need to get string filepath for this
                         //String filepath = "something.png";
-                        ImageThings it = new ImageThings();
-                        it.setImage(filepath);
+                        PicModel pm = new PicModel();
+                        pm.setImage(filepath);
                     }
 
                     private void button2_Click(object sender, EventArgs e)
@@ -116,10 +117,9 @@ namespace MALT_Music.lib
                     }
                             }*/
 
-        
+
         }
 
 
     }
 }
-
