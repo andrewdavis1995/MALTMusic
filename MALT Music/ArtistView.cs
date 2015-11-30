@@ -257,8 +257,8 @@ namespace MALT_Music
 
         private PictureBox createVotePercentage(PictureBox voteDisplayBox, int j) 
         {
-            SongModel songModel = new SongModel();
-            Vote vote = songModel.getVotesForTrack(songs[j].getSongID());
+            VoteModel vm = new VoteModel();
+            Vote vote = vm.getVotesForTrack(songs[j].getSongID());
 
             int ups = vote.getUpVotes();
             int downs = vote.getDownVotes();
@@ -356,8 +356,8 @@ namespace MALT_Music
 
             if (index > -1) 
             {
-                SongModel songModel = new SongModel();
-                songModel.doUpVote(songId, currentUser.getUsername());
+                VoteModel vm = new VoteModel();
+                vm.doUpVote(songId, currentUser.getUsername());
                 createVotePercentage(voteDisplay[x][y], index);
             }
         }
@@ -393,8 +393,8 @@ namespace MALT_Music
 
             if (index > -1)
             {
-                SongModel songModel = new SongModel();
-                songModel.doDownVote(songId, currentUser.getUsername());
+                VoteModel vm = new VoteModel();
+                vm.doDownVote(songId, currentUser.getUsername());
                 createVotePercentage(voteDisplay[x][y], index);
             }
 
