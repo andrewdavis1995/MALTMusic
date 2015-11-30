@@ -33,6 +33,9 @@ namespace MALT_Music
         List<Label> playlistLabels = new List<Label>();
         List<Playlist> usersPlaylists = new List<Playlist>();
 
+        VoteModel voteModel = new VoteModel();
+        List<UserVote> votes;
+
 
         public ArtistView(User currentUser, frmMusicPlayer mscPl)
         {
@@ -46,6 +49,7 @@ namespace MALT_Music
             this.songs = songs;
             this.artistName = artist;
             lblArtistName.Text = artist;
+            votes = voteModel.getVotesByUser(this.currentUser.getUsername());
 
             addPlaylistLabels();
         }
@@ -188,8 +192,7 @@ namespace MALT_Music
                         theSongLabel.BackColor = Color.FromArgb(40, 40, 40);
                     }
                     #endregion
-
-
+                    
                     #region songLength Label
 
                     Label theLengthLabel = new Label();
@@ -212,11 +215,13 @@ namespace MALT_Music
                     }
                     #endregion
 
+                    #region vote stuff
 
                     PictureBox upvote = new PictureBox();
                     upvote.Size = new Size(22, 15);
                     upvote.Location = new Point(557, 0 + (33 * j));
-                    upvote.BackgroundImage = Properties.Resources.upvote;
+
+                  
                     upvote.BackgroundImageLayout = ImageLayout.Stretch;
                     upvote.Tag = i + "," + j;
                     upvote.Click += doUpvote;
@@ -229,6 +234,26 @@ namespace MALT_Music
                     downvote.Tag = i + "," + j;
                     downvote.Click += doDownvote;
 
+
+                    for (int k = 0; k < votes.Count; k++)
+                    {
+                        if (songs[j].getSongID() == votes[k].getID())
+                        {
+                            if (votes[j].getHowVoted() == 1)
+                            {
+                                upvote.BackgroundImage = Properties.Resources.upvoted;
+                                downvote.BackgroundImage = Properties.Resources.downvote;
+                            }
+                            else
+                            {
+                                upvote.BackgroundImage = Properties.Resources.upvote;
+                                downvote.BackgroundImage = Properties.Resources.downvoted;
+                            }
+                            break;
+                        }
+                    }
+
+
                     PictureBox voteDisplayBox = new PictureBox();
                     voteDisplayBox.Size = new Size(100, 8);
                     voteDisplayBox.BackColor = Color.Gray;
@@ -237,6 +262,7 @@ namespace MALT_Music
 
                     voteDisplayBox = createVotePercentage(voteDisplayBox, j);
                     
+                    #endregion
 
                     songLabelsName[i].Add(theSongLabel);
                     songLabelsLength[i].Add(theLengthLabel);
@@ -357,7 +383,15 @@ namespace MALT_Music
             if (index > -1) 
             {
                 VoteModel vm = new VoteModel();
-                vm.doUpVote(songId, currentUser.getUsername());
+                if (upvoteButtons[x][y].BackgroundImage == Properties.Resources.upvoted)
+                {
+                    vm.removeAVote(this.currentUser.getUsername(), songs[index], 1);
+                }
+                else
+                {
+                    vm.doUpVote(songId, currentUser.getUsername());
+                }
+
                 createVotePercentage(voteDisplay[x][y], index);
             }
         }
@@ -394,6 +428,17 @@ namespace MALT_Music
             if (index > -1)
             {
                 VoteModel vm = new VoteModel();
+                if (downvoteButtons[x][y].BackgroundImage == Properties.Resources.downvoted)
+                {
+                    vm.removeAVote(this.currentUser.getUsername(), songs[index], -1);
+                }
+                else
+                {
+                    vm.doDownVote(songId, currentUser.getUsername());
+                }
+
+                createVotePercentage(voteDisplay[x][y], index);
+
                 vm.doDownVote(songId, currentUser.getUsername());
                 createVotePercentage(voteDisplay[x][y], index);
             }
@@ -479,9 +524,7 @@ namespace MALT_Music
             tmrPlaylistDelay.Start();
             lblAddToPlaylist.BackColor = Color.FromArgb(40, 40, 40);
         }
-
-
-
+        
 
         private void lblPlay_Click(object sender, EventArgs e)
         {
