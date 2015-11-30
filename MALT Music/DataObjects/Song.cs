@@ -31,12 +31,13 @@ namespace MALT_Music.DataObjects
             this.songID = id;
         }
 
-        public Song(String artist, String location, String name, Guid tid, int length) 
+        public Song(String artist, String location, String name, Guid tid, int length, String album) 
         {
             this.artist = artist;
             this.file_loc = location;
             this.track_name = name;
             this.songID = tid;
+            this.album = album;
             this.length = length;
         }
 

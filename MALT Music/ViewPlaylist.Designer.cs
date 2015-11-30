@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewPlaylist));
             this.coverImage1 = new System.Windows.Forms.PictureBox();
             this.coverImage2 = new System.Windows.Forms.PictureBox();
             this.coverImage4 = new System.Windows.Forms.PictureBox();
@@ -45,7 +44,6 @@
             // 
             // coverImage1
             // 
-            this.coverImage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("coverImage1.BackgroundImage")));
             this.coverImage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.coverImage1.Location = new System.Drawing.Point(265, 156);
             this.coverImage1.Name = "coverImage1";
@@ -55,7 +53,6 @@
             // 
             // coverImage2
             // 
-            this.coverImage2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("coverImage2.BackgroundImage")));
             this.coverImage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.coverImage2.Location = new System.Drawing.Point(309, 156);
             this.coverImage2.Name = "coverImage2";
@@ -65,9 +62,8 @@
             // 
             // coverImage4
             // 
-            this.coverImage4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("coverImage4.BackgroundImage")));
             this.coverImage4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.coverImage4.Location = new System.Drawing.Point(309, 196);
+            this.coverImage4.Location = new System.Drawing.Point(309, 200);
             this.coverImage4.Name = "coverImage4";
             this.coverImage4.Size = new System.Drawing.Size(44, 44);
             this.coverImage4.TabIndex = 3;
@@ -75,9 +71,8 @@
             // 
             // coverImage3
             // 
-            this.coverImage3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("coverImage3.BackgroundImage")));
             this.coverImage3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.coverImage3.Location = new System.Drawing.Point(265, 196);
+            this.coverImage3.Location = new System.Drawing.Point(265, 200);
             this.coverImage3.Name = "coverImage3";
             this.coverImage3.Size = new System.Drawing.Size(44, 44);
             this.coverImage3.TabIndex = 2;
@@ -110,7 +105,7 @@
             this.lblNumSongs.AutoSize = true;
             this.lblNumSongs.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumSongs.ForeColor = System.Drawing.Color.White;
-            this.lblNumSongs.Location = new System.Drawing.Point(265, 243);
+            this.lblNumSongs.Location = new System.Drawing.Point(265, 247);
             this.lblNumSongs.Name = "lblNumSongs";
             this.lblNumSongs.Size = new System.Drawing.Size(53, 17);
             this.lblNumSongs.TabIndex = 6;
@@ -120,7 +115,7 @@
             // 
             this.lblTime.Font = new System.Drawing.Font("Franklin Gothic Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(265, 260);
+            this.lblTime.Location = new System.Drawing.Point(265, 264);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(88, 51);
             this.lblTime.TabIndex = 7;
@@ -131,7 +126,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1129, 442);
+            this.ClientSize = new System.Drawing.Size(1094, 442);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblNumSongs);
             this.Controls.Add(this.lblOwner);

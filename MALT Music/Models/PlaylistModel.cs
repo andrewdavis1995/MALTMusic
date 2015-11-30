@@ -162,6 +162,8 @@ namespace MALT_Music.Models
         public List<Song> getTracksInPlist(Guid pid, ISession session)
         {
             List<Song> songs = new List<Song>();
+            List<int> positions = new List<int>();
+
             String todo = ("select * from playlist where playlist_id = :pid");
             PreparedStatement ps = session.Prepare(todo);
             BoundStatement bs = ps.Bind(pid);
@@ -172,7 +174,10 @@ namespace MALT_Music.Models
                 //under duress i do this
                 Guid tid = (Guid)row["track_id"];
 
-                String things = ("select track_name,artist,file_loc,length from tracks where track_id = :tid");
+                int pos = (int)row["track_pos"];
+                positions.Add(pos);
+
+                String things = ("select track_name,artist,file_loc,length,album from tracks where track_id = :tid");
                 PreparedStatement prep = session.Prepare(things);
                 BoundStatement bound = prep.Bind(tid);
                 // Execute Query
@@ -186,14 +191,40 @@ namespace MALT_Music.Models
                     String artist = (String)rowset["artist"];
                     String file_loc = (String)rowset["file_loc"];
                     int length = (int)rowset["length"];
+                    String album = rowset["album"].ToString();
 
-                    Song toadd = new Song(artist, file_loc, name, tid, length);
+                    Song toadd = new Song(artist, file_loc, name, tid, length, album);
                     songs.Add(toadd);
                 }
-
             }
 
-            return songs;
+            // SORT
+
+            List<Song> sortedSongs = new List<Song>();
+
+            while (positions.Count > 0 && songs.Count > 0) 
+            {
+                int currentLowest = positions[0];
+                int lowestIndex = 0;
+
+                for (int i = 0; i < positions.Count; i++) 
+                {
+                    if (positions[i] < currentLowest) 
+                    {
+                        currentLowest = positions[i];
+                        lowestIndex = i;
+                    }
+                }
+
+                sortedSongs.Add(songs[lowestIndex]);
+
+                songs.RemoveAt(lowestIndex);
+                positions.RemoveAt(lowestIndex);
+   
+            }
+
+            return sortedSongs;
+
         }
 
         public List<Playlist> getPlaylistsForUser(String plOwner)

@@ -14,6 +14,8 @@ namespace MALT_Music
     public partial class ViewPlaylist : Form
     {
 
+        List<Label> positionLabels = new List<Label>();
+        List<Label> songLabels = new List<Label>();
         Playlist thePlaylist;
 
         public ViewPlaylist(Playlist playlist)
@@ -58,8 +60,8 @@ namespace MALT_Music
             {
                 output = "O seconds";
             }
-            else { 
-                // trim end
+            else {
+                output = output.Substring(0, output.Length - 3);
             }
 
             lblTime.Text = output;
@@ -68,6 +70,105 @@ namespace MALT_Music
         public ViewPlaylist()
         {
             InitializeComponent();
+        }
+
+        public void setupLabels() 
+        {
+            List<Song> songs = thePlaylist.getSongs();
+
+            for (int i = 0; i < songs.Count; i++)
+            {
+                #region Song Name Label
+                Label theSongLabel = new Label();
+
+                theSongLabel.Text = songs[i].getTrackName();
+                theSongLabel.Size = new Size(400, 30);
+                theSongLabel.Location = new Point(423, 156 + (33 * i));
+                theSongLabel.Tag = i.ToString();
+                //theSongLabel.Click += clickEvent;
+                theSongLabel.ForeColor = Color.FromArgb(225, 225, 225);
+                theSongLabel.TextAlign = ContentAlignment.MiddleLeft;
+                theSongLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+                if (i % 2 == 0)
+                {
+                    theSongLabel.BackColor = Color.FromArgb(60, 60, 60);
+                }
+                else
+                {
+                    theSongLabel.BackColor = Color.FromArgb(40, 40, 40);
+                }
+
+                songLabels.Add(theSongLabel);
+
+                this.Controls.Add(songLabels[i]);
+                #endregion 
+
+                #region Position Label
+                Label thePositionLabel = new Label();
+
+                thePositionLabel.Text = (i+1).ToString();
+                thePositionLabel.Size = new Size(50, 30);
+                thePositionLabel.Location = new Point(370, 156 + (33 * i));
+                thePositionLabel.Tag = i.ToString();
+                //thePositionLabel.Click += clickEvent;
+                thePositionLabel.ForeColor = Color.FromArgb(225, 225, 225);
+                thePositionLabel.TextAlign = ContentAlignment.MiddleLeft;
+                thePositionLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+                if (i % 2 == 0)
+                {
+                    thePositionLabel.BackColor = Color.FromArgb(60, 60, 60);
+                }
+                else
+                {
+                    thePositionLabel.BackColor = Color.FromArgb(40, 40, 40);
+                }
+
+                positionLabels.Add(thePositionLabel);
+
+                this.Controls.Add(positionLabels[i]);
+                #endregion
+
+            }
+
+        }
+
+        public void setupAlbumCovers()
+        {
+            List<String> taken = new List<String>();
+
+            List<Song> songs = thePlaylist.getSongs();
+
+            int i = 0;
+
+            while (i < songs.Count && taken.Count < 4) 
+            {
+                if (!taken.Contains(songs[i].getTrackName() + songs[i].getArtist()))
+                {
+                    if (taken.Count == 0)
+                    {
+                        coverImage1.BackgroundImage = Image.FromFile(@"../../tracks/" + songs[i].getArtist() + "/" + songs[i].getAlbum() + "/" + songs[i].getAlbum() + ".jpg");
+                    }
+                    else if (taken.Count == 1)
+                    {
+                        coverImage2.BackgroundImage = Image.FromFile(@"../../tracks/" + songs[i].getArtist() + "/" + songs[i].getAlbum() + "/" + songs[i].getAlbum() + ".jpg");
+                    }
+                    else if (taken.Count == 2)
+                    {
+                        coverImage3.BackgroundImage = Image.FromFile(@"../../tracks/" + songs[i].getArtist() + "/" + songs[i].getAlbum() + "/" + songs[i].getAlbum() + ".jpg");
+                    }
+                    else
+                    {
+                        coverImage4.BackgroundImage = Image.FromFile(@"../../tracks/" + songs[i].getArtist() + "/" + songs[i].getAlbum() + "/" + songs[i].getAlbum() + ".jpg");
+                    }
+
+                    taken.Add(songs[i].getAlbum() + songs[i].getArtist());
+                }
+
+                i++;
+
+            }
         }
 
     }

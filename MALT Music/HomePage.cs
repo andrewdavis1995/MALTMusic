@@ -104,6 +104,8 @@ namespace MALT_Music
 
             viewPlaylist.TopLevel = false;
             viewPlaylist.Parent = this;
+            viewPlaylist.setupAlbumCovers();
+            viewPlaylist.setupLabels();
 
             viewPlaylist.FormBorderStyle = FormBorderStyle.None;
             viewPlaylist.Size = new Size(1130, 442);        
@@ -215,6 +217,7 @@ namespace MALT_Music
             playlists.createLabels();
             playlists.TopLevel = false;
             playlists.Parent = this;
+            playlists.createLabels();
             playlists.FormBorderStyle = FormBorderStyle.None;
             playlists.Show();
         }

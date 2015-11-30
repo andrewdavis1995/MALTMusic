@@ -121,7 +121,7 @@
             this.glassIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.glassIcon.Location = new System.Drawing.Point(242, 92);
             this.glassIcon.Name = "glassIcon";
-            this.glassIcon.Size = new System.Drawing.Size(27, 34);
+            this.glassIcon.Size = new System.Drawing.Size(33, 34);
             this.glassIcon.TabIndex = 29;
             this.glassIcon.TabStop = false;
             // 
@@ -210,7 +210,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1124, 457);
+            this.ClientSize = new System.Drawing.Size(1114, 457);
             this.Controls.Add(this.pnlPlaylists);
             this.Controls.Add(this.pnlOptions);
             this.Controls.Add(this.glassIcon);

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.lblTitle = new System.Windows.Forms.Label();
+            this.cmdCreatePlaylist = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -42,6 +43,16 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Playlists by User: ";
             // 
+            // cmdCreatePlaylist
+            // 
+            this.cmdCreatePlaylist.Location = new System.Drawing.Point(507, 92);
+            this.cmdCreatePlaylist.Name = "cmdCreatePlaylist";
+            this.cmdCreatePlaylist.Size = new System.Drawing.Size(120, 24);
+            this.cmdCreatePlaylist.TabIndex = 17;
+            this.cmdCreatePlaylist.Text = "Create Playlist";
+            this.cmdCreatePlaylist.UseVisualStyleBackColor = true;
+            this.cmdCreatePlaylist.Click += new System.EventHandler(this.cmdCreatePlaylist_Click);
+            // 
             // ViewUserPlaylists
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -49,10 +60,10 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1167, 451);
+            this.Controls.Add(this.cmdCreatePlaylist);
             this.Controls.Add(this.lblTitle);
             this.Name = "ViewUserPlaylists";
             this.Text = "ViewPlaylist";
-            this.Load += new System.EventHandler(this.ViewPlaylist_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -61,6 +72,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button cmdCreatePlaylist;
 
     }
 }

@@ -173,7 +173,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1330, 391);
+            this.ClientSize = new System.Drawing.Size(1111, 391);
             this.Controls.Add(this.pnlPlaylists);
             this.Controls.Add(this.pnlOptions);
             this.Controls.Add(this.pnlTopInfo);

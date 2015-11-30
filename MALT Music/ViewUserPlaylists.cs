@@ -23,11 +23,6 @@ namespace MALT_Music
             lblTitle.Text = "Playlists for User: " + this.currentUser;
         }
 
-        private void ViewPlaylist_Load(object sender, EventArgs e)
-        {
-            createLabels();
-        }
-
         public void createLabels() {
             PlaylistModel playlistModel = new PlaylistModel();
             playlists = playlistModel.getPlaylistsForUser(this.currentUser);
@@ -62,6 +57,18 @@ namespace MALT_Music
 
             //ViewPlaylist viewPlaylist = new ViewPlaylist(playlists[index]);
             //viewPlaylist.Show();
+        }
+
+        private void cmdCreatePlaylist_Click(object sender, EventArgs e)
+        {
+            String playlist = Microsoft.VisualBasic.Interaction.InputBox("Playlist Name: ", "Playlist Name");
+            Guid id = Guid.NewGuid();
+            List<Song> songs = new List<Song>();
+
+            Playlist newPlaylist = new Playlist(playlist, id, this.currentUser, songs);
+
+            PlaylistModel playlistModel = new PlaylistModel();
+            playlistModel.createPlaylist(newPlaylist);
         }
 
     }
