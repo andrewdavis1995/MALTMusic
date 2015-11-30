@@ -289,8 +289,6 @@ namespace MALT_Music.Models
             throw new NotImplementedException();
         }
 
-
-
         public void deletePlaylist(Playlist playlist)
         {
             throw new NotImplementedException();
@@ -300,7 +298,6 @@ namespace MALT_Music.Models
         {
             throw new NotImplementedException();
         }
-
 
         public int getListPos(ISession session, Guid tid, Guid pid)
         {
@@ -359,7 +356,6 @@ namespace MALT_Music.Models
                 return pos;
             }
         }
-
 
         // NOT SURE ABOUT THIS ONE - Facebook, Twitter, Email?
         public void sharePlaylist(Playlist playlist)

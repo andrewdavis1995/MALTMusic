@@ -90,6 +90,7 @@
     <Compile Include="Models\PlaylistModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\VoteModel.cs" />
     <Compile Include="MusicController.cs" />
     <Compile Include="frmMusicPlayer.cs">
       <SubType>Form</SubType>
