@@ -44,13 +44,13 @@
             this.lblPlay = new System.Windows.Forms.Label();
             this.tmrPlaylistDelay = new System.Windows.Forms.Timer(this.components);
             this.tmrOptionsDelay = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlSearchPlaylists = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlSongs.SuspendLayout();
             this.pnlArtists.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.glassIcon)).BeginInit();
             this.pnlOptions.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlSearchPlaylists.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSongs
@@ -207,15 +207,15 @@
             this.tmrOptionsDelay.Interval = 700;
             this.tmrOptionsDelay.Tick += new System.EventHandler(this.tmrOptionsDelay_Tick);
             // 
-            // panel1
+            // pnlSearchPlaylists
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(242, 399);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 115);
-            this.panel1.TabIndex = 29;
+            this.pnlSearchPlaylists.AutoScroll = true;
+            this.pnlSearchPlaylists.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pnlSearchPlaylists.Controls.Add(this.label1);
+            this.pnlSearchPlaylists.Location = new System.Drawing.Point(242, 399);
+            this.pnlSearchPlaylists.Name = "pnlSearchPlaylists";
+            this.pnlSearchPlaylists.Size = new System.Drawing.Size(800, 115);
+            this.pnlSearchPlaylists.TabIndex = 29;
             // 
             // label1
             // 
@@ -234,8 +234,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1114, 457);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1095, 411);
+            this.Controls.Add(this.pnlSearchPlaylists);
             this.Controls.Add(this.pnlPlaylists);
             this.Controls.Add(this.pnlOptions);
             this.Controls.Add(this.glassIcon);
@@ -250,8 +250,8 @@
             this.pnlArtists.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.glassIcon)).EndInit();
             this.pnlOptions.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlSearchPlaylists.ResumeLayout(false);
+            this.pnlSearchPlaylists.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,7 +274,7 @@
         private System.Windows.Forms.Label lblPlay;
         private System.Windows.Forms.Timer tmrPlaylistDelay;
         private System.Windows.Forms.Timer tmrOptionsDelay;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlSearchPlaylists;
         private System.Windows.Forms.Label label1;
     }
 }
