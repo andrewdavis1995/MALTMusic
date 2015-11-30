@@ -32,8 +32,6 @@ namespace MALT_Music.Models
             }
         }
 
-
-
         public void setImage(String filepath, String username)
         {
             //filepath = ("../../tracks/nigeBatman.png");
@@ -52,22 +50,25 @@ namespace MALT_Music.Models
             //Guid pic_id = new Guid();
             //pic_id = Guid.NewGuid();
 
-            String todo = "insert into images (image, user_id, timeadded ,imagelength) values(:im,:uid,:time,:len) if not exists";
-
             init();
             ISession session = cluster.Connect("maltmusic");
+ 
+            String firstStatement = "delete from images where user_id = :uid";
+            PreparedStatement preps = session.Prepare(firstStatement);
+            BoundStatement bound = preps.Bind(username);
+            session.Execute(bound);
 
             //String user_id = "adminstuff";
 
             DateTime theTime;
             theTime = DateTime.Now;
 
+            String todo = "insert into images (image, user_id, timeadded ,imagelength) values(:im,:uid,:time,:len) if not exists";
             PreparedStatement ps = session.Prepare(todo);
             BoundStatement bs = ps.Bind(bytes, username, theTime, length);
 
             session.Execute(bs);
         }
-
         public Image getImage(String username)
         {
             init();
@@ -95,5 +96,6 @@ namespace MALT_Music.Models
             }
             return null;
         }
+
     }
 }
