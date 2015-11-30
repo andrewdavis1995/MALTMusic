@@ -211,17 +211,37 @@ namespace MALT_Music.Models
         }
 
         // Remove a Vote
-        public void removeAVote(String User, Guid tid)
+        public void removeAVote(String user, Guid tid, int lastVote)
         {
             init();
             ISession session = cluster.Connect("maltmusic");
-        
+
+            // Prepare and bind statement
+            String todo = ("delete from user_votes where voter = :vtr and track_id = :tid");
+            PreparedStatement ps = session.Prepare(todo);
+
+            BoundStatement bs = ps.Bind(user, tid);
+            // Execute Query
+            session.Execute(bs);
+
+            if(lastVote==1)
+            {
+                //Decrement vote
+                String things = ("update votecount set upvotes = upvotes -1 where track_id = :tid");
+                PreparedStatement preps = session.Prepare(things);
+                BoundStatement bound = preps.Bind(tid);
+                // Execute Query
+                session.Execute(bound);
+            }
+            else if(lastVote == -1)
+            {
+                //Increment vote
+                String things = ("update votecount set downvotes = downvotes +1 where track_id = :tid");
+                PreparedStatement preps = session.Prepare(things);
+                BoundStatement bound = preps.Bind(tid);
+                // Execute Query
+                session.Execute(bound);
+            }
         }
-
-
-        // update a vote - Call remove then do
-        
-
-
     }
 }

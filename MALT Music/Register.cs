@@ -56,6 +56,14 @@ namespace MALT_Music
                 if (success)
                 {
                     this.Close();
+
+
+                    //Set the parent to be login
+                   // Login parent = (Login)this.Parent;
+
+                    //Call the method to show
+                    //parent.showForm();
+
                 }
             }
 
