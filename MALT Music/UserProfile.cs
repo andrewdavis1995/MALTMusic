@@ -156,7 +156,12 @@ namespace MALT_Music
                     //Set image location to be the loading one
                     picBoxProfilePic.ImageLocation = filename;
 
-                    //This is where we put it into the database. MAAAAAATTTTTTT
+                    //This is where we put it into the database
+                    PicModel insert = new PicModel();
+
+                    //Call PicModel's insert image
+                    insert.setImage(filename);
+                    //insert.setImage(filename, currentUser.getUsername());
 
                     //Set the parent to be the home page
                     HomePage parent = (HomePage)this.Parent;

@@ -270,6 +270,7 @@ namespace MALT_Music
         {
             //Get the image from the database
 
+
             //Set it to be the image inside picBoxProfPicThumb
         }
 
