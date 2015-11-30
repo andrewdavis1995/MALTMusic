@@ -93,9 +93,9 @@ namespace MALT_Music.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icon_profile {
+        internal static System.Drawing.Bitmap iconprofile {
             get {
-                object obj = ResourceManager.GetObject("icon-profile", resourceCulture);
+                object obj = ResourceManager.GetObject("iconprofile", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,26 +173,7 @@ namespace MALT_Music.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Music_Treble_Clef_icon {
-            get {
-                object obj = ResourceManager.GetObject("Music-Treble-Clef-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap recommendIcon {
-            get {
-                object obj = ResourceManager.GetObject("recommendIcon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
+
         internal static System.Drawing.Bitmap small_cross {
             get {
                 object obj = ResourceManager.GetObject("small_cross", resourceCulture);

@@ -165,6 +165,63 @@ namespace MALT_Music.Models
             }
         }
 
+        // Get all votes by a user - Return = Guid tid and howvoted
+        public List<UserVote> getVotesByUser(String username)
+        {
+            List<UserVote> theVotes = new List<UserVote>();
+
+            // Call to initialise cluster connection
+            init();
+
+            // Connect to cluster
+            ISession session = cluster.Connect("maltmusic");
+
+            // Prepare and bind statement
+            String todo = ("select track_id,howvoted from user_votes where voter = :vtr ALLOW FILTERING;");
+            PreparedStatement ps = session.Prepare(todo);
+            
+            BoundStatement bs = ps.Bind(username);
+            // Execute Query
+            RowSet rows = session.Execute(bs);
+            foreach (Row r in rows)
+            {
+                Guid tid = (Guid)r["track_id"];
+                String how = (String)r["howvoted"];
+                int upOrDown=0;
+
+                if(how.Equals("up"))
+                {
+                    upOrDown = 1;
+                }
+                else if (how.Equals("down"))
+                {
+                    upOrDown = -1;
+                }
+                else
+                {
+                    Console.WriteLine("Some form of error in get how voted");
+                    //Somethings wrong
+                    //Should never reach here
+                }
+
+                UserVote toadd = new UserVote(tid, upOrDown);
+                theVotes.Add(toadd);
+            }
+            return theVotes;
+        }
+
+        // Remove a Vote
+        public void removeAVote(String User, Guid tid)
+        {
+            init();
+            ISession session = cluster.Connect("maltmusic");
+        
+        }
+
+
+        // update a vote - Call remove then do
+        
+
 
     }
 }

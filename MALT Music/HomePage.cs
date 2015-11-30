@@ -269,8 +269,16 @@ namespace MALT_Music
         public void loadProfilePicHome()
         {
             //Get the image from the database
+            PicModel getImg = new PicModel();
+            Image target = getImg.getImage(currentUser.getUsername());
 
             //Set it to be the image inside picBoxProfPicThumb
+            picBoxProfPicThumb.Image = target;
+
+            if (target == null)
+            {
+                picBoxProfPicThumb.Image = Properties.Resources.iconprofile;
+            }
         }
 
     }

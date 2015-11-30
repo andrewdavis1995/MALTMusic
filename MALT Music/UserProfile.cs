@@ -156,7 +156,11 @@ namespace MALT_Music
                     //Set image location to be the loading one
                     picBoxProfilePic.ImageLocation = filename;
 
-                    //This is where we put it into the database. MAAAAAATTTTTTT
+                    //This is where we put it into the database
+                    PicModel insert = new PicModel();
+
+                    //Call PicModel's insert image
+                    insert.setImage(filename, currentUser.getUsername());
 
                     //Set the parent to be the home page
                     HomePage parent = (HomePage)this.Parent;
@@ -171,9 +175,6 @@ namespace MALT_Music
                     Console.WriteLine("Error occured on things " + IOException);
                 }
 
-
-
-
             }
         }
 
@@ -186,6 +187,17 @@ namespace MALT_Music
         private void loadProfilePic()
         {
             //MAAAAAATTTTTTT
+            //Get the image from the database
+            PicModel getImg = new PicModel();
+            Image target = getImg.getImage(currentUser.getUsername());
+
+            //Set it to be the image inside picBoxProfilePic
+            picBoxProfilePic.Image = target;
+
+            if (target == null)
+            {
+                picBoxProfilePic.Image = Properties.Resources.iconprofile;
+            }
         }
 
     }

@@ -160,7 +160,7 @@
             // picBoxProfPicThumb
             // 
             this.picBoxProfPicThumb.BackColor = System.Drawing.Color.LightGray;
-            this.picBoxProfPicThumb.Image = global::MALT_Music.Properties.Resources.icon_profile;
+            this.picBoxProfPicThumb.Image = global::MALT_Music.Properties.Resources.iconprofile;
             this.picBoxProfPicThumb.Location = new System.Drawing.Point(11, 9);
             this.picBoxProfPicThumb.Name = "picBoxProfPicThumb";
             this.picBoxProfPicThumb.Size = new System.Drawing.Size(50, 50);
