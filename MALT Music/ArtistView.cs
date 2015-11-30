@@ -251,6 +251,8 @@ namespace MALT_Music
                             }
                             break;
                         }
+                        upvote.BackgroundImage = Properties.Resources.upvote;
+                        downvote.BackgroundImage = Properties.Resources.downvote;
                     }
 
 
@@ -383,9 +385,9 @@ namespace MALT_Music
             if (index > -1) 
             {
                 VoteModel vm = new VoteModel();
-                if (upvoteButtons[x][y].BackgroundImage == Properties.Resources.upvoted)
+                if (upvoteButtons[x][y].BackgroundImage.Equals(Properties.Resources.upvoted))
                 {
-                    vm.removeAVote(this.currentUser.getUsername(), songs[index], 1);
+                    vm.removeAVote(this.currentUser.getUsername(), songs[index].getSongID(), 1);
                 }
                 else
                 {
@@ -428,9 +430,9 @@ namespace MALT_Music
             if (index > -1)
             {
                 VoteModel vm = new VoteModel();
-                if (downvoteButtons[x][y].BackgroundImage == Properties.Resources.downvoted)
+                if (downvoteButtons[x][y].BackgroundImage.Equals(Properties.Resources.downvoted))
                 {
-                    vm.removeAVote(this.currentUser.getUsername(), songs[index], -1);
+                    vm.removeAVote(this.currentUser.getUsername(), songs[index].getID(), -1);
                 }
                 else
                 {
