@@ -103,10 +103,12 @@ namespace MALT_Music
         /// <summary>
         /// Updates the file path to the passed song
         /// </summary>
-        /// <param name="pathName">The location of the path</param>
-        public void setSongPath(string pathName)
+        /// <param name="songPath">The location of the song</param>
+        /// <param name="imagePath">The location of the album art</param>
+        public void setSongPath(string songPath, string imagePath)
         {
-            lblFileName.Text = pathName;
+            lblFileName.Text = songPath;
+            picBoxAlbumArt.ImageLocation = imagePath;
         }
 
         /// <summary>
