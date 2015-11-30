@@ -41,6 +41,16 @@ namespace MALT_Music.DataObjects
             this.bio = bio;
         }
 
+        public User(String username, String firstName, String surname, String email)
+        {
+            this.username = username;
+            //this.password = password;
+            this.first_name = firstName;
+            this.last_name = surname;
+            this.email = email;
+            //this.bio = bio;
+        }
+
         /*
          * @PARAMETERS: none
          * @AUTHOR: Andrew Davis
