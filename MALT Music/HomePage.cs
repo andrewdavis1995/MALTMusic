@@ -167,6 +167,11 @@ namespace MALT_Music
             Thread artistThread = new Thread(() => { artists = songModel.searchArtists(searchText.ToLower()); });
             artistThread.Start();
 
+            //Populate artist list with artists that fir the criteria
+            List<Playlist> playlists = new List<Playlist>();
+            Thread playlistThread = new Thread(() => { playlists = songModel.searchArtists(searchText.ToLower()); });
+            playlistThread.Start();
+
             //Join threads
             songThread.Join();
             artistThread.Join();
