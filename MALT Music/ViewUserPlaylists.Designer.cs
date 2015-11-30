@@ -58,7 +58,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
             this.ClientSize = new System.Drawing.Size(1167, 451);
             this.Controls.Add(this.cmdCreatePlaylist);
             this.Controls.Add(this.lblTitle);

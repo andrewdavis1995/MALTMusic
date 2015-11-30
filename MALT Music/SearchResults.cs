@@ -76,12 +76,15 @@ namespace MALT_Music
                 newLabelSongName.MouseLeave += leaveEvent;
 
 
-                Label newLabelSongArtist = new Label();
+                LinkLabel newLabelSongArtist = new LinkLabel();
                 newLabelSongArtist.Text = songList[i].getArtist();
                 newLabelSongArtist.Size = new Size(196, 30);
                 newLabelSongArtist.Location = new Point(309, (20 + (i * 32)));
                 newLabelSongArtist.TextAlign = ContentAlignment.MiddleLeft;
                 newLabelSongArtist.ForeColor = Color.White;
+                newLabelSongArtist.LinkColor = Color.White;
+                newLabelSongArtist.VisitedLinkColor = Color.White;
+                newLabelSongArtist.LinkBehavior = LinkBehavior.HoverUnderline;
                 newLabelSongArtist.UseMnemonic = false;   // & symbol thing
                 if (i % 2 == 0) { newLabelSongArtist.BackColor = Color.FromArgb(60, 60, 60); } else { newLabelSongArtist.BackColor = Color.FromArgb(90, 90, 90); }
                 newLabelSongArtist.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -90,6 +93,7 @@ namespace MALT_Music
                 newLabelSongArtist.Click += clickEvent;
                 newLabelSongArtist.MouseEnter += hoverEvent;
                 newLabelSongArtist.MouseLeave += leaveEvent;
+                newLabelSongArtist.LinkClicked += goToArtist;
 
 
                 Label newLabelSongAlbum = new Label();
@@ -209,6 +213,27 @@ namespace MALT_Music
             pnlArtists.Controls.Add(endLabel2);
             
         }
+
+
+        private void goToArtist(object sender, EventArgs e) 
+        {
+            LinkLabel theLabel = (LinkLabel)sender;
+            String artist = theLabel.Text;
+
+            pnlOptions.Visible = false;
+            pnlPlaylists.Visible = false;
+
+            SongModel songModel = new SongModel();
+            List<Song> songsForArtist = songModel.getSongsByArtist(artist);
+
+            //Set the parent to be the home page
+            HomePage parent = (HomePage)this.Parent;
+
+            //Call the method in parent to open artist window, passing data back
+            parent.artistSelected(artist, songsForArtist);
+            
+        }
+
 
         public void resetSearch() 
         {
