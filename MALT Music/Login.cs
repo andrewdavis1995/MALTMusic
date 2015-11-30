@@ -17,6 +17,8 @@ namespace MALT_Music
 {
     public partial class Login : Form
     {
+        Register registration;
+
         /*
          * CONSTRUCTOR
          * AUTHOR: Andrew Davis
@@ -27,6 +29,7 @@ namespace MALT_Music
             keyspaces keys = new keyspaces();
             Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
             keyspaces.SetUpKeySpaces(cluster);
+            registration = new Register();
             keys.populateTracks();
         }
 
@@ -138,8 +141,8 @@ namespace MALT_Music
 
         private void cmdRegister_Click(object sender, EventArgs e)
         {
-            Register registration = new Register();
-            registration.Show();
+            registration.ShowDialog();
+            //showForm();
         }
 
         private void cmdSkipLogin_Click(object sender, EventArgs e)
@@ -238,6 +241,11 @@ namespace MALT_Music
             artistView.createAlbums();
 
             artistView.Show();
+        }
+
+        public void showForm()
+        {
+            this.WindowState = FormWindowState.Normal;
         }
 
         /*
