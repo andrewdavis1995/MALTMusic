@@ -787,8 +787,9 @@ namespace MALT_Music
                 songLabelsD[selectedSong].BackColor = Color.FromArgb(255, 50, 50);
 
                 String filePath = songList[selectedSong].getFileLocation();
+                String imagePath = "../../tracks/" + songList[selectedSong].getArtist() + "/" + songList[selectedSong].getAlbum() + "/" + songList[selectedSong].getAlbum() + ".jpg";
                 musicPlayer.stopSong();
-                musicPlayer.setSongPath(@"" + filePath);
+                musicPlayer.setSongPath(@"" + filePath, imagePath);
                 musicPlayer.playCurrentSong();
             }
 
