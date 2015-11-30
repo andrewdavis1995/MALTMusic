@@ -165,7 +165,7 @@ namespace MALT_Music.Models
             }
         }
 
-
+        // Get all votes by a user - Return = Guid tid and howvoted
         public List<UserVote> getVotesByUser(String username)
         {
             List<UserVote> theVotes = new List<UserVote>();
@@ -211,8 +211,16 @@ namespace MALT_Music.Models
         }
 
         // Remove a Vote
+        public void removeAVote(String User, Guid tid)
+        {
+            init();
+            ISession session = cluster.Connect("maltmusic");
+        
+        }
+
+
         // update a vote - Call remove then do
-        // Get all votes by a user - Return = Guid tid and howvoted
+        
 
 
     }

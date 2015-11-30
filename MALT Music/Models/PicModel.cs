@@ -7,6 +7,8 @@ using System.IO;
 using Cassandra;
 using MALT_Music.DataObjects;
 using MALT_Music.lib;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace MALT_Music.Models
 {
@@ -32,9 +34,9 @@ namespace MALT_Music.Models
 
 
 
-        public void setImage(String filepath)
+        public void setImage(String filepath, String username)
         {
-            filepath = ("../../tracks/nigeBatman.png");
+            //filepath = ("../../tracks/nigeBatman.png");
             FileStream fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
             byte[] b = new byte[fileStream.Length + 1];
             int length = b.Length;
@@ -50,22 +52,23 @@ namespace MALT_Music.Models
             //Guid pic_id = new Guid();
             //pic_id = Guid.NewGuid();
 
-            String todo = "insert into images (image, user_id, timeadded ,imagelength) values(:im,:uid,:time,:len)";
+            String todo = "insert into images (image, user_id, timeadded ,imagelength) values(:im,:uid,:time,:len) if not exists";
 
             init();
             ISession session = cluster.Connect("maltmusic");
-            String user_id = "adminstuff";
+
+            //String user_id = "adminstuff";
 
             DateTime theTime;
             theTime = DateTime.Now;
 
             PreparedStatement ps = session.Prepare(todo);
-            BoundStatement bs = ps.Bind(bytes, user_id, theTime, length);
+            BoundStatement bs = ps.Bind(bytes, username, theTime, length);
 
             session.Execute(bs);
         }
 
-        public byte[] getImage(String username)
+        public Image getImage(String username)
         {
             init();
             ISession session = cluster.Connect("maltmusic");
@@ -78,48 +81,19 @@ namespace MALT_Music.Models
 
             foreach (Row row in rs)
             {
-                byte[] bytethings = (byte[])row["image"];
-                return bytethings;
+                byte[] byteArrayIn = (byte[])row["image"];
+
+                if (byteArrayIn != null)
+                {
+                    Image img = null;
+                    using (MemoryStream ms = new MemoryStream(byteArrayIn))
+                    {
+                        img = Image.FromStream(ms);
+                    }
+                    return img;
+                }
             }
-
-
             return null;
-
-
-
-            ///////NNNNEEEEEEEEEEEEEEEEEEEEEEDDDDD ALLLLLLLL THIS
-            /*   private void button1_Click(object sender, EventArgs e)
-                    {
-                        //Need to get string filepath for this
-                        //String filepath = "something.png";
-                        PicModel pm = new PicModel();
-                        pm.setImage(filepath);
-                    }
-
-                    private void button2_Click(object sender, EventArgs e)
-                    {
-                        String filePath = @"../../tracks/nigeBatman.png";
-                        byte[] byteArrayIn = System.IO.File.ReadAllBytes(filePath);
-
-                         if (byteArrayIn != null)
-                         {
-                             Image img = null;
-                             using (MemoryStream ms = new MemoryStream(byteArrayIn))
-                             {
-                                 img = Image.FromStream(ms);
-                             }
-                             //return returnImage;
-                             plezoutput.BackgroundImage = img;
-                         }
-                         else {
-                             MessageBox.Show("Error in image retrieval ");
-                         }
-                    }
-                            }*/
-
-
         }
-
-
     }
 }
