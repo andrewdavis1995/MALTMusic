@@ -319,7 +319,10 @@ namespace MALT_Music
                 //Convert to string for use in method
                 String newPlaylistName = txtPlaylistNameEdit.Text;
 
-                //TODO: Update playlistname in database
+                //Update playlistname in database
+                PlaylistModel playlistModel = new PlaylistModel();
+
+                playlistModel.renamePlaylist(thePlaylist, newPlaylistName);
 
                 //Hide textbox
                 txtPlaylistNameEdit.Hide();
