@@ -1,0 +1,15 @@
+TO DO:
+
+Add more songs									-	LEWIS
+Delete Playlists									-	MATT (Back end), ANDREW (Front end)
+Rename Playlists									-	MATT (Back end), LEWIS (Front end) - same as change Bio on profile page
+Remove song from playlist					-	MATT (Back end), ANDREW (Front end)
+Recommend songs based on playlist	-	ANDREW
+
+
+TIME PERMITTING:
+
+Weather Playlist generation				-	ANDREW
+Age Restriction
+Save Playlists
+Follow Playlist
