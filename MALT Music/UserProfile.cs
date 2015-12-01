@@ -101,7 +101,6 @@ namespace MALT_Music
 
                 //Do the database update
                 model.updateDetails(currentUser.getUsername(), txtFirstName.Text, txtLastName.Text, txtEmail.Text);
-                //MAAAAAAAAAAAAATTTTTTTTTTTTTTTTTTTTTTTTTTT
                 MessageBox.Show(result.getError());
             }
             
@@ -186,7 +185,6 @@ namespace MALT_Music
 
         private void loadProfilePic()
         {
-            //MAAAAAATTTTTTT
             //Get the image from the database
             PicModel getImg = new PicModel();
             Image target = getImg.getImage(currentUser.getUsername());

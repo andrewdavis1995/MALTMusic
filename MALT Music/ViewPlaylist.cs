@@ -37,6 +37,9 @@ namespace MALT_Music
             this.thePlaylist = playlist;
             lblPlaylistName.Text = thePlaylist.getPlaylistName();
             lblOwner.Text = thePlaylist.getOwner();
+            
+            //Initially hide edit box
+            txtPlaylistNameEdit.Hide();
 
             List<Song> songs = thePlaylist.getSongs();
             int numSongs = thePlaylist.getSongs().Count;
@@ -279,6 +282,39 @@ namespace MALT_Music
             }
 
             pnlOptions.Visible = false;
+        }
+
+        //On clicking the playlist name, allow user to edit it
+        private void lblPlaylistName_Click(object sender, EventArgs e)
+        {
+            //Set contents of edit box to playlist name
+            txtPlaylistNameEdit.Text = lblPlaylistName.Text;
+
+            //Display edit box
+            txtPlaylistNameEdit.Show();
+        }
+
+        //When leaving mouse hover of edit box, save
+        private void txtPlaylistNameEdit_MouseLeave(object sender, EventArgs e)
+        {
+            //Get new name
+            if (txtPlaylistNameEdit.Text != "")
+            {
+                //Update text for user
+                lblPlaylistName.Text = txtPlaylistNameEdit.Text;
+
+                //Convert to string for use in method
+                String newPlaylistName = txtPlaylistNameEdit.Text;
+
+                //TODO: Update playlistname in database
+
+                //Hide textbox
+                txtPlaylistNameEdit.Hide();
+            }
+            else
+            {
+                //Do nothing
+            }
         }
 
     }
