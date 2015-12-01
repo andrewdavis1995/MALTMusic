@@ -1,21 +1,23 @@
 TO DO:
 
-Add more songs									-	LEWIS
-Delete Playlists									-	MATT (Back end), ANDREW (Front end)
-Rename Playlists									-	MATT (Back end), LEWIS (Front end) - same as change Bio on profile page
-Remove song from playlist					-	MATT (Back end), ANDREW (Front end)
-Recommend songs based on playlist	-	ANDREW
-Save Playlists										-	MATT (Back end), ANDREW (Front end) - maybe Lewis
-Comment Code									-	Mainly MATT AND ANDREW
-Try-Catches											-	ALL
-Speed up playlist list load					-	MATT
-Home Page 											-	SOMEONE
-Loading wheel for background			-	SOMEONE
-Add to Playlist from Current Playlist	-	ANDREW
+Add more songs										-	ALL
+Delete Playlists										-	MATT (Back end), ANDREW (Front end)
+Re-display Playlists after song remove	-	ANDREW
+Recommend songs based on playlist		-	ANDREW
+Save Playlists											-	MATT (Back end), ANDREW (Front end) 
+Try-Catches												-	ALL
+Home Page 												-	SOMEONE
+Loading wheel for background				-	SOMEONE
+Add to Playlist from Current Playlist			-	ANDREW
+Functioning Music Player 							-	TRISTAN
+Otto-Pleh													-	TRISTAN
 
 
 TIME PERMITTING:
 
-Weather Playlist generation				-	ANDREW
+Weather Playlist generation					-	ANDREW
 Age Restriction
+Speed up playlist list load						-	MATT
 Follow Playlist
+
+Comment Code										-	Mainly MATT AND ANDREW
