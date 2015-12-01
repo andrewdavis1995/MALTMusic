@@ -126,9 +126,6 @@ namespace MALT_Music.Models
                         artists.Add(toadd);
                     }
                    
-
-
-                    
                 }
 
                 return artists;
@@ -239,6 +236,50 @@ namespace MALT_Music.Models
             {
                 Console.WriteLine("SOMETHING WENT WRONG in GET Album BY ARTIST: " + e);
                 return albums;
+            }
+        }
+
+        public List<Song> getAllSongs()
+        {
+            List<Song> songs = new List<Song>();
+            try
+            {
+                // Call to initialise cluster connection
+                init();
+                // Connect to cluster
+                ISession session = cluster.Connect("maltmusic");
+
+                // Prepare and bind statement
+                String todo = ("SELECT * FROM tracks");
+                PreparedStatement ps = session.Prepare(todo);
+                BoundStatement bs = ps.Bind();
+                // Execute Query
+                RowSet rows = session.Execute(bs);
+                foreach (Row r in rows)
+                {
+                    String artist = r["artist"].ToString();
+                    String trackName = r["track_name"].ToString();
+                    Guid id = (Guid)r["track_id"];
+                    String album = r["album"].ToString();
+                    String fileLocation = r["file_loc"].ToString();
+                    int year = (int)r["year"];
+                    int length = (int)r["length"];
+                    String genre = r["genre"].ToString();
+
+                    Song theSong = new Song(artist, album, year, genre, fileLocation, length, trackName, id);
+
+                    songs.Add(theSong);
+                    
+                }
+
+                return songs;
+
+                // Catch exceptions
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("SOMETHING WENT WRONG in GET Album BY ARTIST: " + e);
+                return songs;
             }
         }
 

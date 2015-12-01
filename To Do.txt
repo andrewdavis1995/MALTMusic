@@ -11,6 +11,7 @@ Try-Catches											-	ALL
 Speed up playlist list load					-	MATT
 Home Page 											-	SOMEONE
 Loading wheel for background			-	SOMEONE
+Add to Playlist from Current Playlist	-	ANDREW
 
 
 TIME PERMITTING:
