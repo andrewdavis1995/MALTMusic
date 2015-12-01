@@ -14,14 +14,14 @@ namespace MALT_Music
 {
     public partial class ArtistView : Form
     {
-
+        //Initialise user, artist, song list
         private User currentUser;
-
         private String artistName;
         private List<Song> songs;
 
         String selectedSong;
 
+        //Lists necessary for songs and votes
         List<List<Label>> songLabelsName = new List<List<Label>>();
         List<List<Label>> songLabelsLength = new List<List<Label>>();
         List<List<PictureBox>> upvoteButtons = new List<List<PictureBox>>();
@@ -39,6 +39,7 @@ namespace MALT_Music
 
         public ArtistView(User currentUser, frmMusicPlayer mscPl)
         {
+            //Set user and music player upon initialise
             this.currentUser = currentUser;
             this.musicPlayer = mscPl;
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace MALT_Music
 
         public void setupVariables(String artist, List<Song> songs)
         {
+            //Set artist details including song list
             this.songs = songs;
             this.artistName = artist;
             lblArtistName.Text = artist;
@@ -54,15 +56,19 @@ namespace MALT_Music
             addPlaylistLabels();
         }
 
+        //Set up the playlists for user to add songs to
         public void setUsersPlaylists(List<Playlist> lp)
         {
             this.usersPlaylists = lp;
         }
 
+        //Adding labels for user to select playlist
         public void addPlaylistLabels()
         {
             if (usersPlaylists.Count > 0)
             {
+                //For each playlist, add a new label for it
+                //Drawing has to be done dynamically
                 for (int i = 0; i < usersPlaylists.Count; i++)
                 {
                     Label newLabel = new Label();
@@ -83,6 +89,7 @@ namespace MALT_Music
                     pnlPlaylists.Controls.Add(playlistLabels[i]);
                 }
             }
+            //In case user hasn't made any playlists yet
             else
             {
                 Label newLabel = new Label();
@@ -98,6 +105,9 @@ namespace MALT_Music
             }
         }
 
+        /// <summary>
+        ///Artist album lists
+        /// </summary>
         public void createAlbums()
         {
             List<Album> albums = sortIntoAlbums();
@@ -285,20 +295,25 @@ namespace MALT_Music
 
         }
 
+        //Method to display up/downvote ratio in coloured picturebox
         private PictureBox createVotePercentage(PictureBox voteDisplayBox, int j) 
         {
+            //Create a new votemodel and get that track's votes
             VoteModel vm = new VoteModel();
             Vote vote = vm.getVotesForTrack(songs[j].getSongID());
 
+            //Calculate pecentage downvotes
             int ups = vote.getUpVotes();
             int downs = vote.getDownVotes();
             float percent = (float)downs / ((float)ups + (float)downs) * 100;
 
+            //If the float is actually a number...
             if (!float.IsNaN(percent))
             {
                 // Do the popularity label thing here
                 // **********************************
-                
+ 
+                //Create vote box with red and green
 
                 int pbUnit = voteDisplayBox.Width / 100;
 
@@ -313,6 +328,8 @@ namespace MALT_Music
             }
             else 
             {
+                //If there's no votes, just draw a gray rectangle
+
                 Bitmap bmp = new Bitmap(voteDisplayBox.Width, voteDisplayBox.Height);
                 Graphics g;
                 g = Graphics.FromImage(bmp);
@@ -357,6 +374,7 @@ namespace MALT_Music
 
         }
 
+        //When the user hovers over a playlist change the background colour
         private void playlistHover(object sender, EventArgs e)
         {
             Label theLabel = (Label)sender;
@@ -365,6 +383,8 @@ namespace MALT_Music
             playlistLabels[id].BackColor = Color.DodgerBlue;
 
         }
+
+        //Method to perform an upvote
         private void doUpvote(object sender, EventArgs e)
         {
             PictureBox theLabel = (PictureBox)sender;
@@ -421,6 +441,7 @@ namespace MALT_Music
             }
         }
 
+        //Method to perform a downvote
         private void doDownvote(object sender, EventArgs e)
         {
             // Get the tag for which button was clicked
@@ -481,6 +502,7 @@ namespace MALT_Music
 
         }
 
+        //When the user hovers away from a playlist
         private void playlistLeave(object sender, EventArgs e)
         {
             Label theLabel = (Label)sender;
@@ -490,9 +512,10 @@ namespace MALT_Music
 
         }
 
-
+        //Adding song to playlist
         private void addSongToPlaylist(object sender, EventArgs e)
         {
+            //Get the playlist
             int playListIndex;
 
             Label theLabel = (Label)sender;
@@ -517,6 +540,7 @@ namespace MALT_Music
                 }
             }
 
+            //This part does the actual adding
             if (toAdd.getTrackName() != null && toAdd.getTrackName() != "")
             {
                 PlaylistModel playlistModel = new PlaylistModel();
@@ -529,6 +553,7 @@ namespace MALT_Music
 
         }
 
+        //On click, set selected song
         private void clickEvent(object sender, System.EventArgs e)
         {
             Label theLabel = (Label)sender;
@@ -561,11 +586,12 @@ namespace MALT_Music
             lblAddToPlaylist.BackColor = Color.FromArgb(40, 40, 40);
         }
         
-
+        //Plays the song the user selected
         private void lblPlay_Click(object sender, EventArgs e)
         {
             Song toAdd = new Song();
 
+            //Parse song
             String[] tmp = selectedSong.Split(',');
             int x = int.Parse(tmp[0]);
             int y = int.Parse(tmp[1]);
@@ -583,11 +609,14 @@ namespace MALT_Music
 
             if (toAdd.getTrackName() != null && toAdd.getTrackName() != "")
             {
-
-
+                //Stop currently playing song
                 String filePath = toAdd.getFileLocation();
                 musicPlayer.stopSong(); 
+
+                //Load album art
                 String imagePath = "../../tracks/" + toAdd.getArtist() + "/" + toAdd.getAlbum() + "/" + toAdd.getAlbum() + ".jpg";
+
+                //Send song to music player
                 musicPlayer.setSongPath(@"" + filePath, imagePath);
                 musicPlayer.playCurrentSong();
 
@@ -596,19 +625,21 @@ namespace MALT_Music
 
         }
 
-
+        //Hover play option
         private void lblPlay_Enter(object sender, EventArgs e)
         {
             lblPlay.BackColor = Color.DodgerBlue;
             pnlPlaylists.Visible = false;
         }
 
+        //Leave hover play option
         private void lblPlay_Leave(object sender, EventArgs e)
         {
             tmrOptionsDelay.Start();
             lblPlay.BackColor = Color.FromArgb(40, 40, 40);
         }
 
+        //Timer tick
         private void tmrOptionsDelay_Tick(object sender, EventArgs e)
         {
             pnlOptions.Visible = false;

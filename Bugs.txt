@@ -5,4 +5,3 @@ Stop then Stop										-	TRISTAN
 Blue images and pop up menu (all)			-	ANDREW
 Autoplay from 'Play' - not working			-	TRISTAN
 Various bugs after creating new Playlist	-	ANDREW
-Profile Pic icon doesn't link to Profile		-	LEWIS
