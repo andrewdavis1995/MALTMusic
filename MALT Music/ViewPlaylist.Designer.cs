@@ -42,6 +42,7 @@
             this.coverImage3 = new System.Windows.Forms.PictureBox();
             this.coverImage2 = new System.Windows.Forms.PictureBox();
             this.coverImage1 = new System.Windows.Forms.PictureBox();
+            this.txtPlaylistNameEdit = new System.Windows.Forms.TextBox();
             this.pnlOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picRecommend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverImage4)).BeginInit();
@@ -60,6 +61,7 @@
             this.lblPlaylistName.Size = new System.Drawing.Size(237, 37);
             this.lblPlaylistName.TabIndex = 4;
             this.lblPlaylistName.Text = "PLAYLIST NAME";
+            this.lblPlaylistName.Click += new System.EventHandler(this.lblPlaylistName_Click);
             // 
             // lblOwner
             // 
@@ -202,6 +204,15 @@
             this.coverImage1.TabIndex = 0;
             this.coverImage1.TabStop = false;
             // 
+            // txtPlaylistNameEdit
+            // 
+            this.txtPlaylistNameEdit.Font = new System.Drawing.Font("Franklin Gothic Medium", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlaylistNameEdit.Location = new System.Drawing.Point(265, 85);
+            this.txtPlaylistNameEdit.Name = "txtPlaylistNameEdit";
+            this.txtPlaylistNameEdit.Size = new System.Drawing.Size(230, 44);
+            this.txtPlaylistNameEdit.TabIndex = 37;
+            this.txtPlaylistNameEdit.MouseLeave += new System.EventHandler(this.txtPlaylistNameEdit_MouseLeave);
+            // 
             // ViewPlaylist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,6 +220,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1094, 442);
+            this.Controls.Add(this.txtPlaylistNameEdit);
             this.Controls.Add(this.picRecommend);
             this.Controls.Add(this.pnlPlaylists);
             this.Controls.Add(this.pnlOptions);
@@ -249,5 +261,6 @@
         private System.Windows.Forms.Label lblAddToPlaylist;
         private System.Windows.Forms.Label lblPlay;
         private System.Windows.Forms.PictureBox picRecommend;
+        private System.Windows.Forms.TextBox txtPlaylistNameEdit;
     }
 }
