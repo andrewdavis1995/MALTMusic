@@ -34,7 +34,6 @@
             this.lblFileName = new System.Windows.Forms.Label();
             this.tmrTracker = new System.Windows.Forms.Timer(this.components);
             this.grpRepeat = new System.Windows.Forms.GroupBox();
-            this.rbnAndrewIsA = new System.Windows.Forms.RadioButton();
             this.rbnPlaylist = new System.Windows.Forms.RadioButton();
             this.rbnOnce = new System.Windows.Forms.RadioButton();
             this.rbnCurrent = new System.Windows.Forms.RadioButton();
@@ -46,10 +45,15 @@
             this.pcbSliderBar = new System.Windows.Forms.PictureBox();
             this.picBoxAlbumArt = new System.Windows.Forms.PictureBox();
             this.pcbPlay = new System.Windows.Forms.PictureBox();
+            this.pcbVolume = new System.Windows.Forms.PictureBox();
+            this.lblVolume = new System.Windows.Forms.Label();
+            this.ttpVolumeIndicator = new System.Windows.Forms.ToolTip(this.components);
+            this.lblVolumeLevel = new System.Windows.Forms.Label();
             this.grpRepeat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSliderBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbVolume)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStop
@@ -101,33 +105,20 @@
             // 
             // grpRepeat
             // 
-            this.grpRepeat.Controls.Add(this.rbnAndrewIsA);
             this.grpRepeat.Controls.Add(this.rbnPlaylist);
             this.grpRepeat.Controls.Add(this.rbnOnce);
             this.grpRepeat.Controls.Add(this.rbnCurrent);
             this.grpRepeat.Controls.Add(this.rbnNone);
             this.grpRepeat.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpRepeat.ForeColor = System.Drawing.Color.White;
-            this.grpRepeat.Location = new System.Drawing.Point(727, 12);
+            this.grpRepeat.Location = new System.Drawing.Point(730, 35);
             this.grpRepeat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grpRepeat.Name = "grpRepeat";
             this.grpRepeat.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.grpRepeat.Size = new System.Drawing.Size(143, 130);
+            this.grpRepeat.Size = new System.Drawing.Size(143, 108);
             this.grpRepeat.TabIndex = 8;
             this.grpRepeat.TabStop = false;
             this.grpRepeat.Text = "Repeat Options";
-            // 
-            // rbnAndrewIsA
-            // 
-            this.rbnAndrewIsA.AutoSize = true;
-            this.rbnAndrewIsA.Location = new System.Drawing.Point(7, 103);
-            this.rbnAndrewIsA.Name = "rbnAndrewIsA";
-            this.rbnAndrewIsA.Size = new System.Drawing.Size(98, 20);
-            this.rbnAndrewIsA.TabIndex = 4;
-            this.rbnAndrewIsA.TabStop = true;
-            this.rbnAndrewIsA.Text = "Andrew Is a...";
-            this.rbnAndrewIsA.UseVisualStyleBackColor = true;
-            this.rbnAndrewIsA.Click += new System.EventHandler(this.rbnAndrewIsA_CheckedChanged);
             // 
             // rbnPlaylist
             // 
@@ -202,6 +193,7 @@
             this.lblTimeOne.Size = new System.Drawing.Size(72, 16);
             this.lblTimeOne.TabIndex = 10;
             this.lblTimeOne.Text = "CurrentTime";
+            this.lblTimeOne.Click += new System.EventHandler(this.lblTimeOne_Click);
             // 
             // lblTimeTwo
             // 
@@ -254,6 +246,38 @@
             this.pcbPlay.TabStop = false;
             this.pcbPlay.Click += new System.EventHandler(this.pcbPlay_Click);
             // 
+            // pcbVolume
+            // 
+            this.pcbVolume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.pcbVolume.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pcbVolume.Location = new System.Drawing.Point(290, 76);
+            this.pcbVolume.Name = "pcbVolume";
+            this.pcbVolume.Size = new System.Drawing.Size(194, 20);
+            this.pcbVolume.TabIndex = 14;
+            this.pcbVolume.TabStop = false;
+            this.pcbVolume.Paint += new System.Windows.Forms.PaintEventHandler(this.pcbVolume_Paint);
+            this.pcbVolume.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pcbVolume_MouseDown);
+            this.pcbVolume.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pcbVolume_MouseMove);
+            this.pcbVolume.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pcbVolume_MouseUp);
+            // 
+            // lblVolume
+            // 
+            this.lblVolume.AutoSize = true;
+            this.lblVolume.Location = new System.Drawing.Point(233, 77);
+            this.lblVolume.Name = "lblVolume";
+            this.lblVolume.Size = new System.Drawing.Size(51, 16);
+            this.lblVolume.TabIndex = 15;
+            this.lblVolume.Text = "Volume:";
+            // 
+            // lblVolumeLevel
+            // 
+            this.lblVolumeLevel.AutoSize = true;
+            this.lblVolumeLevel.Location = new System.Drawing.Point(490, 77);
+            this.lblVolumeLevel.Name = "lblVolumeLevel";
+            this.lblVolumeLevel.Size = new System.Drawing.Size(24, 16);
+            this.lblVolumeLevel.TabIndex = 16;
+            this.lblVolumeLevel.Text = "Vol";
+            // 
             // frmMusicPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -261,6 +285,9 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1114, 156);
             this.ControlBox = false;
+            this.Controls.Add(this.lblVolumeLevel);
+            this.Controls.Add(this.lblVolume);
+            this.Controls.Add(this.pcbVolume);
             this.Controls.Add(this.pcbPlay);
             this.Controls.Add(this.pcbSliderBar);
             this.Controls.Add(this.lblTimeTwo);
@@ -286,6 +313,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbSliderBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbVolume)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,9 +334,12 @@
         private System.Windows.Forms.PictureBox pcbSliderBar;
         private System.Windows.Forms.Label lblFileName;
         private System.Windows.Forms.ToolTip ttpSliderIndicator;
-        private System.Windows.Forms.RadioButton rbnAndrewIsA;
         private System.Windows.Forms.Label lblTimeOne;
         private System.Windows.Forms.Label lblTimeTwo;
         private System.Windows.Forms.PictureBox pcbPlay;
+        private System.Windows.Forms.PictureBox pcbVolume;
+        private System.Windows.Forms.Label lblVolume;
+        private System.Windows.Forms.ToolTip ttpVolumeIndicator;
+        private System.Windows.Forms.Label lblVolumeLevel;
     }
 }

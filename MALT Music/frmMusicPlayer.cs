@@ -20,6 +20,8 @@ namespace MALT_Music
         int trackLength;
         bool isPlaying;
         bool playPause;
+        bool timeIndic;
+        float volumeLevel;
 
         /// <summary>
         /// Variables for slider bar.
@@ -38,7 +40,11 @@ namespace MALT_Music
             musicController = new MusicController();
 
             isPlaying = false;
-            playPause = false; // Sets to pause mode
+            playPause = true; // Sets to pause mode
+            timeIndic = false; // Sets timer to negative
+
+            // Updates volume control
+            setVolume(0.5f);
 
             // Initialise slider
             sliderValue = 0;
@@ -157,6 +163,10 @@ namespace MALT_Music
             lblTimeOne.Text = "";
             lblTimeTwo.Text = "";
 
+            // Changes button image to play
+            pcbPlay.Image = Properties.Resources.playtrack;
+            playPause = true;
+
             // If a file is loaded
             if (lblFileName.Text != "")
             {
@@ -233,10 +243,22 @@ namespace MALT_Music
         /// <param name="value">Float of time value</param>
         private TimeSpan updateTimeIndicator()
         {
-            int num = trackLength - sliderValue;
-            TimeSpan currentTime = TimeSpan.FromSeconds(num);
-            lblTimeOne.Text = "-" + currentTime.ToString("mm':'ss");
+            // Holds the time
+            TimeSpan currentTime;
 
+            if (timeIndic) // If negative count down
+            {
+                int num = trackLength - sliderValue;
+                currentTime = TimeSpan.FromSeconds(num);
+                lblTimeOne.Text = "-" + currentTime.ToString("mm':'ss");
+            }
+            else // If positive count up
+            {
+                currentTime = TimeSpan.FromSeconds(sliderValue);
+                lblTimeOne.Text = currentTime.ToString("mm':'ss");
+            }
+
+            // Returns the current time
             return currentTime;
         }
 
@@ -388,12 +410,127 @@ namespace MALT_Music
         /// <param name="sender"></param>
         /// <param name="e"></param>
 
-        private void rbnAndrewIsA_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Toggles the state of the clock
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lblTimeOne_Click(object sender, EventArgs e)
         {
-            string input = Microsoft.VisualBasic.Interaction.InputBox("Is a what?", "Tell me", "Default", -1, -1);
-            rbnAndrewIsA.Text = "Andrew is a..." + input;
-
-            rbnNone.Checked = true;
+            if (timeIndic) // Negative count down
+            {
+                updateTimeIndicator();
+                timeIndic = false;
+            }
+            else // Positive count up
+            {
+                updateTimeIndicator();
+                timeIndic = true;
+            }
         }
+
+
+        #region Volume Control ## Functions for the volume control
+        private void pcbVolume_MouseDown(object sender, MouseEventArgs e)
+        {
+            // Return if no track loaded
+            //if (!isPlaying)
+            //{ return; }
+
+            // Update mouse down tracker
+            mouseIsDown = true;
+
+            // Updates value of slider
+            setVolume(XtoValue(e.X));
+        }
+
+        /// <summary>
+        /// Sets the volume of the player
+        /// </summary>
+        /// <param name="value">The new value for the volume</param>
+        public void setVolume(float value)
+        {
+            // Make sure the new value is within bounds.
+            if (value < 0f) value = 0f;
+            if (value > 1f) value = 1f;
+
+            // See if the value has changed.
+            if (volumeLevel == value) return;
+
+            // Save the new value.
+            volumeLevel = value;
+
+            // Redraw to show the new value.
+            pcbVolume.Refresh();
+
+            // Display the value tooltip.
+            int tip_x = pcbVolume.Left + (int)volValueToX(volumeLevel);
+            int tip_y = pcbVolume.Top;
+            ttpVolumeIndicator.Show(volumeLevel.ToString("0.00"), this, tip_x, tip_y, 3000);
+
+            // Updates label
+            int vol = Convert.ToInt32(volumeLevel * 100);
+            lblVolumeLevel.Text = vol.ToString() + "%";
+        }
+
+        /// <summary>
+        /// Converts the value into a coordinate
+        /// </summary>
+        /// <param name="value">The raw value to convert to coordinate</param>
+        /// <returns></returns>
+        private float volValueToX(float value)
+        {
+            return (pcbVolume.ClientSize.Width - 1) * (value / 1f);
+        }
+
+        /// <summary>
+        /// Converts the coordinate into a value
+        /// </summary>
+        /// <param name="x">Float raw value of coordinate</param>
+        /// <returns></returns>
+        private float volXtoValue(int x)
+        {
+            return 1 * x / (float)(pcbVolume.ClientSize.Width - 1);
+        }
+
+
+        private void pcbVolume_MouseMove(object sender, MouseEventArgs e)
+        {
+            // Return if no track loaded
+            //if (!isPlaying)
+            //{ return; }
+
+            // If mouse button is pushed, update position
+            if (!mouseIsDown) return;
+            setVolume(volXtoValue(e.X));
+
+            // Updates volume level
+            musicController.setVolume(volumeLevel);
+        }
+
+        private void pcbVolume_MouseUp(object sender, MouseEventArgs e)
+        {
+            // Return if no track loaded
+            if (!isPlaying)
+            { return; }
+
+            mouseIsDown = false;
+            ttpVolumeIndicator.Hide(this);
+        }
+
+        private void pcbVolume_Paint(object sender, PaintEventArgs e)
+        {
+            // Calculate the needle's X coordinate.
+            float x = volValueToX(volumeLevel);
+
+            if (x > 0)
+            {
+                // Draw it.
+                e.Graphics.DrawLine(Pens.Black,
+                    x, 0,
+                    x, pcbVolume.ClientSize.Height);
+            }
+        }
+        #endregion
     }
 }

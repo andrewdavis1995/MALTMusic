@@ -39,6 +39,18 @@ namespace MALT_Music
         }
 
         /// <summary>
+        /// Sets the volume of the player
+        /// </summary>
+        /// <param name="setVolume">The value of the volume</param>
+        public void setVolume(float setVolume)
+        {
+            if (audioFileReader != null)
+            {
+                audioFileReader.Volume = setVolume;
+            }
+        }
+
+        /// <summary>
         /// Plays loaded song
         /// </summary>
         public void playSong()
