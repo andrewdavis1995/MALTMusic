@@ -303,6 +303,8 @@ namespace MALT_Music.Models
             }
         }
 
+        //
+
         public void renamePlaylist(Playlist playlist, String newName)
         {
             try
