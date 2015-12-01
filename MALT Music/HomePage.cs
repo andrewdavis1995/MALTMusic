@@ -100,7 +100,7 @@ namespace MALT_Music
 
             hideForms();
 
-            viewPlaylist = new ViewPlaylist(playlist, this.musicPlayer);
+            viewPlaylist = new ViewPlaylist(playlist, this.musicPlayer, this.currentUser);
 
             viewPlaylist.TopLevel = false;
             viewPlaylist.Parent = this;

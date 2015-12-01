@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MALT_Music.DataObjects;
+using MALT_Music.Models;
 
 namespace MALT_Music
 {
@@ -17,18 +18,22 @@ namespace MALT_Music
         List<Label> positionLabels = new List<Label>();
         List<Label> songLabels = new List<Label>();
         List<Label> artistLabels = new List<Label>();
+        List<PictureBox> removeLabels = new List<PictureBox>();
         Playlist thePlaylist;
         int selectedSong = 0;
+
+        User currentUser;
 
         List<Song> songs;
 
         frmMusicPlayer musicPlayer;
 
 
-        public ViewPlaylist(Playlist playlist, frmMusicPlayer music)
+        public ViewPlaylist(Playlist playlist, frmMusicPlayer music, User currentUser)
         {
             InitializeComponent();
             this.musicPlayer = music;
+            this.currentUser = currentUser;
             this.thePlaylist = playlist;
             lblPlaylistName.Text = thePlaylist.getPlaylistName();
             lblOwner.Text = thePlaylist.getOwner();
@@ -148,7 +153,7 @@ namespace MALT_Music
 
                 this.Controls.Add(positionLabels[i]);
                 #endregion
-                
+
                 #region Artist Label
                 Label theArtistLabel = new Label();
 
@@ -174,8 +179,41 @@ namespace MALT_Music
 
                 this.Controls.Add(artistLabels[i]);
                 #endregion
+                
+                #region Remove Icon
+                if (thePlaylist.getOwner().Equals(currentUser.getUsername()))
+                {
+                    PictureBox removeIcon = new PictureBox();
+
+                    removeIcon.Size = new Size(30, 30);
+                    removeIcon.Location = new Point(1025, 156 + (33 * i));
+                    removeIcon.BackgroundImage = Properties.Resources.removeFromPlaylist;
+                    removeIcon.BackgroundImageLayout = ImageLayout.Stretch;
+                    removeIcon.Tag = i.ToString();
+                    removeIcon.Click += removeSong;
+                    removeIcon.ForeColor = Color.FromArgb(225, 225, 225);
+                    
+                    removeLabels.Add(removeIcon);
+
+                    this.Controls.Add(removeLabels[i]);
+                }
+                #endregion
 
             }
+        }
+
+        private void removeSong(object sender, EventArgs e) 
+        {
+            // Convert the sender to a picture box
+            PictureBox picBox = (PictureBox)sender;
+            // Get the index from the tag
+            int index = int.Parse(picBox.Tag.ToString());
+            // Get the relevant song
+            Song theSong = songs[index];
+
+            // Remove the song from the playlist
+            PlaylistModel playlistModel = new PlaylistModel();
+            playlistModel.removeSongFromPlaylist(thePlaylist, theSong);
 
         }
 

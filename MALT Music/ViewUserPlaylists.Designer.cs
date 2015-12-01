@@ -45,12 +45,15 @@
             // 
             // cmdCreatePlaylist
             // 
-            this.cmdCreatePlaylist.Location = new System.Drawing.Point(507, 92);
+            this.cmdCreatePlaylist.BackColor = System.Drawing.Color.Transparent;
+            this.cmdCreatePlaylist.BackgroundImage = global::MALT_Music.Properties.Resources.new_playlist;
+            this.cmdCreatePlaylist.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cmdCreatePlaylist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdCreatePlaylist.Location = new System.Drawing.Point(504, 92);
             this.cmdCreatePlaylist.Name = "cmdCreatePlaylist";
-            this.cmdCreatePlaylist.Size = new System.Drawing.Size(120, 24);
+            this.cmdCreatePlaylist.Size = new System.Drawing.Size(71, 24);
             this.cmdCreatePlaylist.TabIndex = 17;
-            this.cmdCreatePlaylist.Text = "Create Playlist";
-            this.cmdCreatePlaylist.UseVisualStyleBackColor = true;
+            this.cmdCreatePlaylist.UseVisualStyleBackColor = false;
             this.cmdCreatePlaylist.Click += new System.EventHandler(this.cmdCreatePlaylist_Click);
             // 
             // ViewUserPlaylists
