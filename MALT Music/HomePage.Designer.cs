@@ -167,6 +167,7 @@
             this.picBoxProfPicThumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxProfPicThumb.TabIndex = 5;
             this.picBoxProfPicThumb.TabStop = false;
+            this.picBoxProfPicThumb.Click += new System.EventHandler(this.lblFullName_Click);
             // 
             // picBoxPlaylist
             // 
