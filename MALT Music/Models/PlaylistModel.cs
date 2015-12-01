@@ -318,7 +318,7 @@ namespace MALT_Music.Models
                 // Delete Playlist with old name
                 String todo = "delete from list_playlist WHERE playlist_id = :pid";
                 PreparedStatement ps = session.Prepare(todo);
-                BoundStatement bs = ps.Bind();
+                BoundStatement bs = ps.Bind(play_id);
                 session.Execute(bs);
 
                 // Recreate playlist with new name, same old id
