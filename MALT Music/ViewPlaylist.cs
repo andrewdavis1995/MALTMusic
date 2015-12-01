@@ -32,6 +32,8 @@ namespace MALT_Music
         public ViewPlaylist(Playlist playlist, frmMusicPlayer music, User currentUser)
         {
             InitializeComponent();
+
+            //Set player, playlist, user
             this.musicPlayer = music;
             this.currentUser = currentUser;
             this.thePlaylist = playlist;
@@ -48,6 +50,7 @@ namespace MALT_Music
 
             if (numSongs == 1) { lblNumSongs.Text += " song"; } else { lblNumSongs.Text += " songs"; }
 
+            //Get total playlist length
             int totalLength = 0;
             for (int i = 0; i < songs.Count; i++) 
             {
@@ -58,6 +61,7 @@ namespace MALT_Music
             int minutes = (totalLength - hours * 3600) / 60;
             int seconds = totalLength - (hours * 3600) - (minutes * 60);
 
+            //Set up string saying how long the playlist is
             String output = "";
             if(hours > 0)
             {
@@ -80,23 +84,25 @@ namespace MALT_Music
                 output = output.Substring(0, output.Length - 3);
             }
 
+            //Set length to label
             lblTime.Text = output;
 
         }
+
         public ViewPlaylist()
         {
             InitializeComponent();
         }
 
 
-        private void setSelected(Object sender, EventArgs e) {
+        private void setSelected(Object sender, EventArgs e) 
+        {
             Label theLabel = (Label)sender;
             int index = int.Parse(theLabel.Tag.ToString());
 
             this.selectedSong = index;
 
             pnlOptions.Visible = true;
-
         }
 
         public void setupLabels() 
@@ -220,6 +226,7 @@ namespace MALT_Music
 
         }
 
+        //Set up thumbnail for playlist consisting of four album covers
         public void setupAlbumCovers()
         {
             List<String> taken = new List<String>();
@@ -232,6 +239,7 @@ namespace MALT_Music
             {
                 if (!taken.Contains(songs[i].getAlbum() + songs[i].getArtist()))
                 {
+                    //Set up album images of first four albums
                     if (taken.Count == 0)
                     {
                         coverImage1.BackgroundImage = Image.FromFile(@"../../tracks/" + songs[i].getArtist() + "/" + songs[i].getAlbum() + "/" + songs[i].getAlbum() + ".jpg");
@@ -257,10 +265,11 @@ namespace MALT_Music
             }
         }
 
+        //Play song in music player
         private void lblPlay_Click(object sender, EventArgs e)
         {
+            //Get song
             Song toAdd = new Song();
-            
             String songName = songLabels[selectedSong].Text;
 
             for (int i = 0; i < songs.Count; i++)
@@ -272,10 +281,14 @@ namespace MALT_Music
                 }
             }
 
+            //Play in music player
             if (toAdd.getTrackName() != null && toAdd.getTrackName() != "")
             {
+                //Get filepath of song, stop currently playing song
                 String filePath = toAdd.getFileLocation();
                 musicPlayer.stopSong();
+
+                //Play song at path
                 String imagePath = "../../tracks/" + toAdd.getArtist() + "/" + toAdd.getAlbum() + "/" + toAdd.getAlbum() + ".jpg";
                 musicPlayer.setSongPath(@"" + filePath, imagePath);
                 musicPlayer.playCurrentSong();
@@ -306,7 +319,10 @@ namespace MALT_Music
                 //Convert to string for use in method
                 String newPlaylistName = txtPlaylistNameEdit.Text;
 
-                //TODO: Update playlistname in database
+                //Update playlistname in database
+                PlaylistModel playlistModel = new PlaylistModel();
+
+                playlistModel.renamePlaylist(thePlaylist, newPlaylistName);
 
                 //Hide textbox
                 txtPlaylistNameEdit.Hide();

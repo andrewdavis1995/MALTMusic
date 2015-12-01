@@ -305,7 +305,36 @@ namespace MALT_Music.Models
 
         public void renamePlaylist(Playlist playlist, String newName)
         {
-            throw new NotImplementedException();
+            try
+            {
+                init();
+                // Connect to cluster
+                ISession session = cluster.Connect("maltmusic");
+
+                // get playlist id and owner
+                Guid play_id = playlist.getID();
+                String owner = playlist.getOwner(); 
+
+                // Delete Playlist with old name
+                String todo = "delete from list_playlist WHERE playlist_id = :pid";
+                PreparedStatement ps = session.Prepare(todo);
+                BoundStatement bs = ps.Bind(play_id);
+                session.Execute(bs);
+
+                // Recreate playlist with new name, same old id
+                // Slightly hacky way of updating a primary key
+                String insert = "insert into list_playlist (\n" +
+                      "playlist_id, owner,playlist_name)\n" +
+                     "values (:pid,:own,:plnm) if not exists";
+                PreparedStatement preps = session.Prepare(insert);
+                BoundStatement bounds = preps.Bind(play_id, owner, newName);
+                session.Execute(bounds);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Renaming a plist broke " + ex);
+            }
         }
 
         public void deletePlaylist(Playlist playlist)

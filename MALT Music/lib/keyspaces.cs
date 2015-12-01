@@ -60,7 +60,7 @@ namespace MALT_Music.lib
                     + "playlist_id UUID,\n"
                     + "owner text,\n"
                     + "playlist_name text,"
-                    + "PRIMARY KEY (playlist_ID, owner, playlist_name)\n"
+                    + "PRIMARY KEY (playlist_ID, owner,playlist_name)\n"
                     + ")";
 
                 String createUserVotes = "create table if not exists maltmusic.user_votes(\n"
