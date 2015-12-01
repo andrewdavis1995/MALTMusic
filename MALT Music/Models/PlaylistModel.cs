@@ -281,7 +281,26 @@ namespace MALT_Music.Models
 
         public void removeSongFromPlaylist(Playlist playlist, Song song)
         {
-            throw new NotImplementedException();
+            try
+            {
+                init();
+                // Connect to cluster
+                ISession session = cluster.Connect("maltmusic");
+
+                // get playlist id
+                // get track id
+                Guid play_id = playlist.getID();
+                Guid track_id = song.getSongID();
+
+                String todo = "delete from playlist where playlist_id = :pid and track_id = :tid";
+                PreparedStatement ps = session.Prepare(todo);
+                BoundStatement bs = ps.Bind(play_id, track_id);
+                session.Execute(bs);
+            }
+            catch (Exception andrewIsABaw) 
+            {
+                Console.WriteLine("Removing from a plist broke " + andrewIsABaw);
+            }
         }
 
         public void renamePlaylist(Playlist playlist, String newName)
