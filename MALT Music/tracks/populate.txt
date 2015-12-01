@@ -7,20 +7,20 @@ aff56e64-abea-46b3-a9c9-cf67235772f6|Boston|Boston|1976|Rock|286|More Than a Fee
 82127e7f-dd9a-45d9-a9b2-8f906339d1c8|Kansas|Leftoverture|1976|Rock|324|Carry On Wayward Son
 43ba389d-98b4-429d-bb18-1fd8628ccce0|Biffy Clyro|Only Revolutions (Deluxe Version)|2009|Rock|262|Bubbles
 27e11a43-6bac-41bc-afb5-3a31ee98d139|Biffy Clyro|Only Revolutions (Deluxe Version)|2010|Rock|204|God and Satan
-00000000-0000-0000-000-00000000000|Lowercase Noises|Migratory Patterns|2011|Ambient|301|Song For No One
-00000000-0000-0000-000-00000000000|Lowercase Noises|Migratory Patterns|2011|Ambient|510|Persistence
-00000000-0000-0000-000-00000000000|Lowercase Noises|Migratory Patterns|2011|Ambient|292|Depths
-00000000-0000-0000-000-00000000000|Lowercase Noises|Migratory Patterns|2011|Ambient|474|Migratory Patterns
-00000000-0000-0000-000-00000000000|Lowercase Noises|Migratory Patterns|2011|Ambient|451|Farewell
-00000000-0000-0000-000-00000000000|Lowercase Noises|Passage|2012|Ambient|293|Prevailing Winds
-00000000-0000-0000-000-00000000000|Lowercase Noises|Passage|2012|Ambient|327|Roaring Forties
-00000000-0000-0000-000-00000000000|Lowercase Noises|Passage|2012|Ambient|347|Passage
-00000000-0000-0000-000-00000000000|Lowercase Noises|Passage|2012|Ambient|329|Beauty Into Wreck
-00000000-0000-0000-000-00000000000|Lowercase Noises|Passage|2012|Ambient|245|A Gold Earring
-00000000-0000-0000-000-00000000000|Fraser Ross|To Places|2012|Folk Rock|387|Sweet Kisses/Silver Flowers
-00000000-0000-0000-000-00000000000|Fraser Ross|To Places|2012|Folk Rock|135|The Window
-00000000-0000-0000-000-00000000000|Fraser Ross|To Places|2012|Folk Rock|277|Everyone Have the Greatest Feeling
-00000000-0000-0000-000-00000000000|Fraser Ross|To Places|2012|Folk Rock|249|Meow
-00000000-0000-0000-000-00000000000|Fraser Ross|To Places|2012|Folk Rock|363|The Young Trees Dance Slow
-00000000-0000-0000-000-00000000000|Fraser Ross|To Places|2012|Folk Rock|154|Morning Ode
-00000000-0000-0000-000-00000000000|Fraser Ross|To Places|2012|Folk Rock|388|I Want to Take You to Places
+2c826be9-1369-430b-828b-91fe34e92925|Lowercase Noises|Migratory Patterns|2011|Ambient|301|Song For No One
+d13e7a52-5572-41cb-97f0-444cc3ade007|Lowercase Noises|Migratory Patterns|2011|Ambient|510|Persistence
+65786a85-7425-41c0-89b0-b439d92bef11|Lowercase Noises|Migratory Patterns|2011|Ambient|292|Depths
+77124cba-4ff3-4208-80a0-4559c03fd27e|Lowercase Noises|Migratory Patterns|2011|Ambient|474|Migratory Patterns
+f8ae31c1-7c7a-4646-a967-06c4d204867f|Lowercase Noises|Migratory Patterns|2011|Ambient|451|Farewell
+c4fd584f-13f2-4493-881b-0edb1e3ee547|Lowercase Noises|Passage|2012|Ambient|293|Prevailing Winds
+c8e311eb-2e1b-446e-98ff-4d1385901903|Lowercase Noises|Passage|2012|Ambient|327|Roaring Forties
+78d5b7aa-a802-4cdf-a742-9a94e8f6dbde|Lowercase Noises|Passage|2012|Ambient|347|Passage
+31fa43c5-fcf1-416f-aecd-8fd91929d576|Lowercase Noises|Passage|2012|Ambient|329|Beauty Into Wreck
+bb7f7ec8-db77-4cef-a5c1-1003cf0e884a|Lowercase Noises|Passage|2012|Ambient|245|A Gold Earring
+61417aa8-6ed0-447b-a82f-0e59df0d58a8|Fraser Ross|To Places|2012|Folk Rock|387|Sweet Kisses-Silver Flowers
+7efc948d-b918-454a-b9dd-c9f92d623259|Fraser Ross|To Places|2012|Folk Rock|135|The Window
+8de31070-d164-4ec2-b579-a962e9d93347|Fraser Ross|To Places|2012|Folk Rock|277|Everyone Have the Greatest Feeling
+5846bfcb-ec4b-47c7-93ab-be72e89081e8|Fraser Ross|To Places|2012|Folk Rock|249|Meow
+de7b959a-be35-42d4-add9-155f00e93409|Fraser Ross|To Places|2012|Folk Rock|363|The Young Trees Dance Slow
+33be43fb-2821-4016-a9e0-85cc87c6fe03|Fraser Ross|To Places|2012|Folk Rock|154|Morning Ode
+edecf2ef-76fa-411c-9956-1b9d65f9bc73|Fraser Ross|To Places|2012|Folk Rock|388|I Want to Take You to Places
