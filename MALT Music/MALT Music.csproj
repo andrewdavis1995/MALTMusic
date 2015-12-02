@@ -226,6 +226,7 @@
     <None Include="Resources\downvoted.png" />
     <None Include="Resources\iconprofile.bmp" />
     <None Include="Resources\iconprofile.png" />
+    <None Include="Resources\logout.png" />
     <Content Include="Resources\Magnifying_glass_icon.png" />
     <None Include="Resources\Magnifying_glass_icon1.png" />
   </ItemGroup>

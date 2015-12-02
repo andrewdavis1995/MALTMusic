@@ -30,24 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
             this.lblFullName = new System.Windows.Forms.Label();
-            this.lblBrowse = new System.Windows.Forms.Label();
+            this.lblLogout = new System.Windows.Forms.Label();
             this.lblPlaylist = new System.Windows.Forms.Label();
             this.txtSearchBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.picBoxMagnifyingGlass = new System.Windows.Forms.PictureBox();
-            this.picBoxMALTLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.picBoxProfPicThumb = new MALT_Music.OvalPictureBox();
             this.picBoxPlaylist = new System.Windows.Forms.PictureBox();
-            this.picBoxBrowse = new System.Windows.Forms.PictureBox();
+            this.picBoxLogout = new System.Windows.Forms.PictureBox();
+            this.picBoxMagnifyingGlass = new System.Windows.Forms.PictureBox();
+            this.picBoxMALTLogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxMagnifyingGlass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxMALTLogo)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxProfPicThumb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPlaylist)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxBrowse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxLogout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxMagnifyingGlass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxMALTLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFullName
@@ -63,16 +63,16 @@
             this.lblFullName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblFullName.Click += new System.EventHandler(this.lblFullName_Click);
             // 
-            // lblBrowse
+            // lblLogout
             // 
-            this.lblBrowse.AutoSize = true;
-            this.lblBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBrowse.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblBrowse.Location = new System.Drawing.Point(82, 273);
-            this.lblBrowse.Name = "lblBrowse";
-            this.lblBrowse.Size = new System.Drawing.Size(62, 20);
-            this.lblBrowse.TabIndex = 4;
-            this.lblBrowse.Text = "Browse";
+            this.lblLogout.AutoSize = true;
+            this.lblLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogout.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblLogout.Location = new System.Drawing.Point(82, 273);
+            this.lblLogout.Name = "lblLogout";
+            this.lblLogout.Size = new System.Drawing.Size(66, 20);
+            this.lblLogout.TabIndex = 4;
+            this.lblLogout.Text = "Log Out";
             // 
             // lblPlaylist
             // 
@@ -123,36 +123,15 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // picBoxMagnifyingGlass
-            // 
-            this.picBoxMagnifyingGlass.Image = global::MALT_Music.Properties.Resources.Magnifying_glass_icon_white;
-            this.picBoxMagnifyingGlass.InitialImage = ((System.Drawing.Image)(resources.GetObject("picBoxMagnifyingGlass.InitialImage")));
-            this.picBoxMagnifyingGlass.Location = new System.Drawing.Point(324, 12);
-            this.picBoxMagnifyingGlass.Name = "picBoxMagnifyingGlass";
-            this.picBoxMagnifyingGlass.Size = new System.Drawing.Size(50, 47);
-            this.picBoxMagnifyingGlass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxMagnifyingGlass.TabIndex = 1;
-            this.picBoxMagnifyingGlass.TabStop = false;
-            // 
-            // picBoxMALTLogo
-            // 
-            this.picBoxMALTLogo.Image = global::MALT_Music.Properties.Resources.logo;
-            this.picBoxMALTLogo.Location = new System.Drawing.Point(48, 8);
-            this.picBoxMALTLogo.Name = "picBoxMALTLogo";
-            this.picBoxMALTLogo.Size = new System.Drawing.Size(135, 73);
-            this.picBoxMALTLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxMALTLogo.TabIndex = 2;
-            this.picBoxMALTLogo.TabStop = false;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel2.Controls.Add(this.picBoxProfPicThumb);
             this.panel2.Controls.Add(this.lblFullName);
             this.panel2.Controls.Add(this.picBoxPlaylist);
-            this.panel2.Controls.Add(this.lblBrowse);
+            this.panel2.Controls.Add(this.lblLogout);
             this.panel2.Controls.Add(this.lblPlaylist);
-            this.panel2.Controls.Add(this.picBoxBrowse);
+            this.panel2.Controls.Add(this.picBoxLogout);
             this.panel2.Location = new System.Drawing.Point(-3, 87);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(233, 313);
@@ -181,15 +160,37 @@
             this.picBoxPlaylist.TabStop = false;
             this.picBoxPlaylist.Click += new System.EventHandler(this.picBoxPlaylist_Click);
             // 
-            // picBoxBrowse
+            // picBoxLogout
             // 
-            this.picBoxBrowse.Image = global::MALT_Music.Properties.Resources.Music_icon_white;
-            this.picBoxBrowse.Location = new System.Drawing.Point(74, 196);
-            this.picBoxBrowse.Name = "picBoxBrowse";
-            this.picBoxBrowse.Size = new System.Drawing.Size(81, 72);
-            this.picBoxBrowse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxBrowse.TabIndex = 3;
-            this.picBoxBrowse.TabStop = false;
+            this.picBoxLogout.Image = global::MALT_Music.Properties.Resources.logout;
+            this.picBoxLogout.Location = new System.Drawing.Point(74, 196);
+            this.picBoxLogout.Name = "picBoxLogout";
+            this.picBoxLogout.Size = new System.Drawing.Size(81, 72);
+            this.picBoxLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxLogout.TabIndex = 3;
+            this.picBoxLogout.TabStop = false;
+            this.picBoxLogout.Click += new System.EventHandler(this.picBoxLogout_Click);
+            // 
+            // picBoxMagnifyingGlass
+            // 
+            this.picBoxMagnifyingGlass.Image = global::MALT_Music.Properties.Resources.Magnifying_glass_icon_white;
+            this.picBoxMagnifyingGlass.InitialImage = ((System.Drawing.Image)(resources.GetObject("picBoxMagnifyingGlass.InitialImage")));
+            this.picBoxMagnifyingGlass.Location = new System.Drawing.Point(324, 12);
+            this.picBoxMagnifyingGlass.Name = "picBoxMagnifyingGlass";
+            this.picBoxMagnifyingGlass.Size = new System.Drawing.Size(50, 47);
+            this.picBoxMagnifyingGlass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxMagnifyingGlass.TabIndex = 1;
+            this.picBoxMagnifyingGlass.TabStop = false;
+            // 
+            // picBoxMALTLogo
+            // 
+            this.picBoxMALTLogo.Image = global::MALT_Music.Properties.Resources.logo;
+            this.picBoxMALTLogo.Location = new System.Drawing.Point(48, 8);
+            this.picBoxMALTLogo.Name = "picBoxMALTLogo";
+            this.picBoxMALTLogo.Size = new System.Drawing.Size(135, 73);
+            this.picBoxMALTLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxMALTLogo.TabIndex = 2;
+            this.picBoxMALTLogo.TabStop = false;
             // 
             // HomePage
             // 
@@ -212,13 +213,13 @@
             this.Load += new System.EventHandler(this.HomePage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxMagnifyingGlass)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxMALTLogo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxProfPicThumb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPlaylist)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxBrowse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxLogout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxMagnifyingGlass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxMALTLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -230,9 +231,9 @@
         private System.Windows.Forms.TextBox txtSearchBox;
         private System.Windows.Forms.PictureBox picBoxMALTLogo;
         private System.Windows.Forms.PictureBox picBoxPlaylist;
-        private System.Windows.Forms.PictureBox picBoxBrowse;
+        private System.Windows.Forms.PictureBox picBoxLogout;
         private System.Windows.Forms.Label lblPlaylist;
-        private System.Windows.Forms.Label lblBrowse;
+        private System.Windows.Forms.Label lblLogout;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnSearch;

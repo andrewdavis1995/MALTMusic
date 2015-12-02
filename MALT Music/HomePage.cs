@@ -77,7 +77,7 @@ namespace MALT_Music
         private void setTooltips()
         {
             new ToolTip().SetToolTip(lblFullName, "Click here to go to your profile");
-            new ToolTip().SetToolTip(picBoxBrowse, "Browse artists, songs and albums");
+            new ToolTip().SetToolTip(picBoxLogout, "Browse artists, songs and albums");
             new ToolTip().SetToolTip(picBoxPlaylist, "View your playlists");
             new ToolTip().SetToolTip(picBoxMALTLogo, "D3 is still a pass");
         }
@@ -292,6 +292,15 @@ namespace MALT_Music
             {
                 btnSearch_Click(this, new EventArgs());
             }
+        }
+
+        //Log out the user
+        private void picBoxLogout_Click(object sender, EventArgs e)
+        {
+            Login newLogin = new Login();
+            this.Hide();
+            newLogin.ShowDialog();
+            
         }
 
     }
