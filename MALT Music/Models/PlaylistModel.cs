@@ -397,6 +397,7 @@ namespace MALT_Music.Models
 
                 Guid pid = p.getID();
 
+
                 // Prepare and bind statement passing in the relevant fields
                 String todo = ("insert into playlist (track_id,playlist_id,track_pos)\n" +
                  "values (:tid, :pid,:tpos) if not exists;");
