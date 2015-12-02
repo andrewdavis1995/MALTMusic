@@ -37,13 +37,15 @@
             this.lblShare = new System.Windows.Forms.Label();
             this.lblAddToPlaylist = new System.Windows.Forms.Label();
             this.lblPlay = new System.Windows.Forms.Label();
+            this.txtPlaylistNameEdit = new System.Windows.Forms.TextBox();
+            this.picSave = new System.Windows.Forms.PictureBox();
             this.picRecommend = new System.Windows.Forms.PictureBox();
             this.coverImage4 = new System.Windows.Forms.PictureBox();
             this.coverImage3 = new System.Windows.Forms.PictureBox();
             this.coverImage2 = new System.Windows.Forms.PictureBox();
             this.coverImage1 = new System.Windows.Forms.PictureBox();
-            this.txtPlaylistNameEdit = new System.Windows.Forms.TextBox();
             this.pnlOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecommend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverImage4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverImage3)).BeginInit();
@@ -158,6 +160,27 @@
             this.lblPlay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblPlay.Click += new System.EventHandler(this.lblPlay_Click);
             // 
+            // txtPlaylistNameEdit
+            // 
+            this.txtPlaylistNameEdit.Font = new System.Drawing.Font("Franklin Gothic Medium", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlaylistNameEdit.Location = new System.Drawing.Point(265, 85);
+            this.txtPlaylistNameEdit.Name = "txtPlaylistNameEdit";
+            this.txtPlaylistNameEdit.Size = new System.Drawing.Size(291, 44);
+            this.txtPlaylistNameEdit.TabIndex = 37;
+            this.txtPlaylistNameEdit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlaylistNameEdit_KeyDown);
+            this.txtPlaylistNameEdit.MouseLeave += new System.EventHandler(this.txtPlaylistNameEdit_MouseLeave);
+            // 
+            // picSave
+            // 
+            this.picSave.BackgroundImage = global::MALT_Music.Properties.Resources.save_playlist;
+            this.picSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picSave.Location = new System.Drawing.Point(562, 104);
+            this.picSave.Name = "picSave";
+            this.picSave.Size = new System.Drawing.Size(65, 22);
+            this.picSave.TabIndex = 38;
+            this.picSave.TabStop = false;
+            this.picSave.Click += new System.EventHandler(this.picSave_Click);
+            // 
             // picRecommend
             // 
             this.picRecommend.BackgroundImage = global::MALT_Music.Properties.Resources.recommendIcon;
@@ -205,16 +228,6 @@
             this.coverImage1.TabIndex = 0;
             this.coverImage1.TabStop = false;
             // 
-            // txtPlaylistNameEdit
-            // 
-            this.txtPlaylistNameEdit.Font = new System.Drawing.Font("Franklin Gothic Medium", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPlaylistNameEdit.Location = new System.Drawing.Point(265, 85);
-            this.txtPlaylistNameEdit.Name = "txtPlaylistNameEdit";
-            this.txtPlaylistNameEdit.Size = new System.Drawing.Size(230, 44);
-            this.txtPlaylistNameEdit.TabIndex = 37;
-            this.txtPlaylistNameEdit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlaylistNameEdit_KeyDown);
-            this.txtPlaylistNameEdit.MouseLeave += new System.EventHandler(this.txtPlaylistNameEdit_MouseLeave);
-            // 
             // ViewPlaylist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +235,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1094, 442);
+            this.Controls.Add(this.picSave);
             this.Controls.Add(this.txtPlaylistNameEdit);
             this.Controls.Add(this.picRecommend);
             this.Controls.Add(this.pnlPlaylists);
@@ -237,6 +251,7 @@
             this.Name = "ViewPlaylist";
             this.Text = "ViewPlaylist";
             this.pnlOptions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecommend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverImage4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverImage3)).EndInit();
@@ -264,5 +279,6 @@
         private System.Windows.Forms.Label lblPlay;
         private System.Windows.Forms.PictureBox picRecommend;
         private System.Windows.Forms.TextBox txtPlaylistNameEdit;
+        private System.Windows.Forms.PictureBox picSave;
     }
 }

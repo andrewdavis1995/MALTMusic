@@ -201,6 +201,7 @@
     <EmbeddedResource Include="Resources\Test.mp3" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\save playlist.png" />
     <None Include="Resources\removeFromPlaylist.png" />
     <None Include="Resources\new playlist.png" />
     <None Include="Resources\prevtrackwhite.png" />

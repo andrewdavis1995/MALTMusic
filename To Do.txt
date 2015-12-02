@@ -1,10 +1,11 @@
 TO DO:
 
 Add more songs										-	ALL
+Logout														-	LEWIS
 Recommend songs based on playlist		-	ANDREW
 Try-Catches												-	ALL - MATT
-Home Page 												-	SOMEONE
-Loading wheel for background				-	SOMEONE
+Home Page 												-	LEWIS
+Loading wheel for background				-	LEWIS
 Add to Playlist from Current Playlist			-	ANDREW
 Move Music Player to seperate thread	-	TRISTAN
 View All Search Results							-	ANDREW (OR ANYONE WHO FANCIES IT)
