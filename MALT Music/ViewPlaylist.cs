@@ -87,6 +87,9 @@ namespace MALT_Music
             //Set length to label
             lblTime.Text = output;
 
+
+            picSave.Left = lblPlaylistName.Left + lblPlaylistName.Width + 10;
+
         }
 
         public ViewPlaylist()
@@ -359,6 +362,9 @@ namespace MALT_Music
         //On clicking the playlist name, allow user to edit it
         private void lblPlaylistName_Click(object sender, EventArgs e)
         {
+
+            picSave.Left = txtPlaylistNameEdit.Left + txtPlaylistNameEdit.Width + 10;
+
             //Set contents of edit box to playlist name
             txtPlaylistNameEdit.Text = lblPlaylistName.Text;
 
@@ -391,6 +397,8 @@ namespace MALT_Music
 
                 //Show label again
                 lblPlaylistName.Show();
+
+                picSave.Left = lblPlaylistName.Left + lblPlaylistName.Width + 10;
             }
             else
             {
@@ -430,6 +438,8 @@ namespace MALT_Music
 
             List<Song> genresMatch = songList.Where(song => genres.Contains(song.getGenre())).ToList();
 
+            
+
             // GET SONGS - REMEMBER NOT TO SELECT IF ALREADY IN LIST OR ALREADY IN PLAYLIST
             // look for ones that match both artist and genre - max 5 - random 'seed' to select where to start looking?
 
@@ -446,6 +456,12 @@ namespace MALT_Music
             {
                 txtPlaylistNameEdit_MouseLeave(this, new EventArgs());
             }
+        }
+
+        private void picSave_Click(object sender, EventArgs e)
+        {
+            PlaylistModel playlistModel = new PlaylistModel();
+            //playlistModel.savePlaylist(this.thePlaylist, currentUser);
         }
 
     }

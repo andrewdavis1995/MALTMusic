@@ -66,7 +66,7 @@ namespace MALT_Music
                 theDeleteLabel.Size = new Size(20, 20);
                 theDeleteLabel.Tag = i.ToString();
                 theDeleteLabel.Click += deletePlaylist;
-                theDeleteLabel.Location = new Point(290, 125 + (i * 30));
+                theDeleteLabel.Location = new Point(700, 125 + (i * 30));
                 theDeleteLabel.BackgroundImage = Properties.Resources.removeFromPlaylist;
                 theDeleteLabel.BackgroundImageLayout = ImageLayout.Stretch;
 
