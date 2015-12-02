@@ -212,6 +212,7 @@
             this.txtPlaylistNameEdit.Name = "txtPlaylistNameEdit";
             this.txtPlaylistNameEdit.Size = new System.Drawing.Size(230, 44);
             this.txtPlaylistNameEdit.TabIndex = 37;
+            this.txtPlaylistNameEdit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlaylistNameEdit_KeyDown);
             this.txtPlaylistNameEdit.MouseLeave += new System.EventHandler(this.txtPlaylistNameEdit_MouseLeave);
             // 
             // ViewPlaylist

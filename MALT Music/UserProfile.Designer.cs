@@ -216,6 +216,7 @@
             this.txtBioEdit.Name = "txtBioEdit";
             this.txtBioEdit.Size = new System.Drawing.Size(277, 37);
             this.txtBioEdit.TabIndex = 18;
+            this.txtBioEdit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBioEdit_KeyDown);
             this.txtBioEdit.MouseLeave += new System.EventHandler(this.txtBioEdit_MouseLeave);
             // 
             // btnChangePassword

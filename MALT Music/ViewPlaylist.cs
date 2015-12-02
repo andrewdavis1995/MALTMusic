@@ -409,5 +409,14 @@ namespace MALT_Music
 
         }
 
+        //Pressing enter on textbox does same thing as leaving
+        private void txtPlaylistNameEdit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtPlaylistNameEdit_MouseLeave(this, new EventArgs());
+            }
+        }
+
     }
 }

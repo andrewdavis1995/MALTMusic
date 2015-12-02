@@ -198,5 +198,14 @@ namespace MALT_Music
             }
         }
 
+        //Pressing enter on textbox does same thing as leaving
+        private void txtBioEdit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtBioEdit_MouseLeave(this, new EventArgs());
+            }
+        }
+
     }
 }
