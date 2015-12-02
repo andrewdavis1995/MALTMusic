@@ -446,7 +446,6 @@ namespace MALT_Music
 
             List<Song> genresMatch = songList.Where(song => genres.Contains(song.getGenre())).ToList();
 
-            
 
             // GET SONGS - REMEMBER NOT TO SELECT IF ALREADY IN LIST OR ALREADY IN PLAYLIST
             // look for ones that match both artist and genre - max 5 - random 'seed' to select where to start looking?
