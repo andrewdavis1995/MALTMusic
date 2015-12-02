@@ -300,7 +300,7 @@ namespace MALT_Music
             Login newLogin = new Login();
             this.Hide();
             newLogin.ShowDialog();
-            
+            this.Dispose();
         }
 
     }

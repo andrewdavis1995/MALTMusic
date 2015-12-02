@@ -114,8 +114,9 @@ namespace MALT_Music
                 // Show the Home Form
                 homeForm.Show();
 
-                // Hide the current form
+                // Hide and dispose of the current form
                 this.Hide();
+                this.Dispose();
 
             }
             else
