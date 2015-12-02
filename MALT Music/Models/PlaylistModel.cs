@@ -177,7 +177,7 @@ namespace MALT_Music.Models
                 int pos = (int)row["track_pos"];
                 positions.Add(pos);
 
-                String things = ("select track_name,artist,file_loc,length,album from tracks where track_id = :tid");
+                String things = ("select * from tracks where track_id = :tid");
                 PreparedStatement prep = session.Prepare(things);
                 BoundStatement bound = prep.Bind(tid);
                 // Execute Query
@@ -191,9 +191,11 @@ namespace MALT_Music.Models
                     String artist = (String)rowset["artist"];
                     String file_loc = (String)rowset["file_loc"];
                     int length = (int)rowset["length"];
+                    int year = (int)rowset["year"];
                     String album = rowset["album"].ToString();
+                    String genre = rowset["genre"].ToString();
 
-                    Song toadd = new Song(artist, file_loc, name, tid, length, album);
+                    Song toadd = new Song(artist, album, year, genre, file_loc, length, name, tid);
                     songs.Add(toadd);
                 }
             }
