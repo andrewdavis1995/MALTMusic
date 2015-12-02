@@ -1,9 +1,7 @@
 TO DO:
 
 Add more songs										-	ALL
-Delete Playlists										-	MATT (Back end), ANDREW (Front end)
 Recommend songs based on playlist		-	ANDREW
-Save Playlists											-	MATT (Back end), ANDREW (Front end) 
 Try-Catches												-	ALL - MATT
 Home Page 												-	SOMEONE
 Loading wheel for background				-	SOMEONE
