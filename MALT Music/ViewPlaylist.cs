@@ -438,9 +438,24 @@ namespace MALT_Music
             List<Song> artistMatch = songList.Where(song => artists.Contains(song.getArtist())).ToList();
 
             // Remove songs that already exist in playlist
-            for (int i = 0; i < songsInPlaylist.Count; i++) 
+            for (int j = 0; j < artistMatch.Count; j++) 
             {
-                artistMatch.Remove(songsInPlaylist[i]);
+                for (int i = 0; i < songsInPlaylist.Count; i++) 
+                {
+                    if(artistMatch[j].getSongID().Equals(songsInPlaylist[i].getSongID()))
+                    {
+                        artistMatch.RemoveAt(j);
+                        if (j > 0)
+                        {
+                            j--;
+                        }
+                        else 
+                        {
+                            j = -1;
+                        }
+                        break;
+                    }   
+                }
             }
 
             // get all genres
