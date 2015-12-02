@@ -4,7 +4,7 @@ Add more songs										-	ALL
 Logout														-	LEWIS
 Recommend songs based on playlist		-	ANDREW
 Try-Catches												-	ALL - MATT
-Home Page 												-	LEWIS
+Home Page background							-	LEWIS
 Loading wheel for background				-	LEWIS
 Add to Playlist from Current Playlist			-	ANDREW
 Move Music Player to seperate thread	-	TRISTAN
