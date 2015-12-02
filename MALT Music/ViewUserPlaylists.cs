@@ -17,6 +17,7 @@ namespace MALT_Music
         public String currentUser;
         List<Playlist> playlists;
         List<Label> labelList = new List<Label>();
+        List<PictureBox> deleteLabels = new List<PictureBox>();
 
         public ViewUserPlaylists()
         {
@@ -30,9 +31,11 @@ namespace MALT_Music
             for (int i = 0; i < labelList.Count; i++) 
             {
                 this.Controls.Remove(labelList[i]);
+                this.Controls.Remove(deleteLabels[i]);
             }
 
             labelList.Clear();
+            deleteLabels.Clear();
 
         }
 
@@ -57,8 +60,48 @@ namespace MALT_Music
                 labelList.Add(newLabel);
 
                 this.Controls.Add(labelList[i]);
+
+
+                PictureBox theDeleteLabel = new PictureBox();
+                theDeleteLabel.Size = new Size(20, 20);
+                theDeleteLabel.Tag = i.ToString();
+                theDeleteLabel.Click += deletePlaylist;
+                theDeleteLabel.Location = new Point(290, 125 + (i * 30));
+                theDeleteLabel.BackgroundImage = Properties.Resources.removeFromPlaylist;
+                theDeleteLabel.BackgroundImageLayout = ImageLayout.Stretch;
+
+                deleteLabels.Add(theDeleteLabel);
+
+                this.Controls.Add(deleteLabels[i]);
+
                 count++;
             }
+        }
+
+        private void deletePlaylist(object sender, EventArgs e) 
+        {
+            PictureBox p = (PictureBox)sender;
+            int index = int.Parse(p.Tag.ToString());
+
+            DialogResult dialogResult = MessageBox.Show("Are you sure you wish to delete playlist: " + labelList[index].Text + "?", "Confirm Deletion", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                // do, do delete
+                PlaylistModel playlistModel = new PlaylistModel();
+                playlistModel.deletePlaylist(this.playlists[index]);
+
+                this.Controls.Remove(labelList[index]);
+                labelList.RemoveAt(index);
+                this.Controls.Remove(deleteLabels[index]);
+                deleteLabels.RemoveAt(index);
+                this.playlists.RemoveAt(index);
+
+                int count = this.playlists.Count - 1;
+                resetLabels();
+                createLabels(this.playlists);
+
+            }
+            // do repositioning/resetting stuff
         }
 
         private void playlistSelected(Object sender, EventArgs e) 
