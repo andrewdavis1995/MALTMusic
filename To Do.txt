@@ -17,7 +17,7 @@ TIME PERMITTING:
 
 Weather Playlist generation					-	ANDREW
 Age Restriction
-Speed up playlist list load						-	MATT
+Speed up playlist list load						-	MATT (Use thread things)
 Follow Playlist
 
 Comment Code										-	Mainly MATT AND ANDREW

@@ -373,9 +373,54 @@ namespace MALT_Music.Models
 
         }
 
-        public void followPlaylist(Playlist playlist, User follower)
+        public void savePlaylist(Playlist playlist, User newUser)
         {
-            throw new NotImplementedException();
+            // Get details of current playlist
+            // Create new playlist, same name different owner
+            String newOwner = newUser.getUsername();
+            Guid newID = Guid.NewGuid();
+            playlist.setOwner(newOwner);
+            playlist.setGuid(newID);
+            List<Song> tracks = playlist.getSongs();
+            createPlaylist(playlist);
+            populatePlaylist(playlist, tracks);
+        }
+
+        public void populatePlaylist(Playlist p, List<Song> s)
+        {
+            try
+            {
+                // Call to initialise cluster connection
+                init();
+                // Connect to cluster
+                ISession session = cluster.Connect("maltmusic");
+
+                Guid pid = p.getID();
+
+                // Prepare and bind statement passing in the relevant fields
+                String todo = ("insert into playlist (track_id,playlist_id,track_pos)\n" +
+                 "values (:tid, :pid,:tpos) if not exists;");
+                PreparedStatement ps = session.Prepare(todo);
+                Guid tid = new Guid();
+                for (int i = 0; i < s.Count; i++)
+                {
+                    tid = s[i].getSongID();
+                    int pos = getListPos(session, tid, pid);
+                    BoundStatement bs = ps.Bind(tid, pid, pos);
+
+                    // Execute Query
+                    session.Execute(bs);
+                }
+                // Catch exceptions
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("SOMETHING WENT WRONG populate playlist: " + ex.Message);
+                //return false;
+            }
+
+        
+        
         }
 
         public int getListPos(ISession session, Guid tid, Guid pid)
