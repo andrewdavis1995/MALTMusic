@@ -364,6 +364,9 @@ namespace MALT_Music
 
             //Display edit box
             txtPlaylistNameEdit.Show();
+
+            //Hide label
+            lblPlaylistName.Hide();
         }
 
         //When leaving mouse hover of edit box, save
@@ -385,6 +388,9 @@ namespace MALT_Music
 
                 //Hide textbox
                 txtPlaylistNameEdit.Hide();
+
+                //Show label again
+                lblPlaylistName.Show();
             }
             else
             {
@@ -431,6 +437,15 @@ namespace MALT_Music
 
             // match about 3 with artist if matches available
 
+        }
+
+        //Pressing enter on textbox does same thing as leaving
+        private void txtPlaylistNameEdit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtPlaylistNameEdit_MouseLeave(this, new EventArgs());
+            }
         }
 
     }

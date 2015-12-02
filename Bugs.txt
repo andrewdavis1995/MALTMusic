@@ -3,7 +3,3 @@ BUGS:
 Stop then Skip											-	TRISTAN
 Stop then Stop										-	TRISTAN
 Blue images and pop up menu (all)			-	ANDREW
-Make song title shorter on Artist page 	-	LEWIS
-Hide playlist name label during edit 		-	LEWIS
-Enter keypress does search 					-	LEWIS
-Enter keypresses for login 						-	LEWIS

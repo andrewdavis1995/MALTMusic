@@ -341,7 +341,36 @@ namespace MALT_Music.Models
 
         public void deletePlaylist(Playlist playlist)
         {
-            throw new NotImplementedException();
+            try
+            {
+                init();
+                // Connect to cluster
+                ISession session = cluster.Connect("maltmusic");
+
+                // get playlist id
+                Guid play_id = playlist.getID();
+                
+                // First empty the playlist by ID
+                //Prepare, bind and execute statement
+                String todo = "delete from playlist where playlist_id = :pid";
+                PreparedStatement ps = session.Prepare(todo);
+                BoundStatement bs = ps.Bind(play_id);
+                session.Execute(bs);
+
+                // After emptying the playlist, delete the ID from the list
+                // Prepae, bind and execute statement
+                String next = "delete from list_playlist where playlist_id = :pid";
+                PreparedStatement p = session.Prepare(next);
+                BoundStatement b = p.Bind(play_id);
+                session.Execute(b);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Deleting a plist broke " + ex);
+            }
+
+
         }
 
         public void followPlaylist(Playlist playlist, User follower)

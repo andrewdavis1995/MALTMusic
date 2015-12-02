@@ -97,6 +97,7 @@
             this.txtSearchBox.TabIndex = 0;
             this.txtSearchBox.Text = "Search for songs, artists and albums...";
             this.txtSearchBox.Enter += new System.EventHandler(this.txtSearchBox_Enter);
+            this.txtSearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchBox_KeyDown);
             this.txtSearchBox.Leave += new System.EventHandler(this.txtSearchBox_Leave);
             // 
             // panel1
