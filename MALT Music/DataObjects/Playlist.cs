@@ -67,6 +67,8 @@ namespace MALT_Music.DataObjects
         // ACCESSOR METHODS
         public String getPlaylistName() { return this.playlistName; }
         public String getOwner() { return this.owner; }
+        public void setOwner(String own) { this.owner = own; }
+        public void setGuid(Guid newID) { this.pID = newID; }
         public Guid getID() { return this.pID; }
         public List<Song> getSongs() { return this.songs; }
 
