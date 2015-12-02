@@ -92,6 +92,9 @@ namespace MALT_Music
             artistView.Hide();
             playlists.Hide();
             viewPlaylist.Hide();
+
+            //Show the loading placeholder
+            picBoxBackground.Show();
         }
 
         //Method to open single playlist view
@@ -108,8 +111,9 @@ namespace MALT_Music
             viewPlaylist.setupLabels();
 
             viewPlaylist.FormBorderStyle = FormBorderStyle.None;
-            viewPlaylist.Size = new Size(1130, 442);        
-            
+            viewPlaylist.Size = new Size(1130, 442);
+
+            picBoxBackground.Hide();
             viewPlaylist.Show();
         }
 
@@ -206,6 +210,8 @@ namespace MALT_Music
             searchResults.createPlaylistList();
             searchResults.addPlaylistLabels();
 
+            picBoxBackground.Hide();
+
             searchResults.TopLevel = false;
             searchResults.Parent = this;
             searchResults.FormBorderStyle = FormBorderStyle.None;
@@ -232,6 +238,9 @@ namespace MALT_Music
             playlists.resetLabels();
             playlists.createLabels(playlistList);
             playlists.FormBorderStyle = FormBorderStyle.None;
+            
+            picBoxBackground.Hide();
+
             playlists.Show();
         }
 
@@ -244,6 +253,9 @@ namespace MALT_Music
             profileScreen.TopLevel = false;
             profileScreen.Parent = this;
             profileScreen.FormBorderStyle = FormBorderStyle.None;
+
+            picBoxBackground.Hide();
+
             profileScreen.Show();
         }
 
@@ -265,6 +277,9 @@ namespace MALT_Music
             artistView.TopLevel = false;
             artistView.Parent = this;
             artistView.FormBorderStyle = FormBorderStyle.None;
+
+            picBoxBackground.Hide();
+
             artistView.Show();
 
         }
