@@ -50,7 +50,7 @@
             this.lblArtistName.BackColor = System.Drawing.Color.Black;
             this.lblArtistName.Font = new System.Drawing.Font("Franklin Gothic Medium", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblArtistName.ForeColor = System.Drawing.Color.White;
-            this.lblArtistName.Location = new System.Drawing.Point(3, 0);
+            this.lblArtistName.Location = new System.Drawing.Point(3, 1);
             this.lblArtistName.Name = "lblArtistName";
             this.lblArtistName.Size = new System.Drawing.Size(132, 43);
             this.lblArtistName.TabIndex = 0;
@@ -133,7 +133,7 @@
             // 
             this.lblAddToPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.lblAddToPlaylist.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddToPlaylist.ForeColor = System.Drawing.Color.DimGray;
+            this.lblAddToPlaylist.ForeColor = System.Drawing.Color.White;
             this.lblAddToPlaylist.Location = new System.Drawing.Point(0, 48);
             this.lblAddToPlaylist.Name = "lblAddToPlaylist";
             this.lblAddToPlaylist.Size = new System.Drawing.Size(139, 43);

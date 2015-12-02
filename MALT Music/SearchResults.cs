@@ -320,8 +320,8 @@ namespace MALT_Music
 
             for (int i = 0; i < playlistLabelName.Count; i++)
             {
-                this.pnlPlaylists.Controls.Remove(playlistLabelName[i]);
-                this.pnlPlaylists.Controls.Remove(playlistLabelOwner[i]);
+                this.pnlSearchPlaylists.Controls.Remove(playlistLabelName[i]);
+                this.pnlSearchPlaylists.Controls.Remove(playlistLabelOwner[i]);
             }
 
             songLabelsA.Clear();

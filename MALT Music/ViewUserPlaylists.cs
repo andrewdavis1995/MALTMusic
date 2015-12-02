@@ -16,6 +16,7 @@ namespace MALT_Music
     {
         public String currentUser;
         List<Playlist> playlists;
+        List<Label> labelList = new List<Label>();
 
         public ViewUserPlaylists()
         {
@@ -23,9 +24,21 @@ namespace MALT_Music
             lblTitle.Text = "Playlists for User: " + this.currentUser;
         }
 
-        public void createLabels() {
-            PlaylistModel playlistModel = new PlaylistModel();
-            playlists = playlistModel.getPlaylistsForUser(this.currentUser);
+        
+        public void resetLabels() 
+        {
+            for (int i = 0; i < labelList.Count; i++) 
+            {
+                this.Controls.Remove(labelList[i]);
+            }
+
+            labelList.Clear();
+
+        }
+
+        public void createLabels(List<Playlist> p) {
+
+            this.playlists = p;
 
             int count = 0;
 
@@ -40,14 +53,16 @@ namespace MALT_Music
                 if (count % 2 == 0) { newLabel.BackColor = Color.FromArgb(20, 20, 20); } else { newLabel.BackColor = Color.FromArgb(60, 60, 60); }
                 newLabel.Location = new Point(290, 120 + (i * 30));
                 newLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                this.Controls.Add(newLabel);
+
+                labelList.Add(newLabel);
+
+                this.Controls.Add(labelList[i]);
                 count++;
             }
         }
 
         private void playlistSelected(Object sender, EventArgs e) 
         {
-
             Label theLabel = (Label)sender;
             int index = int.Parse(theLabel.Tag.ToString());
 
@@ -68,7 +83,27 @@ namespace MALT_Music
             Playlist newPlaylist = new Playlist(playlist, id, this.currentUser, songs);
 
             PlaylistModel playlistModel = new PlaylistModel();
-            playlistModel.createPlaylist(newPlaylist);
+
+            playlists.Add(newPlaylist);
+
+            #region createLabel
+            int count = playlists.Count - 1;
+            Label newLabel = new Label();
+            newLabel.Text = newPlaylist.getPlaylistName();
+            newLabel.Size = new Size(400, 30);
+            newLabel.ForeColor = Color.White;
+            newLabel.Tag = count.ToString();
+            newLabel.Click += playlistSelected;
+            if (count % 2 == 0) { newLabel.BackColor = Color.FromArgb(20, 20, 20); } else { newLabel.BackColor = Color.FromArgb(60, 60, 60); }
+            newLabel.Location = new Point(290, 120 + (count * 30));
+            newLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            labelList.Add(newLabel);
+
+            this.Controls.Add(labelList[count]);
+
+            #endregion 
+
         }
 
     }

@@ -147,7 +147,7 @@ namespace MALT_Music
 
 
                 Panel pnlInner = new Panel();
-                pnlInner.Size = new Size(693, 100);
+                pnlInner.Size = new Size(800, 100);
                 pnlInner.Location = new Point(100, 0);
                 pnlInner.BackColor = Color.FromArgb(20, 20, 20);
                 pnlInner.AutoScroll = true;

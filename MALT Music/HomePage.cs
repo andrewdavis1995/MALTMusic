@@ -104,7 +104,7 @@ namespace MALT_Music
 
             viewPlaylist.TopLevel = false;
             viewPlaylist.Parent = this;
-            viewPlaylist.setupAlbumCovers();
+            viewPlaylist.setupAlbumCovers(playlist.getSongs());
             viewPlaylist.setupLabels();
 
             viewPlaylist.FormBorderStyle = FormBorderStyle.None;
@@ -222,11 +222,15 @@ namespace MALT_Music
         {
             hideForms();
 
-            playlists.currentUser = currentUser.getUsername();
-            playlists.createLabels();
+
+            PlaylistModel playlistModel = new PlaylistModel();
+            List<Playlist> playlistList = playlistModel.getPlaylistsForUser(currentUser.getUsername());
+
+            playlists.currentUser = currentUser.getUsername(); 
             playlists.TopLevel = false;
             playlists.Parent = this;
-            playlists.createLabels();
+            playlists.resetLabels();
+            playlists.createLabels(playlistList);
             playlists.FormBorderStyle = FormBorderStyle.None;
             playlists.Show();
         }

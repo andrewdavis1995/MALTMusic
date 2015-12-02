@@ -3,11 +3,7 @@ BUGS:
 Stop then Skip											-	TRISTAN
 Stop then Stop										-	TRISTAN
 Blue images and pop up menu (all)			-	ANDREW
-Autoplay from 'Play' - not working			-	TRISTAN
-Various bugs after creating new Playlist	-	ANDREW
 Make song title shorter on Artist page 	-	LEWIS
 Hide playlist name label during edit 		-	LEWIS
-Refresh playlist name 								-	LEWIS/ANDREW
 Enter keypress does search 					-	LEWIS
 Enter keypresses for login 						-	LEWIS
-Doesn't reset playlist search					-	ANDREW

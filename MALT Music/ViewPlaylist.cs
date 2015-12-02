@@ -194,8 +194,8 @@ namespace MALT_Music
                 {
                     PictureBox removeIcon = new PictureBox();
 
-                    removeIcon.Size = new Size(30, 30);
-                    removeIcon.Location = new Point(1025, 156 + (33 * i));
+                    removeIcon.Size = new Size(20, 20);
+                    removeIcon.Location = new Point(1025, 161 + (33 * i));
                     removeIcon.BackgroundImage = Properties.Resources.removeFromPlaylist;
                     removeIcon.BackgroundImageLayout = ImageLayout.Stretch;
                     removeIcon.Tag = i.ToString();
@@ -224,14 +224,63 @@ namespace MALT_Music
             PlaylistModel playlistModel = new PlaylistModel();
             playlistModel.removeSongFromPlaylist(thePlaylist, theSong);
 
+
+            this.Controls.Remove(removeLabels[index]);
+            removeLabels.RemoveAt(index);
+
+            this.Controls.Remove(artistLabels[index]);
+            artistLabels.RemoveAt(index);
+
+            this.Controls.Remove(songLabels[index]);
+            songLabels.RemoveAt(index);
+
+            this.Controls.Remove(positionLabels[index]);
+            positionLabels.RemoveAt(index);
+
+            songs.RemoveAt(index);
+
+            for (int i = index; i < songs.Count; i++)
+            {
+                removeLabels[i].Top -= 33;
+                artistLabels[i].Top -= 33;
+                positionLabels[i].Top -= 33;
+                songLabels[i].Top -= 33;
+                positionLabels[i].Text = (i + 1).ToString();
+                removeLabels[i].Tag = (i).ToString();
+                artistLabels[i].Tag = (i).ToString();
+                positionLabels[i].Tag = (i).ToString();
+                songLabels[i].Tag = (i).ToString();
+
+                if (i % 2 == 0)
+                {
+                    positionLabels[i].BackColor = Color.FromArgb(60, 60, 60);
+                    songLabels[i].BackColor = Color.FromArgb(60, 60, 60);
+                    artistLabels[i].BackColor = Color.FromArgb(60, 60, 60);
+                }
+                else
+                {
+                    positionLabels[i].BackColor = Color.FromArgb(40, 40, 40);
+                    songLabels[i].BackColor = Color.FromArgb(40, 40, 40);
+                    artistLabels[i].BackColor = Color.FromArgb(40, 40, 40);
+                }
+
+                setupAlbumCovers(songs);
+
+            }
+
+
         }
 
         //Set up thumbnail for playlist consisting of four album covers
-        public void setupAlbumCovers()
+        public void setupAlbumCovers(List<Song> songs)
         {
             List<String> taken = new List<String>();
 
-            List<Song> songs = thePlaylist.getSongs();
+            // Reset images - needed incase of reload (auto update). Andrew understands this comment
+            coverImage1.BackgroundImage = null;
+            coverImage2.BackgroundImage = null;
+            coverImage3.BackgroundImage = null;
+            coverImage4.BackgroundImage = null;
 
             int i = 0;
 
@@ -239,22 +288,32 @@ namespace MALT_Music
             {
                 if (!taken.Contains(songs[i].getAlbum() + songs[i].getArtist()))
                 {
+                    Image coverImage;
+
+                    try
+                    {
+                        coverImage = Image.FromFile(@"../../tracks/" + songs[i].getArtist() + "/" + songs[i].getAlbum() + "/" + songs[i].getAlbum() + ".jpg");
+                    }
+                    catch (Exception) {
+                        coverImage = Properties.Resources.logo;
+                    }
+
                     //Set up album images of first four albums
                     if (taken.Count == 0)
                     {
-                        coverImage1.BackgroundImage = Image.FromFile(@"../../tracks/" + songs[i].getArtist() + "/" + songs[i].getAlbum() + "/" + songs[i].getAlbum() + ".jpg");
+                        coverImage1.BackgroundImage = coverImage;
                     }
                     else if (taken.Count == 1)
                     {
-                        coverImage2.BackgroundImage = Image.FromFile(@"../../tracks/" + songs[i].getArtist() + "/" + songs[i].getAlbum() + "/" + songs[i].getAlbum() + ".jpg");
+                        coverImage2.BackgroundImage = coverImage;
                     }
                     else if (taken.Count == 2)
                     {
-                        coverImage3.BackgroundImage = Image.FromFile(@"../../tracks/" + songs[i].getArtist() + "/" + songs[i].getAlbum() + "/" + songs[i].getAlbum() + ".jpg");
+                        coverImage3.BackgroundImage = coverImage;
                     }
                     else
                     {
-                        coverImage4.BackgroundImage = Image.FromFile(@"../../tracks/" + songs[i].getArtist() + "/" + songs[i].getAlbum() + "/" + songs[i].getAlbum() + ".jpg");
+                        coverImage4.BackgroundImage = coverImage;
                     }
 
                     taken.Add(songs[i].getAlbum() + songs[i].getArtist());
@@ -331,6 +390,17 @@ namespace MALT_Music
             {
                 //Do nothing
             }
+        }
+
+        private void picRecommend_Click(object sender, EventArgs e)
+        {
+            SongModel songModel = new SongModel();
+            List<Song> songList = songModel.getAllSongs();
+
+            // get all artists - sort
+
+            // get all genres - sort
+
         }
 
     }

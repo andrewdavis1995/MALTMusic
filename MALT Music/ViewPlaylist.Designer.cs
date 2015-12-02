@@ -167,6 +167,7 @@
             this.picRecommend.Size = new System.Drawing.Size(78, 81);
             this.picRecommend.TabIndex = 36;
             this.picRecommend.TabStop = false;
+            this.picRecommend.Click += new System.EventHandler(this.picRecommend_Click);
             // 
             // coverImage4
             // 

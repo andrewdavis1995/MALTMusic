@@ -2,15 +2,15 @@ TO DO:
 
 Add more songs										-	ALL
 Delete Playlists										-	MATT (Back end), ANDREW (Front end)
-Re-display Playlists after song remove	-	ANDREW
 Recommend songs based on playlist		-	ANDREW
 Save Playlists											-	MATT (Back end), ANDREW (Front end) 
-Try-Catches												-	ALL
+Try-Catches												-	ALL - MATT
 Home Page 												-	SOMEONE
 Loading wheel for background				-	SOMEONE
 Add to Playlist from Current Playlist			-	ANDREW
-Functioning Music Player 							-	TRISTAN
-Otto-Pleh													-	TRISTAN
+Move Music Player to seperate thread	-	TRISTAN
+View All Search Results							-	ANDREW (OR ANYONE WHO FANCIES IT)
+
 
 
 TIME PERMITTING:
