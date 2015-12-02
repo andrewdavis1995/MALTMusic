@@ -31,4 +31,5 @@ edecf2ef-76fa-411c-9956-1b9d65f9bc73|Fraser Ross|To Places|2012|Folk Rock|388|I 
 0f20c8a5-4056-4974-bb79-fdc9de0a8452|Mariah Carey|Merry Christmas|1994|Christmas|236|All I Want For Christmas is You
 7e54b731-e2d3-4396-ba02-cac2031a9ed5|Ray Parker, Jnr|Ghostbusters|1984|Theme|244|Ghostbusters
 9b2f7cbf-e727-407e-950f-4b8562f6d875|The Ronettes|A Christmas Gift For You|1963|Christmas|171|Sleigh Ride
-f7a1cfda-4e01-4ced-aca3-4d6cb0b6b8d6|Nathan Sykes|Over and Over Again|2015|Song|247|Over and Over Again
+f7a1cfda-4e01-4ced-aca3-4d6cb0b6b8d6|Nathan Sykes|Over and Over Again|2015|Ballad|247|Over and Over Again
+64bc7c26-2252-4927-881f-ecbe3b26fcbb|Kool & The Gang|Celebrate!|1980|Disco|298|Celebration

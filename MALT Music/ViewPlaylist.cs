@@ -87,9 +87,17 @@ namespace MALT_Music
             //Set length to label
             lblTime.Text = output;
 
+            String currUser = this.currentUser.getUsername();
+            String owner = thePlaylist.getOwner();
 
-            picSave.Left = lblPlaylistName.Left + lblPlaylistName.Width + 10;
-
+            if (currUser.Equals(owner))
+            {
+                picSave.Visible = false;
+            }
+            else
+            {
+                picSave.Left = lblPlaylistName.Left + lblPlaylistName.Width + 10;
+            }
         }
 
         public ViewPlaylist()
@@ -461,7 +469,7 @@ namespace MALT_Music
         private void picSave_Click(object sender, EventArgs e)
         {
             PlaylistModel playlistModel = new PlaylistModel();
-            //playlistModel.savePlaylist(this.thePlaylist, currentUser);
+            playlistModel.savePlaylist(this.thePlaylist, currentUser);
         }
 
     }
