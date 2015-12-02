@@ -364,6 +364,9 @@ namespace MALT_Music
 
             //Display edit box
             txtPlaylistNameEdit.Show();
+
+            //Hide label
+            lblPlaylistName.Hide();
         }
 
         //When leaving mouse hover of edit box, save
@@ -385,6 +388,9 @@ namespace MALT_Music
 
                 //Hide textbox
                 txtPlaylistNameEdit.Hide();
+
+                //Show label again
+                lblPlaylistName.Show();
             }
             else
             {
@@ -401,6 +407,15 @@ namespace MALT_Music
 
             // get all genres - sort
 
+        }
+
+        //Pressing enter on textbox does same thing as leaving
+        private void txtPlaylistNameEdit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtPlaylistNameEdit_MouseLeave(this, new EventArgs());
+            }
         }
 
     }

@@ -248,6 +248,24 @@ namespace MALT_Music
             this.WindowState = FormWindowState.Normal;
         }
 
+        //Move to password on enter press
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.ActiveControl = txtPassword;
+            }
+        }
+
+        //Attempt login on enter press on password box
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                cmdLogin_Click(this, new EventArgs());
+            }
+        }
+
         /*
         private void button1_Click(object sender, EventArgs e)
         {
