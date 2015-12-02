@@ -12,6 +12,11 @@ namespace MALT_Music.Models
     class SongModel
     {
         private Cluster cluster;
+        public SongModel() 
+        {
+            init();
+        }
+
         public void init()
         {
 
@@ -40,7 +45,7 @@ namespace MALT_Music.Models
             try
             {
                 // Call to initialise cluster connection
-                init();
+                //init();
 
 
                 Guid tid = song.getSongID();
@@ -95,7 +100,7 @@ namespace MALT_Music.Models
             try
             {
                 // Call to initialise cluster connection
-                init();
+                //init();
                 
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
@@ -173,10 +178,6 @@ namespace MALT_Music.Models
                     char[] delimiterChars = { '|' };
                     //System.Console.WriteLine("Original text: '{0}'", line);
                     string[] text = line.Split(delimiterChars);
-                    foreach (string s in text)
-                    {
-                        //System.Console.WriteLine(s);
-                    }
 
                     //Guid sid = new Guid();
                     Guid sid = new Guid(text[0]);
@@ -208,7 +209,8 @@ namespace MALT_Music.Models
             try
             {
                 // Call to initialise cluster connection
-                init();
+                //init();
+                
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
 
@@ -245,7 +247,8 @@ namespace MALT_Music.Models
             try
             {
                 // Call to initialise cluster connection
-                init();
+                //init();
+                
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
 
@@ -290,7 +293,7 @@ namespace MALT_Music.Models
             try
             {
                 // Call to initialise cluster connection
-                init();
+                //init();
                 
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
@@ -341,7 +344,7 @@ namespace MALT_Music.Models
             try
             {
                 // Call to initialise cluster connection
-                init();
+                //init();
 
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
