@@ -364,6 +364,9 @@ namespace MALT_Music
 
             //Display edit box
             txtPlaylistNameEdit.Show();
+
+            //Hide label
+            lblPlaylistName.Hide();
         }
 
         //When leaving mouse hover of edit box, save
@@ -385,6 +388,9 @@ namespace MALT_Music
 
                 //Hide textbox
                 txtPlaylistNameEdit.Hide();
+
+                //Show label again
+                lblPlaylistName.Show();
             }
             else
             {

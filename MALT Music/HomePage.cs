@@ -285,5 +285,14 @@ namespace MALT_Music
             }
         }
 
+        //For when the user presses enter in the search box, call search method
+        private void txtSearchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch_Click(this, new EventArgs());
+            }
+        }
+
     }
 }
