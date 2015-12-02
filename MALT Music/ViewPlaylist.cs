@@ -419,19 +419,29 @@ namespace MALT_Music
             SongModel songModel = new SongModel();
             List<Song> songList = songModel.getAllSongs();
 
+            List<Song> songsInPlaylist = thePlaylist.getSongs();
+
             // get all artists 
             
             List<String> artists = new List<String>();
 
             for (int i = 0; i < thePlaylist.getSongs().Count; i++) 
             {
-                if (!artists.Contains(thePlaylist.getSongs()[i].getArtist()))
+                String artist = thePlaylist.getSongs()[i].getArtist();
+
+                if (!artists.Contains(artist))
                 {
                     artists.Add(thePlaylist.getSongs()[i].getArtist());
                 }
             }
 
             List<Song> artistMatch = songList.Where(song => artists.Contains(song.getArtist())).ToList();
+
+            // Remove songs that already exist in playlist
+            for (int i = 0; i < songsInPlaylist.Count; i++) 
+            {
+                artistMatch.Remove(songsInPlaylist[i]);
+            }
 
             // get all genres
             List<String> genres = new List<String>();
@@ -445,6 +455,7 @@ namespace MALT_Music
             }
 
             List<Song> genresMatch = songList.Where(song => genres.Contains(song.getGenre())).ToList();
+
 
 
             // GET SONGS - REMEMBER NOT TO SELECT IF ALREADY IN LIST OR ALREADY IN PLAYLIST

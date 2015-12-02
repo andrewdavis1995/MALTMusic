@@ -5,8 +5,8 @@ Try-Catches															-	ALL - MATT
 Add to Playlist from Current Playlist						-	ANDREW
 Recommend songs based on playlist					-	ANDREW
 View All Search Results										-	ANDREW (OR ANYONE WHO FANCIES IT)
-Home Page loading background							-	LEWIS
 Move Music Player to seperate thread				-	TRISTAN
+Play a Playlist														-	TRISTAN (passed data from ANDREW)
 Display Details of current track while playing   	-	TRISTAN
 Update play count												-	MATT (back end), TRISTAN (front end)
 
