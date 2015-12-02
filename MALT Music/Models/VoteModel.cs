@@ -258,6 +258,29 @@ namespace MALT_Music.Models
             }
         }
 
+        public void updatePlayCount(Guid tid)
+        {
+            try
+            {
+                // Call to initialise cluster connection
+                init();
+
+                // Connect to cluster
+                ISession session = cluster.Connect("maltmusic");
+
+                // Prepare and bind statement passing in username
+                String todo = ("update votecount SET playcount = playcount+1 Where track_id = :tid");
+                PreparedStatement ps = session.Prepare(todo);
+                //BoundStatement bs = ps.Bind(artist);
+                BoundStatement bs = ps.Bind(tid);
+                // Execute Query
+                session.Execute(bs);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("ERROR WHILE updating play count " + e);
+            }
+        }
 
     }
 }
