@@ -403,9 +403,39 @@ namespace MALT_Music
             SongModel songModel = new SongModel();
             List<Song> songList = songModel.getAllSongs();
 
-            // get all artists - sort
+            // get all artists 
+            
+            List<String> artists = new List<String>();
 
-            // get all genres - sort
+            for (int i = 0; i < thePlaylist.getSongs().Count; i++) 
+            {
+                if (!artists.Contains(thePlaylist.getSongs()[i].getArtist()))
+                {
+                    artists.Add(thePlaylist.getSongs()[i].getArtist());
+                }
+            }
+
+            List<Song> artistMatch = songList.Where(song => artists.Contains(song.getArtist())).ToList();
+
+            // get all genres
+            List<String> genres = new List<String>();
+
+            for (int i = 0; i < thePlaylist.getSongs().Count; i++)
+            {
+                if (!genres.Contains(thePlaylist.getSongs()[i].getGenre()))
+                {
+                    genres.Add(thePlaylist.getSongs()[i].getGenre());
+                }
+            }
+
+            List<Song> genresMatch = songList.Where(song => genres.Contains(song.getGenre())).ToList();
+
+            // GET SONGS - REMEMBER NOT TO SELECT IF ALREADY IN LIST OR ALREADY IN PLAYLIST
+            // look for ones that match both artist and genre - max 5 - random 'seed' to select where to start looking?
+
+            // try to get 7/8 matching the genre
+
+            // match about 3 with artist if matches available
 
         }
 
