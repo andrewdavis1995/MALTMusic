@@ -617,7 +617,9 @@ namespace MALT_Music
                 String imagePath = "../../tracks/" + toAdd.getArtist() + "/" + toAdd.getAlbum() + "/" + toAdd.getAlbum() + ".jpg";
 
                 //Send song to music player
-                musicPlayer.setSongPath(@"" + filePath, imagePath);
+                Playlist toPlay = new Playlist();
+                toPlay.addSongs(toAdd);
+                musicPlayer.setPlaylist(toPlay, 0);
                 musicPlayer.playCurrentSong();
 
             }

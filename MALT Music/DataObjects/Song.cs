@@ -41,6 +41,11 @@ namespace MALT_Music.DataObjects
             this.length = length;
         }
 
+        public String getImagePath() 
+        {
+            String path = @"../../tracks/" + this.getArtist() + "/" + this.getAlbum() + "/" + this.getAlbum() + ".jpg";
+            return path;
+        }
         public String getArtist() { return this.artist; }
         public String getAlbum() { return this.album; }
         public int getYear() { return this.year; }

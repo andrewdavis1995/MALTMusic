@@ -15,7 +15,9 @@ namespace MALT_Music.DataObjects
         private List<Song> songs;
 
         // BLANK CONSTRUCTOR 
-        public Playlist() { }
+        public Playlist() {
+            this.songs = new List<Song>();
+        }
 
         /*
          * CONSTRUCTOR
