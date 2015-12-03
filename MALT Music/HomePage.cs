@@ -42,6 +42,11 @@ namespace MALT_Music
 
         }
 
+        public void updateCurrentSong(Song currentSong) {
+            // send to Search, view playlist, view artist
+        }
+
+
         /// <summary>
         /// On form load
         /// </summary>

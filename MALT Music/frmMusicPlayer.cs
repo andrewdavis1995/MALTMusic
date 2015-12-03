@@ -336,7 +336,7 @@ namespace MALT_Music
                     value = 0;
 
                     // If at the end of the playlist
-                    if (playlistIndex >= activePlaylist.getPlaylistSize() - 1)
+                    if (playlistIndex > activePlaylist.getPlaylistSize() - 1)
                     {
                         playlistIndex = 0;
                     }
