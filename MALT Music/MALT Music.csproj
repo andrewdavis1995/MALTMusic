@@ -206,6 +206,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\playlist_playbutton.png" />
     <None Include="Resources\save playlist.png" />
     <None Include="Resources\removeFromPlaylist.png" />
     <None Include="Resources\new playlist.png" />

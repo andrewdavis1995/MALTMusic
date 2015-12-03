@@ -94,10 +94,12 @@ namespace MALT_Music
             {
                 picSave.Visible = false;
                 picRecommend.Visible = true;
+                picPlay.Left = lblPlaylistName.Left + lblPlaylistName.Width + 10;
             }
             else
             {
                 picSave.Left = lblPlaylistName.Left + lblPlaylistName.Width + 10;
+                picPlay.Left = lblPlaylistName.Left + lblPlaylistName.Width + 15 + picSave.Width;
                 picRecommend.Visible = false;
             }
         }
@@ -375,6 +377,7 @@ namespace MALT_Music
         {
 
             picSave.Left = txtPlaylistNameEdit.Left + txtPlaylistNameEdit.Width + 10;
+            picPlay.Left = txtPlaylistNameEdit.Left + txtPlaylistNameEdit.Width + picSave.Left + 15;
 
             //Set contents of edit box to playlist name
             txtPlaylistNameEdit.Text = lblPlaylistName.Text;
@@ -410,6 +413,7 @@ namespace MALT_Music
                 lblPlaylistName.Show();
 
                 picSave.Left = lblPlaylistName.Left + lblPlaylistName.Width + 10;
+                picPlay.Left = txtPlaylistNameEdit.Left + txtPlaylistNameEdit.Width + picSave.Left + 15;
             }
             else
             {
@@ -439,28 +443,7 @@ namespace MALT_Music
             }
 
             List<Song> suitableSongs = songList.Where(song => artists.Contains(song.getArtist())).ToList();
-
-            // Remove songs that already exist in playlist
-            for (int j = 0; j < suitableSongs.Count; j++) 
-            {
-                for (int i = 0; i < songsInPlaylist.Count; i++) 
-                {
-                    if (suitableSongs[j].getSongID().Equals(songsInPlaylist[i].getSongID()))
-                    {
-                        suitableSongs.RemoveAt(j);
-                        if (j > 0)
-                        {
-                            j--;
-                        }
-                        else 
-                        {
-                            j = -1;
-                        }
-                        break;
-                    }   
-                }
-            }
-
+            
             // get all genres
             List<String> genres = new List<String>();
 
@@ -480,17 +463,53 @@ namespace MALT_Music
                 suitableSongs.Add(matchingGenres[i]);
             }
 
+
+            // Remove songs that already exist in playlist
+            for (int j = 0; j < suitableSongs.Count; j++)
+            {
+                for (int i = 0; i < songsInPlaylist.Count; i++)
+                {
+                    if (suitableSongs[j].getSongID().Equals(songsInPlaylist[i].getSongID()))
+                    {
+                        suitableSongs.RemoveAt(j);
+                        if (j > 0)
+                        {
+                            j--;
+                        }
+                        else
+                        {
+                            j = -1;
+                        }
+                        break;
+                    }
+                }
+            }
+
             // GET SONGS
 
             List<Song> selectedSongs = new List<Song>();
 
-            while (selectedSongs.Count < 6 && suitableSongs.Count > 0) 
+            while (selectedSongs.Count < 5 && suitableSongs.Count > 0)
             {
                 Random r = new Random();
-                int index = r.Next(0, selectedSongs.Count);
+                bool add = true;
+                int index = r.Next(0, suitableSongs.Count-1);
 
-                selectedSongs.Add(suitableSongs[index]);
-                suitableSongs.RemoveAt(index);
+                for (int i = 0; i < selectedSongs.Count; i++)
+                {
+                    if (selectedSongs[i].getSongID().Equals(suitableSongs[index].getSongID()))
+                    {
+                        add = false;
+                        suitableSongs.RemoveAt(index);
+                        break;
+                    }
+                }
+
+                if (add)
+                {
+                    selectedSongs.Add(suitableSongs[index]);
+                    suitableSongs.RemoveAt(index);
+                }
             }
 
             Recommendations recommendations = new Recommendations();
@@ -513,6 +532,12 @@ namespace MALT_Music
         {
             PlaylistModel playlistModel = new PlaylistModel();
             playlistModel.savePlaylist(this.thePlaylist, currentUser);
+        }
+
+        private void picPlay_Click(object sender, EventArgs e)
+        {
+            musicPlayer.setPlaylist(thePlaylist, 0);
+            musicPlayer.playCurrentSong();
         }
 
     }
