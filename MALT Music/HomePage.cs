@@ -123,6 +123,7 @@ namespace MALT_Music
         /// </summary>
         private void loadMusicPlayer()
         {
+
             musicPlayer.TopLevel = false;
             musicPlayer.Parent = this;
             
