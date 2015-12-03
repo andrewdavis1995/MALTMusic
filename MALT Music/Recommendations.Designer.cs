@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Recommendations));
             this.picSelectedArt = new System.Windows.Forms.PictureBox();
             this.lblSelectedSongName = new System.Windows.Forms.Label();
             this.lblSelectedSongArtist = new System.Windows.Forms.Label();
@@ -40,8 +39,8 @@
             // 
             // picSelectedArt
             // 
-            this.picSelectedArt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picSelectedArt.BackgroundImage")));
-            this.picSelectedArt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picSelectedArt.BackgroundImage = global::MALT_Music.Properties.Resources.loadingplaceholder;
+            this.picSelectedArt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picSelectedArt.Location = new System.Drawing.Point(512, 50);
             this.picSelectedArt.Name = "picSelectedArt";
             this.picSelectedArt.Size = new System.Drawing.Size(50, 50);
@@ -79,6 +78,7 @@
             this.picPlay.Size = new System.Drawing.Size(36, 35);
             this.picPlay.TabIndex = 3;
             this.picPlay.TabStop = false;
+            this.picPlay.Click += new System.EventHandler(this.picPlay_Click);
             // 
             // lblAddditionalInfo
             // 
@@ -105,6 +105,7 @@
             this.Controls.Add(this.picSelectedArt);
             this.Name = "Recommendations";
             this.Text = "Recommendations";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Recommendations_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.picSelectedArt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlay)).EndInit();
             this.ResumeLayout(false);

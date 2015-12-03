@@ -15,7 +15,9 @@ namespace MALT_Music
     {
 
         List<PictureBox> albumCovers = new List<PictureBox>();
+        frmMusicPlayer musicPlayer = new frmMusicPlayer(new HomePage());
         List<Song> songList = new List<Song>();
+        int selectedSong = -1;
 
         public Recommendations()
         {
@@ -38,12 +40,29 @@ namespace MALT_Music
                 picBox.BorderStyle = BorderStyle.FixedSingle;
                 picBox.MouseEnter += hoverEnter;
                 picBox.Tag = i.ToString();
+                picBox.Click += picBox_Click;
                 picBox.BackgroundImage = Image.FromFile(songList[i].getImagePath());
                 picBox.BackgroundImageLayout = ImageLayout.Stretch;
 
                 albumCovers.Add(picBox);
                 this.Controls.Add(albumCovers[i]);
             }
+        }
+
+        private void picBox_Click(Object sender, EventArgs e)
+        {
+            PictureBox pic = (PictureBox)sender;
+            int index = int.Parse(pic.Tag.ToString());
+
+            String songName = songList[index].getTrackName();
+            String artist = songList[index].getArtist();
+            String file_loc = songList[index].getImagePath();
+
+            lblSelectedSongName.Text = songName;
+            lblSelectedSongArtist.Text = artist;
+            picSelectedArt.BackgroundImage = Image.FromFile(file_loc);
+            selectedSong = index;
+
         }
 
         private void hoverEnter(Object sender, EventArgs e) 
@@ -57,6 +76,20 @@ namespace MALT_Music
             }
             albumCovers[index].BringToFront();
 
+        }
+
+        private void picPlay_Click(object sender, EventArgs e)
+        {
+            Playlist playlist = new Playlist();
+            playlist.addSongs(songList[selectedSong]);
+
+            musicPlayer.setPlaylist(playlist, 0);
+            musicPlayer.playCurrentSong();
+        }
+
+        private void Recommendations_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            musicPlayer.stopSong();
         }
 
     }

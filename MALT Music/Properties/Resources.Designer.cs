@@ -213,6 +213,16 @@ namespace MALT_Music.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap playlist_playbutton {
+            get {
+                object obj = ResourceManager.GetObject("playlist_playbutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap playtrack {
             get {
                 object obj = ResourceManager.GetObject("playtrack", resourceCulture);

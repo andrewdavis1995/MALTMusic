@@ -38,6 +38,7 @@
             this.lblAddToPlaylist = new System.Windows.Forms.Label();
             this.lblPlay = new System.Windows.Forms.Label();
             this.txtPlaylistNameEdit = new System.Windows.Forms.TextBox();
+            this.picPlay = new System.Windows.Forms.PictureBox();
             this.picSave = new System.Windows.Forms.PictureBox();
             this.picRecommend = new System.Windows.Forms.PictureBox();
             this.coverImage4 = new System.Windows.Forms.PictureBox();
@@ -45,6 +46,7 @@
             this.coverImage2 = new System.Windows.Forms.PictureBox();
             this.coverImage1 = new System.Windows.Forms.PictureBox();
             this.pnlOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecommend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverImage4)).BeginInit();
@@ -170,6 +172,17 @@
             this.txtPlaylistNameEdit.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlaylistNameEdit_KeyDown);
             this.txtPlaylistNameEdit.MouseLeave += new System.EventHandler(this.txtPlaylistNameEdit_MouseLeave);
             // 
+            // picPlay
+            // 
+            this.picPlay.BackgroundImage = global::MALT_Music.Properties.Resources.playlist_playbutton;
+            this.picPlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picPlay.Location = new System.Drawing.Point(633, 99);
+            this.picPlay.Name = "picPlay";
+            this.picPlay.Size = new System.Drawing.Size(84, 30);
+            this.picPlay.TabIndex = 39;
+            this.picPlay.TabStop = false;
+            this.picPlay.Click += new System.EventHandler(this.picPlay_Click);
+            // 
             // picSave
             // 
             this.picSave.BackgroundImage = global::MALT_Music.Properties.Resources.save_playlist;
@@ -235,6 +248,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1094, 442);
+            this.Controls.Add(this.picPlay);
             this.Controls.Add(this.picSave);
             this.Controls.Add(this.txtPlaylistNameEdit);
             this.Controls.Add(this.picRecommend);
@@ -251,6 +265,7 @@
             this.Name = "ViewPlaylist";
             this.Text = "ViewPlaylist";
             this.pnlOptions.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRecommend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coverImage4)).EndInit();
@@ -280,5 +295,6 @@
         private System.Windows.Forms.PictureBox picRecommend;
         private System.Windows.Forms.TextBox txtPlaylistNameEdit;
         private System.Windows.Forms.PictureBox picSave;
+        private System.Windows.Forms.PictureBox picPlay;
     }
 }
