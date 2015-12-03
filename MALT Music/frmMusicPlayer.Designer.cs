@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnStop = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
             this.lblFileName = new System.Windows.Forms.Label();
             this.tmrTracker = new System.Windows.Forms.Timer(this.components);
@@ -49,27 +48,16 @@
             this.lblVolume = new System.Windows.Forms.Label();
             this.ttpVolumeIndicator = new System.Windows.Forms.ToolTip(this.components);
             this.lblVolumeLevel = new System.Windows.Forms.Label();
+            this.pcbForwardSkip = new System.Windows.Forms.PictureBox();
+            this.pcbBackSkip = new System.Windows.Forms.PictureBox();
             this.grpRepeat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSliderBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbVolume)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbForwardSkip)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBackSkip)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnStop
-            // 
-            this.btnStop.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnStop.Enabled = false;
-            this.btnStop.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStop.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnStop.Location = new System.Drawing.Point(236, 14);
-            this.btnStop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(108, 30);
-            this.btnStop.TabIndex = 1;
-            this.btnStop.Text = "Stop";
-            this.btnStop.UseVisualStyleBackColor = false;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnTest
             // 
@@ -238,7 +226,7 @@
             // 
             this.pcbPlay.Enabled = false;
             this.pcbPlay.Image = global::MALT_Music.Properties.Resources.playtrack;
-            this.pcbPlay.Location = new System.Drawing.Point(147, 4);
+            this.pcbPlay.Location = new System.Drawing.Point(434, 3);
             this.pcbPlay.Name = "pcbPlay";
             this.pcbPlay.Size = new System.Drawing.Size(50, 50);
             this.pcbPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -278,6 +266,30 @@
             this.lblVolumeLevel.TabIndex = 16;
             this.lblVolumeLevel.Text = "Vol";
             // 
+            // pcbForwardSkip
+            // 
+            this.pcbForwardSkip.Enabled = false;
+            this.pcbForwardSkip.Image = global::MALT_Music.Properties.Resources.NextTrackwhite;
+            this.pcbForwardSkip.Location = new System.Drawing.Point(490, 4);
+            this.pcbForwardSkip.Name = "pcbForwardSkip";
+            this.pcbForwardSkip.Size = new System.Drawing.Size(50, 50);
+            this.pcbForwardSkip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbForwardSkip.TabIndex = 17;
+            this.pcbForwardSkip.TabStop = false;
+            this.pcbForwardSkip.Click += new System.EventHandler(this.pcbSkip_Click);
+            // 
+            // pcbBackSkip
+            // 
+            this.pcbBackSkip.Enabled = false;
+            this.pcbBackSkip.Image = global::MALT_Music.Properties.Resources.prevtrackwhite;
+            this.pcbBackSkip.Location = new System.Drawing.Point(378, 4);
+            this.pcbBackSkip.Name = "pcbBackSkip";
+            this.pcbBackSkip.Size = new System.Drawing.Size(50, 50);
+            this.pcbBackSkip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbBackSkip.TabIndex = 18;
+            this.pcbBackSkip.TabStop = false;
+            this.pcbBackSkip.Click += new System.EventHandler(this.pcbBackSkip_Click);
+            // 
             // frmMusicPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -285,6 +297,8 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1114, 156);
             this.ControlBox = false;
+            this.Controls.Add(this.pcbBackSkip);
+            this.Controls.Add(this.pcbForwardSkip);
             this.Controls.Add(this.lblVolumeLevel);
             this.Controls.Add(this.lblVolume);
             this.Controls.Add(this.pcbVolume);
@@ -297,7 +311,6 @@
             this.Controls.Add(this.picBoxAlbumArt);
             this.Controls.Add(this.lblFileName);
             this.Controls.Add(this.btnTest);
-            this.Controls.Add(this.btnStop);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -314,6 +327,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPlay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbVolume)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbForwardSkip)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbBackSkip)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,7 +336,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.PictureBox picBoxAlbumArt;
         private System.Windows.Forms.Timer tmrTracker;
@@ -341,5 +355,7 @@
         private System.Windows.Forms.Label lblVolume;
         private System.Windows.Forms.ToolTip ttpVolumeIndicator;
         private System.Windows.Forms.Label lblVolumeLevel;
+        private System.Windows.Forms.PictureBox pcbForwardSkip;
+        private System.Windows.Forms.PictureBox pcbBackSkip;
     }
 }
