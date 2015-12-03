@@ -299,13 +299,11 @@ namespace MALT_Music
             if (value > trackLength) value = trackLength;
             if (value >= trackLength) // End of the song
             {
-                // Checks where to increment the index counter to
-                if (playlistIndex < activePlaylist.getPlaylistSize())
+                // Checks where to increment the index counter to (if not repeating)
+                if (playlistIndex < activePlaylist.getPlaylistSize() && !rbnCurrent.Checked  && !rbnOnce.Checked)
                 {
                     playlistIndex++;
                 }
-                /*else
-                { playlistIndex = 0; }*/
 
                 // Checks repeat status
                 if (rbnNone.Checked)

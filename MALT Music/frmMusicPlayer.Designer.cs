@@ -36,7 +36,6 @@
             this.rbnOnce = new System.Windows.Forms.RadioButton();
             this.rbnCurrent = new System.Windows.Forms.RadioButton();
             this.rbnNone = new System.Windows.Forms.RadioButton();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.ttpSliderIndicator = new System.Windows.Forms.ToolTip(this.components);
             this.lblTimeOne = new System.Windows.Forms.Label();
             this.lblTimeTwo = new System.Windows.Forms.Label();
@@ -147,17 +146,6 @@
             this.rbnNone.Text = "None";
             this.ttpGeneralTip.SetToolTip(this.rbnNone, "Play to the end of the playlist");
             this.rbnNone.UseVisualStyleBackColor = true;
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(150, 57);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(80, 16);
-            this.lblStatus.TabIndex = 9;
-            this.lblStatus.Text = "Player Status:";
-            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ttpSliderIndicator
             // 
@@ -308,7 +296,6 @@
             this.Controls.Add(this.pcbSliderBar);
             this.Controls.Add(this.lblTimeTwo);
             this.Controls.Add(this.lblTimeOne);
-            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.grpRepeat);
             this.Controls.Add(this.picBoxAlbumArt);
             this.Controls.Add(this.lblPlayerStatus);
@@ -344,7 +331,6 @@
         private System.Windows.Forms.RadioButton rbnOnce;
         private System.Windows.Forms.RadioButton rbnCurrent;
         private System.Windows.Forms.RadioButton rbnNone;
-        private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.PictureBox pcbSliderBar;
         private System.Windows.Forms.Label lblPlayerStatus;
         private System.Windows.Forms.ToolTip ttpSliderIndicator;
