@@ -127,7 +127,6 @@ namespace MALT_Music
                 musicController.playSong();
 
                 // Updates button states
-                btnStop.Enabled = true;
                 btnTest.Enabled = false;
             }
             else
@@ -164,7 +163,6 @@ namespace MALT_Music
         private void pcbPlay_Click(object sender, EventArgs e)
         {
             playCurrentSong();
-            btnStop.Enabled = true;
             btnTest.Enabled = false;
         }
 
@@ -175,7 +173,6 @@ namespace MALT_Music
         {
             // Disables track timer
             tmrTracker.Enabled = false;
-            btnStop.Enabled = false;
 
             // Resets position of tracker
             SetValue(0);
