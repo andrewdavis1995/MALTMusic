@@ -289,7 +289,7 @@ namespace MALT_Music
             if (value >= trackLength) // End of the song
             {
                 // Checks where to increment the index counter to
-                if (playlistIndex < activePlaylist.getPlaylistSize() - 1)
+                if (playlistIndex < activePlaylist.getPlaylistSize())
                 {
                     playlistIndex++;
                 }
@@ -328,7 +328,7 @@ namespace MALT_Music
                     value = 0;
 
                     // If at the end of the playlist
-                    if (playlistIndex > activePlaylist.getPlaylistSize() - 1)
+                    if (playlistIndex >= activePlaylist.getPlaylistSize())
                     {
                         playlistIndex = 0;
                     }
