@@ -35,7 +35,7 @@ namespace MALT_Music
         /// </summary>
         private int sliderValue;
         private bool mouseIsDown;
-        
+
         /// <summary>
         /// Init for form
         /// </summary>
@@ -62,6 +62,42 @@ namespace MALT_Music
             mouseIsDown = false;
             ttpSliderIndicator.Hide(this);
         }
+
+        #region Event Actions ### Contains all event handlers for controls
+        /// <summary>
+        /// Triggers the play routine
+        /// </summary>.
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pcbPlay_Click(object sender, EventArgs e)
+        {
+            playCurrentSong();
+        }
+
+        /// <summary>
+        /// Increments the progress bar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tmrTracker_Tick(object sender, EventArgs e)
+        {
+            if (sliderValue != trackLength)
+            {
+                SetValue(sliderValue + 1);
+            }
+        }
+
+        /// <summary>
+        /// Sets up form settings for initial load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmMusicPlayer_Load(object sender, EventArgs e)
+        {
+            lblTimeOne.Text = "";
+            lblTimeTwo.Text = "";
+        }
+        #endregion
 
         /// <summary>
         /// Acquires the file path of the song via the playlist
@@ -152,15 +188,7 @@ namespace MALT_Music
             playlistIndex = playIndex;
         }
 
-        /// <summary>
-        /// Triggers the play routine
-        /// </summary>.
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pcbPlay_Click(object sender, EventArgs e)
-        {
-            playCurrentSong();
-        }
+       
 
         /// <summary>
         /// Stops playing the track
@@ -191,42 +219,6 @@ namespace MALT_Music
             {
                 pcbPlay.Enabled = true;
             }
-        }
-
-        /// <summary>
-        /// Loads a test file
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void openTest(object sender, EventArgs e)
-        {
-            string path = Path.GetFullPath(@"..\..\Resources\Test.mp3");
-            lblFileName.Text = path;
-            pcbPlay.Enabled = true;
-        }
-
-        /// <summary>
-        /// Increments the progress bar
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tmrTracker_Tick(object sender, EventArgs e)
-        {
-            if (sliderValue != trackLength)
-            {
-                SetValue(sliderValue + 1);    
-            }
-        }
-
-        /// <summary>
-        /// Sets up form settings for initial load
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmMusicPlayer_Load(object sender, EventArgs e)
-        {
-            lblTimeOne.Text = "";
-            lblTimeTwo.Text = "";
         }
 
         // Based on code from http://csharphelper.com/blog/2011/07/use-a-picturebox-to-make-a-slider-with-a-needle-in-c/"/>
