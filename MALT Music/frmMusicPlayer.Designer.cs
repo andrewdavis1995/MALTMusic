@@ -264,7 +264,6 @@
             // 
             // pcbForwardSkip
             // 
-            this.pcbForwardSkip.Enabled = false;
             this.pcbForwardSkip.Image = global::MALT_Music.Properties.Resources.NextTrackwhite;
             this.pcbForwardSkip.Location = new System.Drawing.Point(490, 4);
             this.pcbForwardSkip.Name = "pcbForwardSkip";
@@ -277,7 +276,6 @@
             // 
             // pcbBackSkip
             // 
-            this.pcbBackSkip.Enabled = false;
             this.pcbBackSkip.Image = global::MALT_Music.Properties.Resources.prevtrackwhite;
             this.pcbBackSkip.Location = new System.Drawing.Point(378, 4);
             this.pcbBackSkip.Name = "pcbBackSkip";

@@ -135,4 +135,7 @@
   <metadata name="ttpVolumeIndicator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>51, 16</value>
   </metadata>
+  <metadata name="ttpGeneralTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>306, 16</value>
+  </metadata>
 </root>
