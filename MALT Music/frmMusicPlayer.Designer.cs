@@ -276,7 +276,7 @@
             this.pcbForwardSkip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbForwardSkip.TabIndex = 17;
             this.pcbForwardSkip.TabStop = false;
-            this.pcbForwardSkip.Click += new System.EventHandler(this.pcbSkip_Click);
+            this.pcbForwardSkip.Click += new System.EventHandler(this.pcbForwardSkip_Click);
             // 
             // pcbBackSkip
             // 

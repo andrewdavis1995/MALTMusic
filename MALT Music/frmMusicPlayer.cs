@@ -595,7 +595,7 @@ namespace MALT_Music
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void pcbSkip_Click(object sender, EventArgs e)
+        private void pcbForwardSkip_Click(object sender, EventArgs e)
         {
             // If there is a playlist
             if (activePlaylist != null)
@@ -621,7 +621,7 @@ namespace MALT_Music
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void pcbSkip_Click(object sender, EventArgs e)
+        private void pcbBackSkip_Click(object sender, EventArgs e)
         {
             // If there is a playlist
             if (activePlaylist != null)
