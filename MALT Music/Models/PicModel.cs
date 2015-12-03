@@ -18,6 +18,7 @@ namespace MALT_Music.Models
         // http://ac31004.blogspot.co.uk/2014/03/saving-image-in-cassandra-blob-field.html
 
         private Cluster cluster;
+        public PicModel() { init(); }
         public void init()
         {
 
@@ -50,7 +51,7 @@ namespace MALT_Music.Models
             //Guid pic_id = new Guid();
             //pic_id = Guid.NewGuid();
 
-            init();
+            //init();
             ISession session = cluster.Connect("maltmusic");
  
             String firstStatement = "delete from images where user_id = :uid";
@@ -71,7 +72,7 @@ namespace MALT_Music.Models
         }
         public Image getImage(String username)
         {
-            init();
+            //init();
             ISession session = cluster.Connect("maltmusic");
 
             //String username = "adminstuff";

@@ -258,6 +258,7 @@ namespace MALT_Music
             profileScreen.setUser(currentUser);
             profileScreen.TopLevel = false;
             profileScreen.Parent = this;
+            profileScreen.setParent(this);
             profileScreen.FormBorderStyle = FormBorderStyle.None;
 
             picBoxBackground.Hide();

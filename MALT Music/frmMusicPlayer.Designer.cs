@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblFileName = new System.Windows.Forms.Label();
+            this.lblPlayerStatus = new System.Windows.Forms.Label();
             this.tmrTracker = new System.Windows.Forms.Timer(this.components);
             this.grpRepeat = new System.Windows.Forms.GroupBox();
             this.rbnPlaylist = new System.Windows.Forms.RadioButton();
             this.rbnOnce = new System.Windows.Forms.RadioButton();
             this.rbnCurrent = new System.Windows.Forms.RadioButton();
             this.rbnNone = new System.Windows.Forms.RadioButton();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.ttpSliderIndicator = new System.Windows.Forms.ToolTip(this.components);
             this.lblTimeOne = new System.Windows.Forms.Label();
             this.lblTimeTwo = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
             this.lblVolumeLevel = new System.Windows.Forms.Label();
             this.pcbForwardSkip = new System.Windows.Forms.PictureBox();
             this.pcbBackSkip = new System.Windows.Forms.PictureBox();
+            this.ttpGeneralTip = new System.Windows.Forms.ToolTip(this.components);
             this.grpRepeat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSliderBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxAlbumArt)).BeginInit();
@@ -58,18 +58,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbBackSkip)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblFileName
+            // lblPlayerStatus
             // 
-            this.lblFileName.AutoEllipsis = true;
-            this.lblFileName.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblFileName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFileName.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFileName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblFileName.Location = new System.Drawing.Point(236, 56);
-            this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(479, 18);
-            this.lblFileName.TabIndex = 4;
-            this.lblFileName.Text = "No file selected";
+            this.lblPlayerStatus.AutoEllipsis = true;
+            this.lblPlayerStatus.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblPlayerStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPlayerStatus.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblPlayerStatus.Location = new System.Drawing.Point(236, 56);
+            this.lblPlayerStatus.Name = "lblPlayerStatus";
+            this.lblPlayerStatus.Size = new System.Drawing.Size(479, 18);
+            this.lblPlayerStatus.TabIndex = 4;
+            this.lblPlayerStatus.Text = "No file selected";
+            this.ttpGeneralTip.SetToolTip(this.lblPlayerStatus, "Song Title");
             // 
             // tmrTracker
             // 
@@ -103,6 +104,7 @@
             this.rbnPlaylist.TabIndex = 3;
             this.rbnPlaylist.TabStop = true;
             this.rbnPlaylist.Text = "Playlist";
+            this.ttpGeneralTip.SetToolTip(this.rbnPlaylist, "Repeat the playlist");
             this.rbnPlaylist.UseVisualStyleBackColor = true;
             // 
             // rbnOnce
@@ -115,6 +117,7 @@
             this.rbnOnce.TabIndex = 2;
             this.rbnOnce.TabStop = true;
             this.rbnOnce.Text = "Once";
+            this.ttpGeneralTip.SetToolTip(this.rbnOnce, "Repeat current song once, then continue as normal");
             this.rbnOnce.UseVisualStyleBackColor = true;
             // 
             // rbnCurrent
@@ -127,6 +130,7 @@
             this.rbnCurrent.TabIndex = 1;
             this.rbnCurrent.TabStop = true;
             this.rbnCurrent.Text = "Current";
+            this.ttpGeneralTip.SetToolTip(this.rbnCurrent, "Repeat the current song continuously");
             this.rbnCurrent.UseVisualStyleBackColor = true;
             // 
             // rbnNone
@@ -140,17 +144,8 @@
             this.rbnNone.TabIndex = 0;
             this.rbnNone.TabStop = true;
             this.rbnNone.Text = "None";
+            this.ttpGeneralTip.SetToolTip(this.rbnNone, "Play to the end of the playlist");
             this.rbnNone.UseVisualStyleBackColor = true;
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(150, 57);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(80, 16);
-            this.lblStatus.TabIndex = 9;
-            this.lblStatus.Text = "Player Status:";
             // 
             // ttpSliderIndicator
             // 
@@ -166,6 +161,7 @@
             this.lblTimeOne.Size = new System.Drawing.Size(72, 16);
             this.lblTimeOne.TabIndex = 10;
             this.lblTimeOne.Text = "CurrentTime";
+            this.ttpGeneralTip.SetToolTip(this.lblTimeOne, "Click to change between current / remaining time");
             this.lblTimeOne.Click += new System.EventHandler(this.lblTimeOne_Click);
             // 
             // lblTimeTwo
@@ -188,6 +184,7 @@
             this.pcbSliderBar.Size = new System.Drawing.Size(577, 46);
             this.pcbSliderBar.TabIndex = 12;
             this.pcbSliderBar.TabStop = false;
+            this.ttpGeneralTip.SetToolTip(this.pcbSliderBar, "Tracker bar");
             this.pcbSliderBar.Paint += new System.Windows.Forms.PaintEventHandler(this.picSliderBar_Paint);
             this.pcbSliderBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pcbSliderBar_MouseDown);
             this.pcbSliderBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pcbSliderBar_MouseMove);
@@ -196,6 +193,7 @@
             // picBoxAlbumArt
             // 
             this.picBoxAlbumArt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picBoxAlbumArt.Image = global::MALT_Music.Properties.Resources.logo;
             this.picBoxAlbumArt.Location = new System.Drawing.Point(12, 14);
             this.picBoxAlbumArt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picBoxAlbumArt.Name = "picBoxAlbumArt";
@@ -203,16 +201,19 @@
             this.picBoxAlbumArt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxAlbumArt.TabIndex = 5;
             this.picBoxAlbumArt.TabStop = false;
+            this.ttpGeneralTip.SetToolTip(this.picBoxAlbumArt, "Album art");
             // 
             // pcbPlay
             // 
             this.pcbPlay.Enabled = false;
+            this.pcbPlay.Image = global::MALT_Music.Properties.Resources.playtrack;
             this.pcbPlay.Location = new System.Drawing.Point(434, 3);
             this.pcbPlay.Name = "pcbPlay";
             this.pcbPlay.Size = new System.Drawing.Size(50, 50);
             this.pcbPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbPlay.TabIndex = 13;
             this.pcbPlay.TabStop = false;
+            this.ttpGeneralTip.SetToolTip(this.pcbPlay, "Play / Pause current track");
             this.pcbPlay.Click += new System.EventHandler(this.pcbPlay_Click);
             // 
             // pcbVolume
@@ -224,6 +225,7 @@
             this.pcbVolume.Size = new System.Drawing.Size(194, 20);
             this.pcbVolume.TabIndex = 14;
             this.pcbVolume.TabStop = false;
+            this.ttpGeneralTip.SetToolTip(this.pcbVolume, "Volume control");
             this.pcbVolume.Paint += new System.Windows.Forms.PaintEventHandler(this.pcbVolume_Paint);
             this.pcbVolume.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pcbVolume_MouseDown);
             this.pcbVolume.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pcbVolume_MouseMove);
@@ -246,28 +248,37 @@
             this.lblVolumeLevel.Size = new System.Drawing.Size(24, 16);
             this.lblVolumeLevel.TabIndex = 16;
             this.lblVolumeLevel.Text = "Vol";
+            this.ttpGeneralTip.SetToolTip(this.lblVolumeLevel, "Volume level");
             // 
             // pcbForwardSkip
             // 
-            this.pcbForwardSkip.Enabled = false;
+            this.pcbForwardSkip.Image = global::MALT_Music.Properties.Resources.NextTrackwhite;
             this.pcbForwardSkip.Location = new System.Drawing.Point(490, 4);
             this.pcbForwardSkip.Name = "pcbForwardSkip";
             this.pcbForwardSkip.Size = new System.Drawing.Size(50, 50);
             this.pcbForwardSkip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbForwardSkip.TabIndex = 17;
             this.pcbForwardSkip.TabStop = false;
+            this.ttpGeneralTip.SetToolTip(this.pcbForwardSkip, "Skip to next track in the playlist");
             this.pcbForwardSkip.Click += new System.EventHandler(this.pcbForwardSkip_Click);
             // 
             // pcbBackSkip
             // 
-            this.pcbBackSkip.Enabled = false;
+            this.pcbBackSkip.Image = global::MALT_Music.Properties.Resources.prevtrackwhite;
             this.pcbBackSkip.Location = new System.Drawing.Point(378, 4);
             this.pcbBackSkip.Name = "pcbBackSkip";
             this.pcbBackSkip.Size = new System.Drawing.Size(50, 50);
             this.pcbBackSkip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbBackSkip.TabIndex = 18;
             this.pcbBackSkip.TabStop = false;
+            this.ttpGeneralTip.SetToolTip(this.pcbBackSkip, "Skip to previous track in the playlist");
             this.pcbBackSkip.Click += new System.EventHandler(this.pcbBackSkip_Click);
+            // 
+            // ttpGeneralTip
+            // 
+            this.ttpGeneralTip.AutoPopDelay = 5000;
+            this.ttpGeneralTip.InitialDelay = 250;
+            this.ttpGeneralTip.ReshowDelay = 0;
             // 
             // frmMusicPlayer
             // 
@@ -285,10 +296,9 @@
             this.Controls.Add(this.pcbSliderBar);
             this.Controls.Add(this.lblTimeTwo);
             this.Controls.Add(this.lblTimeOne);
-            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.grpRepeat);
             this.Controls.Add(this.picBoxAlbumArt);
-            this.Controls.Add(this.lblFileName);
+            this.Controls.Add(this.lblPlayerStatus);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -321,9 +331,8 @@
         private System.Windows.Forms.RadioButton rbnOnce;
         private System.Windows.Forms.RadioButton rbnCurrent;
         private System.Windows.Forms.RadioButton rbnNone;
-        private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.PictureBox pcbSliderBar;
-        private System.Windows.Forms.Label lblFileName;
+        private System.Windows.Forms.Label lblPlayerStatus;
         private System.Windows.Forms.ToolTip ttpSliderIndicator;
         private System.Windows.Forms.Label lblTimeOne;
         private System.Windows.Forms.Label lblTimeTwo;
@@ -334,5 +343,6 @@
         private System.Windows.Forms.Label lblVolumeLevel;
         private System.Windows.Forms.PictureBox pcbForwardSkip;
         private System.Windows.Forms.PictureBox pcbBackSkip;
+        private System.Windows.Forms.ToolTip ttpGeneralTip;
     }
 }

@@ -52,6 +52,7 @@ namespace MALT_Music
             isPlaying = false;
             playPause = true; // Sets to pause mode
             timeIndic = false; // Sets timer to negative
+            lblPlayerStatus.Text = "No song selected";
 
             // Updates volume control
             setVolume(0.5f);
@@ -110,7 +111,16 @@ namespace MALT_Music
 
             // Get and the album artwork
             string imagePath = thisSong.getImagePath();
-            picBoxAlbumArt.ImageLocation = imagePath;
+
+            // Sets the album art image
+            if (imagePath != "" && imagePath != null)
+            {
+                picBoxAlbumArt.ImageLocation = imagePath;
+            }
+            else
+            {
+                picBoxAlbumArt.Image = MALT_Music.Properties.Resources.logo;
+            }
             
             // Acquires the path
             string songPath = thisSong.getFileLocation();
@@ -139,7 +149,8 @@ namespace MALT_Music
 
                     // Sets song to be played
                     musicController.setSong(songPath);
-                    lblFileName.Text = songPath;
+                    string trackDetails = "Now Playing: " + thisSong.getTrackName() + " by " + thisSong.getArtist();
+                    lblPlayerStatus.Text = trackDetails;
 
                     // Sets the length of the track
                     trackLength = musicController.getTrackLength();
@@ -156,7 +167,7 @@ namespace MALT_Music
                 
                 // Updates playcount for particular song
                 VoteModel voteModel = new VoteModel();
-                Song thisSong = activePlaylist.getSongByID(playlistIndex);
+                Song updSong = activePlaylist.getSongByID(playlistIndex);
                 voteModel.updatePlayCount(thisSong.getSongID());
 
                 // Initiates playing of song
@@ -215,7 +226,7 @@ namespace MALT_Music
             playPause = true;
 
             // If a file is loaded
-            if (lblFileName.Text != "")
+            if (lblPlayerStatus.Text != "")
             {
                 pcbPlay.Enabled = true;
             }
@@ -288,13 +299,11 @@ namespace MALT_Music
             if (value > trackLength) value = trackLength;
             if (value >= trackLength) // End of the song
             {
-                // Checks where to increment the index counter to
-                if (playlistIndex < activePlaylist.getPlaylistSize() - 1)
+                // Checks where to increment the index counter to (if not repeating)
+                if (playlistIndex < activePlaylist.getPlaylistSize() && !rbnCurrent.Checked  && !rbnOnce.Checked)
                 {
                     playlistIndex++;
                 }
-                /*else
-                { playlistIndex = 0; }*/
 
                 // Checks repeat status
                 if (rbnNone.Checked)
@@ -328,7 +337,7 @@ namespace MALT_Music
                     value = 0;
 
                     // If at the end of the playlist
-                    if (playlistIndex > activePlaylist.getPlaylistSize() - 1)
+                    if (playlistIndex >= activePlaylist.getPlaylistSize())
                     {
                         playlistIndex = 0;
                     }

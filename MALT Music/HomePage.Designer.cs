@@ -35,31 +35,30 @@
             this.txtSearchBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.picBoxPlaylist = new System.Windows.Forms.PictureBox();
-            this.picBoxLogout = new System.Windows.Forms.PictureBox();
             this.picBoxMagnifyingGlass = new System.Windows.Forms.PictureBox();
             this.picBoxMALTLogo = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.picBoxProfPicThumb = new MALT_Music.OvalPictureBox();
+            this.picBoxPlaylist = new System.Windows.Forms.PictureBox();
+            this.picBoxLogout = new System.Windows.Forms.PictureBox();
             this.picBoxBackground = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPlaylist)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxMagnifyingGlass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxMALTLogo)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxProfPicThumb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPlaylist)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBackground)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFullName
             // 
-            this.lblFullName.AutoSize = true;
-            this.lblFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFullName.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblFullName.Location = new System.Drawing.Point(66, 19);
+            this.lblFullName.Location = new System.Drawing.Point(66, 9);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(78, 29);
+            this.lblFullName.Size = new System.Drawing.Size(164, 54);
             this.lblFullName.TabIndex = 0;
             this.lblFullName.Text = "Name";
             this.lblFullName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -125,6 +124,27 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // picBoxMagnifyingGlass
+            // 
+            this.picBoxMagnifyingGlass.Image = global::MALT_Music.Properties.Resources.Magnifying_glass_icon_white;
+            this.picBoxMagnifyingGlass.InitialImage = ((System.Drawing.Image)(resources.GetObject("picBoxMagnifyingGlass.InitialImage")));
+            this.picBoxMagnifyingGlass.Location = new System.Drawing.Point(324, 12);
+            this.picBoxMagnifyingGlass.Name = "picBoxMagnifyingGlass";
+            this.picBoxMagnifyingGlass.Size = new System.Drawing.Size(50, 47);
+            this.picBoxMagnifyingGlass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxMagnifyingGlass.TabIndex = 1;
+            this.picBoxMagnifyingGlass.TabStop = false;
+            // 
+            // picBoxMALTLogo
+            // 
+            this.picBoxMALTLogo.Image = global::MALT_Music.Properties.Resources.logo;
+            this.picBoxMALTLogo.Location = new System.Drawing.Point(48, 8);
+            this.picBoxMALTLogo.Name = "picBoxMALTLogo";
+            this.picBoxMALTLogo.Size = new System.Drawing.Size(135, 73);
+            this.picBoxMALTLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxMALTLogo.TabIndex = 2;
+            this.picBoxMALTLogo.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -138,6 +158,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(233, 313);
             this.panel2.TabIndex = 7;
+            // 
+            // picBoxProfPicThumb
+            // 
+            this.picBoxProfPicThumb.BackColor = System.Drawing.Color.LightGray;
+            this.picBoxProfPicThumb.Image = global::MALT_Music.Properties.Resources.iconprofile;
+            this.picBoxProfPicThumb.Location = new System.Drawing.Point(11, 9);
+            this.picBoxProfPicThumb.Name = "picBoxProfPicThumb";
+            this.picBoxProfPicThumb.Size = new System.Drawing.Size(50, 50);
+            this.picBoxProfPicThumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxProfPicThumb.TabIndex = 5;
+            this.picBoxProfPicThumb.TabStop = false;
+            this.picBoxProfPicThumb.Click += new System.EventHandler(this.lblFullName_Click);
             // 
             // picBoxPlaylist
             // 
@@ -160,39 +192,6 @@
             this.picBoxLogout.TabIndex = 3;
             this.picBoxLogout.TabStop = false;
             this.picBoxLogout.Click += new System.EventHandler(this.picBoxLogout_Click);
-            // 
-            // picBoxMagnifyingGlass
-            // 
-            this.picBoxMagnifyingGlass.Image = global::MALT_Music.Properties.Resources.Magnifying_glass_icon_white;
-            this.picBoxMagnifyingGlass.InitialImage = ((System.Drawing.Image)(resources.GetObject("picBoxMagnifyingGlass.InitialImage")));
-            this.picBoxMagnifyingGlass.Location = new System.Drawing.Point(324, 12);
-            this.picBoxMagnifyingGlass.Name = "picBoxMagnifyingGlass";
-            this.picBoxMagnifyingGlass.Size = new System.Drawing.Size(50, 47);
-            this.picBoxMagnifyingGlass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxMagnifyingGlass.TabIndex = 1;
-            this.picBoxMagnifyingGlass.TabStop = false;
-            // 
-            // picBoxMALTLogo
-            // 
-            this.picBoxMALTLogo.Image = global::MALT_Music.Properties.Resources.logo;
-            this.picBoxMALTLogo.Location = new System.Drawing.Point(48, 8);
-            this.picBoxMALTLogo.Name = "picBoxMALTLogo";
-            this.picBoxMALTLogo.Size = new System.Drawing.Size(135, 73);
-            this.picBoxMALTLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxMALTLogo.TabIndex = 2;
-            this.picBoxMALTLogo.TabStop = false;
-            // 
-            // picBoxProfPicThumb
-            // 
-            this.picBoxProfPicThumb.BackColor = System.Drawing.Color.LightGray;
-            this.picBoxProfPicThumb.Image = global::MALT_Music.Properties.Resources.iconprofile;
-            this.picBoxProfPicThumb.Location = new System.Drawing.Point(11, 9);
-            this.picBoxProfPicThumb.Name = "picBoxProfPicThumb";
-            this.picBoxProfPicThumb.Size = new System.Drawing.Size(50, 50);
-            this.picBoxProfPicThumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBoxProfPicThumb.TabIndex = 5;
-            this.picBoxProfPicThumb.TabStop = false;
-            this.picBoxProfPicThumb.Click += new System.EventHandler(this.lblFullName_Click);
             // 
             // picBoxBackground
             // 
@@ -227,13 +226,13 @@
             this.Load += new System.EventHandler(this.HomePage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPlaylist)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxMagnifyingGlass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxMALTLogo)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxProfPicThumb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPlaylist)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBackground)).EndInit();
             this.ResumeLayout(false);
 

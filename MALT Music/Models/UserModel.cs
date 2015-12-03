@@ -12,6 +12,7 @@ namespace MALT_Music.Models
     class UserModel
     {
         private Cluster cluster;
+        public UserModel() { init(); }
         public void init()
         {
 
@@ -31,7 +32,7 @@ namespace MALT_Music.Models
             {
                 //THIS NULL POINTERS
                 // no it doesn't
-                init();
+               // init();
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
 
@@ -77,7 +78,7 @@ namespace MALT_Music.Models
             //this is to do
             //update userprofiles set bio = 'blehhehehegfdyuqibvy'where user_id = 'andrew7';
 
-            init();
+            //init();
             // Connect to cluster
             ISession session = cluster.Connect("maltmusic");
 
@@ -95,7 +96,7 @@ namespace MALT_Music.Models
             //;
             try
             {
-                init();
+                //init();
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
 
@@ -118,7 +119,7 @@ namespace MALT_Music.Models
         {
             pass = Encryption.calcMD5(pass);
 
-            init();
+            //init();
             // Connect to cluster
             ISession session = cluster.Connect("maltmusic");
 
@@ -135,7 +136,7 @@ namespace MALT_Music.Models
             try
             {
                 // Call to initialise cluster connection
-                init();
+                //init();
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
 

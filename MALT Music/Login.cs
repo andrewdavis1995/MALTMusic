@@ -29,7 +29,7 @@ namespace MALT_Music
             //keyspaces keys = new keyspaces();
             //Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
             //keyspaces.SetUpKeySpaces(cluster);
-            //registration = new Register();
+            registration = new Register();
             //keys.populateTracks();
         }
 

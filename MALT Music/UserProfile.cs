@@ -15,6 +15,7 @@ namespace MALT_Music
     public partial class UserProfile : Form
     {
         User currentUser;
+        HomePage parent;
         UserModel model = new UserModel();
 
         public UserProfile()
@@ -23,16 +24,21 @@ namespace MALT_Music
             txtBioEdit.Hide();
         }
 
+        public void setParent(HomePage hp)
+        {
+            this.parent = hp;
+        }
+
         public void setUser(User theUser)
         {
             currentUser = theUser;
 
-            if((lblBioText.Text.Equals("")) || (lblBioText.Text.Equals(null)))
+            if ((currentUser.getBio().Equals("")) || (currentUser.getBio().Equals(null)))
             {
                 lblBioText.Text = "Enter your bio here...";
+                
             }
-            else
-            {
+            else {
                 lblBioText.Text = currentUser.getBio();
             }
 
@@ -67,6 +73,7 @@ namespace MALT_Music
 
                 //Update text for user
                 lblBioText.Text = txtBioEdit.Text;
+                parent.currentUser.setBio(lblBioText.Text);
 
                 //Convert to string for use in method
                 string newBio = txtBioEdit.Text;
@@ -206,6 +213,7 @@ namespace MALT_Music
                 txtBioEdit_MouseLeave(this, new EventArgs());
             }
         }
+
 
     }
 }

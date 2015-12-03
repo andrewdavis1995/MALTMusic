@@ -13,6 +13,10 @@ namespace MALT_Music.Models
     {
         private Cluster cluster;
 
+        public RegisterModel()
+        {
+            init();
+        }
         public void init()
         {
             try
@@ -32,7 +36,7 @@ namespace MALT_Music.Models
             try
             {
                 // Call to initialise cluster connection
-                init();
+                //init();
 
                 // Get the relevant details
                 String uname = toRegister.getUsername();
@@ -128,7 +132,7 @@ namespace MALT_Music.Models
         {
             try
             {
-                init();
+                //init();
 
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");

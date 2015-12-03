@@ -13,6 +13,7 @@ namespace MALT_Music.Models
     class VoteModel
     {
         private Cluster cluster;
+        public VoteModel() { init(); }
         public void init()
         {
 
@@ -33,7 +34,7 @@ namespace MALT_Music.Models
             try
             {
                 // Call to initialise cluster connection
-                init();
+                //init();
 
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
@@ -58,13 +59,12 @@ namespace MALT_Music.Models
 
         }
 
-
         public void doDownVote(Guid tid, String voter)
         {
             try
             {
                 // Call to initialise cluster connection
-                init();
+                //init();
 
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
@@ -88,7 +88,6 @@ namespace MALT_Music.Models
 
 
         }
-
 
         public void updateVoteCountForUser(Guid tid, String voter, int voteType, ISession session)
         {
@@ -120,7 +119,7 @@ namespace MALT_Music.Models
             try
             {
                 // Call to initialise cluster connection
-                init();
+                //init();
 
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
@@ -171,7 +170,7 @@ namespace MALT_Music.Models
             List<UserVote> theVotes = new List<UserVote>();
 
             // Call to initialise cluster connection
-            init();
+            //init();
 
             // Connect to cluster
             ISession session = cluster.Connect("maltmusic");
@@ -213,7 +212,7 @@ namespace MALT_Music.Models
         // Remove a Vote
         public void removeAVote(String user, Guid tid, int lastVote)
         {
-            init();
+            //init();
             ISession session = cluster.Connect("maltmusic");
 
             // Prepare and bind statement
@@ -263,7 +262,7 @@ namespace MALT_Music.Models
             try
             {
                 // Call to initialise cluster connection
-                init();
+                //init();
 
                 // Connect to cluster
                 ISession session = cluster.Connect("maltmusic");
