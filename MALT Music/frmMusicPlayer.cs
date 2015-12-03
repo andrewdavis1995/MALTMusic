@@ -313,7 +313,8 @@ namespace MALT_Music
                 // Checks repeat status
                 if (rbnNone.Checked)
                 {
-                    sliderValue = 0;
+                    // Resets tracker bar
+                    value = 0;
 
                     // If not at the end of the playlist
                     if (playlistIndex >= activePlaylist.getPlaylistSize() - 1)
