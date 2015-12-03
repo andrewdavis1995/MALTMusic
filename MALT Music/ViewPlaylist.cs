@@ -487,7 +487,7 @@ namespace MALT_Music
             while (selectedSongs.Count < 6 && suitableSongs.Count > 0) 
             {
                 Random r = new Random();
-                int index = r.Next(0, 5);
+                int index = r.Next(0, selectedSongs.Count);
 
                 selectedSongs.Add(suitableSongs[index]);
                 suitableSongs.RemoveAt(index);
@@ -495,7 +495,8 @@ namespace MALT_Music
 
             Recommendations recommendations = new Recommendations();
             recommendations.setSongs(selectedSongs);
-            recommendations.Show();
+            recommendations.createAlbums();
+            recommendations.ShowDialog();
 
         }
 

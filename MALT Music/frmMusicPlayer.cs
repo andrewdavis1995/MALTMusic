@@ -326,11 +326,19 @@ namespace MALT_Music
                     value = 0;
                     musicController.updatePlayTime(TimeSpan.FromSeconds(0));
                     rbnNone.Checked = true;
+                    // Updates playcount for particular song
+                    VoteModel voteModel = new VoteModel();
+                    Song updSong = activePlaylist.getSongByID(playlistIndex);
+                    voteModel.updatePlayCount(thisSong.getSongID());
                 }
                 else if (rbnCurrent.Checked) // Repeat eternally
                 {
                     value = 0;
                     musicController.updatePlayTime(TimeSpan.FromSeconds(0));
+                    // Updates playcount for particular song
+                    VoteModel voteModel = new VoteModel();
+                    Song updSong = activePlaylist.getSongByID(playlistIndex);
+                    voteModel.updatePlayCount(thisSong.getSongID());
                 }
                 else if (rbnPlaylist.Checked) // Repeat playlist
                 {
