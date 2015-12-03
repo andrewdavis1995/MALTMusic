@@ -268,7 +268,7 @@ namespace MALT_Music
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Recommendations r = new Recommendations();
+            Recommendations r = new Recommendations(null);
             r.ShowDialog();
         }
 

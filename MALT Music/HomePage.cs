@@ -69,6 +69,7 @@ namespace MALT_Music
 
             //Call loading/hiding methods
             hideForms();
+
             loadMusicPlayer();
         }
 

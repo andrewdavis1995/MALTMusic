@@ -71,6 +71,7 @@
             this.lblPlayerStatus.TabIndex = 4;
             this.lblPlayerStatus.Text = "No file selected";
             this.ttpGeneralTip.SetToolTip(this.lblPlayerStatus, "Song Title");
+            this.lblPlayerStatus.UseMnemonic = false;
             // 
             // tmrTracker
             // 

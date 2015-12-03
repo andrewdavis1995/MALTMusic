@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MALT_Music.DataObjects;
 using MALT_Music.Models;
 
+
 namespace MALT_Music
 {
     public partial class ViewPlaylist : Form
@@ -133,6 +134,7 @@ namespace MALT_Music
                 theSongLabel.Size = new Size(344, 30);
                 theSongLabel.Location = new Point(423, 156 + (33 * i));
                 theSongLabel.Tag = i.ToString();
+                theSongLabel.UseMnemonic = false;
                 theSongLabel.Click += setSelected;
                 theSongLabel.ForeColor = Color.FromArgb(225, 225, 225);
                 theSongLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -159,6 +161,7 @@ namespace MALT_Music
                 thePositionLabel.Size = new Size(50, 30);
                 thePositionLabel.Location = new Point(370, 156 + (33 * i));
                 thePositionLabel.Tag = i.ToString();
+                thePositionLabel.UseMnemonic = false;
                 //thePositionLabel.Click += clickEvent;
                 thePositionLabel.ForeColor = Color.FromArgb(225, 225, 225);
                 thePositionLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -185,6 +188,7 @@ namespace MALT_Music
                 theArtistLabel.Size = new Size(250, 30);
                 theArtistLabel.Location = new Point(770, 156 + (33 * i));
                 theArtistLabel.Tag = i.ToString();
+                theArtistLabel.UseMnemonic = false;
                 //theArtistLabel.Click += clickEvent;
                 theArtistLabel.ForeColor = Color.FromArgb(225, 225, 225);
                 theArtistLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -280,9 +284,109 @@ namespace MALT_Music
                 }
 
                 setupAlbumCovers(songs);
+            }
+        }
 
+        public void songAdded(Song song) 
+        {
+            thePlaylist.addSongs(song);
+            int count = thePlaylist.getSongs().Count - 1;
+
+            #region Song Name Label
+            Label theSongLabel = new Label();
+
+            theSongLabel.Text = song.getTrackName();
+            theSongLabel.Size = new Size(344, 30);
+            theSongLabel.Location = new Point(423, 156 + (33 * count));
+            theSongLabel.Tag = count.ToString();
+            theSongLabel.UseMnemonic = false;
+            theSongLabel.Click += setSelected;
+            theSongLabel.ForeColor = Color.FromArgb(225, 225, 225);
+            theSongLabel.TextAlign = ContentAlignment.MiddleLeft;
+            theSongLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            if (count % 2 == 0)
+            {
+                theSongLabel.BackColor = Color.FromArgb(60, 60, 60);
+            }
+            else
+            {
+                theSongLabel.BackColor = Color.FromArgb(40, 40, 40);
             }
 
+            songLabels.Add(theSongLabel);
+
+            this.Controls.Add(songLabels[count]);
+            #endregion
+
+            #region Position Label
+            Label thePositionLabel = new Label();
+
+            thePositionLabel.Text = (count + 1).ToString();
+            thePositionLabel.Size = new Size(50, 30);
+            thePositionLabel.Location = new Point(370, 156 + (33 * count));
+            thePositionLabel.Tag = count.ToString();
+            thePositionLabel.UseMnemonic = false;
+            //thePositionLabel.Click += clickEvent;
+            thePositionLabel.ForeColor = Color.FromArgb(225, 225, 225);
+            thePositionLabel.TextAlign = ContentAlignment.MiddleLeft;
+            thePositionLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            if (count % 2 == 0)
+            {
+                thePositionLabel.BackColor = Color.FromArgb(60, 60, 60);
+            }
+            else
+            {
+                thePositionLabel.BackColor = Color.FromArgb(40, 40, 40);
+            }
+
+            positionLabels.Add(thePositionLabel);
+
+            this.Controls.Add(positionLabels[count]);
+            #endregion
+
+            #region Artist Label
+            Label theArtistLabel = new Label();
+
+            theArtistLabel.Text = songs[count].getArtist();
+            theArtistLabel.Size = new Size(250, 30);
+            theArtistLabel.Location = new Point(770, 156 + (33 * count));
+            theArtistLabel.Tag = count.ToString();
+            theArtistLabel.UseMnemonic = false;
+            //theArtistLabel.Click += clickEvent;
+            theArtistLabel.ForeColor = Color.FromArgb(225, 225, 225);
+            theArtistLabel.TextAlign = ContentAlignment.MiddleLeft;
+            theArtistLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
+            if (count % 2 == 0)
+            {
+                theArtistLabel.BackColor = Color.FromArgb(60, 60, 60);
+            }
+            else
+            {
+                theArtistLabel.BackColor = Color.FromArgb(40, 40, 40);
+            }
+
+            artistLabels.Add(theArtistLabel);
+
+            this.Controls.Add(artistLabels[count]);
+            #endregion
+
+
+            PictureBox removeIcon = new PictureBox();
+
+            removeIcon.Size = new Size(20, 20);
+            removeIcon.Location = new Point(1025, 161 + (33 * count));
+            removeIcon.BackgroundImage = Properties.Resources.removeFromPlaylist;
+            removeIcon.BackgroundImageLayout = ImageLayout.Stretch;
+            removeIcon.Tag = count.ToString();
+            removeIcon.Click += removeSong;
+            removeIcon.ForeColor = Color.FromArgb(225, 225, 225);
+
+            removeLabels.Add(removeIcon);
+
+            this.Controls.Add(removeLabels[count]);
 
         }
 
@@ -366,6 +470,7 @@ namespace MALT_Music
                 //String imagePath = "../../tracks/" + toAdd.getArtist() + "/" + toAdd.getAlbum() + "/" + toAdd.getAlbum() + ".jpg";
                 //musicPlayer.setSongPath(@"" + filePath, imagePath);
                 musicPlayer.setPlaylist(thePlaylist, selectedSong);
+
                 musicPlayer.playCurrentSong();
             }
 
@@ -512,8 +617,8 @@ namespace MALT_Music
                 }
             }
 
-            Recommendations recommendations = new Recommendations();
-            recommendations.setSongs(selectedSongs);
+            Recommendations recommendations = new Recommendations(this);
+            recommendations.setSongs(selectedSongs, thePlaylist);
             recommendations.createAlbums();
             recommendations.ShowDialog();
 
@@ -536,6 +641,7 @@ namespace MALT_Music
 
         private void picPlay_Click(object sender, EventArgs e)
         {
+            musicPlayer.stopSong();
             musicPlayer.setPlaylist(thePlaylist, 0);
             musicPlayer.playCurrentSong();
         }

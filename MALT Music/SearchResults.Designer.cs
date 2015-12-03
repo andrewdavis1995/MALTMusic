@@ -160,6 +160,7 @@
             // lblShare
             // 
             this.lblShare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.lblShare.Enabled = false;
             this.lblShare.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShare.ForeColor = System.Drawing.Color.DimGray;
             this.lblShare.Location = new System.Drawing.Point(0, 96);

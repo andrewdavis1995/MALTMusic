@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NAudio;
 using NAudio.Wave;
+using System.Threading;
 
 namespace MALT_Music
 {
@@ -55,6 +56,7 @@ namespace MALT_Music
         /// </summary>
         public void playSong()
         {
+            Console.WriteLine("Playing from: " + Thread.CurrentThread.Name);
             waveOut.Play();
         }
 
@@ -90,18 +92,22 @@ namespace MALT_Music
         /// </summary>
         public void stopSong()
         {
-            // Stops playback
-            waveOut.Stop();
-
-            // If audio reader exists, kill it
-            if (audioFileReader != null)
+            try
             {
-                // Ensures there is a track loaded (if an audio reader exists)
-                if (audioFileReader.Position != null)
+                // Stops playback
+                waveOut.Stop();
+
+                // If audio reader exists, kill it
+                if (audioFileReader != null)
                 {
-                    audioFileReader.Dispose();
+                    // Ensures there is a track loaded (if an audio reader exists)
+                    if (audioFileReader.Position != null)
+                    {
+                        audioFileReader.Dispose();
+                    }
                 }
             }
+            catch (Exception needed) { }
         }
 
         /// <summary>

@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.picSelectedArt = new System.Windows.Forms.PictureBox();
             this.lblSelectedSongName = new System.Windows.Forms.Label();
             this.lblSelectedSongArtist = new System.Windows.Forms.Label();
             this.picPlay = new System.Windows.Forms.PictureBox();
-            this.lblAddditionalInfo = new System.Windows.Forms.Label();
+            this.tmrPreview = new System.Windows.Forms.Timer(this.components);
+            this.lblAddToPlaylist = new System.Windows.Forms.Label();
+            this.lblDiscard = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picSelectedArt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlay)).BeginInit();
             this.SuspendLayout();
@@ -80,29 +83,53 @@
             this.picPlay.TabStop = false;
             this.picPlay.Click += new System.EventHandler(this.picPlay_Click);
             // 
-            // lblAddditionalInfo
+            // tmrPreview
             // 
-            this.lblAddditionalInfo.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddditionalInfo.ForeColor = System.Drawing.Color.White;
-            this.lblAddditionalInfo.Location = new System.Drawing.Point(568, 114);
-            this.lblAddditionalInfo.Name = "lblAddditionalInfo";
-            this.lblAddditionalInfo.Size = new System.Drawing.Size(229, 177);
-            this.lblAddditionalInfo.TabIndex = 4;
-            this.lblAddditionalInfo.Text = "Additional Info\r\nWIll go here\r\n\r\nI hope i remember to remove\r\nthis label \r\nbefore" +
-    " demo-ing\r\n\r\nIf not, oops!\r\n\r\nhey datastax people";
+            this.tmrPreview.Interval = 30000;
+            this.tmrPreview.Tick += new System.EventHandler(this.tmrPreview_Tick);
+            // 
+            // lblAddToPlaylist
+            // 
+            this.lblAddToPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblAddToPlaylist.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddToPlaylist.ForeColor = System.Drawing.Color.White;
+            this.lblAddToPlaylist.Location = new System.Drawing.Point(514, 174);
+            this.lblAddToPlaylist.Name = "lblAddToPlaylist";
+            this.lblAddToPlaylist.Size = new System.Drawing.Size(139, 43);
+            this.lblAddToPlaylist.TabIndex = 4;
+            this.lblAddToPlaylist.Text = "Add To Playlist";
+            this.lblAddToPlaylist.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAddToPlaylist.Click += new System.EventHandler(this.lblAddToPlaylist_Click);
+            // 
+            // lblDiscard
+            // 
+            this.lblDiscard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblDiscard.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiscard.ForeColor = System.Drawing.Color.White;
+            this.lblDiscard.Location = new System.Drawing.Point(514, 222);
+            this.lblDiscard.Name = "lblDiscard";
+            this.lblDiscard.Size = new System.Drawing.Size(139, 43);
+            this.lblDiscard.TabIndex = 5;
+            this.lblDiscard.Text = "Discard";
+            this.lblDiscard.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDiscard.Click += new System.EventHandler(this.lblDiscard_Click);
             // 
             // Recommendations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(857, 290);
-            this.Controls.Add(this.lblAddditionalInfo);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.ClientSize = new System.Drawing.Size(827, 318);
+            this.Controls.Add(this.lblDiscard);
+            this.Controls.Add(this.lblAddToPlaylist);
             this.Controls.Add(this.picPlay);
             this.Controls.Add(this.lblSelectedSongArtist);
             this.Controls.Add(this.lblSelectedSongName);
             this.Controls.Add(this.picSelectedArt);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Recommendations";
             this.Text = "Recommendations";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Recommendations_FormClosing);
@@ -119,7 +146,9 @@
         private System.Windows.Forms.Label lblSelectedSongName;
         private System.Windows.Forms.Label lblSelectedSongArtist;
         private System.Windows.Forms.PictureBox picPlay;
-        private System.Windows.Forms.Label lblAddditionalInfo;
+        private System.Windows.Forms.Timer tmrPreview;
+        private System.Windows.Forms.Label lblAddToPlaylist;
+        private System.Windows.Forms.Label lblDiscard;
 
     }
 }
