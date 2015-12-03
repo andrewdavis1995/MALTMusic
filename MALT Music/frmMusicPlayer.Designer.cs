@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnTest = new System.Windows.Forms.Button();
             this.lblFileName = new System.Windows.Forms.Label();
             this.tmrTracker = new System.Windows.Forms.Timer(this.components);
             this.grpRepeat = new System.Windows.Forms.GroupBox();
@@ -58,20 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbForwardSkip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbBackSkip)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnTest
-            // 
-            this.btnTest.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnTest.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnTest.Location = new System.Drawing.Point(607, 12);
-            this.btnTest.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(108, 30);
-            this.btnTest.TabIndex = 2;
-            this.btnTest.Text = "Load Test File";
-            this.btnTest.UseVisualStyleBackColor = false;
-            this.btnTest.Click += new System.EventHandler(this.openTest);
             // 
             // lblFileName
             // 
@@ -211,9 +196,6 @@
             // picBoxAlbumArt
             // 
             this.picBoxAlbumArt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picBoxAlbumArt.ErrorImage = global::MALT_Music.Properties.Resources.logo;
-            this.picBoxAlbumArt.Image = global::MALT_Music.Properties.Resources.logo;
-            this.picBoxAlbumArt.InitialImage = global::MALT_Music.Properties.Resources.logo;
             this.picBoxAlbumArt.Location = new System.Drawing.Point(12, 14);
             this.picBoxAlbumArt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picBoxAlbumArt.Name = "picBoxAlbumArt";
@@ -225,7 +207,6 @@
             // pcbPlay
             // 
             this.pcbPlay.Enabled = false;
-            this.pcbPlay.Image = global::MALT_Music.Properties.Resources.playtrack;
             this.pcbPlay.Location = new System.Drawing.Point(434, 3);
             this.pcbPlay.Name = "pcbPlay";
             this.pcbPlay.Size = new System.Drawing.Size(50, 50);
@@ -269,7 +250,6 @@
             // pcbForwardSkip
             // 
             this.pcbForwardSkip.Enabled = false;
-            this.pcbForwardSkip.Image = global::MALT_Music.Properties.Resources.NextTrackwhite;
             this.pcbForwardSkip.Location = new System.Drawing.Point(490, 4);
             this.pcbForwardSkip.Name = "pcbForwardSkip";
             this.pcbForwardSkip.Size = new System.Drawing.Size(50, 50);
@@ -281,7 +261,6 @@
             // pcbBackSkip
             // 
             this.pcbBackSkip.Enabled = false;
-            this.pcbBackSkip.Image = global::MALT_Music.Properties.Resources.prevtrackwhite;
             this.pcbBackSkip.Location = new System.Drawing.Point(378, 4);
             this.pcbBackSkip.Name = "pcbBackSkip";
             this.pcbBackSkip.Size = new System.Drawing.Size(50, 50);
@@ -310,7 +289,6 @@
             this.Controls.Add(this.grpRepeat);
             this.Controls.Add(this.picBoxAlbumArt);
             this.Controls.Add(this.lblFileName);
-            this.Controls.Add(this.btnTest);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -336,7 +314,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.PictureBox picBoxAlbumArt;
         private System.Windows.Forms.Timer tmrTracker;
         private System.Windows.Forms.GroupBox grpRepeat;
