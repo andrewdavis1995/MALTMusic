@@ -34,7 +34,7 @@ namespace MALT_Music
             InitializeComponent();
 
             // Sets up form components
-            musicPlayer = new frmMusicPlayer();
+            musicPlayer = new frmMusicPlayer(this);
             playlists = new ViewUserPlaylists();
             searchResults = new SearchResults(musicPlayer);
             profileScreen = new UserProfile();

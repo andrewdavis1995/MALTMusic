@@ -195,7 +195,6 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Test.mp3" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\save playlist.png" />

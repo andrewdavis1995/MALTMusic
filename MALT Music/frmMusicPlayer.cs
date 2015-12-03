@@ -19,6 +19,7 @@ namespace MALT_Music
     {
         // Class variables
         MusicController musicController;
+        HomePage parent;
         Playlist activePlaylist;
         Song thisSong;
 
@@ -34,16 +35,19 @@ namespace MALT_Music
         /// </summary>
         private int sliderValue;
         private bool mouseIsDown;
-        
+
         /// <summary>
         /// Init for form
         /// </summary>
-        public frmMusicPlayer()
+        public frmMusicPlayer(HomePage thisParent)
         {
             InitializeComponent();
 
             // Setup music controller
             musicController = new MusicController();
+
+            // Acquire the parent form (the home page)
+            parent = thisParent;
 
             isPlaying = false;
             playPause = true; // Sets to pause mode
@@ -58,6 +62,42 @@ namespace MALT_Music
             mouseIsDown = false;
             ttpSliderIndicator.Hide(this);
         }
+
+        #region Event Actions ### Contains all event handlers for controls
+        /// <summary>
+        /// Triggers the play routine
+        /// </summary>.
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pcbPlay_Click(object sender, EventArgs e)
+        {
+            playCurrentSong();
+        }
+
+        /// <summary>
+        /// Increments the progress bar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tmrTracker_Tick(object sender, EventArgs e)
+        {
+            if (sliderValue != trackLength)
+            {
+                SetValue(sliderValue + 1);
+            }
+        }
+
+        /// <summary>
+        /// Sets up form settings for initial load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmMusicPlayer_Load(object sender, EventArgs e)
+        {
+            lblTimeOne.Text = "";
+            lblTimeTwo.Text = "";
+        }
+        #endregion
 
         /// <summary>
         /// Acquires the file path of the song via the playlist
@@ -121,10 +161,6 @@ namespace MALT_Music
 
                 // Initiates playing of song
                 musicController.playSong();
-
-                // Updates button states
-                btnStop.Enabled = true;
-                btnTest.Enabled = false;
             }
             else
             {
@@ -152,27 +188,7 @@ namespace MALT_Music
             playlistIndex = playIndex;
         }
 
-        /// <summary>
-        /// Triggers the play routine
-        /// </summary>.
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pcbPlay_Click(object sender, EventArgs e)
-        {
-            playCurrentSong();
-            btnStop.Enabled = true;
-            btnTest.Enabled = false;
-        }
-
-        /// <summary>
-        /// Calls function to stop the playback
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            stopSong();
-        }
+       
 
         /// <summary>
         /// Stops playing the track
@@ -181,7 +197,6 @@ namespace MALT_Music
         {
             // Disables track timer
             tmrTracker.Enabled = false;
-            btnStop.Enabled = false;
 
             // Resets position of tracker
             SetValue(0);
@@ -189,9 +204,6 @@ namespace MALT_Music
             // Stops the track
             musicController.stopSong();
             isPlaying = false;
-
-            // Allows using test track
-            btnTest.Enabled = true;
 
             // Updates status of controls
             playPause = false;
@@ -207,42 +219,6 @@ namespace MALT_Music
             {
                 pcbPlay.Enabled = true;
             }
-        }
-
-        /// <summary>
-        /// Loads a test file
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void openTest(object sender, EventArgs e)
-        {
-            string path = Path.GetFullPath(@"..\..\Resources\Test.mp3");
-            lblFileName.Text = path;
-            pcbPlay.Enabled = true;
-        }
-
-        /// <summary>
-        /// Increments the progress bar
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tmrTracker_Tick(object sender, EventArgs e)
-        {
-            if (sliderValue != trackLength)
-            {
-                SetValue(sliderValue + 1);    
-            }
-        }
-
-        /// <summary>
-        /// Sets up form settings for initial load
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void frmMusicPlayer_Load(object sender, EventArgs e)
-        {
-            lblTimeOne.Text = "";
-            lblTimeTwo.Text = "";
         }
 
         // Based on code from http://csharphelper.com/blog/2011/07/use-a-picturebox-to-make-a-slider-with-a-needle-in-c/"/>
@@ -595,5 +571,65 @@ namespace MALT_Music
             }
         }
         #endregion
+
+        /// <summary>
+        /// Skips to next song in playlist
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pcbForwardSkip_Click(object sender, EventArgs e)
+        {
+            // If not playing a song
+            if (!isPlaying)
+            { return; }
+
+            // If there is a playlist
+            if (activePlaylist != null)
+            {
+                // If not at the end of the playlist
+                if (!(playlistIndex >= activePlaylist.getPlaylistSize() - 1))
+                {
+                    playlistIndex++;
+                    stopSong();
+                    playCurrentSong();
+                }
+                else // Reset to index 0
+                {
+                    playlistIndex = 0;
+                    stopSong();
+                    playCurrentSong();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Skips to previous song in playlist
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pcbBackSkip_Click(object sender, EventArgs e)
+        {
+            // If not playing a song
+            if (!isPlaying)
+            { return; }
+
+            // If there is a playlist
+            if (activePlaylist != null)
+            {
+                // If not at the start of the playlist
+                if (!(playlistIndex <= 0))
+                {
+                    playlistIndex--;
+                    stopSong();
+                    playCurrentSong();
+                }
+                else // Set play index to final song
+                {
+                    playlistIndex = activePlaylist.getPlaylistSize() - 1;
+                    stopSong();
+                    playCurrentSong();
+                }
+            }
+        }
     }
 }

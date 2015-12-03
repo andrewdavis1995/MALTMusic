@@ -135,7 +135,7 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void btnMusicPlayer_Click(object sender, EventArgs e)
         {
-            frmMusicPlayer playerForm = new frmMusicPlayer();
+            frmMusicPlayer playerForm = new frmMusicPlayer(null);
             playerForm.Show();
         }
 
