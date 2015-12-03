@@ -112,6 +112,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Recommendations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recommendations.Designer.cs">
+      <DependentUpon>Recommendations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Register.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recommendations.resx">
+      <DependentUpon>Recommendations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchResults.resx">
       <DependentUpon>SearchResults.cs</DependentUpon>

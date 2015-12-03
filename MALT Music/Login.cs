@@ -266,6 +266,12 @@ namespace MALT_Music
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Recommendations r = new Recommendations();
+            r.ShowDialog();
+        }
+
         /*
         private void button1_Click(object sender, EventArgs e)
         {

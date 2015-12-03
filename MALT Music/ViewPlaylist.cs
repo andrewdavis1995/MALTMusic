@@ -438,16 +438,16 @@ namespace MALT_Music
                 }
             }
 
-            List<Song> artistMatch = songList.Where(song => artists.Contains(song.getArtist())).ToList();
+            List<Song> suitableSongs = songList.Where(song => artists.Contains(song.getArtist())).ToList();
 
             // Remove songs that already exist in playlist
-            for (int j = 0; j < artistMatch.Count; j++) 
+            for (int j = 0; j < suitableSongs.Count; j++) 
             {
                 for (int i = 0; i < songsInPlaylist.Count; i++) 
                 {
-                    if(artistMatch[j].getSongID().Equals(songsInPlaylist[i].getSongID()))
+                    if (suitableSongs[j].getSongID().Equals(songsInPlaylist[i].getSongID()))
                     {
-                        artistMatch.RemoveAt(j);
+                        suitableSongs.RemoveAt(j);
                         if (j > 0)
                         {
                             j--;
@@ -472,17 +472,27 @@ namespace MALT_Music
                 }
             }
 
-            List<Song> genresMatch = songList.Where(song => genres.Contains(song.getGenre())).ToList();
 
+            List<Song> matchingGenres = songList.Where(song => genres.Contains(song.getGenre())).ToList();
 
+            for (int i = 0; i < matchingGenres.Count; i++) 
+            {
+                suitableSongs.Add(matchingGenres[i]);
+            }
 
-            // GET SONGS - REMEMBER NOT TO SELECT IF ALREADY IN LIST OR ALREADY IN PLAYLIST
-            // look for ones that match both artist and genre - max 5 - random 'seed' to select where to start looking?
+            // GET SONGS
 
-            // try to get 7/8 matching the genre
+            List<Song> selectedSongs = new List<Song>();
 
-            // match about 3 with artist if matches available
+            while (selectedSongs.Count < 6 && suitableSongs.Count > 0) 
+            {
+                Random r = new Random();
+                int index = r.Next(0, 5);
 
+                selectedSongs.Add(suitableSongs[index]);
+                suitableSongs.RemoveAt(index);
+
+            }
         }
 
         //Pressing enter on textbox does same thing as leaving
