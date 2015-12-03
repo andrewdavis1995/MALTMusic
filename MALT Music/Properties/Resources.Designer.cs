@@ -183,16 +183,6 @@ namespace MALT_Music.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap new_playlist {
-            get {
-                object obj = ResourceManager.GetObject("new playlist", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap NextTrackwhite {
             get {
                 object obj = ResourceManager.GetObject("NextTrackwhite", resourceCulture);
@@ -246,16 +236,6 @@ namespace MALT_Music.Properties {
         internal static System.Drawing.Bitmap removeFromPlaylist {
             get {
                 object obj = ResourceManager.GetObject("removeFromPlaylist", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap save_playlist {
-            get {
-                object obj = ResourceManager.GetObject("save playlist", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

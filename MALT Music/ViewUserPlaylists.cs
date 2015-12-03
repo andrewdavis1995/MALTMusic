@@ -129,7 +129,6 @@ namespace MALT_Music
             playlistModel.createPlaylist(newPlaylist);
             playlists.Add(newPlaylist);
 
-
             #region createLabel
             int count = playlists.Count - 1;
             Label newLabel = new Label();
@@ -145,6 +144,21 @@ namespace MALT_Music
             labelList.Add(newLabel);
 
             this.Controls.Add(labelList[count]);
+
+            #endregion
+            
+            #region createLabelRemove
+            PictureBox deleteButton = new PictureBox();
+            deleteButton.Size = new Size(20, 20);
+            deleteButton.Tag = count.ToString();
+            deleteButton.Click += deletePlaylist;
+            deleteButton.BackgroundImage = Properties.Resources.removeFromPlaylist;
+            deleteButton.BackgroundImageLayout = ImageLayout.Stretch;
+            deleteButton.Location = new Point(700, 125 + (count * 30));
+
+            deleteLabels.Add(deleteButton);
+
+            this.Controls.Add(deleteLabels[count]);
 
             #endregion 
 
