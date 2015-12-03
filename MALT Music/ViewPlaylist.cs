@@ -377,7 +377,7 @@ namespace MALT_Music
         {
 
             picSave.Left = txtPlaylistNameEdit.Left + txtPlaylistNameEdit.Width + 10;
-            picPlay.Left = txtPlaylistNameEdit.Left + txtPlaylistNameEdit.Width + picSave.Left + 15;
+            picPlay.Left = lblPlaylistName.Left + lblPlaylistName.Width + picSave.Left + 15;
 
             //Set contents of edit box to playlist name
             txtPlaylistNameEdit.Text = lblPlaylistName.Text;
@@ -393,13 +393,15 @@ namespace MALT_Music
         private void txtPlaylistNameEdit_MouseLeave(object sender, EventArgs e)
         {
             //Get new name
-            if (txtPlaylistNameEdit.Text != "")
+            String curr = (txtPlaylistNameEdit.Text).Trim();
+            if (!curr.Equals(""))
             {
                 //Update text for user
-                lblPlaylistName.Text = txtPlaylistNameEdit.Text;
+                lblPlaylistName.Text =curr;
+                picPlay.Left = lblPlaylistName.Left + lblPlaylistName.Width + picSave.Left + 15;
 
                 //Convert to string for use in method
-                String newPlaylistName = txtPlaylistNameEdit.Text;
+                String newPlaylistName = curr;
 
                 //Update playlistname in database
                 PlaylistModel playlistModel = new PlaylistModel();
@@ -413,7 +415,7 @@ namespace MALT_Music
                 lblPlaylistName.Show();
 
                 picSave.Left = lblPlaylistName.Left + lblPlaylistName.Width + 10;
-                picPlay.Left = txtPlaylistNameEdit.Left + txtPlaylistNameEdit.Width + picSave.Left + 15;
+                picPlay.Left = lblPlaylistName.Left + lblPlaylistName.Width + picSave.Left + 15;
             }
             else
             {
@@ -532,6 +534,7 @@ namespace MALT_Music
         {
             PlaylistModel playlistModel = new PlaylistModel();
             playlistModel.savePlaylist(this.thePlaylist, currentUser);
+            MessageBox.Show("Playlist Saved");
         }
 
         private void picPlay_Click(object sender, EventArgs e)

@@ -70,13 +70,21 @@ namespace MALT_Music
         {
             if (txtBioEdit.Text != "")
             {
+                //Convert to string for use in method
+                String newBio ;
+                String check = (txtBioEdit.Text).Trim();
+                if (check == null || check.Equals(""))
+                {
+                    newBio = "Enter your bio here...";
+                }
+                else {
+                    newBio = txtBioEdit.Text;
+                }
+
 
                 //Update text for user
-                lblBioText.Text = txtBioEdit.Text;
-                parent.currentUser.setBio(lblBioText.Text);
-
-                //Convert to string for use in method
-                string newBio = txtBioEdit.Text;
+                lblBioText.Text = newBio;
+                parent.currentUser.setBio(newBio);
 
                 //TODO: Update bio in database
                 model.updateBio(newBio, currentUser.getUsername());
