@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MALT_Music.DataObjects;
 
 namespace MALT_Music
 {
@@ -17,7 +18,11 @@ namespace MALT_Music
     {
         // Class variables
         MusicController musicController;
+        Playlist activePlaylist;
+        Song thisSong;
+
         int trackLength;
+        int playlistIndex;
         bool isPlaying;
         bool playPause;
         bool timeIndic;
@@ -54,6 +59,21 @@ namespace MALT_Music
         }
 
         /// <summary>
+        /// Acquires the file path of the song via the playlist
+        /// </summary>
+        /// <returns>The file location of the song</returns>
+        private string getNextSong()
+        {
+            // Acquires the song
+            thisSong = activePlaylist.getSongByID(playlistIndex);
+
+            // Acquires the path
+            string songPath = thisSong.getFileLocation();
+
+            return songPath;
+        }
+
+        /// <summary>
         /// Plays the currently loaded song in the NAudio drivers
         /// </summary>
         public void playCurrentSong()
@@ -69,8 +89,12 @@ namespace MALT_Music
                 // If not playing active track
                 if (!isPlaying)
                 {
+                    // Get the file path
+                    string songPath = getNextSong();
+
                     // Sets song to be played
-                    musicController.setSong(lblFileName.Text);
+                    musicController.setSong(songPath);
+                    lblFileName.Text = songPath;
 
                     // Sets the length of the track
                     trackLength = musicController.getTrackLength();
@@ -107,14 +131,15 @@ namespace MALT_Music
         }
 
         /// <summary>
-        /// Updates the file path to the passed song
+        /// Sets the playlists of songs
         /// </summary>
-        /// <param name="songPath">The location of the song</param>
-        /// <param name="imagePath">The location of the album art</param>
-        public void setSongPath(string songPath, string imagePath)
+        /// <param name="incomingPlaylist">The playlist to be played</param>
+        /// <param name="playIndex">The starting position of the playlist (ie. track 3)</param>
+        public void setPlaylist(Playlist incomingPlaylist, int playIndex)
         {
-            lblFileName.Text = songPath;
-            picBoxAlbumArt.ImageLocation = imagePath;
+            // Sets the incoming playlist parameters
+            activePlaylist = incomingPlaylist;
+            playlistIndex = playIndex;
         }
 
         /// <summary>
@@ -275,13 +300,29 @@ namespace MALT_Music
             // Make sure the new value is within bounds.
             if (value < 0) value = 0;
             if (value > trackLength) value = trackLength;
-            if (value >= trackLength)
+            if (value >= trackLength) // End of the song
             {
+                // Checks where to increment the index counter to
+                if (playlistIndex < activePlaylist.getPlaylistSize() - 1)
+                {
+                    playlistIndex++;
+                }
+                else
+                { playlistIndex = 0; }
+
                 // Checks repeat status
                 if (rbnNone.Checked)
                 {
                     sliderValue = 0;
+
+                    // If not at the end of the playlist
+                    if (playlistIndex >= activePlaylist.getPlaylistSize() - 1)
+                    {
+                        stopSong();
+                    }
+
                     stopSong();
+                    playCurrentSong();                    
                 }
                 else if (rbnOnce.Checked) // Repeat Once
                 {

@@ -63,6 +63,24 @@ namespace MALT_Music.DataObjects
             this.songs.Add(theSong);
         }
 
+        /// <summary>
+        /// Returns the song at the given index
+        /// </summary>
+        /// <param name="songID">The index of the requested song</param>
+        /// <returns>The song object</returns>
+        public Song getSongByID(int songID)
+        {
+            return this.songs[songID];
+        }
+
+        /// <summary>
+        /// Gets the number of songs in the playlist
+        /// </summary>
+        /// <returns>The number of songs in the playlist</returns>
+        public int getPlaylistSize()
+        {
+            return this.songs.Count;
+        }
 
         // ACCESSOR METHODS
         public String getPlaylistName() { return this.playlistName; }
