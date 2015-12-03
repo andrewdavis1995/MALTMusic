@@ -19,10 +19,11 @@ namespace MALT_Music
             InitializeComponent();
         }
 
-        public SearchResults(frmMusicPlayer musicPlayer)
+        public SearchResults(frmMusicPlayer musicPlayer, HomePage parent)
         {
             InitializeComponent();
             this.musicPlayer = musicPlayer;
+            this.parent = parent;
         }
 
         #region variables
@@ -51,6 +52,8 @@ namespace MALT_Music
         List<Label> playlistLabelName = new List<Label>();
         List<Label> playlistLabelOwner = new List<Label>();
         Label endLabel3 = new Label();
+
+        HomePage parent;
 
         public String searchedFor;
 
@@ -175,7 +178,7 @@ namespace MALT_Music
 
         private void endLabel_Click(Object Sender, EventArgs e)
         {
-            ViewAllResults viewAll = new ViewAllResults();
+            ViewAllResults viewAll = new ViewAllResults(this.musicPlayer, usersPlaylists, this.parent);
             viewAll.setSongs(songList);
             viewAll.createSongList(searchedFor);
             viewAll.Show();
@@ -231,7 +234,7 @@ namespace MALT_Music
 
         private void endLabel2_Click(Object Sender, EventArgs e)
         {
-            ViewAllResults viewAll = new ViewAllResults();
+            ViewAllResults viewAll = new ViewAllResults(this.musicPlayer, usersPlaylists, this.parent);
             viewAll.setArtists(artists);
             viewAll.createArtistList(searchedFor);
             viewAll.Show();
@@ -254,8 +257,8 @@ namespace MALT_Music
                 newPlaylist.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 newPlaylist.Tag = i.ToString();
                 newPlaylist.Click += goToPlaylist;
-                /*newPlaylist.MouseLeave += artistLeave;
-                newPlaylist.MouseEnter += artistHover;*/
+                newPlaylist.MouseLeave += playlistSearchLeave;
+                newPlaylist.MouseEnter += playlistSearchHover;
 
                 playlistLabelName.Add(newPlaylist);
                 pnlSearchPlaylists.Controls.Add(playlistLabelName[i]);
@@ -272,8 +275,8 @@ namespace MALT_Music
                 newPlaylistOwner.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 newPlaylistOwner.Tag = i.ToString();
                 newPlaylistOwner.Click += goToPlaylist;
-                /*newPlayistOwner.MouseLeave += artistLeave;
-                newPlayistOwner.MouseEnter += artistHover;*/
+                newPlaylistOwner.MouseLeave += playlistSearchLeave;
+                newPlaylistOwner.MouseEnter += playlistHover;
 
                 playlistLabelOwner.Add(newPlaylistOwner);
                 pnlSearchPlaylists.Controls.Add(playlistLabelOwner[i]);
@@ -306,7 +309,7 @@ namespace MALT_Music
 
         private void endLabel3_Click(Object Sender, EventArgs e)
         {
-            ViewAllResults viewAll = new ViewAllResults();
+            ViewAllResults viewAll = new ViewAllResults(this.musicPlayer, usersPlaylists, this.parent);
             viewAll.setPlaylists(playlists);
             viewAll.createPlaylistList(searchedFor);
             viewAll.Show();
@@ -442,6 +445,8 @@ namespace MALT_Music
             Label theLabel = (Label)sender;
             int id = int.Parse(theLabel.Tag.ToString());
 
+            tmrOptionsDelay.Start();
+
             if (!(songLabelsA[id].BackColor == Color.FromArgb(255, 50, 50)))
             {
                 songLabelsA[id].BackColor = Color.DodgerBlue;
@@ -485,37 +490,7 @@ namespace MALT_Music
 
             selectedSong = id;
 
-
-            songLabelsA[id].BackColor = Color.FromArgb(50, 255, 50);
-            songLabelsB[id].BackColor = Color.FromArgb(50, 255, 50);
-            songLabelsC[id].BackColor = Color.FromArgb(50, 255, 50);
-            songLabelsD[id].BackColor = Color.FromArgb(50, 255, 50);
-
-
-            for (int i = 0; i < songLabelsA.Count; i++)
-            {
-                if (i != id)
-                {
-                    if (i % 2 == 0)
-                    {
-                        songLabelsA[i].BackColor = Color.FromArgb(60, 60, 60);
-                        songLabelsB[i].BackColor = Color.FromArgb(60, 60, 60);
-                        songLabelsC[i].BackColor = Color.FromArgb(60, 60, 60);
-                        songLabelsD[i].BackColor = Color.FromArgb(60, 60, 60);
-                    }
-                    else
-                    {
-                        songLabelsA[i].BackColor = Color.FromArgb(90, 90, 90);
-                        songLabelsB[i].BackColor = Color.FromArgb(90, 90, 90);
-                        songLabelsC[i].BackColor = Color.FromArgb(90, 90, 90);
-                        songLabelsD[i].BackColor = Color.FromArgb(90, 90, 90);
-                    }
-                }
-            }
-
-
             pnlOptions.Visible = true;
-            
 
         }
         
@@ -643,6 +618,35 @@ namespace MALT_Music
             int id = int.Parse(theLabel.Tag.ToString());
 
             artistLabel[id].BackColor = Color.DodgerBlue;
+        }
+
+
+        private void playlistSearchHover(object sender, EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            int id = int.Parse(theLabel.Tag.ToString());
+
+            playlistLabelName[id].BackColor = Color.DodgerBlue;
+            playlistLabelOwner[id].BackColor = Color.DodgerBlue;
+
+        }
+
+        //Change backcolour when leaving artist hover selection
+        private void playlistSearchLeave(object sender, EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            int id = int.Parse(theLabel.Tag.ToString());
+
+            if (id % 2 == 0)
+            {
+                playlistLabelName[id].BackColor = Color.FromArgb(60, 60, 60);
+                playlistLabelOwner[id].BackColor = Color.FromArgb(60, 60, 60);
+            }
+            else
+            {
+                playlistLabelName[id].BackColor = Color.FromArgb(90, 90, 90);
+                playlistLabelOwner[id].BackColor = Color.FromArgb(90, 90, 90);
+            }
 
         }
 
@@ -771,22 +775,6 @@ namespace MALT_Music
             if (!pnlPlaylists.Bounds.Contains(PointToClient(Control.MousePosition)) && !pnlOptions.Bounds.Contains(PointToClient(Control.MousePosition)))
             {
                 pnlOptions.Visible = false;
-
-
-                if (selectedSong % 2 == 0)
-                {
-                    songLabelsA[selectedSong].BackColor = Color.FromArgb(60, 60, 60);
-                    songLabelsB[selectedSong].BackColor = Color.FromArgb(60, 60, 60);
-                    songLabelsC[selectedSong].BackColor = Color.FromArgb(60, 60, 60);
-                    songLabelsD[selectedSong].BackColor = Color.FromArgb(60, 60, 60);
-                }
-                else
-                {
-                    songLabelsA[selectedSong].BackColor = Color.FromArgb(90, 90, 90);
-                    songLabelsB[selectedSong].BackColor = Color.FromArgb(90, 90, 90);
-                    songLabelsC[selectedSong].BackColor = Color.FromArgb(90, 90, 90);
-                    songLabelsD[selectedSong].BackColor = Color.FromArgb(90, 90, 90);
-                }
 
                 selectedSong = -1;
                 pnlPlaylists.Visible = false;

@@ -247,7 +247,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1094, 442);
+            this.ClientSize = new System.Drawing.Size(1094, 387);
             this.Controls.Add(this.picPlay);
             this.Controls.Add(this.picSave);
             this.Controls.Add(this.txtPlaylistNameEdit);

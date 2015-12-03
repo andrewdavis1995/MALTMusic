@@ -65,9 +65,9 @@
             this.lblPlayerStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblPlayerStatus.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblPlayerStatus.Location = new System.Drawing.Point(236, 56);
+            this.lblPlayerStatus.Location = new System.Drawing.Point(153, 65);
             this.lblPlayerStatus.Name = "lblPlayerStatus";
-            this.lblPlayerStatus.Size = new System.Drawing.Size(479, 18);
+            this.lblPlayerStatus.Size = new System.Drawing.Size(562, 18);
             this.lblPlayerStatus.TabIndex = 4;
             this.lblPlayerStatus.Text = "No file selected";
             this.ttpGeneralTip.SetToolTip(this.lblPlayerStatus, "Song Title");
@@ -157,7 +157,7 @@
             // 
             this.lblTimeOne.AutoSize = true;
             this.lblTimeOne.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeOne.Location = new System.Drawing.Point(150, 76);
+            this.lblTimeOne.Location = new System.Drawing.Point(150, 91);
             this.lblTimeOne.Name = "lblTimeOne";
             this.lblTimeOne.Size = new System.Drawing.Size(72, 16);
             this.lblTimeOne.TabIndex = 10;
@@ -168,7 +168,7 @@
             // lblTimeTwo
             // 
             this.lblTimeTwo.AutoSize = true;
-            this.lblTimeTwo.Location = new System.Drawing.Point(683, 74);
+            this.lblTimeTwo.Location = new System.Drawing.Point(647, 92);
             this.lblTimeTwo.Name = "lblTimeTwo";
             this.lblTimeTwo.Size = new System.Drawing.Size(58, 16);
             this.lblTimeTwo.TabIndex = 11;
@@ -179,10 +179,10 @@
             this.pcbSliderBar.BackColor = System.Drawing.Color.MidnightBlue;
             this.pcbSliderBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pcbSliderBar.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.pcbSliderBar.Location = new System.Drawing.Point(147, 97);
+            this.pcbSliderBar.Location = new System.Drawing.Point(147, 113);
             this.pcbSliderBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pcbSliderBar.Name = "pcbSliderBar";
-            this.pcbSliderBar.Size = new System.Drawing.Size(577, 46);
+            this.pcbSliderBar.Size = new System.Drawing.Size(577, 30);
             this.pcbSliderBar.TabIndex = 12;
             this.pcbSliderBar.TabStop = false;
             this.ttpGeneralTip.SetToolTip(this.pcbSliderBar, "Tracker bar");
@@ -208,7 +208,7 @@
             // 
             this.pcbPlay.Enabled = false;
             this.pcbPlay.Image = global::MALT_Music.Properties.Resources.playtrack;
-            this.pcbPlay.Location = new System.Drawing.Point(434, 3);
+            this.pcbPlay.Location = new System.Drawing.Point(434, 11);
             this.pcbPlay.Name = "pcbPlay";
             this.pcbPlay.Size = new System.Drawing.Size(50, 50);
             this.pcbPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -221,9 +221,9 @@
             // 
             this.pcbVolume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.pcbVolume.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pcbVolume.Location = new System.Drawing.Point(290, 76);
+            this.pcbVolume.Location = new System.Drawing.Point(290, 88);
             this.pcbVolume.Name = "pcbVolume";
-            this.pcbVolume.Size = new System.Drawing.Size(194, 20);
+            this.pcbVolume.Size = new System.Drawing.Size(194, 19);
             this.pcbVolume.TabIndex = 14;
             this.pcbVolume.TabStop = false;
             this.ttpGeneralTip.SetToolTip(this.pcbVolume, "Volume control");
@@ -235,7 +235,7 @@
             // lblVolume
             // 
             this.lblVolume.AutoSize = true;
-            this.lblVolume.Location = new System.Drawing.Point(233, 77);
+            this.lblVolume.Location = new System.Drawing.Point(233, 88);
             this.lblVolume.Name = "lblVolume";
             this.lblVolume.Size = new System.Drawing.Size(51, 16);
             this.lblVolume.TabIndex = 15;
@@ -244,7 +244,7 @@
             // lblVolumeLevel
             // 
             this.lblVolumeLevel.AutoSize = true;
-            this.lblVolumeLevel.Location = new System.Drawing.Point(490, 77);
+            this.lblVolumeLevel.Location = new System.Drawing.Point(490, 88);
             this.lblVolumeLevel.Name = "lblVolumeLevel";
             this.lblVolumeLevel.Size = new System.Drawing.Size(24, 16);
             this.lblVolumeLevel.TabIndex = 16;
@@ -254,7 +254,7 @@
             // pcbForwardSkip
             // 
             this.pcbForwardSkip.Image = global::MALT_Music.Properties.Resources.NextTrackwhite;
-            this.pcbForwardSkip.Location = new System.Drawing.Point(490, 4);
+            this.pcbForwardSkip.Location = new System.Drawing.Point(490, 12);
             this.pcbForwardSkip.Name = "pcbForwardSkip";
             this.pcbForwardSkip.Size = new System.Drawing.Size(50, 50);
             this.pcbForwardSkip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -266,7 +266,7 @@
             // pcbBackSkip
             // 
             this.pcbBackSkip.Image = global::MALT_Music.Properties.Resources.prevtrackwhite;
-            this.pcbBackSkip.Location = new System.Drawing.Point(378, 4);
+            this.pcbBackSkip.Location = new System.Drawing.Point(378, 12);
             this.pcbBackSkip.Name = "pcbBackSkip";
             this.pcbBackSkip.Size = new System.Drawing.Size(50, 50);
             this.pcbBackSkip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

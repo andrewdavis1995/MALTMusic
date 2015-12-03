@@ -36,7 +36,7 @@ namespace MALT_Music
             // Sets up form components
             musicPlayer = new frmMusicPlayer(this);
             playlists = new ViewUserPlaylists();
-            searchResults = new SearchResults(musicPlayer);
+            searchResults = new SearchResults(musicPlayer, this);
             profileScreen = new UserProfile();
             viewPlaylist = new ViewPlaylist();
 
@@ -117,7 +117,7 @@ namespace MALT_Music
             viewPlaylist.setupLabels();
 
             viewPlaylist.FormBorderStyle = FormBorderStyle.None;
-            viewPlaylist.Size = new Size(1130, 442);
+            viewPlaylist.Size = new Size(1130, 392);
 
             picBoxBackground.Hide();
             viewPlaylist.Show();

@@ -95,6 +95,7 @@ namespace MALT_Music
 
         private void picPlay_Click(object sender, EventArgs e)
         {
+            musicPlayer.stopSong();
             tmrPreview.Start();
 
             Playlist playlist = new Playlist();

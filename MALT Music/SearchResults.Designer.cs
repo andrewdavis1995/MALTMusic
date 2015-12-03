@@ -42,10 +42,10 @@
             this.lblShare = new System.Windows.Forms.Label();
             this.lblAddToPlaylist = new System.Windows.Forms.Label();
             this.lblPlay = new System.Windows.Forms.Label();
-            this.tmrPlaylistDelay = new System.Windows.Forms.Timer(this.components);
             this.tmrOptionsDelay = new System.Windows.Forms.Timer(this.components);
             this.pnlSearchPlaylists = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.tmrPlaylistDelay = new System.Windows.Forms.Timer(this.components);
             this.pnlSongs.SuspendLayout();
             this.pnlArtists.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.glassIcon)).BeginInit();
@@ -199,10 +199,6 @@
             this.lblPlay.MouseEnter += new System.EventHandler(this.lblPlay_Enter);
             this.lblPlay.MouseLeave += new System.EventHandler(this.lblPlay_Leave);
             // 
-            // tmrPlaylistDelay
-            // 
-            this.tmrPlaylistDelay.Interval = 700;
-            // 
             // tmrOptionsDelay
             // 
             this.tmrOptionsDelay.Interval = 700;
@@ -228,6 +224,11 @@
             this.label1.Size = new System.Drawing.Size(72, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Playlists>";
+            // 
+            // tmrPlaylistDelay
+            // 
+            this.tmrPlaylistDelay.Interval = 700;
+            this.tmrPlaylistDelay.Tick += new System.EventHandler(this.tmrPlaylistDelay_Tick);
             // 
             // SearchResults
             // 
@@ -273,9 +274,9 @@
         private System.Windows.Forms.Label lblShare;
         private System.Windows.Forms.Label lblAddToPlaylist;
         private System.Windows.Forms.Label lblPlay;
-        private System.Windows.Forms.Timer tmrPlaylistDelay;
         private System.Windows.Forms.Timer tmrOptionsDelay;
         private System.Windows.Forms.Panel pnlSearchPlaylists;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer tmrPlaylistDelay;
     }
 }

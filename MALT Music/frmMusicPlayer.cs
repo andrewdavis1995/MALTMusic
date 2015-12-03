@@ -113,12 +113,10 @@ namespace MALT_Music
             string imagePath = thisSong.getImagePath();
 
             // Sets the album art image
-            if (imagePath != "" && imagePath != null)
+            try
             {
-                picBoxAlbumArt.ImageLocation = imagePath;
-            }
-            else
-            {
+                picBoxAlbumArt.Image = Image.FromFile(imagePath);
+            }catch(FileNotFoundException){
                 picBoxAlbumArt.Image = MALT_Music.Properties.Resources.logo;
             }
             

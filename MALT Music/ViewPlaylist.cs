@@ -482,8 +482,14 @@ namespace MALT_Music
         {
 
             picSave.Left = txtPlaylistNameEdit.Left + txtPlaylistNameEdit.Width + 10;
-            picPlay.Left = lblPlaylistName.Left + lblPlaylistName.Width + picSave.Left + 15;
-
+            if (this.currentUser.Equals(thePlaylist.getOwner()))
+            {
+                picPlay.Left = txtPlaylistNameEdit.Left + txtPlaylistNameEdit.Width + 10;
+            }
+            else
+            {
+                picPlay.Left = txtPlaylistNameEdit.Left + txtPlaylistNameEdit.Width + 15 + picSave.Width;
+            }
             //Set contents of edit box to playlist name
             txtPlaylistNameEdit.Text = lblPlaylistName.Text;
 
@@ -502,8 +508,15 @@ namespace MALT_Music
             if (!curr.Equals(""))
             {
                 //Update text for user
-                lblPlaylistName.Text =curr;
-                picPlay.Left = lblPlaylistName.Left + lblPlaylistName.Width + picSave.Left + 15;
+                lblPlaylistName.Text = curr; 
+                if (this.currentUser.Equals(thePlaylist.getOwner()))
+                {
+                    picPlay.Left = lblPlaylistName.Left + lblPlaylistName.Width + 10;
+                }
+                else
+                {
+                    picPlay.Left = lblPlaylistName.Left + lblPlaylistName.Width + 15 + picSave.Width;
+                }
 
                 //Convert to string for use in method
                 String newPlaylistName = curr;
@@ -520,7 +533,6 @@ namespace MALT_Music
                 lblPlaylistName.Show();
 
                 picSave.Left = lblPlaylistName.Left + lblPlaylistName.Width + 10;
-                picPlay.Left = lblPlaylistName.Left + lblPlaylistName.Width + picSave.Left + 15;
             }
             else
             {
