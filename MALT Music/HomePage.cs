@@ -319,6 +319,7 @@ namespace MALT_Music
         //Log out the user
         private void picBoxLogout_Click(object sender, EventArgs e)
         {
+            musicPlayer.stopSong();
             Login newLogin = new Login();
             this.Hide();
             newLogin.ShowDialog();

@@ -52,6 +52,8 @@ namespace MALT_Music
         List<Label> playlistLabelOwner = new List<Label>();
         Label endLabel3 = new Label();
 
+        public String searchedFor;
+
         bool songsState = false;
         bool artistState = false;
         bool playlistState = false;
@@ -60,6 +62,7 @@ namespace MALT_Music
         public void createSongList(String searchText)
         {
             this.lblSearchedFor.Text = "Search Results for: '" + searchText + "':";
+            searchedFor = searchText;
 
             int i = 0;
             while (i < 9 && i < this.songList.Count)
@@ -164,11 +167,20 @@ namespace MALT_Music
             endLabel.BackColor = Color.FromArgb(20, 20, 20);
             endLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
-
+            endLabel.Click +=endLabel_Click;
             pnlSongs.Controls.Add(endLabel);
 
 
         }
+
+        private void endLabel_Click(Object Sender, EventArgs e)
+        {
+            ViewAllResults viewAll = new ViewAllResults();
+            viewAll.setSongs(songList);
+            viewAll.createSongList(searchedFor);
+            viewAll.Show();
+        }
+
         public void createArtistList()
         {
             int i = 0;
@@ -213,10 +225,18 @@ namespace MALT_Music
             endLabel2.BackColor = Color.FromArgb(20, 20, 20);
             endLabel2.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
-
+            endLabel2.Click += endLabel2_Click;
             pnlArtists.Controls.Add(endLabel2);
-            
         }
+
+        private void endLabel2_Click(Object Sender, EventArgs e)
+        {
+            ViewAllResults viewAll = new ViewAllResults();
+            viewAll.setArtists(artists);
+            viewAll.createArtistList(searchedFor);
+            viewAll.Show();
+        }
+
         public void createPlaylistList()
         {
             int i = 0;
@@ -279,9 +299,17 @@ namespace MALT_Music
             endLabel3.BackColor = Color.FromArgb(20, 20, 20);
             endLabel3.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
-
+            endLabel3.Click += endLabel3_Click;
             pnlSearchPlaylists.Controls.Add(endLabel3);
 
+        }
+
+        private void endLabel3_Click(Object Sender, EventArgs e)
+        {
+            ViewAllResults viewAll = new ViewAllResults();
+            viewAll.setPlaylists(playlists);
+            viewAll.createPlaylistList(searchedFor);
+            viewAll.Show();
         }
         
         private void goToArtist(object sender, EventArgs e) 

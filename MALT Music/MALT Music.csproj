@@ -136,6 +136,12 @@
     <Compile Include="UserProfile.Designer.cs">
       <DependentUpon>UserProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewAllResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewAllResults.Designer.cs">
+      <DependentUpon>ViewAllResults.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewPlaylist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserProfile.resx">
       <DependentUpon>UserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewAllResults.resx">
+      <DependentUpon>ViewAllResults.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewPlaylist.resx">
       <DependentUpon>ViewPlaylist.cs</DependentUpon>
