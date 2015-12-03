@@ -203,9 +203,9 @@
             this.lblBioText.Location = new System.Drawing.Point(243, 335);
             this.lblBioText.MaximumSize = new System.Drawing.Size(300, 0);
             this.lblBioText.Name = "lblBioText";
-            this.lblBioText.Size = new System.Drawing.Size(281, 40);
+            this.lblBioText.Size = new System.Drawing.Size(155, 20);
             this.lblBioText.TabIndex = 17;
-            this.lblBioText.Text = "I\'m a person who enjoys long walks on the beach, music and dogs.";
+            this.lblBioText.Text = "Enter your bio here...";
             this.lblBioText.Click += new System.EventHandler(this.lblBioText_Click);
             // 
             // txtBioEdit

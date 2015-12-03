@@ -42,8 +42,8 @@ namespace MALT_Music.lib
                     Console.WriteLine("Creating cluster connection");
                     cluster = Cluster.Builder().AddContactPoint(Host).Build();
                 }
-
-                Console.WriteLine("Connected to cluster: " + cluster.Metadata.ClusterName.ToString());
+                String met = cluster.Metadata.ClusterName.ToString();
+                Console.WriteLine("Connected to cluster: " + met);
                 //List<Host> hosts = (List<Host>)cluster.Metadata.AllHosts();
                 ICollection<Host> hosts = (ICollection<Host>) cluster.Metadata.AllHosts();
 

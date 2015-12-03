@@ -93,7 +93,7 @@ namespace MALT_Music.DataObjects
          * @RETURNS: the Bio property for the current User
          */
         public String getBio() { return this.bio; }
-
+        public void setBio(String b) { this.bio = b; }
 
         public void setUsername(String username) { this.username = username; }
     }
