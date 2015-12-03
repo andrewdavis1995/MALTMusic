@@ -316,12 +316,13 @@ namespace MALT_Music
                     // Resets tracker bar
                     value = 0;
 
-                    // If not at the end of the playlist
+                    // If it is at the end of the playlist
                     if (playlistIndex >= activePlaylist.getPlaylistSize() - 1)
                     {
                         stopSong();
                     }
 
+                    // Stops current song, and plays the next song
                     stopSong();
                     playCurrentSong();                    
                 }
@@ -338,7 +339,15 @@ namespace MALT_Music
                 }
                 else if (rbnPlaylist.Checked) // Repeat playlist
                 {
+                    // If at the end of the playlist
+                    if (playlistIndex >= activePlaylist.getPlaylistSize() - 1)
+                    {
+                        playlistIndex = 0;
+                    }
+
+                    // Stops the current song, and starts the next song
                     stopSong();
+                    playCurrentSong(); 
                 }
             }
 
