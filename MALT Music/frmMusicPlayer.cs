@@ -67,6 +67,10 @@ namespace MALT_Music
             // Acquires the song
             thisSong = activePlaylist.getSongByID(playlistIndex);
 
+            // Get and the album artwork
+            string imagePath = thisSong.getImagePath();
+            picBoxAlbumArt.ImageLocation = imagePath;
+            
             // Acquires the path
             string songPath = thisSong.getFileLocation();
 
@@ -307,8 +311,8 @@ namespace MALT_Music
                 {
                     playlistIndex++;
                 }
-                else
-                { playlistIndex = 0; }
+                /*else
+                { playlistIndex = 0; }*/
 
                 // Checks repeat status
                 if (rbnNone.Checked)
@@ -316,15 +320,15 @@ namespace MALT_Music
                     // Resets tracker bar
                     value = 0;
 
-                    // If it is at the end of the playlist
-                    if (playlistIndex >= activePlaylist.getPlaylistSize() - 1)
-                    {
                         stopSong();
-                    }
 
-                    // Stops current song, and plays the next song
-                    stopSong();
-                    playCurrentSong();                    
+                    // If it is at the end of the playlist
+                    if (!(playlistIndex >= activePlaylist.getPlaylistSize() - 1))
+                    {
+                        // Stops current song, and plays the next song    
+                        playCurrentSong();  
+                    }
+    
                 }
                 else if (rbnOnce.Checked) // Repeat Once
                 {
@@ -339,6 +343,8 @@ namespace MALT_Music
                 }
                 else if (rbnPlaylist.Checked) // Repeat playlist
                 {
+                    value = 0;
+
                     // If at the end of the playlist
                     if (playlistIndex >= activePlaylist.getPlaylistSize() - 1)
                     {
