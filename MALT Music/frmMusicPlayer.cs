@@ -125,9 +125,6 @@ namespace MALT_Music
 
                 // Initiates playing of song
                 musicController.playSong();
-
-                // Updates button states
-                btnTest.Enabled = false;
             }
             else
             {
@@ -163,7 +160,6 @@ namespace MALT_Music
         private void pcbPlay_Click(object sender, EventArgs e)
         {
             playCurrentSong();
-            btnTest.Enabled = false;
         }
 
         /// <summary>
@@ -180,9 +176,6 @@ namespace MALT_Music
             // Stops the track
             musicController.stopSong();
             isPlaying = false;
-
-            // Allows using test track
-            btnTest.Enabled = true;
 
             // Updates status of controls
             playPause = false;
@@ -594,6 +587,10 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void pcbForwardSkip_Click(object sender, EventArgs e)
         {
+            // If not playing a song
+            if (!isPlaying)
+            { return; }
+
             // If there is a playlist
             if (activePlaylist != null)
             {
@@ -620,6 +617,10 @@ namespace MALT_Music
         /// <param name="e"></param>
         private void pcbBackSkip_Click(object sender, EventArgs e)
         {
+            // If not playing a song
+            if (!isPlaying)
+            { return; }
+
             // If there is a playlist
             if (activePlaylist != null)
             {
