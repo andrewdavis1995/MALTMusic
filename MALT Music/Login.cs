@@ -26,11 +26,11 @@ namespace MALT_Music
         public Login()
         {
             InitializeComponent();
-            keyspaces keys = new keyspaces();
-            Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
-            keyspaces.SetUpKeySpaces(cluster);
-            registration = new Register();
-            keys.populateTracks();
+            //keyspaces keys = new keyspaces();
+            //Cluster cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
+            //keyspaces.SetUpKeySpaces(cluster);
+            //registration = new Register();
+            //keys.populateTracks();
         }
 
         /*

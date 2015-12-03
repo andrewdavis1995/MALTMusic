@@ -40,13 +40,14 @@ namespace MALT_Music.Models
          * @AUTHORS: Andrew Davis and Matt Malone
          * NOTE - Commented code left in by Matt - just in case it breaks
          */
-        public bool doInsertTrack(Song song)
+        public bool doInsertTrack(Song song, ISession session)
         {
             try
             {
                 // Call to initialise cluster connection
                 //init();
 
+                ///
 
                 Guid tid = song.getSongID();
                 String artist = song.getArtist();
@@ -58,7 +59,7 @@ namespace MALT_Music.Models
                 String trackname = song.getTrackName();
 
                 // Connect to cluster
-                ISession session = cluster.Connect("maltmusic");
+                //ISession session = cluster.Connect("maltmusic");
 
 
                 //Guid tid = Guid.NewGuid();
@@ -77,7 +78,7 @@ namespace MALT_Music.Models
 
                 // Execute Query
                 session.Execute(bs);
-
+                //session.Dispose();
                 return true;
 
                 // Catch exceptions
@@ -93,10 +94,7 @@ namespace MALT_Music.Models
 
         public List<String> getAllArtists()
         {
-
-
             List<String> artists = new List<String>();
-
             try
             {
                 // Call to initialise cluster connection
@@ -170,6 +168,7 @@ namespace MALT_Music.Models
             try
             {
                 string[] lines = System.IO.File.ReadAllLines("../../tracks/populate.txt");
+                ISession session = cluster.Connect("maltmusic");
 
                 foreach (string line in lines)
                 {
@@ -188,10 +187,12 @@ namespace MALT_Music.Models
                     int length = int.Parse(text[5]);
                     String tname = text[6].Trim();
 
+
+                    
                     String file_loc = ("../../tracks/" + artist + "/" + album + "/" + tname + ".mp3");
                     Song toAdd = new Song(artist, album, year, genre, file_loc, length, tname, sid);
-                    doInsertTrack(toAdd);
-
+                    doInsertTrack(toAdd, session);
+                    //doInsertTrack(toAdd);
                 }
                 return true;
             }
