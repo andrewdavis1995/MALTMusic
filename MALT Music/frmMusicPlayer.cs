@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MALT_Music.DataObjects;
+using MALT_Music.Models;
 
 namespace MALT_Music
 {
@@ -113,6 +114,11 @@ namespace MALT_Music
                 // Begins the timer
                 tmrTracker.Enabled = true;
                 
+                // Updates playcount for particular song
+                VoteModel voteModel = new VoteModel();
+                Song thisSong = activePlaylist.getSongByID(playlistIndex);
+                voteModel.updatePlayCount(thisSong.getSongID());
+
                 // Initiates playing of song
                 musicController.playSong();
 
