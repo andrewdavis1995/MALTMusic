@@ -229,6 +229,7 @@ namespace MALT_Music
                 newPlaylist.TextAlign = ContentAlignment.MiddleLeft;
                 newPlaylist.ForeColor = Color.White;
                 newPlaylist.UseMnemonic = false;
+                newPlaylist.DoubleClick += playPlaylist;
                 if (i % 2 == 0) { newPlaylist.BackColor = Color.FromArgb(60, 60, 60); } else { newPlaylist.BackColor = Color.FromArgb(90, 90, 90); }
                 newPlaylist.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 newPlaylist.Tag = i.ToString();
@@ -239,21 +240,22 @@ namespace MALT_Music
                 playlistLabelName.Add(newPlaylist);
                 pnlSearchPlaylists.Controls.Add(playlistLabelName[i]);
 
-                Label newPlayistOwner = new Label();
-                newPlayistOwner.Text = playlists[i].getOwner();
-                newPlayistOwner.Size = new Size(370, 30);
-                newPlayistOwner.Location = new Point(410, (20 + (i * 32)));
-                newPlayistOwner.TextAlign = ContentAlignment.MiddleLeft;
-                newPlayistOwner.ForeColor = Color.White;
-                newPlayistOwner.UseMnemonic = false;
-                if (i % 2 == 0) { newPlayistOwner.BackColor = Color.FromArgb(60, 60, 60); } else { newPlayistOwner.BackColor = Color.FromArgb(90, 90, 90); }
-                newPlayistOwner.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                newPlayistOwner.Tag = i.ToString();
-                newPlayistOwner.Click += goToPlaylist;
+                Label newPlaylistOwner = new Label();
+                newPlaylistOwner.Text = playlists[i].getOwner();
+                newPlaylistOwner.Size = new Size(370, 30);
+                newPlaylistOwner.Location = new Point(410, (20 + (i * 32)));
+                newPlaylistOwner.TextAlign = ContentAlignment.MiddleLeft;
+                newPlaylistOwner.ForeColor = Color.White;
+                newPlaylistOwner.UseMnemonic = false;
+                newPlaylistOwner.DoubleClick += playPlaylist;
+                if (i % 2 == 0) { newPlaylistOwner.BackColor = Color.FromArgb(60, 60, 60); } else { newPlaylistOwner.BackColor = Color.FromArgb(90, 90, 90); }
+                newPlaylistOwner.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                newPlaylistOwner.Tag = i.ToString();
+                newPlaylistOwner.Click += goToPlaylist;
                 /*newPlayistOwner.MouseLeave += artistLeave;
                 newPlayistOwner.MouseEnter += artistHover;*/
 
-                playlistLabelOwner.Add(newPlayistOwner);
+                playlistLabelOwner.Add(newPlaylistOwner);
                 pnlSearchPlaylists.Controls.Add(playlistLabelOwner[i]);
 
                 i++;
@@ -281,8 +283,7 @@ namespace MALT_Music
             pnlSearchPlaylists.Controls.Add(endLabel3);
 
         }
-
-
+        
         private void goToArtist(object sender, EventArgs e) 
         {
             LinkLabel theLabel = (LinkLabel)sender;
@@ -301,7 +302,6 @@ namespace MALT_Music
             parent.artistSelected(artist, songsForArtist);
             
         }
-
 
         public void resetSearch() 
         {
@@ -634,7 +634,17 @@ namespace MALT_Music
             }
 
         }
-        
+
+        //Double click event to play a playlist
+        private void playPlaylist(object sender, EventArgs e) 
+        {
+            Label theLabel = (Label)sender;
+            int index = int.Parse(theLabel.Tag.ToString());
+                        
+            musicPlayer.setPlaylist(playlists[index], 0);
+            musicPlayer.playCurrentSong();
+
+        }
 
         #region Event Handlers for Making labels light up and stuff
         private void lblArtists_Click(object sender, EventArgs e)

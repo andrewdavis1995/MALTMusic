@@ -93,10 +93,12 @@ namespace MALT_Music
             if (currUser.Equals(owner))
             {
                 picSave.Visible = false;
+                picRecommend.Visible = true;
             }
             else
             {
                 picSave.Left = lblPlaylistName.Left + lblPlaylistName.Width + 10;
+                picRecommend.Visible = false;
             }
         }
 
