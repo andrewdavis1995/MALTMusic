@@ -183,6 +183,7 @@ namespace MALT_Music.lib
                 }
 
                 //session.End();
+                //session.Dispose();
             }
             catch(Exception e)
             {

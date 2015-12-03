@@ -126,8 +126,9 @@ namespace MALT_Music
             Playlist newPlaylist = new Playlist(playlist, id, this.currentUser, songs);
 
             PlaylistModel playlistModel = new PlaylistModel();
-
+            playlistModel.createPlaylist(newPlaylist);
             playlists.Add(newPlaylist);
+
 
             #region createLabel
             int count = playlists.Count - 1;
