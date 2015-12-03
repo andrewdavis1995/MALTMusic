@@ -207,6 +207,7 @@
             // pcbPlay
             // 
             this.pcbPlay.Enabled = false;
+            this.pcbPlay.Image = global::MALT_Music.Properties.Resources.playtrack;
             this.pcbPlay.Location = new System.Drawing.Point(434, 3);
             this.pcbPlay.Name = "pcbPlay";
             this.pcbPlay.Size = new System.Drawing.Size(50, 50);
@@ -250,6 +251,7 @@
             // pcbForwardSkip
             // 
             this.pcbForwardSkip.Enabled = false;
+            this.pcbForwardSkip.Image = global::MALT_Music.Properties.Resources.NextTrackwhite;
             this.pcbForwardSkip.Location = new System.Drawing.Point(490, 4);
             this.pcbForwardSkip.Name = "pcbForwardSkip";
             this.pcbForwardSkip.Size = new System.Drawing.Size(50, 50);
@@ -261,6 +263,7 @@
             // pcbBackSkip
             // 
             this.pcbBackSkip.Enabled = false;
+            this.pcbBackSkip.Image = global::MALT_Music.Properties.Resources.prevtrackwhite;
             this.pcbBackSkip.Location = new System.Drawing.Point(378, 4);
             this.pcbBackSkip.Name = "pcbBackSkip";
             this.pcbBackSkip.Size = new System.Drawing.Size(50, 50);
