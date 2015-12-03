@@ -491,8 +491,12 @@ namespace MALT_Music
 
                 selectedSongs.Add(suitableSongs[index]);
                 suitableSongs.RemoveAt(index);
-
             }
+
+            Recommendations recommendations = new Recommendations();
+            recommendations.setSongs(selectedSongs);
+            recommendations.Show();
+
         }
 
         //Pressing enter on textbox does same thing as leaving
