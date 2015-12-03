@@ -19,6 +19,7 @@ namespace MALT_Music
     {
         // Class variables
         MusicController musicController;
+        HomePage parent;
         Playlist activePlaylist;
         Song thisSong;
 
@@ -38,12 +39,15 @@ namespace MALT_Music
         /// <summary>
         /// Init for form
         /// </summary>
-        public frmMusicPlayer()
+        public frmMusicPlayer(HomePage thisParent)
         {
             InitializeComponent();
 
             // Setup music controller
             musicController = new MusicController();
+
+            // Acquire the parent form (the home page)
+            parent = thisParent;
 
             isPlaying = false;
             playPause = true; // Sets to pause mode
@@ -162,16 +166,6 @@ namespace MALT_Music
             playCurrentSong();
             btnStop.Enabled = true;
             btnTest.Enabled = false;
-        }
-
-        /// <summary>
-        /// Calls function to stop the playback
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            stopSong();
         }
 
         /// <summary>
@@ -595,5 +589,57 @@ namespace MALT_Music
             }
         }
         #endregion
+
+        /// <summary>
+        /// Skips to next song in playlist
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pcbSkip_Click(object sender, EventArgs e)
+        {
+            // If there is a playlist
+            if (activePlaylist != null)
+            {
+                // If not at the end of the playlist
+                if (!(playlistIndex >= activePlaylist.getPlaylistSize() - 1))
+                {
+                    playlistIndex++;
+                    stopSong();
+                    playCurrentSong();
+                }
+                else // Reset to index 0
+                {
+                    playlistIndex = 0;
+                    stopSong();
+                    playCurrentSong();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Skips to previous song in playlist
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pcbSkip_Click(object sender, EventArgs e)
+        {
+            // If there is a playlist
+            if (activePlaylist != null)
+            {
+                // If not at the start of the playlist
+                if (!(playlistIndex <= 0))
+                {
+                    playlistIndex--;
+                    stopSong();
+                    playCurrentSong();
+                }
+                else // Set play index to final song
+                {
+                    playlistIndex = activePlaylist.getPlaylistSize() - 1;
+                    stopSong();
+                    playCurrentSong();
+                }
+            }
+        }
     }
 }
