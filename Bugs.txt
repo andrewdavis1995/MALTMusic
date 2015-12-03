@@ -1,5 +1,3 @@
 BUGS:
 
-Stop then Skip											-	TRISTAN
-Stop then Stop										-	TRISTAN
 Blue images and pop up menu (all)			-	ANDREW
