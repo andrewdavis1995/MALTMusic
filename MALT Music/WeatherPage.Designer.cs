@@ -32,7 +32,8 @@
             this.cmdGenerate = new System.Windows.Forms.Button();
             this.lblBeta = new System.Windows.Forms.Label();
             this.lblDetected = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lblPlaylistName = new System.Windows.Forms.LinkLabel();
+            this.lblDisclaimer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmbCity
@@ -53,7 +54,7 @@
             "Middlesbrough",
             "Perth",
             "Ullapool"});
-            this.cmbCity.Location = new System.Drawing.Point(326, 96);
+            this.cmbCity.Location = new System.Drawing.Point(325, 111);
             this.cmbCity.Name = "cmbCity";
             this.cmbCity.Size = new System.Drawing.Size(221, 25);
             this.cmbCity.TabIndex = 0;
@@ -61,7 +62,7 @@
             // cmdGenerate
             // 
             this.cmdGenerate.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdGenerate.Location = new System.Drawing.Point(326, 131);
+            this.cmdGenerate.Location = new System.Drawing.Point(325, 146);
             this.cmdGenerate.Name = "cmdGenerate";
             this.cmdGenerate.Size = new System.Drawing.Size(220, 189);
             this.cmdGenerate.TabIndex = 1;
@@ -74,7 +75,7 @@
             this.lblBeta.AutoSize = true;
             this.lblBeta.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBeta.ForeColor = System.Drawing.Color.Red;
-            this.lblBeta.Location = new System.Drawing.Point(326, 74);
+            this.lblBeta.Location = new System.Drawing.Point(325, 89);
             this.lblBeta.Name = "lblBeta";
             this.lblBeta.Size = new System.Drawing.Size(47, 21);
             this.lblBeta.TabIndex = 2;
@@ -84,7 +85,7 @@
             // 
             this.lblDetected.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDetected.ForeColor = System.Drawing.Color.White;
-            this.lblDetected.Location = new System.Drawing.Point(559, 119);
+            this.lblDetected.Location = new System.Drawing.Point(502, 135);
             this.lblDetected.Name = "lblDetected";
             this.lblDetected.Size = new System.Drawing.Size(383, 62);
             this.lblDetected.TabIndex = 3;
@@ -92,33 +93,47 @@
     "st:";
             this.lblDetected.Visible = false;
             // 
-            // linkLabel1
+            // lblPlaylistName
             // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Font = new System.Drawing.Font("Franklin Gothic Medium", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(568, 181);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(365, 115);
-            this.linkLabel1.TabIndex = 4;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "FUNNY PUN NAME HERE";
-            this.linkLabel1.Visible = false;
-            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.White;
+            this.lblPlaylistName.ActiveLinkColor = System.Drawing.Color.White;
+            this.lblPlaylistName.Font = new System.Drawing.Font("Franklin Gothic Medium", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaylistName.LinkColor = System.Drawing.Color.White;
+            this.lblPlaylistName.Location = new System.Drawing.Point(511, 197);
+            this.lblPlaylistName.Name = "lblPlaylistName";
+            this.lblPlaylistName.Size = new System.Drawing.Size(443, 115);
+            this.lblPlaylistName.TabIndex = 4;
+            this.lblPlaylistName.TabStop = true;
+            this.lblPlaylistName.Text = "FUNNY PUN NAME HERE";
+            this.lblPlaylistName.Visible = false;
+            this.lblPlaylistName.VisitedLinkColor = System.Drawing.Color.White;
+            this.lblPlaylistName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblPlaylistName_LinkClicked);
+            // 
+            // lblDisclaimer
+            // 
+            this.lblDisclaimer.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDisclaimer.ForeColor = System.Drawing.Color.White;
+            this.lblDisclaimer.Location = new System.Drawing.Point(502, 308);
+            this.lblDisclaimer.Name = "lblDisclaimer";
+            this.lblDisclaimer.Size = new System.Drawing.Size(383, 62);
+            this.lblDisclaimer.TabIndex = 5;
+            this.lblDisclaimer.Text = "Please note, this Playlist will expire (and be deleted) in 1 hour - unless you ch" +
+    "oose to save it";
+            this.lblDisclaimer.Visible = false;
             // 
             // WeatherPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(962, 379);
-            this.Controls.Add(this.linkLabel1);
+            this.ClientSize = new System.Drawing.Size(974, 379);
+            this.Controls.Add(this.lblDisclaimer);
+            this.Controls.Add(this.lblPlaylistName);
             this.Controls.Add(this.lblDetected);
             this.Controls.Add(this.lblBeta);
             this.Controls.Add(this.cmdGenerate);
             this.Controls.Add(this.cmbCity);
             this.Name = "WeatherPage";
-            this.Text = "WeatherPage";
+            this.Text = "Weather Page";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,6 +145,7 @@
         private System.Windows.Forms.Button cmdGenerate;
         private System.Windows.Forms.Label lblBeta;
         private System.Windows.Forms.Label lblDetected;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel lblPlaylistName;
+        private System.Windows.Forms.Label lblDisclaimer;
     }
 }

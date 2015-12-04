@@ -14,9 +14,17 @@ namespace MALT_Music
 {
     public partial class WeatherPage : Form
     {
-        public WeatherPage()
+
+        User currentUser;
+        HomePage parent;
+
+        Playlist generatedPlaylist;
+
+        public WeatherPage(User CU, HomePage homepage)
         {
             InitializeComponent();
+            this.currentUser = CU;
+            this.parent = homepage;
         }
 
         private void cmdGenerate_Click(object sender, EventArgs e)
@@ -29,7 +37,7 @@ namespace MALT_Music
             SongModel songModel = new SongModel();
 
             List<Weather> weathers = weatherModel.getAllWithTags();
-            MessageBox.Show(weathers.Count + " songs read from file");
+            MessageBox.Show(weathers.Count + " songs found");
 
             List<Song> suitableSongs = new List<Song>();
 
@@ -39,7 +47,6 @@ namespace MALT_Music
 
                 for (int j = 0; j < weatherTags.Count; j++)
                 {
-                    MessageBox.Show(weathers[i].getTrackId() + "----> " + weatherTags[j]);
                     if (weatherType.Contains(weatherTags[j])) 
                     {
 
@@ -51,8 +58,40 @@ namespace MALT_Music
                 }
             }
 
-            MessageBox.Show(weathers.Count + " songs matched the tag");
+            MessageBox.Show(suitableSongs.Count + " songs matched the tag");
 
+
+            Random r = new Random();
+
+            List<Song> selectedSongs = new List<Song>();
+
+            while (selectedSongs.Count < 5 && suitableSongs.Count > 0) {
+                int index = r.Next(0, suitableSongs.Count-1);
+
+                Song toAdd = suitableSongs[index];
+                selectedSongs.Add(toAdd);
+                suitableSongs.RemoveAt(index);
+            }
+
+            Guid newGuid = Guid.NewGuid();
+
+            generatedPlaylist = new Playlist("$temp$The " + city + " " + weatherType + " Playlist", newGuid, currentUser.getUsername(), selectedSongs);
+
+            PlaylistModel playlistModel = new PlaylistModel();
+            playlistModel.createTempPlaylist(generatedPlaylist);
+
+            lblDetected.Text = "We have detected that the weather in " + city + " is " + weatherType + ". So, we made you this playlist:";
+            lblPlaylistName.Text = "The " + city + " " + weatherType + " Playlist";
+            lblDetected.Visible = true;
+            lblPlaylistName.Visible = true;
+            cmdGenerate.Visible = false;
+            cmbCity.Visible = false;
+
+        }
+
+        private void lblPlaylistName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            parent.showViewPlaylist(generatedPlaylist);
         }
     }
 }

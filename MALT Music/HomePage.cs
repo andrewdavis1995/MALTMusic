@@ -40,7 +40,7 @@ namespace MALT_Music
             searchResults = new SearchResults(musicPlayer, this);
             profileScreen = new UserProfile();
             viewPlaylist = new ViewPlaylist();
-            weatherPage = new WeatherPage();
+            weatherPage = new WeatherPage(this.currentUser, this);
 
         }
 
@@ -338,7 +338,8 @@ namespace MALT_Music
         private void cmdWeather_Click(object sender, EventArgs e)
         {
             hideForms();
-            
+
+            weatherPage = new WeatherPage(this.currentUser, this);
             weatherPage.TopLevel = false;
             weatherPage.Parent = this;
 

@@ -98,7 +98,7 @@ namespace MALT_Music.Models
                 ISession session = cluster.Connect("maltmusic");
 
                 // Prepare and bind statement passing in username
-                String todo = ("select * from track where track_id = :tid");
+                String todo = ("select * from tracks where track_id = :tid");
                 PreparedStatement ps = session.Prepare(todo);
                 BoundStatement bs = ps.Bind(tid);
 
