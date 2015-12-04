@@ -91,6 +91,7 @@ namespace MALT_Music.DataObjects
         public void setGuid(Guid newID) { this.pID = newID; }
         public Guid getID() { return this.pID; }
         public List<Song> getSongs() { return this.songs; }
+        public void setName(String newName) { this.playlistName = newName; }
 
     }
 }

@@ -36,6 +36,8 @@ namespace MALT_Music
         {
             InitializeComponent();
 
+            picSave.Visible = true;
+
             //Set player, playlist, user
             this.musicPlayer = music;
             this.currentUser = currentUser;
@@ -94,9 +96,18 @@ namespace MALT_Music
             String currUser = this.currentUser.getUsername();
             String owner = thePlaylist.getOwner();
 
-            if (currUser.Equals(owner))
+            String first6 = thePlaylist.getPlaylistName().Substring(0, 6);
+
+            if (currUser.Equals(owner) )
             {
-                picSave.Visible = false;
+                if (first6.Equals("$temp$"))
+                {
+                    lblPlaylistName.Text = thePlaylist.getPlaylistName().Substring(6);
+                    thePlaylist.setName(thePlaylist.getPlaylistName().Substring(6));
+                }
+                else {
+                    picSave.Visible = false;
+                }
                 picRecommend.Visible = true;
                 picPlay.Left = lblPlaylistName.Left + lblPlaylistName.Width + 10;
             }
@@ -579,8 +590,15 @@ namespace MALT_Music
         {
 
             picSave.Left = txtPlaylistNameEdit.Left + txtPlaylistNameEdit.Width + 10;
+            String first6 = thePlaylist.getPlaylistName().Substring(0, 6);
+
             if (this.currentUser.Equals(thePlaylist.getOwner()))
             {
+                if (!first6.Equals("$temp$"))
+                {
+                    lblPlaylistName.Text = thePlaylist.getPlaylistName().Substring(6);
+                    picSave.Visible = false;
+                }
                 picPlay.Left = txtPlaylistNameEdit.Left + txtPlaylistNameEdit.Width + 10;
             }
             else
@@ -605,9 +623,18 @@ namespace MALT_Music
             if (!curr.Equals(""))
             {
                 //Update text for user
-                lblPlaylistName.Text = curr; 
+                lblPlaylistName.Text = curr;
+
+                String first6 = thePlaylist.getPlaylistName().Substring(0, 6);
+
                 if (this.currentUser.Equals(thePlaylist.getOwner()))
                 {
+                    if (!first6.Equals("$temp$"))
+                    {
+                        lblPlaylistName.Text = thePlaylist.getPlaylistName().Substring(6);
+                        thePlaylist.setName(thePlaylist.getPlaylistName().Substring(6)); 
+                        picSave.Visible = false;
+                    }
                     picPlay.Left = lblPlaylistName.Left + lblPlaylistName.Width + 10;
                 }
                 else

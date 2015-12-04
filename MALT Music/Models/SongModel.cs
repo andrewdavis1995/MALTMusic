@@ -477,6 +477,7 @@ namespace MALT_Music.Models
                         Song theSong = new Song(artist, album, year, genre, fileLocation, length, trackName, id);
 
                         songs.Add(theSong);
+                        
                     }
                 }
 

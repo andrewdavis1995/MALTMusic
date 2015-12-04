@@ -53,7 +53,17 @@ namespace MALT_Music
                 newLabel.ForeColor = Color.White;
                 newLabel.Tag = i.ToString();
                 newLabel.Click += playlistSelected;
-                if (count % 2 == 0) { newLabel.BackColor = Color.FromArgb(20, 20, 20); } else { newLabel.BackColor = Color.FromArgb(60, 60, 60); }
+
+                if (!playlists[i].getPlaylistName().Contains("$temp$"))
+                {
+                    if (i % 2 == 0) { newLabel.BackColor = Color.FromArgb(60, 60, 60); } else { newLabel.BackColor = Color.FromArgb(90, 90, 90); }
+                }
+                else
+                {
+                    newLabel.BackColor = Color.MidnightBlue;
+                    newLabel.Text = playlists[i].getPlaylistName().Substring(6);
+                }
+
                 newLabel.Location = new Point(290, 120 + (i * 30));
                 newLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
