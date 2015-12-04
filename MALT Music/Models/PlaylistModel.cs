@@ -114,6 +114,7 @@ namespace MALT_Music.Models
                     // Execute Query
                     session.Execute(bs);
                 }
+               
                 return false;
                 // Catch exceptions
             }

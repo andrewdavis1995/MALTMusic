@@ -14,3 +14,4 @@ c4fd584f-13f2-4493-881b-0edb1e3ee547|Shower,Cloud,Clear
 9b2f7cbf-e727-407e-950f-4b8562f6d875|Snow
 f7a1cfda-4e01-4ced-aca3-4d6cb0b6b8d6|Rain,Cloud
 64bc7c26-2252-4927-881f-ecbe3b26fcbb|Sun,Clear
+4fa20369-0834-4398-92cd-74a172d6bc5a|Sun,Clear,Sunny Int
