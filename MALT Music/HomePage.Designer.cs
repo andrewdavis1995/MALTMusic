@@ -42,6 +42,8 @@
             this.picBoxPlaylist = new System.Windows.Forms.PictureBox();
             this.picBoxLogout = new System.Windows.Forms.PictureBox();
             this.picBoxBackground = new System.Windows.Forms.PictureBox();
+            this.lblWeather = new System.Windows.Forms.Label();
+            this.cmdWeather = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxMagnifyingGlass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxMALTLogo)).BeginInit();
@@ -50,6 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPlaylist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdWeather)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFullName
@@ -69,7 +72,7 @@
             this.lblLogout.AutoSize = true;
             this.lblLogout.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogout.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblLogout.Location = new System.Drawing.Point(82, 273);
+            this.lblLogout.Location = new System.Drawing.Point(66, 208);
             this.lblLogout.Name = "lblLogout";
             this.lblLogout.Size = new System.Drawing.Size(59, 20);
             this.lblLogout.TabIndex = 4;
@@ -80,7 +83,7 @@
             this.lblPlaylist.AutoSize = true;
             this.lblPlaylist.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlaylist.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblPlaylist.Location = new System.Drawing.Point(82, 151);
+            this.lblPlaylist.Location = new System.Drawing.Point(66, 124);
             this.lblPlaylist.Name = "lblPlaylist";
             this.lblPlaylist.Size = new System.Drawing.Size(63, 20);
             this.lblPlaylist.TabIndex = 2;
@@ -148,6 +151,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.Controls.Add(this.lblWeather);
+            this.panel2.Controls.Add(this.cmdWeather);
             this.panel2.Controls.Add(this.picBoxProfPicThumb);
             this.panel2.Controls.Add(this.lblFullName);
             this.panel2.Controls.Add(this.picBoxPlaylist);
@@ -174,9 +179,9 @@
             // picBoxPlaylist
             // 
             this.picBoxPlaylist.Image = global::MALT_Music.Properties.Resources.List_white;
-            this.picBoxPlaylist.Location = new System.Drawing.Point(74, 76);
+            this.picBoxPlaylist.Location = new System.Drawing.Point(70, 66);
             this.picBoxPlaylist.Name = "picBoxPlaylist";
-            this.picBoxPlaylist.Size = new System.Drawing.Size(81, 72);
+            this.picBoxPlaylist.Size = new System.Drawing.Size(51, 55);
             this.picBoxPlaylist.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxPlaylist.TabIndex = 1;
             this.picBoxPlaylist.TabStop = false;
@@ -185,9 +190,9 @@
             // picBoxLogout
             // 
             this.picBoxLogout.Image = global::MALT_Music.Properties.Resources.logout;
-            this.picBoxLogout.Location = new System.Drawing.Point(74, 196);
+            this.picBoxLogout.Location = new System.Drawing.Point(70, 150);
             this.picBoxLogout.Name = "picBoxLogout";
-            this.picBoxLogout.Size = new System.Drawing.Size(81, 72);
+            this.picBoxLogout.Size = new System.Drawing.Size(51, 55);
             this.picBoxLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxLogout.TabIndex = 3;
             this.picBoxLogout.TabStop = false;
@@ -203,6 +208,28 @@
             this.picBoxBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxBackground.TabIndex = 9;
             this.picBoxBackground.TabStop = false;
+            // 
+            // lblWeather
+            // 
+            this.lblWeather.AutoSize = true;
+            this.lblWeather.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWeather.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblWeather.Location = new System.Drawing.Point(66, 289);
+            this.lblWeather.Name = "lblWeather";
+            this.lblWeather.Size = new System.Drawing.Size(64, 20);
+            this.lblWeather.TabIndex = 7;
+            this.lblWeather.Text = "Weather";
+            // 
+            // cmdWeather
+            // 
+            this.cmdWeather.Image = global::MALT_Music.Properties.Resources.logout;
+            this.cmdWeather.Location = new System.Drawing.Point(70, 231);
+            this.cmdWeather.Name = "cmdWeather";
+            this.cmdWeather.Size = new System.Drawing.Size(51, 55);
+            this.cmdWeather.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cmdWeather.TabIndex = 6;
+            this.cmdWeather.TabStop = false;
+            this.cmdWeather.Click += new System.EventHandler(this.cmdWeather_Click);
             // 
             // HomePage
             // 
@@ -234,6 +261,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPlaylist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdWeather)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,6 +281,8 @@
         private System.Windows.Forms.Button btnSearch;
         private OvalPictureBox picBoxProfPicThumb;
         private System.Windows.Forms.PictureBox picBoxBackground;
+        private System.Windows.Forms.Label lblWeather;
+        private System.Windows.Forms.PictureBox cmdWeather;
 
     }
 }

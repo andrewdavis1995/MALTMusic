@@ -22,6 +22,7 @@ namespace MALT_Music
         SearchResults searchResults;
         UserProfile profileScreen;
         ViewPlaylist viewPlaylist;
+        WeatherPage weatherPage;
         ArtistView artistView = new ArtistView(new User(), null);
 
         public User currentUser;
@@ -39,6 +40,7 @@ namespace MALT_Music
             searchResults = new SearchResults(musicPlayer, this);
             profileScreen = new UserProfile();
             viewPlaylist = new ViewPlaylist();
+            weatherPage = new WeatherPage();
 
         }
 
@@ -98,6 +100,7 @@ namespace MALT_Music
             artistView.Hide();
             playlists.Hide();
             viewPlaylist.Hide();
+            weatherPage.Hide();
 
             //Show the loading placeholder
             picBoxBackground.Show();
@@ -330,6 +333,20 @@ namespace MALT_Music
             this.Hide();
             newLogin.ShowDialog();
             this.Dispose();
+        }
+
+        private void cmdWeather_Click(object sender, EventArgs e)
+        {
+            hideForms();
+            
+            weatherPage.TopLevel = false;
+            weatherPage.Parent = this;
+
+            weatherPage.FormBorderStyle = FormBorderStyle.None;
+            weatherPage.Size = new Size(1092, 392);
+
+            picBoxBackground.Hide();
+            weatherPage.Show();
         }
 
     }

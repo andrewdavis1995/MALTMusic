@@ -67,6 +67,7 @@
     <Compile Include="DataObjects\UserVote.cs" />
     <Compile Include="DataObjects\Validation.cs" />
     <Compile Include="DataObjects\Vote.cs" />
+    <Compile Include="GetWeather.cs" />
     <Compile Include="DataObjects\Weather.cs" />
     <Compile Include="HomePage.cs">
       <SubType>Form</SubType>
@@ -156,6 +157,12 @@
     <Compile Include="ViewUserPlaylists.Designer.cs">
       <DependentUpon>ViewUserPlaylists.cs</DependentUpon>
     </Compile>
+    <Compile Include="WeatherPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WeatherPage.Designer.cs">
+      <DependentUpon>WeatherPage.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ArtistView.resx">
       <DependentUpon>ArtistView.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewUserPlaylists.resx">
       <DependentUpon>ViewUserPlaylists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeatherPage.resx">
+      <DependentUpon>WeatherPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
