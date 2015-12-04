@@ -227,6 +227,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\weathericon.png" />
     <None Include="Resources\playlist_playbutton.png" />
     <None Include="Resources\save playlist.png" />
     <None Include="Resources\removeFromPlaylist.png" />

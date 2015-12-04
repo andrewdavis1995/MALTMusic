@@ -38,21 +38,21 @@
             this.picBoxMagnifyingGlass = new System.Windows.Forms.PictureBox();
             this.picBoxMALTLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblWeather = new System.Windows.Forms.Label();
+            this.cmdWeather = new System.Windows.Forms.PictureBox();
             this.picBoxProfPicThumb = new MALT_Music.OvalPictureBox();
             this.picBoxPlaylist = new System.Windows.Forms.PictureBox();
             this.picBoxLogout = new System.Windows.Forms.PictureBox();
             this.picBoxBackground = new System.Windows.Forms.PictureBox();
-            this.lblWeather = new System.Windows.Forms.Label();
-            this.cmdWeather = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxMagnifyingGlass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxMALTLogo)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdWeather)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxProfPicThumb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPlaylist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBackground)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmdWeather)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFullName
@@ -164,6 +164,28 @@
             this.panel2.Size = new System.Drawing.Size(233, 313);
             this.panel2.TabIndex = 7;
             // 
+            // lblWeather
+            // 
+            this.lblWeather.AutoSize = true;
+            this.lblWeather.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWeather.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblWeather.Location = new System.Drawing.Point(66, 289);
+            this.lblWeather.Name = "lblWeather";
+            this.lblWeather.Size = new System.Drawing.Size(64, 20);
+            this.lblWeather.TabIndex = 7;
+            this.lblWeather.Text = "Weather";
+            // 
+            // cmdWeather
+            // 
+            this.cmdWeather.Image = global::MALT_Music.Properties.Resources.weathericon;
+            this.cmdWeather.Location = new System.Drawing.Point(70, 231);
+            this.cmdWeather.Name = "cmdWeather";
+            this.cmdWeather.Size = new System.Drawing.Size(51, 55);
+            this.cmdWeather.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cmdWeather.TabIndex = 6;
+            this.cmdWeather.TabStop = false;
+            this.cmdWeather.Click += new System.EventHandler(this.cmdWeather_Click);
+            // 
             // picBoxProfPicThumb
             // 
             this.picBoxProfPicThumb.BackColor = System.Drawing.Color.LightGray;
@@ -209,28 +231,6 @@
             this.picBoxBackground.TabIndex = 9;
             this.picBoxBackground.TabStop = false;
             // 
-            // lblWeather
-            // 
-            this.lblWeather.AutoSize = true;
-            this.lblWeather.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWeather.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblWeather.Location = new System.Drawing.Point(66, 289);
-            this.lblWeather.Name = "lblWeather";
-            this.lblWeather.Size = new System.Drawing.Size(64, 20);
-            this.lblWeather.TabIndex = 7;
-            this.lblWeather.Text = "Weather";
-            // 
-            // cmdWeather
-            // 
-            this.cmdWeather.Image = global::MALT_Music.Properties.Resources.logout;
-            this.cmdWeather.Location = new System.Drawing.Point(70, 231);
-            this.cmdWeather.Name = "cmdWeather";
-            this.cmdWeather.Size = new System.Drawing.Size(51, 55);
-            this.cmdWeather.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.cmdWeather.TabIndex = 6;
-            this.cmdWeather.TabStop = false;
-            this.cmdWeather.Click += new System.EventHandler(this.cmdWeather_Click);
-            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,11 +257,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxMALTLogo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdWeather)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxProfPicThumb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPlaylist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBackground)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmdWeather)).EndInit();
             this.ResumeLayout(false);
 
         }
