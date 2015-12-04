@@ -113,8 +113,7 @@ namespace MALT_Music.Models
                     BoundStatement bs = ps.Bind(tid, pid, pos);
                     // Execute Query
                     session.Execute(bs);
-                    return true;
-                }
+               }
                 return false;
                 // Catch exceptions
             }

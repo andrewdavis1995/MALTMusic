@@ -32,18 +32,9 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.cmdLogin = new System.Windows.Forms.Button();
-            this.btnMusicPlayer = new System.Windows.Forms.Button();
             this.cmdRegister = new System.Windows.Forms.Button();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.lblLoginLabel = new System.Windows.Forms.Label();
-            this.cmdSkipLogin = new System.Windows.Forms.Button();
-            this.cmdAddSong = new System.Windows.Forms.Button();
-            this.cmdGetPlaylists = new System.Windows.Forms.Button();
-            this.cmdCreatePlaylist = new System.Windows.Forms.Button();
-            this.cmdAddSongToPlaylist = new System.Windows.Forms.Button();
-            this.cmdSearchResults = new System.Windows.Forms.Button();
-            this.cmdArtistSongs = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,16 +73,6 @@
             this.cmdLogin.UseVisualStyleBackColor = true;
             this.cmdLogin.Click += new System.EventHandler(this.cmdLogin_Click);
             // 
-            // btnMusicPlayer
-            // 
-            this.btnMusicPlayer.Location = new System.Drawing.Point(12, 424);
-            this.btnMusicPlayer.Name = "btnMusicPlayer";
-            this.btnMusicPlayer.Size = new System.Drawing.Size(111, 48);
-            this.btnMusicPlayer.TabIndex = 4;
-            this.btnMusicPlayer.Text = "Music Player";
-            this.btnMusicPlayer.UseVisualStyleBackColor = true;
-            this.btnMusicPlayer.Click += new System.EventHandler(this.btnMusicPlayer_Click);
-            // 
             // cmdRegister
             // 
             this.cmdRegister.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -125,103 +106,14 @@
             this.lblLoginLabel.TabIndex = 12;
             this.lblLoginLabel.Text = "LOGIN";
             // 
-            // cmdSkipLogin
-            // 
-            this.cmdSkipLogin.Location = new System.Drawing.Point(138, 424);
-            this.cmdSkipLogin.Name = "cmdSkipLogin";
-            this.cmdSkipLogin.Size = new System.Drawing.Size(111, 48);
-            this.cmdSkipLogin.TabIndex = 13;
-            this.cmdSkipLogin.Text = "Go to Home Page - without Logging in";
-            this.cmdSkipLogin.UseVisualStyleBackColor = true;
-            this.cmdSkipLogin.Click += new System.EventHandler(this.cmdSkipLogin_Click);
-            // 
-            // cmdAddSong
-            // 
-            this.cmdAddSong.Location = new System.Drawing.Point(12, 357);
-            this.cmdAddSong.Name = "cmdAddSong";
-            this.cmdAddSong.Size = new System.Drawing.Size(111, 48);
-            this.cmdAddSong.TabIndex = 14;
-            this.cmdAddSong.Text = "Add a Song";
-            this.cmdAddSong.UseVisualStyleBackColor = true;
-            this.cmdAddSong.Click += new System.EventHandler(this.cmdAddSong_Click);
-            // 
-            // cmdGetPlaylists
-            // 
-            this.cmdGetPlaylists.Location = new System.Drawing.Point(138, 357);
-            this.cmdGetPlaylists.Name = "cmdGetPlaylists";
-            this.cmdGetPlaylists.Size = new System.Drawing.Size(111, 48);
-            this.cmdGetPlaylists.TabIndex = 15;
-            this.cmdGetPlaylists.Text = "Get Playlists for user";
-            this.cmdGetPlaylists.UseVisualStyleBackColor = true;
-            this.cmdGetPlaylists.Click += new System.EventHandler(this.cmdGetPlaylists_Click);
-            // 
-            // cmdCreatePlaylist
-            // 
-            this.cmdCreatePlaylist.Location = new System.Drawing.Point(263, 424);
-            this.cmdCreatePlaylist.Name = "cmdCreatePlaylist";
-            this.cmdCreatePlaylist.Size = new System.Drawing.Size(111, 48);
-            this.cmdCreatePlaylist.TabIndex = 16;
-            this.cmdCreatePlaylist.Text = "Create Playlist";
-            this.cmdCreatePlaylist.UseVisualStyleBackColor = true;
-            this.cmdCreatePlaylist.Click += new System.EventHandler(this.cmdCreatePlaylist_Click);
-            // 
-            // cmdAddSongToPlaylist
-            // 
-            this.cmdAddSongToPlaylist.Location = new System.Drawing.Point(263, 357);
-            this.cmdAddSongToPlaylist.Name = "cmdAddSongToPlaylist";
-            this.cmdAddSongToPlaylist.Size = new System.Drawing.Size(111, 48);
-            this.cmdAddSongToPlaylist.TabIndex = 17;
-            this.cmdAddSongToPlaylist.Text = "Add Song to Playlist";
-            this.cmdAddSongToPlaylist.UseVisualStyleBackColor = true;
-            this.cmdAddSongToPlaylist.Click += new System.EventHandler(this.cmdAddSongToPlaylist_Click);
-            // 
-            // cmdSearchResults
-            // 
-            this.cmdSearchResults.Location = new System.Drawing.Point(12, 295);
-            this.cmdSearchResults.Name = "cmdSearchResults";
-            this.cmdSearchResults.Size = new System.Drawing.Size(111, 48);
-            this.cmdSearchResults.TabIndex = 18;
-            this.cmdSearchResults.Text = "Search Results ";
-            this.cmdSearchResults.UseVisualStyleBackColor = true;
-            this.cmdSearchResults.Click += new System.EventHandler(this.cmdSearchResults_Click);
-            // 
-            // cmdArtistSongs
-            // 
-            this.cmdArtistSongs.Location = new System.Drawing.Point(138, 295);
-            this.cmdArtistSongs.Name = "cmdArtistSongs";
-            this.cmdArtistSongs.Size = new System.Drawing.Size(111, 48);
-            this.cmdArtistSongs.TabIndex = 19;
-            this.cmdArtistSongs.Text = "Artist Thing";
-            this.cmdArtistSongs.UseVisualStyleBackColor = true;
-            this.cmdArtistSongs.Click += new System.EventHandler(this.cmdArtistSongs_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(263, 295);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 48);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Recommendations";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1006, 484);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.cmdArtistSongs);
-            this.Controls.Add(this.cmdSearchResults);
-            this.Controls.Add(this.cmdAddSongToPlaylist);
-            this.Controls.Add(this.cmdCreatePlaylist);
-            this.Controls.Add(this.cmdGetPlaylists);
-            this.Controls.Add(this.cmdAddSong);
-            this.Controls.Add(this.cmdSkipLogin);
+            this.ClientSize = new System.Drawing.Size(714, 318);
             this.Controls.Add(this.lblLoginLabel);
             this.Controls.Add(this.cmdRegister);
-            this.Controls.Add(this.btnMusicPlayer);
             this.Controls.Add(this.picLogo);
             this.Controls.Add(this.cmdLogin);
             this.Controls.Add(this.txtPassword);
@@ -242,16 +134,7 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button cmdLogin;
         private System.Windows.Forms.PictureBox picLogo;
-        private System.Windows.Forms.Button btnMusicPlayer;
         private System.Windows.Forms.Button cmdRegister;
         private System.Windows.Forms.Label lblLoginLabel;
-        private System.Windows.Forms.Button cmdSkipLogin;
-        private System.Windows.Forms.Button cmdAddSong;
-        private System.Windows.Forms.Button cmdGetPlaylists;
-        private System.Windows.Forms.Button cmdCreatePlaylist;
-        private System.Windows.Forms.Button cmdAddSongToPlaylist;
-        private System.Windows.Forms.Button cmdSearchResults;
-        private System.Windows.Forms.Button cmdArtistSongs;
-        private System.Windows.Forms.Button button1;
     }
 }
