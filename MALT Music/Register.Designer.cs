@@ -45,6 +45,7 @@
             // 
             // cmdRegister
             // 
+            this.cmdRegister.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdRegister.Location = new System.Drawing.Point(529, 370);
             this.cmdRegister.Name = "cmdRegister";
             this.cmdRegister.Size = new System.Drawing.Size(75, 23);
@@ -55,9 +56,10 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(304, 287);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(300, 20);
+            this.txtPassword.Size = new System.Drawing.Size(300, 22);
             this.txtPassword.TabIndex = 4;
             this.txtPassword.Text = "Password...";
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
@@ -65,9 +67,10 @@
             // 
             // txtUsername
             // 
+            this.txtUsername.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(304, 250);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(300, 20);
+            this.txtUsername.Size = new System.Drawing.Size(300, 22);
             this.txtUsername.TabIndex = 3;
             this.txtUsername.Text = "Username...";
             this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
@@ -75,9 +78,10 @@
             // 
             // txtConfirmPassword
             // 
+            this.txtConfirmPassword.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmPassword.Location = new System.Drawing.Point(304, 325);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(300, 20);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(300, 22);
             this.txtConfirmPassword.TabIndex = 5;
             this.txtConfirmPassword.Text = "Confirm Password...";
             this.txtConfirmPassword.Enter += new System.EventHandler(this.txtConfirmPassword_Enter);
@@ -85,9 +89,10 @@
             // 
             // txtFirstName
             // 
+            this.txtFirstName.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.Location = new System.Drawing.Point(304, 136);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(300, 20);
+            this.txtFirstName.Size = new System.Drawing.Size(300, 22);
             this.txtFirstName.TabIndex = 0;
             this.txtFirstName.Text = "First Name...";
             this.txtFirstName.Enter += new System.EventHandler(this.txtFirstName_Enter);
@@ -95,9 +100,10 @@
             // 
             // txtLastName
             // 
+            this.txtLastName.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastName.Location = new System.Drawing.Point(304, 173);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(300, 20);
+            this.txtLastName.Size = new System.Drawing.Size(300, 22);
             this.txtLastName.TabIndex = 1;
             this.txtLastName.Text = "Last Name...";
             this.txtLastName.Enter += new System.EventHandler(this.txtLastName_Enter);
@@ -105,9 +111,10 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(305, 212);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(300, 20);
+            this.txtEmail.Size = new System.Drawing.Size(300, 22);
             this.txtEmail.TabIndex = 2;
             this.txtEmail.Text = "Email...";
             this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
@@ -148,11 +155,11 @@
             // lblUsernameTaken
             // 
             this.lblUsernameTaken.AutoSize = true;
-            this.lblUsernameTaken.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsernameTaken.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsernameTaken.ForeColor = System.Drawing.Color.White;
             this.lblUsernameTaken.Location = new System.Drawing.Point(645, 251);
             this.lblUsernameTaken.Name = "lblUsernameTaken";
-            this.lblUsernameTaken.Size = new System.Drawing.Size(154, 17);
+            this.lblUsernameTaken.Size = new System.Drawing.Size(178, 20);
             this.lblUsernameTaken.TabIndex = 13;
             this.lblUsernameTaken.Text = "Username has been taken";
             this.lblUsernameTaken.Visible = false;

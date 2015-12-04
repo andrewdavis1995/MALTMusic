@@ -49,9 +49,10 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(400, 247);
+            this.txtUsername.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(312, 127);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(300, 20);
+            this.txtUsername.Size = new System.Drawing.Size(300, 22);
             this.txtUsername.TabIndex = 0;
             this.txtUsername.Text = "Username...";
             this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
@@ -60,9 +61,10 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(400, 284);
+            this.txtPassword.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(312, 164);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(300, 20);
+            this.txtPassword.Size = new System.Drawing.Size(300, 22);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.Text = "Password...";
             this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
@@ -71,7 +73,8 @@
             // 
             // cmdLogin
             // 
-            this.cmdLogin.Location = new System.Drawing.Point(625, 320);
+            this.cmdLogin.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdLogin.Location = new System.Drawing.Point(537, 200);
             this.cmdLogin.Name = "cmdLogin";
             this.cmdLogin.Size = new System.Drawing.Size(75, 23);
             this.cmdLogin.TabIndex = 2;
@@ -91,7 +94,8 @@
             // 
             // cmdRegister
             // 
-            this.cmdRegister.Location = new System.Drawing.Point(400, 320);
+            this.cmdRegister.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdRegister.Location = new System.Drawing.Point(312, 200);
             this.cmdRegister.Name = "cmdRegister";
             this.cmdRegister.Size = new System.Drawing.Size(75, 23);
             this.cmdRegister.TabIndex = 5;
@@ -113,11 +117,11 @@
             // lblLoginLabel
             // 
             this.lblLoginLabel.AutoSize = true;
-            this.lblLoginLabel.Font = new System.Drawing.Font("Impact", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoginLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoginLabel.ForeColor = System.Drawing.Color.White;
-            this.lblLoginLabel.Location = new System.Drawing.Point(493, 162);
+            this.lblLoginLabel.Location = new System.Drawing.Point(405, 42);
             this.lblLoginLabel.Name = "lblLoginLabel";
-            this.lblLoginLabel.Size = new System.Drawing.Size(98, 43);
+            this.lblLoginLabel.Size = new System.Drawing.Size(112, 41);
             this.lblLoginLabel.TabIndex = 12;
             this.lblLoginLabel.Text = "LOGIN";
             // 

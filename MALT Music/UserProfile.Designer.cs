@@ -51,28 +51,28 @@
             // lblFullName
             // 
             this.lblFullName.AutoSize = true;
-            this.lblFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFullName.Font = new System.Drawing.Font("Franklin Gothic Medium", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFullName.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblFullName.Location = new System.Drawing.Point(395, 113);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(184, 39);
+            this.lblFullName.Size = new System.Drawing.Size(181, 41);
             this.lblFullName.TabIndex = 1;
             this.lblFullName.Text = "Full Name";
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Font = new System.Drawing.Font("Franklin Gothic Medium", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblUsername.Location = new System.Drawing.Point(405, 154);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(95, 24);
+            this.lblUsername.Size = new System.Drawing.Size(92, 24);
             this.lblUsername.TabIndex = 2;
             this.lblUsername.Text = "username";
             // 
             // btnChangeProfilePic
             // 
-            this.btnChangeProfilePic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeProfilePic.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangeProfilePic.Location = new System.Drawing.Point(240, 255);
             this.btnChangeProfilePic.Name = "btnChangeProfilePic";
             this.btnChangeProfilePic.Size = new System.Drawing.Size(163, 38);
@@ -97,17 +97,17 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Font = new System.Drawing.Font("Franklin Gothic Medium", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblEmail.Location = new System.Drawing.Point(406, 175);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(55, 24);
+            this.lblEmail.Size = new System.Drawing.Size(57, 24);
             this.lblEmail.TabIndex = 4;
             this.lblEmail.Text = "email";
             // 
             // txtEmail
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(862, 232);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(163, 26);
@@ -115,7 +115,7 @@
             // 
             // btnUpdateDetails
             // 
-            this.btnUpdateDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateDetails.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateDetails.Location = new System.Drawing.Point(778, 271);
             this.btnUpdateDetails.Name = "btnUpdateDetails";
             this.btnUpdateDetails.Size = new System.Drawing.Size(163, 38);
@@ -126,7 +126,7 @@
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.Location = new System.Drawing.Point(862, 168);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(163, 26);
@@ -134,7 +134,7 @@
             // 
             // txtLastName
             // 
-            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastName.Location = new System.Drawing.Point(862, 200);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(163, 26);
@@ -143,75 +143,75 @@
             // lblEdit
             // 
             this.lblEdit.AutoSize = true;
-            this.lblEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEdit.Font = new System.Drawing.Font("Franklin Gothic Medium", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEdit.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblEdit.Location = new System.Drawing.Point(818, 121);
             this.lblEdit.Name = "lblEdit";
-            this.lblEdit.Size = new System.Drawing.Size(69, 33);
+            this.lblEdit.Size = new System.Drawing.Size(69, 37);
             this.lblEdit.TabIndex = 12;
             this.lblEdit.Text = "Edit";
             // 
             // lblFNE
             // 
             this.lblFNE.AutoSize = true;
-            this.lblFNE.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFNE.Font = new System.Drawing.Font("Franklin Gothic Medium", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFNE.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblFNE.Location = new System.Drawing.Point(741, 168);
             this.lblFNE.Name = "lblFNE";
-            this.lblFNE.Size = new System.Drawing.Size(101, 24);
+            this.lblFNE.Size = new System.Drawing.Size(100, 24);
             this.lblFNE.TabIndex = 13;
             this.lblFNE.Text = "First Name";
             // 
             // lblLNE
             // 
             this.lblLNE.AutoSize = true;
-            this.lblLNE.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLNE.Font = new System.Drawing.Font("Franklin Gothic Medium", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLNE.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblLNE.Location = new System.Drawing.Point(743, 200);
             this.lblLNE.Name = "lblLNE";
-            this.lblLNE.Size = new System.Drawing.Size(99, 24);
+            this.lblLNE.Size = new System.Drawing.Size(98, 24);
             this.lblLNE.TabIndex = 14;
             this.lblLNE.Text = "Last Name";
             // 
             // lblENE
             // 
             this.lblENE.AutoSize = true;
-            this.lblENE.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblENE.Font = new System.Drawing.Font("Franklin Gothic Medium", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblENE.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblENE.Location = new System.Drawing.Point(761, 231);
             this.lblENE.Name = "lblENE";
-            this.lblENE.Size = new System.Drawing.Size(63, 24);
+            this.lblENE.Size = new System.Drawing.Size(62, 24);
             this.lblENE.TabIndex = 15;
             this.lblENE.Text = "E-mail";
             // 
             // lblBio
             // 
             this.lblBio.AutoSize = true;
-            this.lblBio.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBio.Font = new System.Drawing.Font("Franklin Gothic Medium", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBio.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblBio.Location = new System.Drawing.Point(241, 302);
             this.lblBio.Name = "lblBio";
-            this.lblBio.Size = new System.Drawing.Size(60, 33);
+            this.lblBio.Size = new System.Drawing.Size(60, 37);
             this.lblBio.TabIndex = 16;
             this.lblBio.Text = "Bio";
             // 
             // lblBioText
             // 
             this.lblBioText.AutoSize = true;
-            this.lblBioText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBioText.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBioText.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblBioText.Location = new System.Drawing.Point(243, 335);
             this.lblBioText.MaximumSize = new System.Drawing.Size(300, 0);
             this.lblBioText.Name = "lblBioText";
-            this.lblBioText.Size = new System.Drawing.Size(155, 20);
+            this.lblBioText.Size = new System.Drawing.Size(150, 21);
             this.lblBioText.TabIndex = 17;
             this.lblBioText.Text = "Enter your bio here...";
             this.lblBioText.Click += new System.EventHandler(this.lblBioText_Click);
             // 
             // txtBioEdit
             // 
-            this.txtBioEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBioEdit.Location = new System.Drawing.Point(247, 338);
+            this.txtBioEdit.Font = new System.Drawing.Font("Franklin Gothic Medium", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBioEdit.Location = new System.Drawing.Point(248, 335);
             this.txtBioEdit.Multiline = true;
             this.txtBioEdit.Name = "txtBioEdit";
             this.txtBioEdit.Size = new System.Drawing.Size(277, 37);
@@ -221,7 +221,7 @@
             // 
             // btnChangePassword
             // 
-            this.btnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePassword.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.Location = new System.Drawing.Point(778, 327);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(163, 38);

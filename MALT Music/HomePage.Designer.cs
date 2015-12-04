@@ -54,7 +54,7 @@
             // 
             // lblFullName
             // 
-            this.lblFullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFullName.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFullName.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblFullName.Location = new System.Drawing.Point(66, 9);
             this.lblFullName.Name = "lblFullName";
@@ -67,22 +67,22 @@
             // lblLogout
             // 
             this.lblLogout.AutoSize = true;
-            this.lblLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogout.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogout.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblLogout.Location = new System.Drawing.Point(82, 273);
             this.lblLogout.Name = "lblLogout";
-            this.lblLogout.Size = new System.Drawing.Size(66, 20);
+            this.lblLogout.Size = new System.Drawing.Size(59, 20);
             this.lblLogout.TabIndex = 4;
             this.lblLogout.Text = "Log Out";
             // 
             // lblPlaylist
             // 
             this.lblPlaylist.AutoSize = true;
-            this.lblPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaylist.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlaylist.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblPlaylist.Location = new System.Drawing.Point(82, 151);
             this.lblPlaylist.Name = "lblPlaylist";
-            this.lblPlaylist.Size = new System.Drawing.Size(65, 20);
+            this.lblPlaylist.Size = new System.Drawing.Size(63, 20);
             this.lblPlaylist.TabIndex = 2;
             this.lblPlaylist.Text = "Playlists";
             // 
@@ -90,11 +90,11 @@
             // 
             this.txtSearchBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.txtSearchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchBox.Font = new System.Drawing.Font("Franklin Gothic Medium", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchBox.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.txtSearchBox.Location = new System.Drawing.Point(384, 18);
+            this.txtSearchBox.Location = new System.Drawing.Point(385, 21);
             this.txtSearchBox.Name = "txtSearchBox";
-            this.txtSearchBox.Size = new System.Drawing.Size(539, 33);
+            this.txtSearchBox.Size = new System.Drawing.Size(539, 28);
             this.txtSearchBox.TabIndex = 0;
             this.txtSearchBox.Text = "Search for songs, artists and albums...";
             this.txtSearchBox.Enter += new System.EventHandler(this.txtSearchBox_Enter);
@@ -115,7 +115,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Location = new System.Drawing.Point(930, 18);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(48, 33);
