@@ -70,7 +70,7 @@ namespace MALT_Music.Models
                 foreach (Row row in rows)
                 {
                     Guid tid = (Guid) row["track_id"];
-                    HashSet<String> theSet = (HashSet<String>)row["tags"];
+                    List<String> theSet = (List<String>)row["tags"];
                     Weather toadd = new Weather(tid, theSet);
                     weathers.Add(toadd);
                 }
