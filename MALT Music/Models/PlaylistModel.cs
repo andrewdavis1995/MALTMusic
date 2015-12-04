@@ -58,6 +58,75 @@ namespace MALT_Music.Models
 
         }
 
+
+
+        public void createTempPlaylist(Playlist p)
+        {
+            try
+            {
+                //init();
+                ISession session = cluster.Connect("maltmusic");
+
+                String plName = p.getPlaylistName();
+                Guid pid = p.getID();
+                String owner = p.getOwner();
+
+                String todo = ("insert into list_playlist (\n" +
+                      "playlist_id, owner,playlist_name)\n" +
+                     "values (:pid,:own,:plnm) if not exists using TTL 3600");
+
+                PreparedStatement ps = session.Prepare(todo);
+
+                BoundStatement bs = ps.Bind(pid, owner, plName);
+
+                session.Execute(bs);
+
+                addToTempPlaylist(p, session);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception during playlist create" + e);
+            }
+
+
+        }
+
+
+        public bool addToTempPlaylist(Playlist playlist,ISession session)
+        {
+            try
+            {
+                // Prepare and bind statement passing in the relevant fields
+                String todo = ("insert into playlist (track_id,playlist_id,track_pos)\n" +
+                 "values (:tid, :pid,:tpos) if not exists using ttl 3600;");
+                PreparedStatement ps = session.Prepare(todo);
+
+                // Getting Appropriate ID's for query
+                Guid pid = playlist.getID();
+
+                List<Song> songs = playlist.getSongs();
+
+                for (int i = 0; i < songs.Count(); i++)
+                {
+                    Guid tid = songs[i].getSongID();
+                    int pos = getListPos(session, tid, pid);
+                    BoundStatement bs = ps.Bind(tid, pid, pos);
+                    // Execute Query
+                    session.Execute(bs);
+                    return true;
+                }
+                return false;
+                // Catch exceptions
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("SOMETHING WENT WRONG add to temp playlist: " + ex.Message);
+                return false;
+            }
+
+        }
+
+
         /// <summary>
         /// 
         /// </summary>
