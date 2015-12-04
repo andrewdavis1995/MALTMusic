@@ -194,6 +194,7 @@ namespace MALT_Music.Models
                     doInsertTrack(toAdd, session);
                     //doInsertTrack(toAdd);
                 }
+                populateTags(session);
                 return true;
             }
             catch (Exception e)
@@ -203,6 +204,65 @@ namespace MALT_Music.Models
             }
         }
 
+
+
+        public bool populateTags(ISession session)
+        {
+            try
+            {
+                string[] lines = System.IO.File.ReadAllLines("../../tracks/weather.txt");
+                //ISession session = cluster.Connect("maltmusic");
+
+                foreach (string line in lines)
+                {
+                    char[] delimiterChars = { '|' };
+                    string[] text = line.Split(delimiterChars);
+
+                    //Guid sid = new Guid();
+                    Guid tid = new Guid(text[0]);
+
+
+                    char[] delim = { ',' };
+                    string[] tag = text[1].Split(delim);
+
+                    HashSet<String> tags = new HashSet<String>();
+                    for (int i = 0; i < tag.Length; i++)
+                    {
+                        tags.Add(tag[i]);
+                    }
+                    
+
+                    insertToWeather(tid, tags, session);
+                    //doInsertTrack(toAdd);
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Broke while reading data to base" + e);
+                return false;
+            }
+        }
+
+        public void insertToWeather(Guid tid, HashSet<String> tags, ISession session)
+        {
+            try
+            {
+                // Prepare and bind statement
+                String todo = ("insert into weathertags (track_id, tags) values (:tid, :tag) if not exists");
+                PreparedStatement ps = session.Prepare(todo);
+                BoundStatement bs = ps.Bind(tid, tags);
+                // Execute Query
+                session.Execute(bs);
+                return;
+                // Catch exceptions
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("SOMETHING WENT WRONG in INSERT TRACK: " + ex.Message);
+                return;
+            }
+        }
 
         public List<String> getAlbumsByArtist(String artist)
         {
@@ -336,7 +396,6 @@ namespace MALT_Music.Models
                 return songs;
             }
         }
-
 
         public List<Song> searchSongs(String searchText) 
         {

@@ -70,6 +70,11 @@ namespace MALT_Music.lib
                     + " Primary Key (track_id, voter)\n"
                     + " ); ";
 
+                String trackTags = "create table if not exists maltmusic.weathertags(\n"
+                    + " track_ID UUID Primary Key,\n"
+                    + " tags set<text> \n"
+                    + " ); ";
+
                 String CreateImage = "CREATE TABLE if not exists maltmusic.images (" +
                 " user_id text," +
                 " timeadded timestamp," +
@@ -180,6 +185,19 @@ namespace MALT_Music.lib
                 catch (Exception et)
                 {
                     Console.WriteLine("Creating User Votes broke - " + et);
+                }
+
+
+                try
+                {
+                    PreparedStatement statement = session.Prepare(trackTags);
+                    BoundStatement bs = new BoundStatement(statement);
+                    RowSet rs = session.Execute(bs);
+                    Console.WriteLine("Created Track Tags ");
+                }
+                catch (Exception et)
+                {
+                    Console.WriteLine("Creating Track Tags broke - " + et);
                 }
 
                 //session.End();

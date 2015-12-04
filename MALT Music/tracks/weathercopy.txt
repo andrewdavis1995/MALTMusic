@@ -1,0 +1,16 @@
+bee592c2-0a0a-45d6-9176-def47d3ff755|Hunter & The Bear|Pick Me Up|Sun,Clear
+5b64af89-fce1-496e-b0a3-f4c78f4943d9|DVBBS & Borgeous|Tsunami|Rain,Shower
+3b106678-d8b4-46d8-9659-2284a1e138d9|Hunter & The Bear|Forest on the Hill|Sun,Clear
+aff56e64-abea-46b3-a9c9-cf67235772f6|Boston|More Than a Feeling|Sun,Clear
+82127e7f-dd9a-45d9-a9b2-8f906339d1c8|Kansas|Carry On Wayward Son|Cloud,Rain,Clear
+43ba389d-98b4-429d-bb18-1fd8628ccce0|Biffy Clyro|Bubbles|Rain,Shower
+f8ae31c1-7c7a-4646-a967-06c4d204867f|Lowercase Noises|Farewell|Cloud,Sunny Int,Clear
+c4fd584f-13f2-4493-881b-0edb1e3ee547|Lowercase Noises|Prevailing Winds|Shower,Cloud,Clear
+31fa43c5-fcf1-416f-aecd-8fd91929d576|Lowercase Noises|Beauty Into Wreck|Cloud,Sunny Int,Clear
+46864250-3e56-4cb8-bfec-cc986b1a82bc|Crowded House|Fall at Your Feet|Cloud,Rain
+7864aa19-b5f0-4c5c-b983-9c3a47c34a6c|Crowded House|It's Only Natural|Cloud,Rain
+96aeb032-4dcc-4bce-bb69-ed85027fa209|Crowded House|Weather With You|Rain,Sun
+0f20c8a5-4056-4974-bb79-fdc9de0a8452|Mariah Carey|All I Want For Christmas is You|Snow
+9b2f7cbf-e727-407e-950f-4b8562f6d875|The Ronettes|Sleigh Ride|Snow
+f7a1cfda-4e01-4ced-aca3-4d6cb0b6b8d6|Nathan Sykes|Over and Over Again|Rain,Cloud
+64bc7c26-2252-4927-881f-ecbe3b26fcbb|Kool & The Gang|Celebration|Sun,Clear
