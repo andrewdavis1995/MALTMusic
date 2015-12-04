@@ -34,6 +34,7 @@
             this.lblDetected = new System.Windows.Forms.Label();
             this.lblPlaylistName = new System.Windows.Forms.LinkLabel();
             this.lblDisclaimer = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmbCity
@@ -54,9 +55,9 @@
             "Middlesbrough",
             "Perth",
             "Ullapool"});
-            this.cmbCity.Location = new System.Drawing.Point(325, 111);
+            this.cmbCity.Location = new System.Drawing.Point(407, 111);
             this.cmbCity.Name = "cmbCity";
-            this.cmbCity.Size = new System.Drawing.Size(221, 25);
+            this.cmbCity.Size = new System.Drawing.Size(189, 25);
             this.cmbCity.TabIndex = 0;
             // 
             // cmdGenerate
@@ -120,12 +121,24 @@
     "oose to save it";
             this.lblDisclaimer.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(325, 116);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 25);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Location:";
+            this.label1.Visible = false;
+            // 
             // WeatherPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(974, 379);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDisclaimer);
             this.Controls.Add(this.lblPlaylistName);
             this.Controls.Add(this.lblDetected);
@@ -147,5 +160,6 @@
         private System.Windows.Forms.Label lblDetected;
         private System.Windows.Forms.LinkLabel lblPlaylistName;
         private System.Windows.Forms.Label lblDisclaimer;
+        private System.Windows.Forms.Label label1;
     }
 }

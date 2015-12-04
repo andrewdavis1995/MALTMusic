@@ -369,9 +369,9 @@ namespace MALT_Music.Models
                 BoundStatement bs = ps.Bind(play_id, track_id);
                 session.Execute(bs);
             }
-            catch (Exception andrewIsABaw) 
+            catch (Exception e) 
             {
-                Console.WriteLine("Removing from a plist broke " + andrewIsABaw);
+                Console.WriteLine("Removing from a plist broke " + e);
             }
         }
 

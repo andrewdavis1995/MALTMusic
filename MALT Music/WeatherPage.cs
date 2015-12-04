@@ -29,66 +29,74 @@ namespace MALT_Music
 
         private void cmdGenerate_Click(object sender, EventArgs e)
         {
-            GetWeather getWeather = new GetWeather();
-            String city = cmbCity.Text;
-            String weatherType = getWeather.getWeather(city);
-
-            WeatherModel weatherModel = new WeatherModel();
-            SongModel songModel = new SongModel();
-
-            List<Weather> weathers = weatherModel.getAllWithTags();
-            MessageBox.Show(weathers.Count + " songs found");
-
-            List<Song> suitableSongs = new List<Song>();
-
-            for (int i = 0; i < weathers.Count; i++) 
+            if (cmbCity.Text.Length > 0 && cmbCity.SelectedItem != null)
             {
-                List<String> weatherTags = weathers[i].getTags();
 
-                for (int j = 0; j < weatherTags.Count; j++)
+                GetWeather getWeather = new GetWeather();
+                String city = cmbCity.Text;
+                String weatherType = getWeather.getWeather(city);
+
+                WeatherModel weatherModel = new WeatherModel();
+                SongModel songModel = new SongModel();
+
+                List<Weather> weathers = weatherModel.getAllWithTags();
+
+                List<Song> suitableSongs = new List<Song>();
+
+                for (int i = 0; i < weathers.Count; i++)
                 {
-                    if (weatherType.Contains(weatherTags[j])) 
+                    List<String> weatherTags = weathers[i].getTags();
+
+                    for (int j = 0; j < weatherTags.Count; j++)
                     {
+                        if (weatherType.Contains(weatherTags[j]))
+                        {
 
-                        Song toAdd = songModel.getTrackByID(weathers[i].getTrackId());
-                        suitableSongs.Add(toAdd);
+                            Song toAdd = songModel.getTrackByID(weathers[i].getTrackId());
+                            suitableSongs.Add(toAdd);
 
-                        break;
+                            break;
+                        }
                     }
                 }
+
+
+
+                Random r = new Random();
+
+                List<Song> selectedSongs = new List<Song>();
+
+                while (selectedSongs.Count < 5 && suitableSongs.Count > 0)
+                {
+                    int index = r.Next(0, suitableSongs.Count - 1);
+
+                    Song toAdd = suitableSongs[index];
+                    selectedSongs.Add(toAdd);
+                    suitableSongs.RemoveAt(index);
+                }
+
+                Guid newGuid = Guid.NewGuid();
+
+                generatedPlaylist = new Playlist("$temp$The " + city + " " + weatherType + " Playlist", newGuid, currentUser.getUsername(), selectedSongs);
+
+                PlaylistModel playlistModel = new PlaylistModel();
+                playlistModel.createTempPlaylist(generatedPlaylist);
+
+                lblDetected.Text = "We have detected that the weather in " + city + " is " + weatherType + ". So, we made you this playlist:";
+                lblPlaylistName.Text = "The " + city + " " + weatherType + " Playlist";
+                lblDetected.Visible = true;
+                lblPlaylistName.Visible = true;
+                cmdGenerate.Visible = false;
+                cmbCity.Visible = false;
             }
-
-            MessageBox.Show(suitableSongs.Count + " songs matched the tag");
-
-
-            Random r = new Random();
-
-            List<Song> selectedSongs = new List<Song>();
-
-            while (selectedSongs.Count < 5 && suitableSongs.Count > 0) {
-                int index = r.Next(0, suitableSongs.Count-1);
-
-                Song toAdd = suitableSongs[index];
-                selectedSongs.Add(toAdd);
-                suitableSongs.RemoveAt(index);
-            }
-
-            Guid newGuid = Guid.NewGuid();
-
-            generatedPlaylist = new Playlist("$temp$The " + city + " " + weatherType + " Playlist", newGuid, currentUser.getUsername(), selectedSongs);
-
-            PlaylistModel playlistModel = new PlaylistModel();
-            playlistModel.createTempPlaylist(generatedPlaylist);
-
-            lblDetected.Text = "We have detected that the weather in " + city + " is " + weatherType + ". So, we made you this playlist:";
-            lblPlaylistName.Text = "The " + city + " " + weatherType + " Playlist";
-            lblDetected.Visible = true;
-            lblPlaylistName.Visible = true;
-            cmdGenerate.Visible = false;
-            cmbCity.Visible = false;
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblPlaylistName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             parent.showViewPlaylist(generatedPlaylist);

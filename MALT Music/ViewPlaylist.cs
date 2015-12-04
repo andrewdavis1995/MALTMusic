@@ -95,10 +95,15 @@ namespace MALT_Music
 
             String currUser = this.currentUser.getUsername();
             String owner = thePlaylist.getOwner();
+            
+            String first6 = "";
 
-            String first6 = thePlaylist.getPlaylistName().Substring(0, 6);
+            if (!(thePlaylist.getPlaylistName().Length < 6))
+            {
+                first6 = thePlaylist.getPlaylistName().Substring(0, 6);
+            }
 
-            if (currUser.Equals(owner) )
+            if (currUser.Equals(owner) && first6 != "" )
             {
                 if (first6.Equals("$temp$"))
                 {

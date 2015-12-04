@@ -140,14 +140,19 @@ namespace MALT_Music
             }
 
             Label spaceLabel = new Label();
-            spaceLabel.Top = 40 + (songList.Count * 42);
-            spaceLabel.Height = 80;
-            spaceLabel.BackColor = Color.Red;
+            spaceLabel.Top = (songList.Count * 42) - 20;
+            spaceLabel.Height = 10;
+            spaceLabel.BackColor = Color.Black;
             this.Controls.Add(spaceLabel);
 
             addPlaylistLabels();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void goToArtist(object sender, EventArgs e)
         {
             LinkLabel theLabel = (LinkLabel)sender;

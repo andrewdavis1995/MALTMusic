@@ -65,9 +65,9 @@
             this.lblPlayerStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblPlayerStatus.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblPlayerStatus.Location = new System.Drawing.Point(153, 65);
+            this.lblPlayerStatus.Location = new System.Drawing.Point(147, 65);
             this.lblPlayerStatus.Name = "lblPlayerStatus";
-            this.lblPlayerStatus.Size = new System.Drawing.Size(562, 18);
+            this.lblPlayerStatus.Size = new System.Drawing.Size(577, 18);
             this.lblPlayerStatus.TabIndex = 4;
             this.lblPlayerStatus.Text = "No file selected";
             this.ttpGeneralTip.SetToolTip(this.lblPlayerStatus, "Song Title");
