@@ -1,4 +1,5 @@
 ﻿using Cassandra;
+using MALT_Music.DataObjects;
 using MALT_Music.lib;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,35 @@ namespace MALT_Music.Models
                 return tags;
             }
             catch (Exception e) 
+            {
+                Console.WriteLine("Broken returning weather tags " + e);
+                return null;
+            }
+        }
+
+        public List<Weather> getAllWithTags()
+        {
+            try
+            {
+                List<Weather> weathers = new List<Weather>();
+                ISession session = cluster.Connect("maltmusic");
+
+                String todo = ("select * from weathertags");
+                PreparedStatement ps = session.Prepare(todo);
+                BoundStatement bs = ps.Bind();
+                // Execute Query
+                RowSet rows = session.Execute(bs);
+                foreach (Row row in rows)
+                {
+                    Guid tid = (Guid) row["track_id"];
+                    HashSet<String> theSet = (HashSet<String>)row["tags"];
+                    Weather toadd = new Weather(tid, theSet);
+                    weathers.Add(toadd);
+                }
+
+                return weathers;
+            }
+            catch (Exception e)
             {
                 Console.WriteLine("Broken returning weather tags " + e);
                 return null;
