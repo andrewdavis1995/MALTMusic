@@ -170,6 +170,8 @@ namespace MALT_Music
 
                 // Initiates playing of song
                 musicController.playSong();
+
+                parent.newSong(updSong);
             }
             else
             {

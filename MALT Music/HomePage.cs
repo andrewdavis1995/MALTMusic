@@ -109,7 +109,7 @@ namespace MALT_Music
 
             hideForms();
 
-            viewPlaylist = new ViewPlaylist(playlist, this.musicPlayer, this.currentUser);
+            viewPlaylist = new ViewPlaylist(playlist, this.musicPlayer, this.currentUser, this);
 
             viewPlaylist.TopLevel = false;
             viewPlaylist.Parent = this;
@@ -117,7 +117,7 @@ namespace MALT_Music
             viewPlaylist.setupLabels();
 
             viewPlaylist.FormBorderStyle = FormBorderStyle.None;
-            viewPlaylist.Size = new Size(1130, 392);
+            viewPlaylist.Size = new Size(1092, 392);
 
             picBoxBackground.Hide();
             viewPlaylist.Show();
@@ -146,6 +146,11 @@ namespace MALT_Music
             {
                 txtSearchBox.Text = "";
             }
+        }
+
+        public void newSong(Song theSong) 
+        {
+            if (viewPlaylist.Visible) { viewPlaylist.newSongStarted(theSong); }
         }
 
         //When the user clicks away from the search box

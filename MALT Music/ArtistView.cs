@@ -147,7 +147,7 @@ namespace MALT_Music
 
 
                 Panel pnlInner = new Panel();
-                pnlInner.Size = new Size(800, 100);
+                pnlInner.Size = new Size(720, 100);
                 pnlInner.Location = new Point(100, 0);
                 pnlInner.BackColor = Color.FromArgb(20, 20, 20);
                 pnlInner.AutoScroll = true;
@@ -189,6 +189,8 @@ namespace MALT_Music
                     theSongLabel.Location = new Point(0, 0 + (33 * j));
                     theSongLabel.Tag = i + "," + j;
                     theSongLabel.Click += clickEvent;
+                    theSongLabel.MouseEnter += hoverEvent;
+                    theSongLabel.MouseLeave += leaveEvent;
                     theSongLabel.ForeColor = Color.FromArgb(205, 205, 205);
                     theSongLabel.TextAlign = ContentAlignment.MiddleLeft;
                     theSongLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -556,11 +558,17 @@ namespace MALT_Music
         //On click, set selected song
         private void clickEvent(object sender, System.EventArgs e)
         {
-            Label theLabel = (Label)sender;
 
+            Label theLabel = (Label)sender;
+            String tag = theLabel.Tag.ToString();
+            String[] tmp = tag.Split(',');
+            int x = int.Parse(tmp[0]);
+            int y = int.Parse(tmp[1]);
+            
             selectedSong = theLabel.Tag.ToString();
             
             pnlOptions.Visible = true;
+            pnlOptions.Top = 205 + (x * 145);
 
         }
 
@@ -645,6 +653,48 @@ namespace MALT_Music
         private void tmrOptionsDelay_Tick(object sender, EventArgs e)
         {
             pnlOptions.Visible = false;
+        }
+
+
+        private void hoverEvent(object sender, System.EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            String id  = theLabel.Tag.ToString();
+
+            String[] tmp = id.Split(',');
+            int x = int.Parse(tmp[0]);
+            int y = int.Parse(tmp[1]);
+
+            if (!(songLabelsName[x][y].BackColor == Color.FromArgb(255, 50, 50)))
+            {
+                songLabelsName[x][y].BackColor = Color.DodgerBlue;
+                songLabelsLength[x][y].BackColor = Color.DodgerBlue;
+            }
+
+        }
+
+        private void leaveEvent(object sender, System.EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            String id = theLabel.Tag.ToString();
+
+            String[] tmp = id.Split(',');
+            int x = int.Parse(tmp[0]);
+            int y = int.Parse(tmp[1]);
+
+            if (!(songLabelsName[x][y].BackColor == Color.FromArgb(50, 255, 50)))
+            {
+                if (y % 2 == 0)
+                {
+                    songLabelsName[x][y].BackColor = Color.FromArgb(60, 60, 60);
+                    songLabelsLength[x][y].BackColor = Color.FromArgb(60, 60, 60);
+                }
+                else
+                {
+                    songLabelsName[x][y].BackColor = Color.FromArgb(90, 90, 90);
+                    songLabelsLength[x][y].BackColor = Color.FromArgb(90, 90, 90);
+                }
+            }
         }
 
     }

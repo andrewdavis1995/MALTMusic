@@ -36,6 +36,7 @@
             this.tmrPreview = new System.Windows.Forms.Timer(this.components);
             this.lblAddToPlaylist = new System.Windows.Forms.Label();
             this.lblDiscard = new System.Windows.Forms.Label();
+            this.lblPreviewLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picSelectedArt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPlay)).BeginInit();
             this.SuspendLayout();
@@ -114,6 +115,17 @@
             this.lblDiscard.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblDiscard.Click += new System.EventHandler(this.lblDiscard_Click);
             // 
+            // lblPreviewLabel
+            // 
+            this.lblPreviewLabel.AutoSize = true;
+            this.lblPreviewLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPreviewLabel.ForeColor = System.Drawing.Color.White;
+            this.lblPreviewLabel.Location = new System.Drawing.Point(557, 110);
+            this.lblPreviewLabel.Name = "lblPreviewLabel";
+            this.lblPreviewLabel.Size = new System.Drawing.Size(52, 17);
+            this.lblPreviewLabel.TabIndex = 6;
+            this.lblPreviewLabel.Text = "Preview";
+            // 
             // Recommendations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,6 +133,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.ClientSize = new System.Drawing.Size(827, 318);
+            this.Controls.Add(this.lblPreviewLabel);
             this.Controls.Add(this.lblDiscard);
             this.Controls.Add(this.lblAddToPlaylist);
             this.Controls.Add(this.picPlay);
@@ -149,6 +162,7 @@
         private System.Windows.Forms.Timer tmrPreview;
         private System.Windows.Forms.Label lblAddToPlaylist;
         private System.Windows.Forms.Label lblDiscard;
+        private System.Windows.Forms.Label lblPreviewLabel;
 
     }
 }

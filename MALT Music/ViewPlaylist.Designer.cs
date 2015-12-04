@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblPlaylistName = new System.Windows.Forms.Label();
             this.lblOwner = new System.Windows.Forms.Label();
             this.lblNumSongs = new System.Windows.Forms.Label();
@@ -45,6 +46,8 @@
             this.coverImage3 = new System.Windows.Forms.PictureBox();
             this.coverImage2 = new System.Windows.Forms.PictureBox();
             this.coverImage1 = new System.Windows.Forms.PictureBox();
+            this.tmrOptionsDelay = new System.Windows.Forms.Timer(this.components);
+            this.tmrPlaylistDelay = new System.Windows.Forms.Timer(this.components);
             this.pnlOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPlay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSave)).BeginInit();
@@ -161,6 +164,8 @@
             this.lblPlay.Text = "Play";
             this.lblPlay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblPlay.Click += new System.EventHandler(this.lblPlay_Click);
+            this.lblPlay.MouseEnter += new System.EventHandler(this.lblPlay_MouseEnter);
+            this.lblPlay.MouseLeave += new System.EventHandler(this.lblPlay_MouseLeave);
             // 
             // txtPlaylistNameEdit
             // 
@@ -241,13 +246,21 @@
             this.coverImage1.TabIndex = 0;
             this.coverImage1.TabStop = false;
             // 
+            // tmrOptionsDelay
+            // 
+            this.tmrOptionsDelay.Interval = 700;
+            // 
+            // tmrPlaylistDelay
+            // 
+            this.tmrPlaylistDelay.Interval = 700;
+            // 
             // ViewPlaylist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1094, 387);
+            this.ClientSize = new System.Drawing.Size(1087, 387);
             this.Controls.Add(this.picPlay);
             this.Controls.Add(this.picSave);
             this.Controls.Add(this.txtPlaylistNameEdit);
@@ -296,5 +309,7 @@
         private System.Windows.Forms.TextBox txtPlaylistNameEdit;
         private System.Windows.Forms.PictureBox picSave;
         private System.Windows.Forms.PictureBox picPlay;
+        private System.Windows.Forms.Timer tmrOptionsDelay;
+        private System.Windows.Forms.Timer tmrPlaylistDelay;
     }
 }
