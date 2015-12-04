@@ -64,7 +64,7 @@
             this.pnlTopInfo.Controls.Add(this.lblArtistName);
             this.pnlTopInfo.Location = new System.Drawing.Point(242, 92);
             this.pnlTopInfo.Name = "pnlTopInfo";
-            this.pnlTopInfo.Size = new System.Drawing.Size(858, 97);
+            this.pnlTopInfo.Size = new System.Drawing.Size(797, 97);
             this.pnlTopInfo.TabIndex = 1;
             // 
             // lblNumAlbums
@@ -97,7 +97,7 @@
             this.pnlPlaylists.AutoSize = true;
             this.pnlPlaylists.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.pnlPlaylists.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.pnlPlaylists.Location = new System.Drawing.Point(956, 195);
+            this.pnlPlaylists.Location = new System.Drawing.Point(895, 195);
             this.pnlPlaylists.MaximumSize = new System.Drawing.Size(170, 211);
             this.pnlPlaylists.Name = "pnlPlaylists";
             this.pnlPlaylists.Size = new System.Drawing.Size(144, 84);
@@ -111,7 +111,7 @@
             this.pnlOptions.Controls.Add(this.lblAddToPlaylist);
             this.pnlOptions.Controls.Add(this.lblPlay);
             this.pnlOptions.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.pnlOptions.Location = new System.Drawing.Point(811, 195);
+            this.pnlOptions.Location = new System.Drawing.Point(750, 195);
             this.pnlOptions.Name = "pnlOptions";
             this.pnlOptions.Size = new System.Drawing.Size(139, 141);
             this.pnlOptions.TabIndex = 32;
@@ -173,7 +173,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1111, 391);
+            this.ClientSize = new System.Drawing.Size(1087, 391);
             this.Controls.Add(this.pnlPlaylists);
             this.Controls.Add(this.pnlOptions);
             this.Controls.Add(this.pnlTopInfo);

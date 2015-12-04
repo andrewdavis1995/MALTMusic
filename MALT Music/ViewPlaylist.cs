@@ -18,19 +18,21 @@ namespace MALT_Music
 
         List<Label> positionLabels = new List<Label>();
         List<Label> songLabels = new List<Label>();
-        List<Label> artistLabels = new List<Label>();
+        List<LinkLabel> artistLabels = new List<LinkLabel>();
         List<PictureBox> removeLabels = new List<PictureBox>();
         Playlist thePlaylist;
         int selectedSong = 0;
 
         User currentUser;
 
+        Song currentlyPlaying;
+
         List<Song> songs;
 
         frmMusicPlayer musicPlayer;
+        HomePage parent;
 
-
-        public ViewPlaylist(Playlist playlist, frmMusicPlayer music, User currentUser)
+        public ViewPlaylist(Playlist playlist, frmMusicPlayer music, User currentUser, HomePage parent)
         {
             InitializeComponent();
 
@@ -40,6 +42,7 @@ namespace MALT_Music
             this.thePlaylist = playlist;
             lblPlaylistName.Text = thePlaylist.getPlaylistName();
             lblOwner.Text = thePlaylist.getOwner();
+            this.parent = parent;
             
             //Initially hide edit box
             txtPlaylistNameEdit.Hide();
@@ -110,6 +113,44 @@ namespace MALT_Music
             InitializeComponent();
         }
 
+        public void newSongStarted(Song theSong) 
+        {
+            this.currentlyPlaying = theSong;
+            displayWhichSongIsPlaying();
+        }
+
+        public void displayWhichSongIsPlaying() 
+        {
+            for (int i = 0; i < songs.Count; i++) 
+            {
+                if (songs[i].getSongID().Equals(currentlyPlaying.getSongID()))
+                {
+                    songLabels[i].ForeColor = Color.FromArgb(255, 25, 25);
+                }
+                else {
+                    songLabels[i].ForeColor = Color.White;
+                }
+            }
+        }
+
+
+        private void goToArtist(object sender, EventArgs e)
+        {
+            LinkLabel theLabel = (LinkLabel)sender;
+            String artist = theLabel.Text;
+
+            pnlOptions.Visible = false;
+            pnlPlaylists.Visible = false;
+
+            SongModel songModel = new SongModel();
+            List<Song> songsForArtist = songModel.getSongsByArtist(artist);
+
+            //Call the method in parent to open artist window, passing data back
+            parent.artistSelected(artist, songsForArtist);
+            this.Hide();
+
+        }
+
 
         private void setSelected(Object sender, EventArgs e) 
         {
@@ -118,6 +159,7 @@ namespace MALT_Music
 
             this.selectedSong = index;
 
+            pnlOptions.Top = theLabel.Top;
             pnlOptions.Visible = true;
         }
 
@@ -134,6 +176,8 @@ namespace MALT_Music
                 theSongLabel.Size = new Size(344, 30);
                 theSongLabel.Location = new Point(423, 156 + (33 * i));
                 theSongLabel.Tag = i.ToString();
+                theSongLabel.MouseEnter += hoverEvent;
+                theSongLabel.MouseLeave += leaveEvent;
                 theSongLabel.UseMnemonic = false;
                 theSongLabel.Click += setSelected;
                 theSongLabel.ForeColor = Color.FromArgb(225, 225, 225);
@@ -162,7 +206,8 @@ namespace MALT_Music
                 thePositionLabel.Location = new Point(370, 156 + (33 * i));
                 thePositionLabel.Tag = i.ToString();
                 thePositionLabel.UseMnemonic = false;
-                //thePositionLabel.Click += clickEvent;
+                thePositionLabel.MouseEnter += hoverEvent;
+                thePositionLabel.MouseLeave += leaveEvent;
                 thePositionLabel.ForeColor = Color.FromArgb(225, 225, 225);
                 thePositionLabel.TextAlign = ContentAlignment.MiddleLeft;
                 thePositionLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -182,14 +227,18 @@ namespace MALT_Music
                 #endregion
 
                 #region Artist Label
-                Label theArtistLabel = new Label();
+                LinkLabel theArtistLabel = new LinkLabel();
 
                 theArtistLabel.Text = songs[i].getArtist();
                 theArtistLabel.Size = new Size(250, 30);
                 theArtistLabel.Location = new Point(770, 156 + (33 * i));
                 theArtistLabel.Tag = i.ToString();
+                theArtistLabel.LinkClicked += goToArtist;
+                theArtistLabel.LinkColor = Color.White;
+                theArtistLabel.VisitedLinkColor = Color.White;
                 theArtistLabel.UseMnemonic = false;
-                //theArtistLabel.Click += clickEvent;
+                theArtistLabel.MouseEnter += hoverEvent;
+                theArtistLabel.MouseLeave += leaveEvent;
                 theArtistLabel.ForeColor = Color.FromArgb(225, 225, 225);
                 theArtistLabel.TextAlign = ContentAlignment.MiddleLeft;
                 theArtistLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -229,6 +278,45 @@ namespace MALT_Music
 
             }
         }
+
+
+
+        private void hoverEvent(object sender, System.EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            int id = int.Parse(theLabel.Tag.ToString());
+
+            if (!(positionLabels[id].BackColor == Color.FromArgb(255, 50, 50)))
+            {
+                positionLabels[id].BackColor = Color.DodgerBlue;
+                songLabels[id].BackColor = Color.DodgerBlue;
+                artistLabels[id].BackColor = Color.DodgerBlue;
+            }
+
+        }
+
+        private void leaveEvent(object sender, System.EventArgs e)
+        {
+            Label theLabel = (Label)sender;
+            int id = int.Parse(theLabel.Tag.ToString());
+
+            if (!(positionLabels[id].BackColor == Color.FromArgb(50, 255, 50)))
+            {
+                if (id % 2 == 0)
+                {
+                    positionLabels[id].BackColor = Color.FromArgb(60, 60, 60);
+                    songLabels[id].BackColor = Color.FromArgb(60, 60, 60);
+                    artistLabels[id].BackColor = Color.FromArgb(60, 60, 60);
+                }
+                else
+                {
+                    positionLabels[id].BackColor = Color.FromArgb(90, 90, 90);
+                    songLabels[id].BackColor = Color.FromArgb(90, 90, 90);
+                    artistLabels[id].BackColor = Color.FromArgb(90, 90, 90);
+                }
+            }
+        }
+
 
         private void removeSong(object sender, EventArgs e) 
         {
@@ -300,6 +388,8 @@ namespace MALT_Music
             theSongLabel.Location = new Point(423, 156 + (33 * count));
             theSongLabel.Tag = count.ToString();
             theSongLabel.UseMnemonic = false;
+            theSongLabel.MouseEnter += hoverEvent;
+            theSongLabel.MouseLeave += leaveEvent;
             theSongLabel.Click += setSelected;
             theSongLabel.ForeColor = Color.FromArgb(225, 225, 225);
             theSongLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -327,7 +417,9 @@ namespace MALT_Music
             thePositionLabel.Location = new Point(370, 156 + (33 * count));
             thePositionLabel.Tag = count.ToString();
             thePositionLabel.UseMnemonic = false;
-            //thePositionLabel.Click += clickEvent;
+            thePositionLabel.MouseEnter += hoverEvent;
+            thePositionLabel.MouseLeave += leaveEvent;
+            thePositionLabel.Click += setSelected;
             thePositionLabel.ForeColor = Color.FromArgb(225, 225, 225);
             thePositionLabel.TextAlign = ContentAlignment.MiddleLeft;
             thePositionLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -347,14 +439,19 @@ namespace MALT_Music
             #endregion
 
             #region Artist Label
-            Label theArtistLabel = new Label();
+            LinkLabel theArtistLabel = new LinkLabel();
 
             theArtistLabel.Text = songs[count].getArtist();
             theArtistLabel.Size = new Size(250, 30);
             theArtistLabel.Location = new Point(770, 156 + (33 * count));
             theArtistLabel.Tag = count.ToString();
             theArtistLabel.UseMnemonic = false;
-            //theArtistLabel.Click += clickEvent;
+            theArtistLabel.MouseEnter += hoverEvent;
+            theArtistLabel.MouseLeave += leaveEvent;
+            theArtistLabel.Click += setSelected;
+            theArtistLabel.LinkClicked += goToArtist;
+            theArtistLabel.LinkColor = Color.White;
+            theArtistLabel.VisitedLinkColor = Color.White;
             theArtistLabel.ForeColor = Color.FromArgb(225, 225, 225);
             theArtistLabel.TextAlign = ContentAlignment.MiddleLeft;
             theArtistLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -652,6 +749,7 @@ namespace MALT_Music
             PlaylistModel playlistModel = new PlaylistModel();
             playlistModel.savePlaylist(this.thePlaylist, currentUser);
             MessageBox.Show("Playlist Saved");
+            picSave.Visible = false;
         }
 
         private void picPlay_Click(object sender, EventArgs e)
@@ -659,6 +757,16 @@ namespace MALT_Music
             musicPlayer.stopSong();
             musicPlayer.setPlaylist(thePlaylist, 0);
             musicPlayer.playCurrentSong();
+        }
+
+        private void lblPlay_MouseLeave(object sender, EventArgs e)
+        {
+            lblPlay.BackColor = Color.FromArgb(40, 40, 40);
+        }
+
+        private void lblPlay_MouseEnter(object sender, EventArgs e)
+        {
+            lblPlay.BackColor = Color.DodgerBlue;
         }
 
     }

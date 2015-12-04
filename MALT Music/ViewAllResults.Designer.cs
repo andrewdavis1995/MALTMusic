@@ -48,9 +48,9 @@
             this.lblSearchedFor.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblSearchedFor.Location = new System.Drawing.Point(28, 9);
             this.lblSearchedFor.Name = "lblSearchedFor";
-            this.lblSearchedFor.Size = new System.Drawing.Size(235, 26);
+            this.lblSearchedFor.Size = new System.Drawing.Size(173, 26);
             this.lblSearchedFor.TabIndex = 0;
-            this.lblSearchedFor.Text = "ALL THE LABEL-Y THINGS";
+            this.lblSearchedFor.Text = "SEARCH RESULTS";
             // 
             // pnlPlaylists
             // 
