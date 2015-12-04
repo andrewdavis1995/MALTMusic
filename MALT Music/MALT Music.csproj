@@ -67,6 +67,7 @@
     <Compile Include="DataObjects\UserVote.cs" />
     <Compile Include="DataObjects\Validation.cs" />
     <Compile Include="DataObjects\Vote.cs" />
+    <Compile Include="DataObjects\Weather.cs" />
     <Compile Include="HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +90,7 @@
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\VoteModel.cs" />
+    <Compile Include="Models\WeatherModel.cs" />
     <Compile Include="MusicController.cs" />
     <Compile Include="frmMusicPlayer.cs">
       <SubType>Form</SubType>
