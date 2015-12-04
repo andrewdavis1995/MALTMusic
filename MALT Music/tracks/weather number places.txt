@@ -1,0 +1,12 @@
+aberdeen 	2657832
+birmingham 	2655603
+dundee 		2650752
+edinburgh 	2650225
+glasgow 	2648579
+hull		2645425
+liverpool	2644210
+london		2643743
+manchester	2643123
+middlesbrough	2642607
+perth		2640358
+ullapool	2635199

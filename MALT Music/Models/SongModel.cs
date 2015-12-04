@@ -91,6 +91,45 @@ namespace MALT_Music.Models
 
         }
 
+        public Song getTrackByID(Guid tid)
+        {
+            try
+            {
+                ISession session = cluster.Connect("maltmusic");
+
+                // Prepare and bind statement passing in username
+                String todo = ("select * from track where track_id = :tid");
+                PreparedStatement ps = session.Prepare(todo);
+                BoundStatement bs = ps.Bind(tid);
+
+
+                // Execute Query
+                RowSet rows = session.Execute(bs);
+                foreach (Row r in rows)
+                {
+                    String artist = r["artist"].ToString();
+                    String trackName = r["track_name"].ToString();
+                    Guid id = (Guid)r["track_id"];
+                    String album = r["album"].ToString();
+                    String fileLocation = r["file_loc"].ToString();
+                    int year = (int)r["year"];
+                    int length = (int)r["length"];
+                    String genre = r["genre"].ToString();
+
+                    Song theSong = new Song(artist, album, year, genre, fileLocation, length, trackName, id);
+
+                    return theSong;
+
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error in getting track by id " + e);
+                return null;
+            }
+        }
+
 
         public List<String> getAllArtists()
         {
